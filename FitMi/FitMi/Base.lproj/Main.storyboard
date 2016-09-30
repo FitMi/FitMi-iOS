@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,16 +22,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-3P-T2P" customClass="SKView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-6U-Dhd">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c8Y-6U-Dhd" secondAttribute="height" id="3Os-9B-Bq6"/>
+                                    <constraint firstAttribute="width" constant="48" id="5kL-uH-tjh"/>
+                                </constraints>
+                                <color key="tintColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="=" image="ic_explore_48pt">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="9fl-Kp-Qco" kind="presentation" modalPresentationStyle="overFullScreen" id="ReP-vZ-BLZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JPc-3P-T2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CJ1-6H-e2t"/>
                             <constraint firstAttribute="trailing" secondItem="JPc-3P-T2P" secondAttribute="trailing" id="DpR-22-dty"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c8Y-6U-Dhd" secondAttribute="bottom" constant="20" id="H06-uy-Ze2"/>
+                            <constraint firstItem="c8Y-6U-Dhd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="aoA-U2-I1S"/>
                             <constraint firstItem="JPc-3P-T2P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dru-Xk-qlm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JPc-3P-T2P" secondAttribute="bottom" id="n4w-gl-lBq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
                         <outlet property="spriteView" destination="JPc-3P-T2P" id="X6o-0T-Wcb"/>
                     </connections>
                 </viewController>
@@ -38,5 +61,62 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="35.532233883058474"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="S3W-oo-s4v">
+            <objects>
+                <viewController id="9fl-Kp-Qco" customClass="FMMenuViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZEV-w3-Zht"/>
+                        <viewControllerLayoutGuide type="bottom" id="5BC-zv-fMO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E1L-k1-PoY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEr-oT-9St">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dEr-oT-9St" secondAttribute="height" id="6nd-O9-7Hz"/>
+                                    <constraint firstAttribute="width" constant="48" id="tcc-VJ-1q6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="48"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeAction:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="yIW-YH-sNt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHv-w5-JZg">
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NHv-w5-JZg" firstAttribute="centerX" secondItem="E1L-k1-PoY" secondAttribute="centerX" id="QRA-FT-gZ8"/>
+                            <constraint firstItem="dEr-oT-9St" firstAttribute="width" secondItem="dEr-oT-9St" secondAttribute="height" id="Rqx-yU-HV5"/>
+                            <constraint firstItem="dEr-oT-9St" firstAttribute="leading" secondItem="E1L-k1-PoY" secondAttribute="leading" constant="20" id="cpK-YT-ZhX"/>
+                            <constraint firstItem="NHv-w5-JZg" firstAttribute="top" secondItem="ZEV-w3-Zht" secondAttribute="bottom" constant="261" id="cyO-QJ-gyf"/>
+                            <constraint firstItem="5BC-zv-fMO" firstAttribute="top" secondItem="dEr-oT-9St" secondAttribute="bottom" constant="20" id="j6A-va-zKf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="dEr-oT-9St" id="a8G-JB-DZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5E-XB-NCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880.79999999999995" y="35.532233883058474"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="ic_explore_48pt" width="48" height="48"/>
+    </resources>
 </document>

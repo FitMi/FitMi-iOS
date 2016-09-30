@@ -1,4 +1,5 @@
 PODS:
+  - BubbleTransition (2.0.0)
   - Realm (2.0.0):
     - Realm/Headers (= 2.0.0)
   - Realm/Headers (2.0.0)
@@ -6,12 +7,14 @@ PODS:
     - Realm (= 2.0.0)
 
 DEPENDENCIES:
+  - BubbleTransition
   - RealmSwift (~> 2.0)
 
 SPEC CHECKSUMS:
+  BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
   RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
 
-PODFILE CHECKSUM: d5a75580f3faf8f7fbe606c37562d89e6bffd5db
+PODFILE CHECKSUM: 8b14d57c422408777af9a9ee25b8bd04e1074cc7
 
 COCOAPODS: 1.0.1
