@@ -143,10 +143,7 @@
 				0CD3CD5D1D9EF7C000E47BF8 /* Services */,
 				0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */,
 				0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */,
-				0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */,
-				0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */,
-				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
-				0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */,
+				0CD3CD6D1D9EFA1100E47BF8 /* Others */,
 			);
 			path = FitMi;
 			sourceTree = "<group>";
@@ -202,6 +199,17 @@
 				0CD3CD651D9EF86900E47BF8 /* GameScene.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0CD3CD6D1D9EFA1100E47BF8 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */,
+				0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */,
+				0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */,
+				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		75F5710FCA8F6D589F945C7B /* Pods */ = {
