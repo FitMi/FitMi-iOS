@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import RealmSwift
 
-class ViewController: UIViewController {
+class FMViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

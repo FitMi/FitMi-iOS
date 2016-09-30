@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
-		0CD3CCEC1D9EF0FB00E47BF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCEB1D9EF0FB00E47BF8 /* ViewController.swift */; };
+		0CD3CCEC1D9EF0FB00E47BF8 /* FMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCEB1D9EF0FB00E47BF8 /* FMViewController.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
 		0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */; };
 		0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0CD3CCEB1D9EF0FB00E47BF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0CD3CCEB1D9EF0FB00E47BF8 /* FMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMViewController.swift; sourceTree = "<group>"; };
 		0CD3CCEE1D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CD3CCF31D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +50,7 @@
 		0CD3CD051D9EF0FB00E47BF8 /* FitMiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitMiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CD091D9EF0FB00E47BF8 /* FitMiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitMiUITests.swift; sourceTree = "<group>"; };
 		0CD3CD0B1D9EF0FB00E47BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitMi-Bridging-Header.h"; sourceTree = "<group>"; };
 		1C2529E0186F433C773AE43B /* Pods_FitMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,11 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */,
-				0CD3CCEB1D9EF0FB00E47BF8 /* ViewController.swift */,
+				0CD3CCEB1D9EF0FB00E47BF8 /* FMViewController.swift */,
 				0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */,
 				0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */,
 				0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */,
 				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
+				0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */,
 			);
 			path = FitMi;
 			sourceTree = "<group>";
@@ -235,12 +237,14 @@
 		0CD3CCDE1D9EF0FA00E47BF8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FM;
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = FitMi;
 				TargetAttributes = {
 					0CD3CCE51D9EF0FA00E47BF8 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					0CD3CCF91D9EF0FB00E47BF8 = {
@@ -430,7 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD3CCEC1D9EF0FB00E47BF8 /* ViewController.swift in Sources */,
+				0CD3CCEC1D9EF0FB00E47BF8 /* FMViewController.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +508,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -554,6 +559,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -583,11 +589,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FitMi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitMi/FitMi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -596,11 +606,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FitMi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitMi/FitMi-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
