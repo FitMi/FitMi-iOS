@@ -7,17 +7,19 @@
 //
 
 import UIKit
-import BubbleTransition
 
 class FMMainViewController: FMViewController {
 
-	@IBOutlet weak var spriteView: SKView!
-	@IBOutlet weak var menuButton: UIButton!
+	static var defaultController: FMMainViewController?
 	
-	let transition = BubbleTransition()
+	@IBOutlet weak var spriteView: SKView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		if FMMainViewController.defaultController == nil {
+			FMMainViewController.defaultController = self
+		}
 		
 		if let scene = SKScene(fileNamed: "FMMainScene") {
 			scene.scaleMode = .aspectFill
@@ -47,31 +49,16 @@ class FMMainViewController: FMViewController {
 	}
 	
 	override var prefersStatusBarHidden: Bool {
-		return true
+		return false
 	}
 
-}
-
-extension FMMainViewController: UIViewControllerTransitioningDelegate {
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let controller = segue.destination
-		transition.duration = 0.2
-		controller.transitioningDelegate = self
-		controller.modalPresentationStyle = .custom
-	}
-	
-	// MARK: UIViewControllerTransitioningDelegate
-	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		transition.transitionMode = .present
-		transition.startingPoint = menuButton.center
-		transition.bubbleColor = FMColorManager.primaryColor
-		return transition
-	}
-	
-	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		transition.transitionMode = .dismiss
-		transition.startingPoint = menuButton.center
-		transition.bubbleColor = FMColorManager.primaryColor
-		return transition
+	class func getDefaultController() -> FMMainViewController {
+		if FMExerciseViewController.defaultController == nil {
+			let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMMainViewController
+			FMMainViewController.defaultController = controller
+		}
+		
+		return FMMainViewController.defaultController!
 	}
 }

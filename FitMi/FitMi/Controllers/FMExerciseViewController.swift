@@ -10,9 +10,15 @@ import UIKit
 
 class FMExerciseViewController: FMViewController {
 
+	static var defaultController: FMExerciseViewController?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		if FMExerciseViewController.defaultController == nil {
+			FMExerciseViewController.defaultController = self
+		}
+		
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +28,14 @@ class FMExerciseViewController: FMViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	class func getDefaultController() -> FMExerciseViewController {
+		if FMExerciseViewController.defaultController == nil {
+			let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateViewController(withIdentifier: "FMExerciseViewController") as! FMExerciseViewController
+			FMExerciseViewController.defaultController = controller
+		}
+		
+		return FMExerciseViewController.defaultController!
+	}
 
 }
