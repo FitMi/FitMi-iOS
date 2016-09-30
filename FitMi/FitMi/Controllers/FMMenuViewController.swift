@@ -17,7 +17,7 @@ class FMMenuViewController: FMViewController {
 		closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		self.nextViewController = nil
 	}
 	

@@ -49,7 +49,7 @@ class FMMainViewController: FMViewController {
 	}
 	
 	override var prefersStatusBarHidden: Bool {
-		return false
+		return true
 	}
 
 	class func getDefaultController() -> FMMainViewController {

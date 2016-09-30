@@ -142,6 +142,7 @@
                             <constraint firstItem="5BC-zv-fMO" firstAttribute="top" secondItem="dEr-oT-9St" secondAttribute="bottom" constant="20" id="j6A-va-zKf"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="closeButton" destination="dEr-oT-9St" id="a8G-JB-DZP"/>
                     </connections>
@@ -201,6 +202,6 @@
         <image name="ic_explore_48pt" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ReP-vZ-BLZ"/>
+        <segue reference="J0r-dg-f97"/>
     </inferredMetricsTieBreakers>
 </document>
