@@ -1,1 +1,1 @@
-# Fitmi-iOS
+# FitMi-iOS
