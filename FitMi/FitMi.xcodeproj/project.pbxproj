@@ -14,6 +14,9 @@
 		0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */; };
 		0CD3CCFF1D9EF0FB00E47BF8 /* FitMiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCFE1D9EF0FB00E47BF8 /* FitMiTests.swift */; };
 		0CD3CD0A1D9EF0FB00E47BF8 /* FitMiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD091D9EF0FB00E47BF8 /* FitMiUITests.swift */; };
+		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
+		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
+		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,15 @@
 		0CD3CD051D9EF0FB00E47BF8 /* FitMiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitMiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CD091D9EF0FB00E47BF8 /* FitMiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitMiUITests.swift; sourceTree = "<group>"; };
 		0CD3CD0B1D9EF0FB00E47BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C2529E0186F433C773AE43B /* Pods_FitMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.release.xcconfig"; sourceTree = "<group>"; };
+		9B6B86172301C312C9C0109C /* Pods-FitMiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.debug.xcconfig"; sourceTree = "<group>"; };
+		B69245928FE816CEC2A45635 /* Pods-FitMiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests.release.xcconfig"; sourceTree = "<group>"; };
+		C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44F2DCAE54CDA82D3FD9227 /* Pods-FitMiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00EE74C4EB5836007D1B13E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C2529E0186F433C773AE43B /* Pods_FitMi.framework */,
+				C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */,
+				49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0CD3CCDD1D9EF0FA00E47BF8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 				0CD3CCFD1D9EF0FB00E47BF8 /* FitMiTests */,
 				0CD3CD081D9EF0FB00E47BF8 /* FitMiUITests */,
 				0CD3CCE71D9EF0FB00E47BF8 /* Products */,
+				75F5710FCA8F6D589F945C7B /* Pods */,
+				00EE74C4EB5836007D1B13E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +152,19 @@
 			path = FitMiUITests;
 			sourceTree = "<group>";
 		};
+		75F5710FCA8F6D589F945C7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */,
+				719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */,
+				9B6B86172301C312C9C0109C /* Pods-FitMiTests.debug.xcconfig */,
+				B69245928FE816CEC2A45635 /* Pods-FitMiTests.release.xcconfig */,
+				669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */,
+				C44F2DCAE54CDA82D3FD9227 /* Pods-FitMiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CD3CD0E1D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMi" */;
 			buildPhases = (
+				464888127AE211A13809971C /* [CP] Check Pods Manifest.lock */,
 				0CD3CCE21D9EF0FA00E47BF8 /* Sources */,
 				0CD3CCE31D9EF0FA00E47BF8 /* Frameworks */,
 				0CD3CCE41D9EF0FA00E47BF8 /* Resources */,
+				7E7C8E0089D27A45276D7942 /* [CP] Embed Pods Frameworks */,
+				C695AC0842DC5206FA771C93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CD3CD111D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMiTests" */;
 			buildPhases = (
+				E05A7FF79B0B6962D7077456 /* [CP] Check Pods Manifest.lock */,
 				0CD3CCF61D9EF0FB00E47BF8 /* Sources */,
 				0CD3CCF71D9EF0FB00E47BF8 /* Frameworks */,
 				0CD3CCF81D9EF0FB00E47BF8 /* Resources */,
+				EECE1F044754767CA381994E /* [CP] Embed Pods Frameworks */,
+				3E7DF73D6200A0F9242B5D99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CD3CD141D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMiUITests" */;
 			buildPhases = (
+				BBA395AF6B4AA4BB74CB26A3 /* [CP] Check Pods Manifest.lock */,
 				0CD3CD011D9EF0FB00E47BF8 /* Sources */,
 				0CD3CD021D9EF0FB00E47BF8 /* Frameworks */,
 				0CD3CD031D9EF0FB00E47BF8 /* Resources */,
+				875069EF087EDDC1E2DC7D71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +301,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E7DF73D6200A0F9242B5D99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		464888127AE211A13809971C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E7C8E0089D27A45276D7942 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMi/Pods-FitMi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		875069EF087EDDC1E2DC7D71 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBA395AF6B4AA4BB74CB26A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C695AC0842DC5206FA771C93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMi/Pods-FitMi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E05A7FF79B0B6962D7077456 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EECE1F044754767CA381994E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0CD3CCE21D9EF0FA00E47BF8 /* Sources */ = {
@@ -410,6 +581,7 @@
 		};
 		0CD3CD0F1D9EF0FB00E47BF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FitMi/Info.plist;
@@ -422,6 +594,7 @@
 		};
 		0CD3CD101D9EF0FB00E47BF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FitMi/Info.plist;
@@ -434,6 +607,7 @@
 		};
 		0CD3CD121D9EF0FB00E47BF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B6B86172301C312C9C0109C /* Pods-FitMiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -448,6 +622,7 @@
 		};
 		0CD3CD131D9EF0FB00E47BF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B69245928FE816CEC2A45635 /* Pods-FitMiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,6 +637,7 @@
 		};
 		0CD3CD151D9EF0FB00E47BF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = FitMiUITests/Info.plist;
@@ -475,6 +651,7 @@
 		};
 		0CD3CD161D9EF0FB00E47BF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C44F2DCAE54CDA82D3FD9227 /* Pods-FitMiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = FitMiUITests/Info.plist;
@@ -505,6 +682,7 @@
 				0CD3CD101D9EF0FB00E47BF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CD3CD111D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMiTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +691,7 @@
 				0CD3CD131D9EF0FB00E47BF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CD3CD141D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMiUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +700,7 @@
 				0CD3CD161D9EF0FB00E47BF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

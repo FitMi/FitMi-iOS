@@ -1,0 +1,6 @@
+framework module Pods_FitMiUITests {
+  umbrella header "Pods-FitMiUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
