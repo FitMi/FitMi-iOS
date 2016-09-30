@@ -15,13 +15,14 @@
 		0CD3CD0A1D9EF0FB00E47BF8 /* FitMiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD091D9EF0FB00E47BF8 /* FitMiUITests.swift */; };
 		0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */; };
 		0CD3CD611D9EF80D00E47BF8 /* FMMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */; };
-		0CD3CD661D9EF86900E47BF8 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CD631D9EF86900E47BF8 /* Actions.sks */; };
-		0CD3CD671D9EF86900E47BF8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CD641D9EF86900E47BF8 /* GameScene.sks */; };
-		0CD3CD681D9EF86900E47BF8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD651D9EF86900E47BF8 /* GameScene.swift */; };
+		0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */; };
+		0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */; };
 		0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD691D9EF9CD00E47BF8 /* FMDatabaseManager.swift */; };
 		0CD3CD6C1D9EF9E600E47BF8 /* FMSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD6B1D9EF9E600E47BF8 /* FMSprite.swift */; };
 		0CD3CD6F1D9EFB0E00E47BF8 /* FMColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD6E1D9EFB0E00E47BF8 /* FMColorManager.swift */; };
 		0CD3CD731D9F088200E47BF8 /* FMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD721D9F088200E47BF8 /* FMMenuViewController.swift */; };
+		0CD3CD751D9F144600E47BF8 /* FMExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */; };
+		0CD3CD791D9F168D00E47BF8 /* sprite-a.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CD781D9F168D00E47BF8 /* sprite-a.atlas */; };
 		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
 		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
 		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
@@ -60,13 +61,14 @@
 		0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitMi-Bridging-Header.h"; sourceTree = "<group>"; };
 		0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMViewController.swift; sourceTree = "<group>"; };
 		0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainViewController.swift; sourceTree = "<group>"; };
-		0CD3CD631D9EF86900E47BF8 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		0CD3CD641D9EF86900E47BF8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0CD3CD651D9EF86900E47BF8 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FMMainScene.sks; sourceTree = "<group>"; };
+		0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainScene.swift; sourceTree = "<group>"; };
 		0CD3CD691D9EF9CD00E47BF8 /* FMDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseManager.swift; sourceTree = "<group>"; };
 		0CD3CD6B1D9EF9E600E47BF8 /* FMSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSprite.swift; sourceTree = "<group>"; };
 		0CD3CD6E1D9EFB0E00E47BF8 /* FMColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMColorManager.swift; sourceTree = "<group>"; };
 		0CD3CD721D9F088200E47BF8 /* FMMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMenuViewController.swift; sourceTree = "<group>"; };
+		0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseViewController.swift; sourceTree = "<group>"; };
+		0CD3CD781D9F168D00E47BF8 /* sprite-a.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-a.atlas"; sourceTree = "<group>"; };
 		1C2529E0186F433C773AE43B /* Pods_FitMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				0CD3CD5C1D9EF7C000E47BF8 /* Models */,
 				0CD3CD5D1D9EF7C000E47BF8 /* Services */,
 				0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */,
+				0CD3CD761D9F168D00E47BF8 /* Resources */,
 				0CD3CD6D1D9EFA1100E47BF8 /* Others */,
 			);
 			path = FitMi;
@@ -175,6 +178,7 @@
 				0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */,
 				0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */,
 				0CD3CD721D9F088200E47BF8 /* FMMenuViewController.swift */,
+				0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,9 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */,
-				0CD3CD631D9EF86900E47BF8 /* Actions.sks */,
-				0CD3CD641D9EF86900E47BF8 /* GameScene.sks */,
-				0CD3CD651D9EF86900E47BF8 /* GameScene.swift */,
+				0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */,
+				0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +219,22 @@
 				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		0CD3CD761D9F168D00E47BF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0CD3CD771D9F168D00E47BF8 /* sprites */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0CD3CD771D9F168D00E47BF8 /* sprites */ = {
+			isa = PBXGroup;
+			children = (
+				0CD3CD781D9F168D00E47BF8 /* sprite-a.atlas */,
+			);
+			path = sprites;
 			sourceTree = "<group>";
 		};
 		75F5710FCA8F6D589F945C7B /* Pods */ = {
@@ -350,10 +369,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
-				0CD3CD671D9EF86900E47BF8 /* GameScene.sks in Resources */,
+				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
+				0CD3CD791D9F168D00E47BF8 /* sprite-a.atlas in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
-				0CD3CD661D9EF86900E47BF8 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,8 +524,9 @@
 				0CD3CD6C1D9EF9E600E47BF8 /* FMSprite.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
+				0CD3CD751D9F144600E47BF8 /* FMExerciseViewController.swift in Sources */,
 				0CD3CD731D9F088200E47BF8 /* FMMenuViewController.swift in Sources */,
-				0CD3CD681D9EF86900E47BF8 /* GameScene.swift in Sources */,
+				0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CD3CD6F1D9EFB0E00E47BF8 /* FMColorManager.swift in Sources */,
 			);
