@@ -7,13 +7,8 @@
 //
 
 import UIKit
-import BubbleTransition
 
 class FMViewController: UIViewController {
-	
-	@IBOutlet weak var menuButton: UIButton!
-	let transition = BubbleTransition()
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -25,28 +20,4 @@ class FMViewController: UIViewController {
 	}
 
 
-}
-
-extension FMViewController: UIViewControllerTransitioningDelegate {
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let controller = segue.destination
-		transition.duration = 0.2
-		controller.transitioningDelegate = self
-		controller.modalPresentationStyle = .custom
-	}
-	
-	// MARK: UIViewControllerTransitioningDelegate
-	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		transition.transitionMode = .present
-		transition.startingPoint = menuButton.center
-		transition.bubbleColor = FMColorManager.primaryColor
-		return transition
-	}
-	
-	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		transition.transitionMode = .dismiss
-		transition.startingPoint = menuButton.center
-		transition.bubbleColor = FMColorManager.primaryColor
-		return transition
-	}
 }

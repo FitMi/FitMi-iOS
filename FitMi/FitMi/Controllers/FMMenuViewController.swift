@@ -11,14 +11,10 @@ import UIKit
 class FMMenuViewController: FMViewController {
 
 	@IBOutlet weak var closeButton: UIButton!
-	private var nextViewController: FMViewController?
+	private let viewControllers = [FMHomeViewController.getDefaultController(), FMExerciseViewController.getDefaultController()]
 	
 	override func viewDidLoad() {
 		closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		self.nextViewController = nil
 	}
 	
 	@IBAction func closeAction(_ sender: AnyObject) {
@@ -26,13 +22,18 @@ class FMMenuViewController: FMViewController {
 	}
 	
 	@IBAction func didSelectPage(button: UIButton) {
+		var hidden = [Bool]()
 		switch button.tag {
 		case 0:
-			self.nextViewController = FMMainViewController.getDefaultController()
+			hidden = [false, true]
 		case 1:
-			self.nextViewController = FMExerciseViewController.getDefaultController()
+			hidden = [true, false]
 		default:
 			print("Button action is not implemented.")
+		}
+		
+		for i in 0..<viewControllers.count {
+			viewControllers[i].view.isHidden = hidden[i]
 		}
 		
 		self.closeAction(button)
@@ -40,13 +41,5 @@ class FMMenuViewController: FMViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		if let presentingViewController = self.presentingViewController {
-			if let controller = self.nextViewController {
-				if controller != presentingViewController {
-					UIApplication.shared.delegate?.window??.rootViewController = controller
-					UIApplication.shared.delegate?.window??.sendSubview(toBack: controller.view)
-				}
-			}
-		}
 	}
 }

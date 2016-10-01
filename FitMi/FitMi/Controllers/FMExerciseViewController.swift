@@ -10,7 +10,7 @@ import UIKit
 
 class FMExerciseViewController: FMViewController {
 
-	static var defaultController: FMExerciseViewController?
+	private static var defaultController: FMExerciseViewController?
 	
     override func viewDidLoad() {
         super.viewDidLoad()

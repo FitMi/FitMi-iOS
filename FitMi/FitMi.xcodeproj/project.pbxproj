@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
 		0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */; };
@@ -14,7 +15,7 @@
 		0CD3CCFF1D9EF0FB00E47BF8 /* FitMiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCFE1D9EF0FB00E47BF8 /* FitMiTests.swift */; };
 		0CD3CD0A1D9EF0FB00E47BF8 /* FitMiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD091D9EF0FB00E47BF8 /* FitMiUITests.swift */; };
 		0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */; };
-		0CD3CD611D9EF80D00E47BF8 /* FMMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */; };
+		0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD601D9EF80D00E47BF8 /* FMRootViewController.swift */; };
 		0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */; };
 		0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */; };
 		0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CD691D9EF9CD00E47BF8 /* FMDatabaseManager.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CD3CCEE1D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		0CD3CD0B1D9EF0FB00E47BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD3CD571D9EF6D900E47BF8 /* FitMi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitMi-Bridging-Header.h"; sourceTree = "<group>"; };
 		0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMViewController.swift; sourceTree = "<group>"; };
-		0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainViewController.swift; sourceTree = "<group>"; };
+		0CD3CD601D9EF80D00E47BF8 /* FMRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMRootViewController.swift; sourceTree = "<group>"; };
 		0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FMMainScene.sks; sourceTree = "<group>"; };
 		0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainScene.swift; sourceTree = "<group>"; };
 		0CD3CD691D9EF9CD00E47BF8 /* FMDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseManager.swift; sourceTree = "<group>"; };
@@ -176,8 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				0CD3CD5E1D9EF7DD00E47BF8 /* FMViewController.swift */,
-				0CD3CD601D9EF80D00E47BF8 /* FMMainViewController.swift */,
 				0CD3CD721D9F088200E47BF8 /* FMMenuViewController.swift */,
+				0CD3CD601D9EF80D00E47BF8 /* FMRootViewController.swift */,
+				0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */,
 				0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */,
 			);
 			path = Controllers;
@@ -520,12 +523,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD3CD611D9EF80D00E47BF8 /* FMMainViewController.swift in Sources */,
+				0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */,
 				0CD3CD6C1D9EF9E600E47BF8 /* FMSprite.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
 				0CD3CD751D9F144600E47BF8 /* FMExerciseViewController.swift in Sources */,
 				0CD3CD731D9F088200E47BF8 /* FMMenuViewController.swift in Sources */,
+				0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */,
 				0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CD3CD6F1D9EFB0E00E47BF8 /* FMColorManager.swift in Sources */,

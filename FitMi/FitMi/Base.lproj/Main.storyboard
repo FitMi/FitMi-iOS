@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="FMMainViewController" id="BYZ-38-t0r" customClass="FMMainViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FMMainViewController" id="BYZ-38-t0r" customClass="FMRootViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-3P-T2P" customClass="SKView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-6U-Dhd">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -43,22 +40,78 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JPc-3P-T2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CJ1-6H-e2t"/>
-                            <constraint firstAttribute="trailing" secondItem="JPc-3P-T2P" secondAttribute="trailing" id="DpR-22-dty"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c8Y-6U-Dhd" secondAttribute="bottom" constant="20" id="H06-uy-Ze2"/>
                             <constraint firstItem="c8Y-6U-Dhd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="aoA-U2-I1S"/>
-                            <constraint firstItem="JPc-3P-T2P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dru-Xk-qlm"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JPc-3P-T2P" secondAttribute="bottom" id="n4w-gl-lBq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
-                        <outlet property="spriteView" destination="JPc-3P-T2P" id="X6o-0T-Wcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="35.532233883058474"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="b4G-q4-buA">
+            <objects>
+                <viewController storyboardIdentifier="FMHomeViewController" id="vEV-4V-qZQ" customClass="FMHomeViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m3N-0Z-zb3"/>
+                        <viewControllerLayoutGuide type="bottom" id="fOJ-bo-Hfb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xHr-9q-uPC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ST-1L-IBL" customClass="SKView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ST-1L-IBL" firstAttribute="top" secondItem="xHr-9q-uPC" secondAttribute="top" id="HWH-cw-vmv"/>
+                            <constraint firstAttribute="trailing" secondItem="0ST-1L-IBL" secondAttribute="trailing" id="OvA-9S-LeT"/>
+                            <constraint firstItem="0ST-1L-IBL" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="Uib-yR-KMB"/>
+                            <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="fsc-Wf-FzN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="spriteView" destination="0ST-1L-IBL" id="dbJ-lJ-hbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3sl-Lw-FT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="763.26836581709154"/>
+        </scene>
+        <!--Exercise View Controller-->
+        <scene sceneID="Znk-bv-3mV">
+            <objects>
+                <viewController storyboardIdentifier="FMExerciseViewController" id="Ywc-kV-1iz" customClass="FMExerciseViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U2L-BY-CPQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Vj-hy-d9D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pnF-eo-036">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSl-jy-pdY">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="47"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZSl-jy-pdY" firstAttribute="centerX" secondItem="pnF-eo-036" secondAttribute="centerX" id="DrM-VA-qRY"/>
+                            <constraint firstItem="ZSl-jy-pdY" firstAttribute="centerY" secondItem="pnF-eo-036" secondAttribute="centerY" id="aUn-qE-Lvu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773" y="763"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="S3W-oo-s4v">
@@ -151,57 +204,8 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="35.532233883058474"/>
         </scene>
-        <!--Exercise View Controller-->
-        <scene sceneID="ieK-eL-jyT">
-            <objects>
-                <viewController storyboardIdentifier="FMExerciseViewController" id="va3-ee-EnW" customClass="FMExerciseViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Xw9-ae-Zfa"/>
-                        <viewControllerLayoutGuide type="bottom" id="Psb-nJ-fFd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e6b-g2-z0U">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAF-Xu-2AS">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jAF-Xu-2AS" secondAttribute="height" id="0ns-nH-dHB"/>
-                                    <constraint firstAttribute="width" constant="48" id="YgF-kJ-vJv"/>
-                                </constraints>
-                                <color key="tintColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="=" image="ic_explore_48pt">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="9fl-Kp-Qco" kind="presentation" id="J0r-dg-f97"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="jAF-Xu-2AS" firstAttribute="leading" secondItem="e6b-g2-z0U" secondAttribute="leading" constant="20" id="7ah-Xu-asm"/>
-                            <constraint firstItem="Psb-nJ-fFd" firstAttribute="top" secondItem="jAF-Xu-2AS" secondAttribute="bottom" constant="20" id="OH5-B0-EDb"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="menuButton" destination="jAF-Xu-2AS" id="1pF-Vs-DZC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jvx-tG-g6w" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25" y="788"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ic_explore_48pt" width="48" height="48"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="J0r-dg-f97"/>
-    </inferredMetricsTieBreakers>
 </document>
