@@ -40,7 +40,7 @@ class FMHealthStatusManager: NSObject {
 		})
 	}
 	
-	func quantity(daysBack: Int, type: HKQuantityTypeIdentifier, completion: @escaping (_ success: Bool, _ dates:[Date], _ values: [Int]) -> Void) {
+	func quantity(daysBack: Int, type: HKQuantityTypeIdentifier, completion: @escaping (_ error: Error?, _ dates:[Date], _ values: [Int]) -> Void) {
 		let calendar = NSCalendar.current
 		let interval = NSDateComponents()
 		interval.day = 1
@@ -55,9 +55,8 @@ class FMHealthStatusManager: NSObject {
 		                                        intervalComponents: interval as DateComponents)
 		query.initialResultsHandler = {
 			query, results, error in
-			
 			if error != nil {
-				completion(false, [], [])
+				completion(error, [], [])
 			} else {
 				let endDate = Date()
 				let startDate = calendar.date(byAdding: .day, value: -daysBack, to: endDate)
@@ -74,7 +73,7 @@ class FMHealthStatusManager: NSObject {
 						}
 					}
 				})
-				completion(true, dates, values)
+				completion(nil, dates, values)
 			}
 			
 		}

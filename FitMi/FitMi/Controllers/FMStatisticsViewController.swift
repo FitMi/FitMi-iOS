@@ -28,29 +28,35 @@ class FMStatisticsViewController: FMViewController {
 			(authorized,  error) -> Void in
 			if authorized {
 				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .distanceWalkingRunning, completion: {
-					success, dates, values in
-					if success {
+					error, dates, values in
+					if error == nil {
 						for i in 0..<dates.count {
-							print("Distance: \(dates[i]) --- \(values[i])")
+							print("Distance: \(dates[i]) --- \(values[i]) m")
 						}
+					} else {
+						print(error)
 					}
 				})
 				
 				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .stepCount, completion: {
-					success, dates, values in
-					if success {
+					error, dates, values in
+					if error == nil {
 						for i in 0..<dates.count {
 							print("Steps: \(dates[i]) --- \(values[i])")
 						}
+					} else {
+						print(error)
 					}
 				})
 				
 				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .flightsClimbed, completion: {
-					success, dates, values in
-					if success {
+					error, dates, values in
+					if error == nil {
 						for i in 0..<dates.count {
 							print("Flights: \(dates[i]) --- \(values[i])")
 						}
+					} else {
+						print(error)
 					}
 				})
 			} else {
