@@ -27,8 +27,6 @@ class FMHomeViewController: FMViewController {
 		}
 		
 		self.spriteView.ignoresSiblingOrder = true
-		self.spriteView.showsFPS = true
-		self.spriteView.showsNodeCount = true
 	}
 
 
