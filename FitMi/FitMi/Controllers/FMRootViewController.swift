@@ -30,6 +30,20 @@ class FMRootViewController: FMViewController {
 		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[exerciseView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["exerciseView": exerciseViewController.view]))
 		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[exerciseView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["exerciseView": exerciseViewController.view]))
 		exerciseViewController.view.isHidden = true
+		
+		let statisticsViewController = FMStatisticsViewController.getDefaultController()
+		self.view.addSubview(statisticsViewController.view)
+		self.view.sendSubview(toBack: statisticsViewController.view)
+		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[statisticsView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["statisticsView": statisticsViewController.view]))
+		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[statisticsView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["statisticsView": statisticsViewController.view]))
+		statisticsViewController.view.isHidden = true
+		
+		let accountViewController = FMAccountViewController.getDefaultController()
+		self.view.addSubview(accountViewController.view)
+		self.view.sendSubview(toBack: accountViewController.view)
+		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[accountView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["accountView": accountViewController.view]))
+		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[accountView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["accountView": accountViewController.view]))
+		accountViewController.view.isHidden = true
 	}
 	
 	override func didReceiveMemoryWarning() {

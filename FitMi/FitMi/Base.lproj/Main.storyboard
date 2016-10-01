@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773" y="763"/>
+            <point key="canvasLocation" x="881" y="763"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="S3W-oo-s4v">
@@ -203,6 +203,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5E-XB-NCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="35.532233883058474"/>
+        </scene>
+        <!--Statistics View Controller-->
+        <scene sceneID="3GU-gh-GdA">
+            <objects>
+                <viewController storyboardIdentifier="FMStatisticsViewController" id="cpk-pn-UjH" customClass="FMStatisticsViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TOW-Et-FBK"/>
+                        <viewControllerLayoutGuide type="bottom" id="wXc-wR-kcf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="coB-sR-6jJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATISTICS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8To-46-sgp">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="47"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8To-46-sgp" firstAttribute="centerX" secondItem="coB-sR-6jJ" secondAttribute="centerX" id="Zoj-SJ-0PA"/>
+                            <constraint firstItem="8To-46-sgp" firstAttribute="centerY" secondItem="coB-sR-6jJ" secondAttribute="centerY" id="hHK-Zn-PoD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-OC-d7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="763"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="vaU-oJ-Fra">
+            <objects>
+                <viewController storyboardIdentifier="FMAccountViewController" id="9sS-o5-Yzj" customClass="FMAccountViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FNf-iC-7tZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="G3o-Zq-URO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ml2-oa-5Is">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H49-MK-p9e">
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="47"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H49-MK-p9e" firstAttribute="centerX" secondItem="ml2-oa-5Is" secondAttribute="centerX" id="1Qa-9V-L7p"/>
+                            <constraint firstItem="H49-MK-p9e" firstAttribute="centerY" secondItem="ml2-oa-5Is" secondAttribute="centerY" id="Wze-C3-ZD2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2599" y="763"/>
         </scene>
     </scenes>
     <resources>

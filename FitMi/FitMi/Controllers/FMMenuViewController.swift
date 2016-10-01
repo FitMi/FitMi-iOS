@@ -11,7 +11,7 @@ import UIKit
 class FMMenuViewController: FMViewController {
 
 	@IBOutlet weak var closeButton: UIButton!
-	private let viewControllers = [FMHomeViewController.getDefaultController(), FMExerciseViewController.getDefaultController()]
+	private let viewControllers = [FMHomeViewController.getDefaultController(), FMExerciseViewController.getDefaultController(), FMStatisticsViewController.getDefaultController(), FMAccountViewController.getDefaultController()]
 	
 	override func viewDidLoad() {
 		closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
