@@ -22,18 +22,11 @@ class FMMenuViewController: FMViewController {
 	}
 	
 	@IBAction func didSelectPage(button: UIButton) {
-		var hidden = [Bool]()
-		switch button.tag {
-		case 0:
-			hidden = [false, true]
-		case 1:
-			hidden = [true, false]
-		default:
-			print("Button action is not implemented.")
-		}
+		var hidden = [true, true, true, true]
+		hidden[button.tag] = false
 		
-		for i in 0..<viewControllers.count {
-			viewControllers[i].view.isHidden = hidden[i]
+		for i in 0..<self.viewControllers.count {
+			self.viewControllers[i].view.isHidden = hidden[i]
 		}
 		
 		self.closeAction(button)
