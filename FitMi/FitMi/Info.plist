@@ -44,5 +44,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>FitMi needs your workout data to raise your little sprite. These data will only be kept locally on your device.</string>
 </dict>
 </plist>

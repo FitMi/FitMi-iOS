@@ -13,6 +13,7 @@ class FMRootViewController: FMViewController {
 
 	@IBOutlet weak var menuButton: UIButton!
 	let transition = BubbleTransition()
+	let healthStatusManager = FMHealthStatusManager.sharedManager
 	
 	override func loadView() {
 		super.loadView()
@@ -44,6 +45,22 @@ class FMRootViewController: FMViewController {
 		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[accountView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["accountView": accountViewController.view]))
 		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[accountView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["accountView": accountViewController.view]))
 		accountViewController.view.isHidden = true
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		self.healthStatusManager.authorizeHealthKit {
+			(authorized,  error) -> Void in
+			if authorized {
+				print("HealthKit authorization received.")
+			} else {
+				print("HealthKit authorization denied!")
+				if error != nil {
+					print("\(error)")
+				}
+			}
+		}
 	}
 	
 	override func didReceiveMemoryWarning() {

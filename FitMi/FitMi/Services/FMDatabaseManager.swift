@@ -9,5 +9,5 @@
 import UIKit
 
 class FMDatabaseManager: NSObject {
-	let sharedManager = FMDatabaseManager()
+	static let sharedManager = FMDatabaseManager()
 }

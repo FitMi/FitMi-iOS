@@ -22,9 +22,9 @@ extension UIView {
 				
 			// menu button and menu dismiss button
 			case 0:
-				self.layer.shadowRadius = 2;
+				self.layer.shadowRadius = 1;
 				self.layer.shadowOffset = CGSize.zero
-				self.layer.shadowOpacity = 0.15
+				self.layer.shadowOpacity = 0.2
 			default:
 				print("shadowType not defined.")
 			}
