@@ -53,7 +53,7 @@ class FMMainViewController: FMViewController {
 	}
 
 	class func getDefaultController() -> FMMainViewController {
-		if FMExerciseViewController.defaultController == nil {
+		if FMMainViewController.defaultController == nil {
 			let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 			let controller = storyboard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMMainViewController
 			FMMainViewController.defaultController = controller
