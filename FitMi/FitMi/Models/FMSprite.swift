@@ -6,8 +6,14 @@
 //  Copyright © 2016 FitMi. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import RealmSwift
 
-class FMSprite: NSObject {
-
+class FMSprite: Object {
+    
+// Specify properties to ignore (Realm won't persist these)
+    
+//  override static func ignoredProperties() -> [String] {
+//    return []
+//  }
 }
