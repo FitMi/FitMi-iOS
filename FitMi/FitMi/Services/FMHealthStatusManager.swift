@@ -38,6 +38,44 @@ class FMHealthStatusManager: NSObject {
 			}
 			
 		})
+	}
+	
+	func steps(daysBack: Int) {
+		let calendar = NSCalendar.current
+		let interval = NSDateComponents()
+		interval.day = 1
+		var anchorComponents = calendar.dateComponents(Set([.day, .month, .year]), from: Date())
+		anchorComponents.hour = 0
+		let anchorDate = calendar.date(from: anchorComponents)
+		
+		let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
+		                                        quantitySamplePredicate: nil,
+		                                        options: .cumulativeSum,
+		                                        anchorDate: anchorDate!,
+		                                        intervalComponents: interval as DateComponents)
+		query.initialResultsHandler = {
+			query, results, error in
+			
+			if error != nil {
+				print(error)
+			} else {
+				let endDate = Date()
+				let startDate = calendar.date(byAdding: .day, value: -daysBack, to: endDate)
+				
+				results?.enumerateStatistics(from: startDate!,to: endDate, with: {
+					result, stop in
+					if let quantity = result.sumQuantity() {
+						let date = result.startDate
+						let value = Int(quantity.doubleValue(for: HKUnit.count()))
+						print("\(date): \(value)")
+					}
+				})
+				
+			}
+			
+		}
+		
+		self.healthKitStore.execute(query)
 		
 	}
 }

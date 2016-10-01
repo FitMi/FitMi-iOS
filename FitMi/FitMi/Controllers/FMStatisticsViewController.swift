@@ -22,6 +22,24 @@ class FMStatisticsViewController: FMViewController {
 		// Do any additional setup after loading the view.
 	}
 	
+	
+	override func viewDidAppear(_ animated: Bool) {
+		FMHealthStatusManager.sharedManager.authorizeHealthKit {
+			(authorized,  error) -> Void in
+			if authorized {
+				print("HealthKit authorization received.")
+				FMHealthStatusManager.sharedManager.steps(daysBack: 30)
+			} else {
+				print("HealthKit authorization denied!")
+				if error != nil {
+					print("\(error)")
+				}
+			}
+		}
+	}
+	
+	
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
