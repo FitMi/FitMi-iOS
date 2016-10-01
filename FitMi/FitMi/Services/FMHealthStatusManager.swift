@@ -40,7 +40,7 @@ class FMHealthStatusManager: NSObject {
 		})
 	}
 	
-	func steps(daysBack: Int) {
+	func quantity(daysBack: Int, type: HKQuantityTypeIdentifier, completion: @escaping (_ success: Bool, _ dates:[Date], _ values: [Int]) -> Void) {
 		let calendar = NSCalendar.current
 		let interval = NSDateComponents()
 		interval.day = 1
@@ -48,7 +48,7 @@ class FMHealthStatusManager: NSObject {
 		anchorComponents.hour = 0
 		let anchorDate = calendar.date(from: anchorComponents)
 		
-		let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .stepCount)!,
+		let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: type)!,
 		                                        quantitySamplePredicate: nil,
 		                                        options: .cumulativeSum,
 		                                        anchorDate: anchorDate!,
@@ -57,20 +57,24 @@ class FMHealthStatusManager: NSObject {
 			query, results, error in
 			
 			if error != nil {
-				print(error)
+				completion(false, [], [])
 			} else {
 				let endDate = Date()
 				let startDate = calendar.date(byAdding: .day, value: -daysBack, to: endDate)
-				
+				var dates = [Date]()
+				var values = [Int]()
 				results?.enumerateStatistics(from: startDate!,to: endDate, with: {
 					result, stop in
 					if let quantity = result.sumQuantity() {
-						let date = result.startDate
-						let value = Int(quantity.doubleValue(for: HKUnit.count()))
-						print("\(date): \(value)")
+						dates.append(result.startDate)
+						if (type == .distanceWalkingRunning) {
+							values.append(Int(quantity.doubleValue(for: HKUnit.meter())))
+						} else {
+							values.append(Int(quantity.doubleValue(for: HKUnit.count())))
+						}
 					}
 				})
-				
+				completion(true, dates, values)
 			}
 			
 		}

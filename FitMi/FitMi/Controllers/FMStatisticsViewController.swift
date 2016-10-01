@@ -27,8 +27,32 @@ class FMStatisticsViewController: FMViewController {
 		FMHealthStatusManager.sharedManager.authorizeHealthKit {
 			(authorized,  error) -> Void in
 			if authorized {
-				print("HealthKit authorization received.")
-				FMHealthStatusManager.sharedManager.steps(daysBack: 30)
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .distanceWalkingRunning, completion: {
+					success, dates, values in
+					if success {
+						for i in 0..<dates.count {
+							print("Distance: \(dates[i]) --- \(values[i])")
+						}
+					}
+				})
+				
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .stepCount, completion: {
+					success, dates, values in
+					if success {
+						for i in 0..<dates.count {
+							print("Steps: \(dates[i]) --- \(values[i])")
+						}
+					}
+				})
+				
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .flightsClimbed, completion: {
+					success, dates, values in
+					if success {
+						for i in 0..<dates.count {
+							print("Flights: \(dates[i]) --- \(values[i])")
+						}
+					}
+				})
 			} else {
 				print("HealthKit authorization denied!")
 				if error != nil {
