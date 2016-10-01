@@ -15,6 +15,7 @@ class FMMenuViewController: FMViewController {
 	
 	override func viewDidLoad() {
 		closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
+		self.view.backgroundColor = UIColor.primaryColor
 	}
 	
 	@IBAction func closeAction(_ sender: AnyObject) {

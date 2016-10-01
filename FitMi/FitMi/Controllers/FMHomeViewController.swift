@@ -27,6 +27,8 @@ class FMHomeViewController: FMViewController {
 		}
 		
 		self.spriteView.ignoresSiblingOrder = true
+		
+		self.view.backgroundColor = UIColor.secondaryColor
 	}
 
 

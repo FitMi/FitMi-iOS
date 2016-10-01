@@ -22,9 +22,9 @@ extension UIView {
 				
 			// menu button and menu dismiss button
 			case 0:
-				self.layer.shadowRadius = 1;
+				self.layer.shadowRadius = 1
 				self.layer.shadowOffset = CGSize.zero
-				self.layer.shadowOpacity = 0.2
+				self.layer.shadowOpacity = 0.1
 			default:
 				print("shadowType not defined.")
 			}
@@ -53,7 +53,13 @@ extension UIView {
 extension UIColor {
 	static var primaryColor: UIColor {
 		get {
-			return UIColor(red: 171/255.0, green: 60/255.0, blue: 64/255.0, alpha: 1)
+			return UIColor(red: 68/255.0, green: 84/255.0, blue: 100/255.0, alpha: 1)
+		}
+	}
+	
+	static var secondaryColor: UIColor {
+		get {
+			return UIColor(red: 253/255.0, green: 252/255.0, blue: 224/255.0, alpha: 1)
 		}
 	}
 }

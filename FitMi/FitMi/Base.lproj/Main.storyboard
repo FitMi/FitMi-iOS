@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" secondItem="c8Y-6U-Dhd" secondAttribute="height" id="3Os-9B-Bq6"/>
                                     <constraint firstAttribute="width" constant="48" id="5kL-uH-tjh"/>
                                 </constraints>
-                                <color key="tintColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.26666666666666666" green="0.32941176470588235" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="=" image="ic_explore_48pt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -139,7 +139,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="48"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -197,7 +197,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.67760968208312988" green="0.2310691773891449" blue="0.24071943759918213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HAp-4H-eyA" firstAttribute="leading" secondItem="E1L-k1-PoY" secondAttribute="leading" constant="20" id="9kK-Jx-WdS"/>
                             <constraint firstAttribute="trailing" secondItem="HAp-4H-eyA" secondAttribute="trailing" constant="20" id="H2A-q4-0n4"/>
