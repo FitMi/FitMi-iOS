@@ -22,32 +22,32 @@ class FMSpriteStatusManager: NSObject {
 	
 	
 	
-	func currentStrength() -> Double {
+	func currentStrength() -> Int {
 		return 0
 	}
 	
-	func currentStamina() -> Double {
+	func currentStamina() -> Int {
 		return 0
 	}
 	
-	func currentAgility() -> Double {
+	func currentAgility() -> Int {
 		return 0
 	}
 	
-	func currentExperience() -> Double {
+	func currentExperience() -> Int {
 		return 0
 	}
 	
-	func currentLevel() -> Double {
+	func currentLevel() -> Int {
 		return 0
 	}
 	
-	func currentMood() -> Double {
+	func currentMood() -> Int {
 		// TODO: check the time of last data point and calculate current mode
 		return 50
 	}
 	
-	func currentHP() -> Double {
+	func currentHP() -> Int {
 		return 0
 	}
 	
@@ -59,31 +59,31 @@ class FMSpriteStatusManager: NSObject {
 	
 	
 	
-	func historicalStrength(daysBack: Int) -> [Double] {
+	func historicalStrength(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalStamina(daysBack: Int) -> [Double] {
+	func historicalStamina(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalAgility(daysBack: Int) -> [Double] {
+	func historicalAgility(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalExperience(daysBack: Int) -> [Double] {
+	func historicalExperience(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalLevel(daysBack: Int) -> [Double] {
+	func historicalLevel(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalMood(daysBack: Int) -> [Double] {
+	func historicalMood(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
-	func historicalHP(daysBack: Int) -> [Double] {
+	func historicalHP(daysBack: Int) -> [Int] {
 		return [0]
 	}
 	
@@ -95,7 +95,7 @@ class FMSpriteStatusManager: NSObject {
 	
 	
 	
-	func updateSpriteStatus(steps: Double, distance: Double, flights: Double, date: Date) {
+	func updateSpriteStatus(steps: Int, distance: Int, flights: Int, date: Date) {
 		// TODO: Check whether data exist for the date
 		// If so, replace the old data
 		// If not, add in the new data
@@ -108,7 +108,7 @@ class FMSpriteStatusManager: NSObject {
 		return false
 	}
 	
-	func increaseExperience(increment: Double) {
+	func increaseExperience(increment: Int) {
 		
 	}
 }

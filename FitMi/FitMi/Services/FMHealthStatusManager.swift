@@ -68,8 +68,12 @@ class FMHealthStatusManager: NSObject {
 						dates.append(result.startDate)
 						if (type == .distanceWalkingRunning) {
 							values.append(Int(quantity.doubleValue(for: HKUnit.meter())))
-						} else {
+						} else if (type == .stepCount || type == .flightsClimbed) {
 							values.append(Int(quantity.doubleValue(for: HKUnit.count())))
+						} else {
+							print("Identifier Type Not Supported")
+							completion(nil, [], [])
+							return
 						}
 					}
 				})
@@ -79,6 +83,9 @@ class FMHealthStatusManager: NSObject {
 		}
 		
 		self.healthKitStore.execute(query)
-		
+	}
+	
+	func goals(date: NSDate, completion: ([Int]) -> Void) {
+		//data for each workoutType and date combination
 	}
 }
