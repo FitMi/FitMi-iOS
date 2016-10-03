@@ -16,6 +16,12 @@ class FMSpriteStatusManager: NSObject {
 		return FMSprite()
 	}
 	
+	
+	
+	// -------------- current data getter ---------------
+	
+	
+	
 	func currentStrength() -> Double {
 		return 0
 	}
@@ -44,6 +50,50 @@ class FMSpriteStatusManager: NSObject {
 	func currentHP() -> Double {
 		return 0
 	}
+	
+	
+	
+	
+	// -------------- historical data getter ---------------
+	
+	
+	
+	
+	func historicalStrength(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalStamina(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalAgility(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalExperience(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalLevel(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalMood(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	func historicalHP(daysBack: Int) -> [Double] {
+		return [0]
+	}
+	
+	
+	
+	
+	// -------------- data setter ---------------
+	
+	
+	
 	
 	func updateSpriteStatus(steps: Double, distance: Double, flights: Double, date: Date) {
 		// TODO: Check whether data exist for the date
