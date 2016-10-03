@@ -8,6 +8,7 @@ target 'FitMi' do
   # Pods for FitMi
   pod 'RealmSwift', '~> 2.0'
   pod 'BubbleTransition'
+  pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 
   target 'FitMiTests' do
     inherit! :search_paths

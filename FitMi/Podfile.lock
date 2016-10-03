@@ -1,5 +1,8 @@
 PODS:
   - BubbleTransition (2.0.0)
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - Realm (2.0.0):
     - Realm/Headers (= 2.0.0)
   - Realm/Headers (2.0.0)
@@ -8,13 +11,25 @@ PODS:
 
 DEPENDENCIES:
   - BubbleTransition
+  - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - RealmSwift (~> 2.0)
+
+EXTERNAL SOURCES:
+  Charts:
+    :branch: master
+    :git: https://github.com/danielgindi/Charts.git
+
+CHECKOUT OPTIONS:
+  Charts:
+    :commit: 61d10babaebd59aa24e8afe3de90f0a685284fcf
+    :git: https://github.com/danielgindi/Charts.git
 
 SPEC CHECKSUMS:
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
+  Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
   Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
   RealmSwift: 7d015f34a2781a50889be9b5a15c36c08597ea0e
 
-PODFILE CHECKSUM: 2e8abf9584ac7f7bb69e51d05518d354968d26c3
+PODFILE CHECKSUM: 691b96ec68740f3b3de647fccb17a24dcb82f8cb
 
 COCOAPODS: 1.0.1
