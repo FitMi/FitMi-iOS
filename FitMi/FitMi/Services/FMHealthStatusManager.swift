@@ -22,7 +22,7 @@ class FMHealthStatusManager: NSObject {
 		])
 		
 		if !HKHealthStore.isHealthDataAvailable() {
-			let error = NSError(domain: "com.fitmi.FitMi", code: 2, userInfo: [NSLocalizedDescriptionKey: "HealthKit is not available in this device"])
+			let error = NSError(domain: APPLICATION_ERROR_DOMAIN, code: ERROR_CODE_HEALTH_DATA_NOT_AVAILABLE, userInfo: [NSLocalizedDescriptionKey: "HealthKit is not available in this device"])
 			if (completion != nil) {
 				completion!(false, error)
 			}
