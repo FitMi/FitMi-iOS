@@ -228,22 +228,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATISTICS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8To-46-sgp">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="47"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cpk-pn-UjH" id="YMc-e9-8cN"/>
+                                    <outlet property="delegate" destination="cpk-pn-UjH" id="n2b-mA-PoZ"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8To-46-sgp" firstAttribute="centerX" secondItem="coB-sR-6jJ" secondAttribute="centerX" id="Zoj-SJ-0PA"/>
-                            <constraint firstItem="8To-46-sgp" firstAttribute="centerY" secondItem="coB-sR-6jJ" secondAttribute="centerY" id="hHK-Zn-PoD"/>
+                            <constraint firstAttribute="trailing" secondItem="RO3-zY-hma" secondAttribute="trailing" id="22k-ff-NyS"/>
+                            <constraint firstItem="RO3-zY-hma" firstAttribute="leading" secondItem="coB-sR-6jJ" secondAttribute="leading" id="alw-QF-GSR"/>
+                            <constraint firstItem="RO3-zY-hma" firstAttribute="top" secondItem="coB-sR-6jJ" secondAttribute="top" id="erJ-ZK-ltq"/>
+                            <constraint firstItem="wXc-wR-kcf" firstAttribute="top" secondItem="RO3-zY-hma" secondAttribute="bottom" id="iOj-4F-8ZI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="RO3-zY-hma" id="hpu-zu-Gcu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-OC-d7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1743" y="763"/>
+            <point key="canvasLocation" x="1741.5999999999999" y="762.36881559220399"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="vaU-oJ-Fra">

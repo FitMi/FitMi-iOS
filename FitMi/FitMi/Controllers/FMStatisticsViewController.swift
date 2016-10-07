@@ -14,6 +14,8 @@ class FMStatisticsViewController: FMViewController {
 
 	private static var defaultController: FMStatisticsViewController?
 	
+	@IBOutlet var tableView: UITableView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -21,7 +23,11 @@ class FMStatisticsViewController: FMViewController {
 			FMStatisticsViewController.defaultController = self
 		}
 		
-		// Do any additional setup after loading the view.
+		self.registerCells()
+	}
+	
+	private func registerCells() {
+		FMChartTableViewCell.registerCell(tableView: self.tableView, reuseIdentifier: FMChartTableViewCell.identifier)
 	}
 	
 	
@@ -86,5 +92,21 @@ class FMStatisticsViewController: FMViewController {
 		}
 		
 		return FMStatisticsViewController.defaultController!
+	}
+}
+
+
+extension FMStatisticsViewController: UITableViewDataSource {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 3
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath)
+		return cell
 	}
 }

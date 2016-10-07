@@ -30,6 +30,8 @@
 		0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE74F611D9FB21F00CAB9CE /* UIKitExtention.swift */; };
 		0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE74F631D9FB5DD00CAB9CE /* FMHealthStatusManager.swift */; };
 		0CE74F671D9FB73900CAB9CE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE74F661D9FB73900CAB9CE /* HealthKit.framework */; };
+		0CFC8B791DA8227D0084DD6F /* FMChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B771DA8227D0084DD6F /* FMChartTableViewCell.swift */; };
+		0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */; };
 		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
 		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
 		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
@@ -84,6 +86,8 @@
 		0CE74F631D9FB5DD00CAB9CE /* FMHealthStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHealthStatusManager.swift; sourceTree = "<group>"; };
 		0CE74F651D9FB73900CAB9CE /* FitMi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitMi.entitlements; sourceTree = "<group>"; };
 		0CE74F661D9FB73900CAB9CE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		0CFC8B771DA8227D0084DD6F /* FMChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMChartTableViewCell.swift; sourceTree = "<group>"; };
+		0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMChartTableViewCell.xib; sourceTree = "<group>"; };
 		1C2529E0186F433C773AE43B /* Pods_FitMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 		0CD3CD621D9EF84500E47BF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0CFC8B721DA821240084DD6F /* Cells */,
 				0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */,
 				0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */,
 				0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */,
@@ -267,6 +272,15 @@
 				0C81DC1F1DA26DEE00E8856E /* Constants.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0CFC8B721DA821240084DD6F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC8B771DA8227D0084DD6F /* FMChartTableViewCell.swift */,
+				0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		75F5710FCA8F6D589F945C7B /* Pods */ = {
@@ -410,6 +424,7 @@
 				0CD3CD791D9F168D00E47BF8 /* sprite-a.atlas in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
+				0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +585,7 @@
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,
 				0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */,
+				0CFC8B791DA8227D0084DD6F /* FMChartTableViewCell.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */,
 			);
