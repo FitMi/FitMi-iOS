@@ -53,6 +53,7 @@
             <connections>
                 <outlet property="cardView" destination="z9K-UW-yZp" id="XVH-nF-hk7"/>
                 <outlet property="chartView" destination="nZY-an-TU6" id="jNf-aD-iXI"/>
+                <outlet property="titleLabel" destination="Sqa-LH-JZv" id="ylY-I5-OgG"/>
             </connections>
             <point key="canvasLocation" x="27" y="115.5"/>
         </tableViewCell>

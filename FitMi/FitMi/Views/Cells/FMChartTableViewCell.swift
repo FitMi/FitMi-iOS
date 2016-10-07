@@ -15,6 +15,7 @@ class FMChartTableViewCell: UITableViewCell {
 	
 	@IBOutlet var cardView: UIView!
 	@IBOutlet var chartView: BarChartView!
+	@IBOutlet var titleLabel: UILabel!
 	
 	private var dates = [Date]()
 	private var values = [Int]()
@@ -23,7 +24,6 @@ class FMChartTableViewCell: UITableViewCell {
         super.awakeFromNib()
 		self.setCardViewStyle()
 		self.configureChartView()
-		self.setChartData(values: [1, 4, 3, 5, 3, 6, 2], dates: [Date(), Date(), Date(), Date(), Date(), Date(), Date()])
     }
 	
 	func setCardViewStyle() {

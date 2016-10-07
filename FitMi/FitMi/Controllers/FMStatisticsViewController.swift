@@ -15,6 +15,12 @@ class FMStatisticsViewController: FMViewController {
 	private static var defaultController: FMStatisticsViewController?
 	
 	@IBOutlet var tableView: UITableView!
+	var chartValueArrayStep = [Int]()
+	var chartValueArrayDistance = [Int]()
+	var chartValueArrayFlights = [Int]()
+	var chartDateArrayStep = [Date]()
+	var chartDateArrayDistance = [Date]()
+	var chartDateArrayFlights = [Date]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -43,33 +49,40 @@ class FMStatisticsViewController: FMViewController {
 		FMHealthStatusManager.sharedManager.authorizeHealthKit {
 			(authorized,  error) -> Void in
 			if authorized {
-				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .distanceWalkingRunning, completion: {
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 6, type: .stepCount, completion: {
 					error, dates, values in
 					if error == nil {
-						for i in 0..<dates.count {
-							print("Distance: \(dates[i]) --- \(values[i]) m")
+						self.chartValueArrayStep = values
+						self.chartDateArrayStep = dates
+						DispatchQueue.main.asyncAfter(deadline: .now()) {
+							self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
 						}
 					} else {
 						print(error)
 					}
 				})
 				
-				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .stepCount, completion: {
+				
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 6, type: .distanceWalkingRunning, completion: {
 					error, dates, values in
 					if error == nil {
-						for i in 0..<dates.count {
-							print("Steps: \(dates[i]) --- \(values[i])")
+						self.chartValueArrayDistance = values
+						self.chartDateArrayDistance = dates
+						DispatchQueue.main.asyncAfter(deadline: .now()) {
+							self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .fade)
 						}
 					} else {
 						print(error)
 					}
 				})
 				
-				FMHealthStatusManager.sharedManager.quantity(daysBack: 3, type: .flightsClimbed, completion: {
+				FMHealthStatusManager.sharedManager.quantity(daysBack: 6, type: .flightsClimbed, completion: {
 					error, dates, values in
 					if error == nil {
-						for i in 0..<dates.count {
-							print("Flights: \(dates[i]) --- \(values[i])")
+						self.chartValueArrayFlights = values
+						self.chartDateArrayFlights = dates
+						DispatchQueue.main.asyncAfter(deadline: .now()) {
+							self.tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .fade)
 						}
 					} else {
 						print(error)
@@ -106,16 +119,39 @@ class FMStatisticsViewController: FMViewController {
 
 extension FMStatisticsViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 3
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return 1
 	}
 	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 3
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath) as! FMChartTableViewCell
 		cell.selectionStyle = .none
+		
+		switch indexPath.section {
+		case 0:
+			switch indexPath.row {
+			case 0:
+				cell.titleLabel.text = "Steps"
+				cell.setChartData(values: self.chartValueArrayStep, dates: self.chartDateArrayStep)
+				
+			case 1:
+				cell.titleLabel.text = "Distance"
+				cell.setChartData(values: self.chartValueArrayDistance, dates: self.chartDateArrayDistance)
+				
+			case 2:
+				cell.titleLabel.text = "Flights"
+				cell.setChartData(values: self.chartValueArrayFlights, dates: self.chartDateArrayFlights)
+				
+			default:
+				print("unsupported indexpath: \(indexPath)")
+			}
+		default:
+			print("unsupported indexpath: \(indexPath)")
+		}
+		
 		return cell
 	}
 }
