@@ -243,7 +243,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="dHK-ZZ-jgr"/>
                                 </constraints>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
