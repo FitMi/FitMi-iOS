@@ -228,20 +228,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cpk-pn-UjH" id="YMc-e9-8cN"/>
                                     <outlet property="delegate" destination="cpk-pn-UjH" id="n2b-mA-PoZ"/>
                                 </connections>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CT8-DE-IWM">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Jj0-fw-79Q">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="dHK-ZZ-jgr"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RO3-zY-hma" secondAttribute="trailing" id="22k-ff-NyS"/>
+                            <constraint firstItem="CT8-DE-IWM" firstAttribute="leading" secondItem="coB-sR-6jJ" secondAttribute="leading" id="LWQ-XR-LZt"/>
+                            <constraint firstItem="wXc-wR-kcf" firstAttribute="top" secondItem="CT8-DE-IWM" secondAttribute="bottom" id="Pzf-ji-izS"/>
                             <constraint firstItem="RO3-zY-hma" firstAttribute="leading" secondItem="coB-sR-6jJ" secondAttribute="leading" id="alw-QF-GSR"/>
                             <constraint firstItem="RO3-zY-hma" firstAttribute="top" secondItem="coB-sR-6jJ" secondAttribute="top" id="erJ-ZK-ltq"/>
                             <constraint firstItem="wXc-wR-kcf" firstAttribute="top" secondItem="RO3-zY-hma" secondAttribute="bottom" id="iOj-4F-8ZI"/>
+                            <constraint firstAttribute="trailing" secondItem="CT8-DE-IWM" secondAttribute="trailing" id="jny-hN-Ed7"/>
                         </constraints>
                     </view>
                     <connections>

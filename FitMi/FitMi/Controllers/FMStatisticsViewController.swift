@@ -24,10 +24,18 @@ class FMStatisticsViewController: FMViewController {
 		}
 		
 		self.registerCells()
+		self.configureTableView()
 	}
 	
 	private func registerCells() {
 		FMChartTableViewCell.registerCell(tableView: self.tableView, reuseIdentifier: FMChartTableViewCell.identifier)
+	}
+	
+	private func configureTableView() {
+		self.tableView.estimatedRowHeight = 100
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 100, right: 0)
+		self.tableView.backgroundColor = UIColor.secondaryColor
 	}
 	
 	
@@ -107,6 +115,7 @@ extension FMStatisticsViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath)
+		cell.selectionStyle = .none
 		return cell
 	}
 }
