@@ -22,6 +22,7 @@ class FMChartTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
+		self.backgroundColor = UIColor.secondaryColor
 		self.setCardViewStyle()
 		self.configureChartView()
     }
@@ -29,10 +30,7 @@ class FMChartTableViewCell: UITableViewCell {
 	func setCardViewStyle() {
 		let layer = self.cardView.layer
 		layer.cornerRadius = 10
-		layer.shadowColor = UIColor.black.cgColor
-		layer.shadowOffset = CGSize.zero
-		layer.shadowRadius = 3
-		layer.shadowOpacity = 0.1
+		//add gradient to background
 	}
 	
 	func setChartData(values: [Int], dates: [Date]) {
