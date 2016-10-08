@@ -17,61 +17,50 @@ class FMSpriteStatusManager: NSObject {
 		super.init()
 		self.refreshSprite {
 			print("sprite updated")
+			print(self.sprite)
 		}
-		
-		
-		let calendar = NSCalendar.current
-		var anchorComponents =  calendar.dateComponents(Set([.day, .month, .year]), from: Date())
-		anchorComponents.hour = 12
-		
-		let anchorDate = calendar.date(from: anchorComponents)!
-		
-		let endDate = calendar.endOfDay(for: anchorDate)
-		
-		print(anchorDate)
-		print(endDate)
-		FMHealthStatusManager.sharedManager.quantity(startDate: anchorDate, endDate: endDate, type: .stepCount, completion: {
-			error, value in
-			print(value)
-		})
 	}
 	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
 	// This should only be called when resumed from background or newly started up
 	// In-app states update should use other approach due to the mood property
 	func refreshSprite(completion: @escaping (()->Void)) {
-		self.sprite = self.databaseManager.getCurrentSprite()
-		if let lastState = sprite.states.last {
-			var placeholder: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void)!
-			let stateCompletion: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void) = {
-				state, strength, stamina, agility in
-				DispatchQueue.main.async {
-					FMDatabaseManager.sharedManager.realmUpdate {
-						state.strength = strength
-						state.stamina = stamina
-						state.agility = agility
-					}
-					
-					if NSCalendar.current.isDateInToday(state.date) {
-						completion()
-					} else {
-						let state = FMSpriteState()
-						self.refreshState(state: state, completion: placeholder)
-					}
+		DispatchQueue.main.async {
+			self.sprite = self.databaseManager.getCurrentSprite()
+			print(self.sprite)
+			
+			if self.sprite.states.count == 0 {
+				let newState = FMSpriteState()
+				self.databaseManager.realmUpdate {
+					self.sprite.states.append(newState)
 				}
 			}
-			placeholder = stateCompletion
-			self.refreshState(state: lastState, completion: stateCompletion)
 			
-		} else {
-			// sprite don't have any state (it's a new sprite). create a new state for today
-			let newState = FMSpriteState()
-			self.databaseManager.realmUpdate {
-				self.sprite.states.append(newState)
-				completion()
+			if let lastState = self.sprite.states.last {
+				var placeholder: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void)!
+				let stateCompletion: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void) = {
+					state, strength, stamina, agility in
+					DispatchQueue.main.async {
+						FMDatabaseManager.sharedManager.realmUpdate {
+							state.strength = strength
+							state.stamina = stamina
+							state.agility = agility
+							
+							if NSCalendar.current.isDateInToday(state.date) {
+								completion()
+							} else {
+								let nextState = FMSpriteState()
+								nextState.date = Calendar.current.nextDay(from: state.date)
+								self.sprite.states.append(nextState)
+								self.refreshState(state: nextState, completion: placeholder)
+							}
+						}
+					}
+				}
+				placeholder = stateCompletion
+				self.refreshState(state: lastState, completion: stateCompletion)
 			}
 		}
-		print(sprite)
 	}
 	
 	func refreshState(state: FMSpriteState, completion: @escaping ((_ state: FMSpriteState, _ strength: Int, _ stamina: Int, _ agility: Int)->Void)) {
@@ -83,40 +72,84 @@ class FMSpriteStatusManager: NSObject {
 		
 		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .stepCount, completion: {
 			error, value in
-			strength = self.strengthForDate(date: date, steps: value)
-			if strength != nil && stamina != nil && agility != nil {
-				completion(state, strength!, stamina!, agility!)
+			DispatchQueue.main.async {
+				strength = self.strengthForDate(date: date, steps: value)
+				if strength != nil && stamina != nil && agility != nil {
+					completion(state, strength!, stamina!, agility!)
+				}
 			}
 		})
 		
 		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .distanceWalkingRunning, completion: {
 			error, value in
-			stamina = self.staminaForDate(date: date, distance: value)
-			if strength != nil && stamina != nil && agility != nil {
-				completion(state, strength!, stamina!, agility!)
+			DispatchQueue.main.async {
+				stamina = self.staminaForDate(date: date, distance: value)
+				if strength != nil && stamina != nil && agility != nil {
+					completion(state, strength!, stamina!, agility!)
+				}
 			}
 		})
 		
 		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .flightsClimbed, completion: {
 			error, value in
-			agility = self.agilityForDate(date: date, flights: value)
-			if strength != nil && stamina != nil && agility != nil {
-				completion(state, strength!, stamina!, agility!)
+			DispatchQueue.main.async {
+				agility = self.agilityForDate(date: date, flights: value)
+				if strength != nil && stamina != nil && agility != nil {
+					completion(state, strength!, stamina!, agility!)
+				}
 			}
-
 		})
 	}
 	
 	func strengthForDate(date: Date, steps: Int) -> Int {
-		return steps
+		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
+		var sum = 0.0
+		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
+		for i in 0..<weights.count - 1 {
+			if i < states.count {
+				sum += Double(states[i].strength) * weights[i + 1]
+			} else {
+				sum += Double(SPRITE_STRENGTH_DEFAULT) * weights[i + 1]
+			}
+		}
+		
+		let goal = 5000.0
+		sum += Double(steps)/goal * weights[0]
+		return Int(sum)
 	}
 	
 	func staminaForDate(date: Date, distance: Int) -> Int {
-		return distance
+		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
+		var sum = 0.0
+		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
+		for i in 0..<weights.count - 1 {
+			if i < states.count {
+				sum += Double(states[i].stamina) * weights[i + 1]
+			} else {
+				sum += Double(SPRITE_STAMINA_DEFAULT) * weights[i + 1]
+			}
+		}
+		
+		let goal = 2500.0
+		sum += Double(distance)/goal * weights[0]
+		return Int(sum)
 	}
 	
 	func agilityForDate(date: Date, flights: Int) -> Int {
-		return flights
+		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
+		var sum = 0.0
+		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
+		for i in 0..<weights.count - 1 {
+			if i < states.count {
+				sum += Double(states[i].agility) * weights[i + 1]
+			} else {
+				sum += Double(SPRITE_AGILITY_DEFAULT) * weights[i + 1]
+			}
+		}
+		
+		let goal = 5.0
+		sum += Double(flights)/goal * weights[0]
+		return Int(sum)
 	}
 	
 	// -------------- current data getter ---------------

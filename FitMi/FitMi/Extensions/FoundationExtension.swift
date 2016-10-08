@@ -20,4 +20,10 @@ extension Calendar {
 		components.second = 59
 		return self.date(byAdding: components as DateComponents, to: self.startOfDay(for: date))!
 	}
+	
+	func nextDay(from date: Date) -> Date {
+		let components = NSDateComponents()
+		components.day = 1
+		return self.date(byAdding: components as DateComponents, to: date)!
+	}
 }
