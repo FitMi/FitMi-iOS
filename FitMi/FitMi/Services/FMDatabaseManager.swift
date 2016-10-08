@@ -11,7 +11,14 @@ import RealmSwift
 
 class FMDatabaseManager: NSObject {
 	static let sharedManager = FMDatabaseManager()
-	private let realm = try! Realm()
+	private var realm: Realm!
+	
+	override init() {
+		super.init()
+		DispatchQueue.main.async {
+			self.realm = try! Realm()
+		}
+	}
 	
 	func getCurrentSprite() -> FMSprite {
 		var sprite = realm.objects(FMSprite.self).first

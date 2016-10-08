@@ -7,6 +7,7 @@ target 'FitMi' do
 
   # Pods for FitMi
   pod 'RealmSwift', '~> 2.0'
+  pod 'FontBlaster'
   pod 'BubbleTransition'
   pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 
