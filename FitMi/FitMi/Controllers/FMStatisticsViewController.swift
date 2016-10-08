@@ -41,6 +41,12 @@ class FMStatisticsViewController: FMViewController {
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 88, right: 0)
 		self.tableView.backgroundColor = UIColor.secondaryColor
+		
+		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+		headerLabel.font = UIFont(name: "Pixeled", size: 22)
+		headerLabel.text = "SPRITE STATUS"
+		headerLabel.textAlignment = .center
+		self.tableView.tableHeaderView = headerLabel
 	}
 	
 	
@@ -150,5 +156,11 @@ extension FMStatisticsViewController: UITableViewDataSource {
 		}
 		
 		return cell
+	}
+}
+
+extension FMStatisticsViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print(indexPath)
 	}
 }
