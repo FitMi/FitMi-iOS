@@ -113,19 +113,19 @@ extension FMStatisticsViewController: UITableViewDataSource {
 		case 0:
 			switch indexPath.row {
 			case 0:
-				cell.titleLabel.text = "Health"
+				cell.titleLabel.text = "Health".uppercased()
 				cell.setChartData(values: self.chartValueArrayHealth, dates: self.chartDateArray)
 				
 			case 1:
-				cell.titleLabel.text = "Strength - Steps"
+				cell.titleLabel.text = "Strength".uppercased()
 				cell.setChartData(values: self.chartValueArrayStrength, dates: self.chartDateArray)
 				
 			case 2:
-				cell.titleLabel.text = "Stamina - Distance"
+				cell.titleLabel.text = "Stamina".uppercased()
 				cell.setChartData(values: self.chartValueArrayStamina, dates: self.chartDateArray)
 				
 			case 3:
-				cell.titleLabel.text = "Agility - Flights"
+				cell.titleLabel.text = "Agility".uppercased()
 				cell.setChartData(values: self.chartValueArrayAgility, dates: self.chartDateArray)
 				
 			default:

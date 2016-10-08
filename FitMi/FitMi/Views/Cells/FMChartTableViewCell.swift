@@ -16,37 +16,52 @@ class FMChartTableViewCell: UITableViewCell {
 	@IBOutlet var cardView: UIView!
 	@IBOutlet var chartView: BarChartView!
 	@IBOutlet var titleLabel: UILabel!
+	@IBOutlet var dateLabel: UILabel!
 	
-	private var dates = [Date]()
-	private var values = [Int]()
+	var dates = [Date]()
+	var values = [Int]()
+	var dateFormatter: DateFormatter!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
 		self.backgroundColor = UIColor.secondaryColor
 		self.setCardViewStyle()
 		self.configureChartView()
+		
+		let formatter = DateFormatter()
+		formatter.dateFormat = "MMM dd"
+		self.dateFormatter = formatter
     }
 	
 	func setCardViewStyle() {
 		let layer = self.cardView.layer
-		layer.cornerRadius = 10
-		//add gradient to background
+		layer.borderWidth = 5
+		layer.borderColor = UIColor.primaryColor.cgColor
 	}
 	
 	func setChartData(values: [Int], dates: [Date]) {
 		self.dates = dates
 		self.values = values
+		
+		if dates.count > 0 {
+			self.dateLabel.text = "\(self.dateFormatter.string(from: dates.first!)) - TODAY".uppercased()
+		} else {
+			self.dateLabel.text = ""
+		}
+		
 		var dataEntries = [ChartDataEntry]()
 		for i in 0..<dates.count {
-			let dataEntry = BarChartDataEntry(x: Double(i), yValues: [Double(values[i])], label: "\(dates[i])")
+			let dataEntry = BarChartDataEntry(x: Double(i), yValues: [Double(values[i])], label: "A")
 			dataEntries.append(dataEntry)
 		}
 		
 		
 		let dataSet = BarChartDataSet(values: dataEntries, label: "")
 		dataSet.colors = ChartColorTemplates.joyful()
+		dataSet.valueFont = UIFont(name: "Pixeled", size: 6)!
+		dataSet.valueFormatter = self
 		let data = BarChartData(dataSet: dataSet)
-		data.barWidth = 0.1
+		data.barWidth = 0.3
 		chartView.data = data
 	}
 	
@@ -63,8 +78,10 @@ class FMChartTableViewCell: UITableViewCell {
 		chartView.xAxis.labelPosition = .bottom
 		chartView.xAxis.drawGridLinesEnabled = false
 		chartView.xAxis.drawAxisLineEnabled = false
-		chartView.xAxis.axisMinimum = -0.05
-		chartView.xAxis.axisMaximum = 6.05
+		chartView.xAxis.axisMinimum = -0.2
+		chartView.xAxis.axisMaximum = 6.2
+		chartView.xAxis.valueFormatter = self
+		chartView.xAxis.labelFont = UIFont(name: "Pixeled", size: 6)!
 		chartView.leftAxis.drawGridLinesEnabled = false
 		chartView.leftAxis.drawLabelsEnabled = false
 		chartView.leftAxis.drawAxisLineEnabled = false
@@ -86,4 +103,21 @@ class FMChartTableViewCell: UITableViewCell {
 		tableView.register(nib, forCellReuseIdentifier: reuseIdentifier)
 	}
     
+}
+
+extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter {
+	func stringForValue(_ value: Double,
+	                    axis: AxisBase?) -> String {
+		let index = Int(value)
+		if index < self.dates.count {
+			let date = self.dates[Int(value)]
+			return self.dateFormatter.string(from: date).uppercased()
+		} else {
+			return ""
+		}
+	}
+	
+	func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+		return "\(Int(value))"
+	}
 }
