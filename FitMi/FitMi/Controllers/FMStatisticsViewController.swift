@@ -43,8 +43,8 @@ class FMStatisticsViewController: FMViewController {
 		self.tableView.backgroundColor = UIColor.secondaryColor
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-		headerLabel.font = UIFont(name: "Pixeled", size: 22)
-		headerLabel.text = "SPRITE STATUS"
+		headerLabel.font = UIFont(name: "Pixeled", size: 20)
+		headerLabel.text = "SPRITE STATISTICS"
 		headerLabel.textAlignment = .center
 		self.tableView.tableHeaderView = headerLabel
 	}
