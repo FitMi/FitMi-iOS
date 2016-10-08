@@ -113,8 +113,8 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = 5000.0
-		sum += Double(steps)/goal * weights[0]
+		let goal = Double(WORKOUT_GOAL_DEFAULT_STEPS)
+		sum += Double(steps)/goal * weights[0] * Double(SPRITE_STRENGTH_DEFAULT)
 		return Int(sum)
 	}
 	
@@ -130,8 +130,8 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = 2500.0
-		sum += Double(distance)/goal * weights[0]
+		let goal = Double(WORKOUT_GOAL_DEFAULT_DISTANCE)
+		sum += Double(distance)/goal * weights[0] * Double(SPRITE_STAMINA_DEFAULT)
 		return Int(sum)
 	}
 	
@@ -147,8 +147,8 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = 5.0
-		sum += Double(flights)/goal * weights[0]
+		let goal = Double(WORKOUT_GOAL_DEFAULT_FLIGHTS)
+		sum += Double(flights)/goal * weights[0] * Double(SPRITE_AGILITY_DEFAULT)
 		return Int(sum)
 	}
 	
