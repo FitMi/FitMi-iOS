@@ -34,6 +34,7 @@
 		0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */; };
 		0CFC8B7C1DA9040E0084DD6F /* FMSpriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B7B1DA9040E0084DD6F /* FMSpriteState.swift */; };
 		0CFC8B7E1DA9199B0084DD6F /* FoundationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B7D1DA9199B0084DD6F /* FoundationExtension.swift */; };
+		0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B7F1DA96BCE0084DD6F /* FMSpriteLevelManager.swift */; };
 		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
 		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
 		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
@@ -92,6 +93,7 @@
 		0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMChartTableViewCell.xib; sourceTree = "<group>"; };
 		0CFC8B7B1DA9040E0084DD6F /* FMSpriteState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteState.swift; sourceTree = "<group>"; };
 		0CFC8B7D1DA9199B0084DD6F /* FoundationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtension.swift; sourceTree = "<group>"; };
+		0CFC8B7F1DA96BCE0084DD6F /* FMSpriteLevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteLevelManager.swift; sourceTree = "<group>"; };
 		1C2529E0186F433C773AE43B /* Pods_FitMi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				0CD3CD691D9EF9CD00E47BF8 /* FMDatabaseManager.swift */,
 				0CE74F631D9FB5DD00CAB9CE /* FMHealthStatusManager.swift */,
 				0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */,
+				0CFC8B7F1DA96BCE0084DD6F /* FMSpriteLevelManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */,
 				0CE74F5D1D9FAFA000CAB9CE /* FMAccountViewController.swift in Sources */,
 				0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */,
+				0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,

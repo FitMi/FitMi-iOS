@@ -14,6 +14,10 @@ class FMHealthStatusManager: NSObject {
 	
 	private let healthKitStore:HKHealthStore = HKHealthStore()
 	
+	var stepsForToday: Int = 0
+	var distanceForToday: Int = 0
+	var flightsForToday: Int = 0
+	
 	func authorizeHealthKit(completion: ((_ success:Bool, _ error:NSError?) -> Void)!){
 		let readTypes: Set<HKQuantityType> = Set([
 			HKObjectType.quantityType(forIdentifier: .stepCount)!,
@@ -39,6 +43,40 @@ class FMHealthStatusManager: NSObject {
 			
 		})
 	}
+	
+	func stepsForDate(date: Date, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
+		let calendar = Calendar.current
+		self.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .stepCount, completion: {
+			error, value in
+			if error != nil && calendar.isDateInToday(date) {
+				self.stepsForToday = value
+			}
+			completion(error, value)
+		})
+	}
+	
+	func distanceForDate(date: Date, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
+		let calendar = Calendar.current
+		self.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .distanceWalkingRunning, completion: {
+			error, value in
+			if error != nil && calendar.isDateInToday(date) {
+				self.distanceForToday = value
+			}
+			completion(error, value)
+		})
+	}
+	
+	func flightsForDate(date: Date, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
+		let calendar = Calendar.current
+		self.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .flightsClimbed, completion: {
+			error, value in
+			if error != nil && calendar.isDateInToday(date) {
+				self.flightsForToday = value
+			}
+			completion(error, value)
+		})
+	}
+	
 	
 	func quantity(startDate: Date, endDate: Date, type: HKQuantityTypeIdentifier, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
 		let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
@@ -136,6 +174,6 @@ class FMHealthStatusManager: NSObject {
 	}
 	
 	func goalForFlights(date: Date) -> Int {
-		return WORKOUT_GOAL_DEFAULT_STEPS
+		return WORKOUT_GOAL_DEFAULT_FLIGHTS
 	}
 }

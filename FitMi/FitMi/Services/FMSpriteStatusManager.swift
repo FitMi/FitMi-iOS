@@ -15,16 +15,6 @@ class FMSpriteStatusManager: NSObject {
 	
 	override init() {
 		super.init()
-		self.refreshSprite {
-			success in
-			
-			if (success) {
-				print("sprite updated")
-				print(self.sprite)
-			} else {
-				print("updating in progress")
-			}
-		}
 	}
 	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
@@ -42,79 +32,85 @@ class FMSpriteStatusManager: NSObject {
 		
 		DispatchQueue.main.async {
 			self.sprite = self.databaseManager.getCurrentSprite()
+			var lastState = self.sprite.states.last
 			if self.sprite.states.count == 0 {
-				let newState = FMSpriteState()
+				lastState = FMSpriteState()
 				self.databaseManager.realmUpdate {
-					self.sprite.states.append(newState)
+					self.sprite.states.append(lastState!)
 				}
 			}
 			
-			if let lastState = self.sprite.states.last {
-				var placeholder: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void)!
-				
-				let stateCompletion: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void) = {
-					state, strength, stamina, agility in
-					DispatchQueue.main.async {
+			var placeholder: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int, _ stepCount: Int, _ distance: Int, _ flight: Int) -> Void)!
+			
+			let stateCompletion: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int, _ stepCount: Int, _ distance: Int, _ flight: Int) -> Void) = {
+				state, strength, stamina, agility, stepCount, distance, flights in
+				DispatchQueue.main.async {
+					FMDatabaseManager.sharedManager.realmUpdate {
+						state.strength = strength
+						state.stamina = stamina
+						state.agility = agility
+					}
+					
+					self.refreshHealthForState(state: state, stepCount: stepCount, distance: distance, flights: flights)
+					
+					if NSCalendar.current.isDateInToday(state.date) {
+						self.refreshInProgress = false
+						completion(true)
+					} else {
+						let nextState = FMSpriteState()
+						nextState.date = Calendar.current.nextDay(from: state.date)
 						FMDatabaseManager.sharedManager.realmUpdate {
-							state.strength = strength
-							state.stamina = stamina
-							state.agility = agility
+							self.sprite.states.append(nextState)
 						}
-						
-						if NSCalendar.current.isDateInToday(state.date) {
-							self.refreshInProgress = false
-							completion(true)
-						} else {
-							let nextState = FMSpriteState()
-							nextState.date = Calendar.current.nextDay(from: state.date)
-							FMDatabaseManager.sharedManager.realmUpdate {
-								self.sprite.states.append(nextState)
-							}
-							self.refreshState(state: nextState, completion: placeholder)
-						}
+						self.refreshState(state: nextState, completion: placeholder)
 					}
 				}
-				
-				placeholder = stateCompletion
-				
-				self.refreshState(state: lastState, completion: stateCompletion)
 			}
+			
+			placeholder = stateCompletion
+			
+			self.refreshState(state: lastState!, completion: stateCompletion)
 		}
 	}
 	
-	func refreshState(state: FMSpriteState, completion: @escaping ((_ state: FMSpriteState, _ strength: Int, _ stamina: Int, _ agility: Int)->Void)) {
+	func refreshState(state: FMSpriteState, completion: @escaping ((_ state: FMSpriteState, _ strength: Int, _ stamina: Int, _ agility: Int, _ stepCount: Int, _ distance: Int, _ flight: Int)->Void)) {
 		var strength: Int?
 		var stamina: Int?
 		var agility: Int?
-		let calendar = NSCalendar.current
+		var stepCount: Int?
+		var distance: Int?
+		var flights: Int?
 		let date = state.date
 		
-		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .stepCount, completion: {
+		FMHealthStatusManager.sharedManager.stepsForDate(date: date, completion: {
 			error, value in
 			DispatchQueue.main.async {
-				strength = self.strengthForDate(date: date, steps: value)
+				stepCount = error == nil ? value : 0
+				strength = self.strengthForDate(date: date, steps: stepCount!)
 				if strength != nil && stamina != nil && agility != nil {
-					completion(state, strength!, stamina!, agility!)
+					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)
 				}
 			}
 		})
 		
-		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .distanceWalkingRunning, completion: {
+		FMHealthStatusManager.sharedManager.distanceForDate(date: date, completion: {
 			error, value in
 			DispatchQueue.main.async {
-				stamina = self.staminaForDate(date: date, distance: value)
+				distance = error == nil ? value : 0
+				stamina = self.staminaForDate(date: date, distance: distance!)
 				if strength != nil && stamina != nil && agility != nil {
-					completion(state, strength!, stamina!, agility!)
+					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)
 				}
 			}
 		})
 		
-		FMHealthStatusManager.sharedManager.quantity(startDate: calendar.startOfDay(for: date), endDate: calendar.endOfDay(for: date), type: .flightsClimbed, completion: {
+		FMHealthStatusManager.sharedManager.flightsForDate(date: date, completion: {
 			error, value in
 			DispatchQueue.main.async {
-				agility = self.agilityForDate(date: date, flights: value)
+				flights = error == nil ? value : 0
+				agility = self.agilityForDate(date: date, flights: flights!)
 				if strength != nil && stamina != nil && agility != nil {
-					completion(state, strength!, stamina!, agility!)
+					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)
 				}
 			}
 		})
@@ -171,11 +167,24 @@ class FMSpriteStatusManager: NSObject {
 		return Int(sum)
 	}
 	
-	func refreshHealthForState(state: FMSpriteState) {
+	func refreshHealthForState(state: FMSpriteState, stepCount: Int, distance: Int, flights: Int) {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: state.date)).sorted(byProperty: "date", ascending: false)
-		let lastHealth = (states.count == 0) ? SPRITE_HEALTH_DEFAULT : states.last!.health
-		
-		
+		let lastHealth = Double(states.count == 0 ? SPRITE_HEALTH_DEFAULT :states.last!.health)
+		let factor = self.healthFactor(date: state.date, stepCount: stepCount, distance: distance, flights: flights)
+		let health = (1 - SPRITE_HEALTH_WEIGHT_TODAY) * lastHealth + SPRITE_HEALTH_WEIGHT_TODAY * lastHealth * factor
+		let healthLimit = FMSpriteLevelManager.sharedManager.healthLimitForLevel(level: self.sprite.states.last!.level)
+
+		FMDatabaseManager.sharedManager.realmUpdate {
+			state.health = min(healthLimit, Int(health))
+		}
+	}
+	
+	func healthFactor(date: Date, stepCount: Int, distance: Int, flights: Int) -> Double{
+		let manager = FMHealthStatusManager.sharedManager
+		let stepCountGoal = Double(manager.goalForSteps(date: date))
+		let distanceGoal = Double(manager.goalForDistance(date: date))
+		let flightsGoal = Double(manager.goalForFlights(date: date))
+		return (Double(stepCount) / stepCountGoal) * (Double(distance) / distanceGoal) * (Double(flights) / flightsGoal)
 	}
 	
 	// -------------- current data getter ---------------
