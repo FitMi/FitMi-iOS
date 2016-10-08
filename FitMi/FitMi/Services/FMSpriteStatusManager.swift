@@ -13,10 +13,6 @@ class FMSpriteStatusManager: NSObject {
 	let databaseManager = FMDatabaseManager.sharedManager
 	var sprite: FMSprite!
 	
-	override init() {
-		super.init()
-	}
-	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
 	// This should only be called when resumed from background or newly started up
 	// In-app states update should use other approach due to the mood property
