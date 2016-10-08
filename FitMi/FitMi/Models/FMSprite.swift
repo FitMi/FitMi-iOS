@@ -11,12 +11,12 @@ import RealmSwift
 
 class FMSprite: Object {
 	
-	dynamic var identifier: String = ""
-	dynamic var name: String = ""
-	dynamic var type: String = ""
-	dynamic var mode: Int = 100
+	dynamic var identifier: String = UUID().uuidString
+	dynamic var name: String = "Default"
+	dynamic var type: String = "CAT"
+	dynamic var mood: Int = 100
 	dynamic var birthday:Date = Date()
-	let states = List<FMSpriteStatus>()
+	let states = List<FMSpriteState>()
 	
 	override static func indexedProperties() -> [String] {
 		return ["identifier"]
