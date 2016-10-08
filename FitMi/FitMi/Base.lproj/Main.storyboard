@@ -23,13 +23,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01H-0d-BFg">
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="dN0-g9-QUP"/>
+                                    <constraint firstAttribute="height" constant="44" id="kAo-MQ-8Ht"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-6U-Dhd">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c8Y-6U-Dhd" secondAttribute="height" id="3Os-9B-Bq6"/>
                                     <constraint firstAttribute="width" constant="48" id="5kL-uH-tjh"/>
                                 </constraints>
-                                <color key="tintColor" red="0.26666666666666666" green="0.32941176470588235" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="=" image="ic_explore_48pt">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -51,8 +66,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="c8Y-6U-Dhd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8fn-gi-mBt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c8Y-6U-Dhd" secondAttribute="bottom" constant="20" id="H06-uy-Ze2"/>
-                            <constraint firstItem="c8Y-6U-Dhd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="aoA-U2-I1S"/>
+                            <constraint firstItem="01H-0d-BFg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KXD-it-ijg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="01H-0d-BFg" secondAttribute="bottom" id="N9I-TL-sk9"/>
+                            <constraint firstAttribute="trailing" secondItem="01H-0d-BFg" secondAttribute="trailing" id="dyx-jj-tbk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -136,6 +154,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HAp-4H-eyA">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpi-2v-ujD">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                        <state key="normal" title="HOME PAGE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="blT-Bg-yPm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dy-P4-oJM">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                        <state key="normal" title="EXERCISE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="7Yj-jB-fil"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Gd-OLC">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                        <state key="normal" title="STATISTICS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="aKP-sH-mJs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-tN-nk2">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                        <state key="normal" title="ACCOUNT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="sDu-fg-pja"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEr-oT-9St">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -161,55 +219,15 @@
                                     <action selector="closeAction:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="yIW-YH-sNt"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HAp-4H-eyA">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpi-2v-ujD">
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="HOME PAGE">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="blT-Bg-yPm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dy-P4-oJM">
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="EXERCISE">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="7Yj-jB-fil"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Gd-OLC">
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="STATISTICS">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="aKP-sH-mJs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-tN-nk2">
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="ACCOUNT">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="sDu-fg-pja"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HAp-4H-eyA" firstAttribute="leading" secondItem="E1L-k1-PoY" secondAttribute="leading" constant="20" id="9kK-Jx-WdS"/>
                             <constraint firstAttribute="trailing" secondItem="HAp-4H-eyA" secondAttribute="trailing" constant="20" id="H2A-q4-0n4"/>
+                            <constraint firstItem="dEr-oT-9St" firstAttribute="centerX" secondItem="E1L-k1-PoY" secondAttribute="centerX" id="QD2-bE-a04"/>
                             <constraint firstItem="dEr-oT-9St" firstAttribute="width" secondItem="dEr-oT-9St" secondAttribute="height" id="Rqx-yU-HV5"/>
-                            <constraint firstItem="HAp-4H-eyA" firstAttribute="top" secondItem="ZEV-w3-Zht" secondAttribute="bottom" constant="40" id="XP5-AG-jpH"/>
-                            <constraint firstItem="dEr-oT-9St" firstAttribute="leading" secondItem="E1L-k1-PoY" secondAttribute="leading" constant="20" id="cpK-YT-ZhX"/>
                             <constraint firstItem="5BC-zv-fMO" firstAttribute="top" secondItem="dEr-oT-9St" secondAttribute="bottom" constant="20" id="j6A-va-zKf"/>
+                            <constraint firstItem="HAp-4H-eyA" firstAttribute="centerY" secondItem="E1L-k1-PoY" secondAttribute="centerY" constant="-50" id="rff-DY-GEz"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -235,25 +253,16 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="90"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="44"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cpk-pn-UjH" id="YMc-e9-8cN"/>
                                     <outlet property="delegate" destination="cpk-pn-UjH" id="n2b-mA-PoZ"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fe-Aw-qMH">
-                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="aob-GD-PNH"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="RO3-zY-hma" secondAttribute="trailing" id="22k-ff-NyS"/>
-                            <constraint firstAttribute="trailing" secondItem="7Fe-Aw-qMH" secondAttribute="trailing" id="7Ur-U8-Z6D"/>
-                            <constraint firstItem="wXc-wR-kcf" firstAttribute="top" secondItem="7Fe-Aw-qMH" secondAttribute="bottom" id="G9q-q7-PNp"/>
-                            <constraint firstItem="7Fe-Aw-qMH" firstAttribute="leading" secondItem="coB-sR-6jJ" secondAttribute="leading" id="Sm0-9i-zGL"/>
                             <constraint firstItem="RO3-zY-hma" firstAttribute="leading" secondItem="coB-sR-6jJ" secondAttribute="leading" id="alw-QF-GSR"/>
                             <constraint firstItem="RO3-zY-hma" firstAttribute="top" secondItem="coB-sR-6jJ" secondAttribute="top" id="erJ-ZK-ltq"/>
                             <constraint firstItem="wXc-wR-kcf" firstAttribute="top" secondItem="RO3-zY-hma" secondAttribute="bottom" id="iOj-4F-8ZI"/>

@@ -24,7 +24,7 @@ extension UIView {
 			case 0:
 				self.layer.shadowRadius = 1
 				self.layer.shadowOffset = CGSize.zero
-				self.layer.shadowOpacity = 0.1
+				self.layer.shadowOpacity = 0.2
 			default:
 				print("shadowType not defined.")
 			}

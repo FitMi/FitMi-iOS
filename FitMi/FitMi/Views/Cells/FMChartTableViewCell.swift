@@ -18,9 +18,10 @@ class FMChartTableViewCell: UITableViewCell {
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var dateLabel: UILabel!
 	
-	var dates = [Date]()
-	var values = [Int]()
+	var dates = [Date?]()
+	var values = [Int?]()
 	var dateFormatter: DateFormatter!
+	var labelDateFormatter: DateFormatter!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,9 +29,11 @@ class FMChartTableViewCell: UITableViewCell {
 		self.setCardViewStyle()
 		self.configureChartView()
 		
-		let formatter = DateFormatter()
-		formatter.dateFormat = "MMM dd"
-		self.dateFormatter = formatter
+		self.dateFormatter = DateFormatter()
+		self.dateFormatter.dateFormat = "MM-dd"
+		
+		self.labelDateFormatter = DateFormatter()
+		self.labelDateFormatter.dateFormat = "dd, MMMM"
     }
 	
 	func setCardViewStyle() {
@@ -39,19 +42,23 @@ class FMChartTableViewCell: UITableViewCell {
 		layer.borderColor = UIColor.primaryColor.cgColor
 	}
 	
-	func setChartData(values: [Int], dates: [Date]) {
+	func setChartData(values: [Int?], dates: [Date?]) {
 		self.dates = dates
 		self.values = values
 		
-		if dates.count > 0 {
-			self.dateLabel.text = "\(self.dateFormatter.string(from: dates.first!)) - TODAY".uppercased()
+		if dates.count > 0 && dates.first != nil {
+			if let optionalValue = dates.first {
+				if let value = optionalValue {
+					self.dateLabel.text = "\(self.labelDateFormatter.string(from: value)) - TODAY".uppercased()
+				}
+			}
 		} else {
 			self.dateLabel.text = ""
 		}
 		
 		var dataEntries = [ChartDataEntry]()
 		for i in 0..<dates.count {
-			let dataEntry = BarChartDataEntry(x: Double(i), yValues: [Double(values[i])], label: "A")
+			let dataEntry = BarChartDataEntry(x: Double(i), yValues: [Double(values[i] == nil ? 0 : values[i]!)], label: "")
 			dataEntries.append(dataEntry)
 		}
 		
@@ -110,14 +117,17 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter {
 	                    axis: AxisBase?) -> String {
 		let index = Int(value)
 		if index < self.dates.count {
-			let date = self.dates[Int(value)]
-			return self.dateFormatter.string(from: date).uppercased()
+			if let date = self.dates[Int(value)] {
+				return self.dateFormatter.string(from: date).uppercased()
+			} else {
+				return "-"
+			}
 		} else {
-			return ""
+			return "-"
 		}
 	}
 	
 	func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-		return "\(Int(value))"
+		return value == 0 ? "" :"\(Int(value))"
 	}
 }

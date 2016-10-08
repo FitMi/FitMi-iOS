@@ -15,11 +15,11 @@ class FMStatisticsViewController: FMViewController {
 	private static var defaultController: FMStatisticsViewController?
 	
 	@IBOutlet var tableView: UITableView!
-	var chartValueArrayHealth = [Int]()
-	var chartValueArrayStrength = [Int]()
-	var chartValueArrayStamina = [Int]()
-	var chartValueArrayAgility = [Int]()
-	var chartDateArray = [Date]()
+	var chartValueArrayHealth = [Int?]()
+	var chartValueArrayStrength = [Int?]()
+	var chartValueArrayStamina = [Int?]()
+	var chartValueArrayAgility = [Int?]()
+	var chartDateArray = [Date?]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -39,7 +39,7 @@ class FMStatisticsViewController: FMViewController {
 	private func configureTableView() {
 		self.tableView.estimatedRowHeight = 100
 		self.tableView.rowHeight = UITableViewAutomaticDimension
-		self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 100, right: 0)
+		self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 88, right: 0)
 		self.tableView.backgroundColor = UIColor.secondaryColor
 	}
 	
@@ -53,13 +53,27 @@ class FMStatisticsViewController: FMViewController {
 						if (success) {
 							let sprite = FMSpriteStatusManager.sharedManager.sprite!
 							let states = sprite.states.sorted(byProperty: "date", ascending: false)
-							for i in 0..<min(states.count, 7) {
-								self.chartDateArray.append(states[i].date)
-								self.chartValueArrayHealth.append(states[i].health)
-								self.chartValueArrayStrength.append(states[i].strength)
-								self.chartValueArrayStamina.append(states[i].stamina)
-								self.chartValueArrayAgility.append(states[i].agility)
+							for i in 0..<7 {
+								if i < states.count {
+									self.chartDateArray.append(states[i].date)
+									self.chartValueArrayHealth.append(states[i].health)
+									self.chartValueArrayStrength.append(states[i].strength)
+									self.chartValueArrayStamina.append(states[i].stamina)
+									self.chartValueArrayAgility.append(states[i].agility)
+								} else {
+									self.chartDateArray.append(nil)
+									self.chartValueArrayHealth.append(nil)
+									self.chartValueArrayStrength.append(nil)
+									self.chartValueArrayStamina.append(nil)
+									self.chartValueArrayAgility.append(nil)
+								}
 							}
+							
+							self.chartDateArray.reverse()
+							self.chartValueArrayHealth.reverse()
+							self.chartValueArrayStrength.reverse()
+							self.chartValueArrayStamina.reverse()
+							self.chartValueArrayAgility.reverse()
 							
 							self.tableView.reloadData()
 						} else {
