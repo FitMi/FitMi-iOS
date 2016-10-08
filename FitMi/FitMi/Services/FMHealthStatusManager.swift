@@ -127,7 +127,15 @@ class FMHealthStatusManager: NSObject {
 		self.healthKitStore.execute(query)
 	}
 	
-	func goals(date: NSDate, completion: ([Int]) -> Void) {
-		//data for each workoutType and date combination
+	func goalForSteps(date: Date) -> Int {
+		return WORKOUT_GOAL_DEFAULT_STEPS
+	}
+	
+	func goalForDistance(date: Date) -> Int {
+		return WORKOUT_GOAL_DEFAULT_DISTANCE
+	}
+	
+	func goalForFlights(date: Date) -> Int {
+		return WORKOUT_GOAL_DEFAULT_STEPS
 	}
 }

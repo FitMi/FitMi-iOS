@@ -16,19 +16,32 @@ class FMSpriteStatusManager: NSObject {
 	override init() {
 		super.init()
 		self.refreshSprite {
-			print("sprite updated")
-			print(self.sprite)
+			success in
+			
+			if (success) {
+				print("sprite updated")
+				print(self.sprite)
+			} else {
+				print("updating in progress")
+			}
 		}
 	}
 	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
 	// This should only be called when resumed from background or newly started up
 	// In-app states update should use other approach due to the mood property
-	func refreshSprite(completion: @escaping (()->Void)) {
+	
+	var refreshInProgress = false
+	func refreshSprite(completion: @escaping ((_ success: Bool)->Void)) {
+		if refreshInProgress == true {
+			completion(false)
+			return
+		}
+		
+		self.refreshInProgress = true
+		
 		DispatchQueue.main.async {
 			self.sprite = self.databaseManager.getCurrentSprite()
-			print(self.sprite)
-			
 			if self.sprite.states.count == 0 {
 				let newState = FMSpriteState()
 				self.databaseManager.realmUpdate {
@@ -38,6 +51,7 @@ class FMSpriteStatusManager: NSObject {
 			
 			if let lastState = self.sprite.states.last {
 				var placeholder: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void)!
+				
 				let stateCompletion: ((_ state : FMSpriteState, _ strength : Int, _ stamina : Int, _ agility : Int) -> Void) = {
 					state, strength, stamina, agility in
 					DispatchQueue.main.async {
@@ -45,19 +59,24 @@ class FMSpriteStatusManager: NSObject {
 							state.strength = strength
 							state.stamina = stamina
 							state.agility = agility
-							
-							if NSCalendar.current.isDateInToday(state.date) {
-								completion()
-							} else {
-								let nextState = FMSpriteState()
-								nextState.date = Calendar.current.nextDay(from: state.date)
+						}
+						
+						if NSCalendar.current.isDateInToday(state.date) {
+							self.refreshInProgress = false
+							completion(true)
+						} else {
+							let nextState = FMSpriteState()
+							nextState.date = Calendar.current.nextDay(from: state.date)
+							FMDatabaseManager.sharedManager.realmUpdate {
 								self.sprite.states.append(nextState)
-								self.refreshState(state: nextState, completion: placeholder)
 							}
+							self.refreshState(state: nextState, completion: placeholder)
 						}
 					}
 				}
+				
 				placeholder = stateCompletion
+				
 				self.refreshState(state: lastState, completion: stateCompletion)
 			}
 		}
@@ -113,7 +132,7 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(WORKOUT_GOAL_DEFAULT_STEPS)
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForSteps(date: date))
 		sum += Double(steps)/goal * weights[0] * Double(SPRITE_STRENGTH_DEFAULT)
 		return Int(sum)
 	}
@@ -130,7 +149,7 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(WORKOUT_GOAL_DEFAULT_DISTANCE)
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForDistance(date: date))
 		sum += Double(distance)/goal * weights[0] * Double(SPRITE_STAMINA_DEFAULT)
 		return Int(sum)
 	}
@@ -147,9 +166,16 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(WORKOUT_GOAL_DEFAULT_FLIGHTS)
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForFlights(date: date))
 		sum += Double(flights)/goal * weights[0] * Double(SPRITE_AGILITY_DEFAULT)
 		return Int(sum)
+	}
+	
+	func refreshHealthForState(state: FMSpriteState) {
+		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: state.date)).sorted(byProperty: "date", ascending: false)
+		let lastHealth = (states.count == 0) ? SPRITE_HEALTH_DEFAULT : states.last!.health
+		
+		
 	}
 	
 	// -------------- current data getter ---------------

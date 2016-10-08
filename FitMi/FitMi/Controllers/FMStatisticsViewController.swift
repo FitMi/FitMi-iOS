@@ -49,9 +49,11 @@ class FMStatisticsViewController: FMViewController {
 		FMHealthStatusManager.sharedManager.authorizeHealthKit {
 			(authorized,  error) -> Void in
 			if authorized {
-				FMSpriteStatusManager.sharedManager.refreshSprite {
-					print("sprite updated")
-					print(FMSpriteStatusManager.sharedManager.sprite)
+				FMSpriteStatusManager.sharedManager.refreshSprite {_ in
+					DispatchQueue.main.async {
+						print("sprite updated")
+						print(FMSpriteStatusManager.sharedManager.sprite)
+					}
 				}
 				
 				FMHealthStatusManager.sharedManager.quantity(daysBack: 6, type: .stepCount, completion: {
