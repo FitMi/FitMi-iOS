@@ -92,6 +92,15 @@ class FMStatisticsViewController: FMViewController {
 		
 		return FMStatisticsViewController.defaultController!
 	}
+	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		super.willMove(toParentViewController: parent)
+		self.tableView.reloadData()
+	}
+	
+	override func didMove(toParentViewController parent: UIViewController?) {
+		super.didMove(toParentViewController: parent)
+	}
 }
 
 

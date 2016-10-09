@@ -19,7 +19,13 @@ class FMMenuViewController: FMViewController {
 	}
 	
 	@IBAction func closeAction(_ sender: AnyObject) {
-		self.dismiss(animated: true, completion: nil)
+		self.dismiss(animated: true, completion: {
+			for i in 0..<self.viewControllers.count {
+				if !self.viewControllers[i].view.isHidden {
+					self.viewControllers[i].didMove(toParentViewController: nil)
+				}
+			}
+		})
 	}
 	
 	@IBAction func didSelectPage(button: UIButton) {
@@ -28,6 +34,9 @@ class FMMenuViewController: FMViewController {
 		
 		for i in 0..<self.viewControllers.count {
 			self.viewControllers[i].view.isHidden = hidden[i]
+			if !hidden[i] {
+				self.viewControllers[i].willMove(toParentViewController: nil)
+			}
 		}
 		
 		self.closeAction(button)

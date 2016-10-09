@@ -88,6 +88,7 @@ class FMChartTableViewCell: UITableViewCell {
 		let data = BarChartData(dataSet: dataSet)
 		data.barWidth = 0.3
 		chartView.data = data
+		chartView.animate(yAxisDuration: 1, easingOption: .easeInBounce)
 	}
 	
 	func configureChartView() {
