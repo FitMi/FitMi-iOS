@@ -24,12 +24,12 @@ class FMMainScene: SKScene {
 		}
 		
 		self.character = SKSpriteNode(imageNamed: "relax1-1.png")
-		self.character.size = CGSize(width: 400, height: 400)
-		self.character.position = CGPoint.zero
+		self.character.size = CGSize(width: 300, height: 300)
+		self.character.position = CGPoint(x: -15, y: 30)
 		
 		self.addChild(self.character)
 		
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.6, resize: true, restore: true)))
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.5, resize: true, restore: true)))
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
