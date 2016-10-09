@@ -19,7 +19,7 @@ class FMMainScene: SKScene {
 		self.textureAtlas = SKTextureAtlas(named: "sprite-a")
 		
 		for i in 1...self.textureAtlas.textureNames.count {
-			let name = "relax1-\(i).png"
+			let name = "relax1-\((i + 6) % self.textureAtlas.textureNames.count + 1).png"
 			textureArray.append(SKTexture(imageNamed: name))
 		}
 		
@@ -33,7 +33,8 @@ class FMMainScene: SKScene {
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		
+		self.character.removeAllActions()
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.5, resize: true, restore: true)))
 	}
 	
     override func update(_ currentTime: TimeInterval) {
