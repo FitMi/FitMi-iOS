@@ -11,12 +11,20 @@ import BubbleTransition
 
 class FMRootViewController: FMViewController {
 
+	static var defaultController: FMRootViewController!
+	
 	@IBOutlet weak var menuButton: UIButton!
+	
+	@IBOutlet weak var leftButton: UIButton!
+	@IBOutlet weak var rightButton: UIButton!
+	
 	let transition = BubbleTransition()
 	let healthStatusManager = FMHealthStatusManager.sharedManager
 	
 	override func loadView() {
 		super.loadView()
+		
+		FMRootViewController.defaultController = self
 		
 		let homeViewController = FMHomeViewController.getDefaultController()
 		self.view.addSubview(homeViewController.view)

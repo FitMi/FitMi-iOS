@@ -25,10 +25,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01H-0d-BFg">
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87X-Vl-8w9">
+                                        <color key="backgroundColor" red="0.0" green="0.34901960780000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                        <state key="normal" title="START EXERCISE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-Su-Ytx">
+                                        <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                        <state key="normal" title="END EXERCISE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="6nL-Su-Ytx" firstAttribute="top" secondItem="01H-0d-BFg" secondAttribute="top" id="4Gc-tJ-bR6"/>
+                                    <constraint firstItem="87X-Vl-8w9" firstAttribute="leading" secondItem="6nL-Su-Ytx" secondAttribute="trailing" id="K8t-0I-inK"/>
+                                    <constraint firstItem="87X-Vl-8w9" firstAttribute="width" secondItem="6nL-Su-Ytx" secondAttribute="width" id="Q9c-1C-hTj"/>
+                                    <constraint firstItem="87X-Vl-8w9" firstAttribute="top" secondItem="01H-0d-BFg" secondAttribute="top" id="TPo-GL-Zo2"/>
+                                    <constraint firstItem="6nL-Su-Ytx" firstAttribute="leading" secondItem="01H-0d-BFg" secondAttribute="leading" id="ULL-R9-6c9"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="dN0-g9-QUP"/>
+                                    <constraint firstAttribute="bottom" secondItem="87X-Vl-8w9" secondAttribute="bottom" id="iai-os-uqp"/>
                                     <constraint firstAttribute="height" constant="44" id="kAo-MQ-8Ht"/>
+                                    <constraint firstItem="87X-Vl-8w9" firstAttribute="leading" secondItem="6nL-Su-Ytx" secondAttribute="trailing" id="psI-8c-urK"/>
+                                    <constraint firstAttribute="bottom" secondItem="6nL-Su-Ytx" secondAttribute="bottom" id="qda-n9-eIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="87X-Vl-8w9" secondAttribute="trailing" id="zfh-V7-ryR"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadow">
@@ -75,7 +100,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="leftButton" destination="6nL-Su-Ytx" id="Ddb-Z8-Z3L"/>
                         <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
+                        <outlet property="rightButton" destination="87X-Vl-8w9" id="594-tE-LlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -33,6 +33,9 @@ class FMMenuViewController: FMViewController {
 		hidden[button.tag] = false
 		
 		for i in 0..<self.viewControllers.count {
+			if !self.viewControllers[i].view.isHidden {
+				self.viewControllers[i].willMoveAway(fromParentViewController: nil)
+			}
 			self.viewControllers[i].view.isHidden = hidden[i]
 			if !hidden[i] {
 				self.viewControllers[i].willMove(toParentViewController: nil)

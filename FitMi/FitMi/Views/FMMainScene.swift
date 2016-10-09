@@ -13,8 +13,11 @@ class FMMainScene: SKScene {
     
     private var textureAtlas = SKTextureAtlas()
 	private var textureArray = [SKTexture]()
+	private var defaultScale: CGFloat = 0.0
+	private var isInHomeScreen = false
 	var character = SKSpriteNode()
-    
+	
+	
     override func didMove(to view: SKView) {
 		self.textureAtlas = SKTextureAtlas(named: "sprite-a")
 		
@@ -24,22 +27,25 @@ class FMMainScene: SKScene {
 		}
 		
 		self.character = SKSpriteNode(imageNamed: "relax1-8.png")
-		self.character.size = CGSize(width: 300, height: 300)
+		self.character.size = CGSize(width: 400, height: 400)
 		self.character.position = CGPoint(x: -15, y: 30)
+		self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
+		self.defaultScale = self.isInHomeScreen ? 1 : 0.8
+		self.character.setScale(self.defaultScale)
 		
 		self.addChild(self.character)
 		
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.5, resize: true, restore: true)))
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.textureArray, timePerFrame: 0.5, resize: true, restore: true)))
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.character.removeAllActions()
-		self.character.setScale(0.95)
+		self.character.setScale(0.95 * self.defaultScale)
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		self.character.setScale(1)
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.5, resize: true, restore: true)))
+		self.character.setScale(self.defaultScale)
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.textureArray, timePerFrame: 0.5, resize: true, restore: true)))
 	}
 	
     override func update(_ currentTime: TimeInterval) {

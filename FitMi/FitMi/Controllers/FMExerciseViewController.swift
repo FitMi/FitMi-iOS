@@ -74,4 +74,17 @@ class FMExerciseViewController: FMViewController {
 		return FMExerciseViewController.defaultController!
 	}
 
+	
+	override func willMove(toParentViewController parent: UIViewController?) {
+		super.willMove(toParentViewController: parent)
+		let root = FMRootViewController.defaultController!
+		root.leftButton.isHidden = false
+		root.rightButton.isHidden = false
+	}
+	
+	override func willMoveAway(fromParentViewController parent: UIViewController?) {
+		let root = FMRootViewController.defaultController!
+		root.leftButton.isHidden = true
+		root.rightButton.isHidden = true
+	}
 }

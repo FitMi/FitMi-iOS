@@ -18,4 +18,8 @@ class FMViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
+	func willMoveAway(fromParentViewController parent: UIViewController?) {
+		
+	}
 }
