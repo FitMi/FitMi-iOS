@@ -19,17 +19,17 @@ class FMMainScene: SKScene {
 		self.textureAtlas = SKTextureAtlas(named: "sprite-a")
 		
 		for i in 1...self.textureAtlas.textureNames.count {
-			let name = "sprite-6-\(i).png"
+			let name = "relax1-\(i).png"
 			textureArray.append(SKTexture(imageNamed: name))
 		}
 		
-		self.character = SKSpriteNode(imageNamed: "sprite-6-1.png")
-		self.character.size = CGSize(width: 239, height: 240)
+		self.character = SKSpriteNode(imageNamed: "relax1-1.png")
+		self.character.size = CGSize(width: 400, height: 400)
 		self.character.position = CGPoint.zero
 		
 		self.addChild(self.character)
 		
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.1, resize: true, restore: true)))
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame: 0.6, resize: true, restore: true)))
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
