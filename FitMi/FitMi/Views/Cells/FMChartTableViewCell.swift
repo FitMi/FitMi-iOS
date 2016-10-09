@@ -53,7 +53,7 @@ class FMChartTableViewCell: UITableViewCell {
 		self.states = states
 		self.type = type
 		
-		self.dateLabel.text = ""
+		self.dateLabel.text = "TODAY"
 		if states.count > 1 {
 			for i in 0..<states.count - 1 {
 				if let value = states[i] {
@@ -77,6 +77,7 @@ class FMChartTableViewCell: UITableViewCell {
 				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
 			}
 			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, label: "")
+			dataEntry.data = states[i]
 			dataEntries.append(dataEntry)
 		}
 		
@@ -116,6 +117,7 @@ class FMChartTableViewCell: UITableViewCell {
 		chartView.rightAxis.drawAxisLineEnabled = false
 		chartView.drawMarkers = false
 		chartView.legend.enabled = false
+		chartView.delegate = self
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -131,7 +133,7 @@ class FMChartTableViewCell: UITableViewCell {
     
 }
 
-extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter {
+extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter, ChartViewDelegate {
 	func stringForValue(_ value: Double,
 	                    axis: AxisBase?) -> String {
 		let index = Int(value)
@@ -148,5 +150,32 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter {
 	
 	func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
 		return value == 0 ? "" :"\(Int(value))"
+	}
+	
+	func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+		if let state = entry.data as! FMSpriteState? {
+			switch type {
+			case .strength:
+				self.dateLabel.text = "\(state.stepCount) STEPS"
+			case .stamina:
+				self.dateLabel.text = "\(state.distance) METERS"
+			case .agility:
+				self.dateLabel.text = "\(state.flightsClimbed) FLIGHTS"
+			default:
+				print("Do Nothing")
+			}
+		}
+	}
+	
+	func chartValueNothingSelected(_ chartView: ChartViewBase) {
+		self.dateLabel.text = "TODAY"
+		if states.count > 1 {
+			for i in 0..<states.count - 1 {
+				if let value = states[i] {
+					self.dateLabel.text = "\(self.labelDateFormatter.string(from: value.date)) - TODAY".uppercased()
+					break
+				}
+			}
+		}
 	}
 }

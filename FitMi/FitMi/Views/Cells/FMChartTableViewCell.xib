@@ -39,7 +39,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="7KR-ZU-CLK" firstAttribute="leading" secondItem="Sqa-LH-JZv" secondAttribute="trailing" constant="5" id="W2t-pe-fNH"/>
-                                            <constraint firstItem="7KR-ZU-CLK" firstAttribute="top" secondItem="kfj-sN-3N1" secondAttribute="top" constant="7" id="ifd-OR-7OF"/>
+                                            <constraint firstItem="7KR-ZU-CLK" firstAttribute="top" secondItem="kfj-sN-3N1" secondAttribute="top" constant="10" id="ifd-OR-7OF"/>
                                             <constraint firstItem="Sqa-LH-JZv" firstAttribute="leading" secondItem="kfj-sN-3N1" secondAttribute="leading" constant="5" id="pOy-qp-j92"/>
                                             <constraint firstItem="Sqa-LH-JZv" firstAttribute="top" secondItem="kfj-sN-3N1" secondAttribute="top" constant="5" id="pid-e2-xVF"/>
                                             <constraint firstAttribute="bottom" secondItem="Sqa-LH-JZv" secondAttribute="bottom" constant="5" id="tnk-so-VcB"/>
