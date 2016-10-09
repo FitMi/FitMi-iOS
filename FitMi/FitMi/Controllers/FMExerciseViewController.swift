@@ -12,6 +12,42 @@ class FMExerciseViewController: FMViewController {
 
 	private static var defaultController: FMExerciseViewController?
 	
+	@IBOutlet var statusPanelView: UIView!
+	@IBOutlet var statusPanelTitleContainer: UIView!
+	@IBOutlet var statusPanelTitleLabel: UILabel!
+	@IBOutlet var spriteView: SKView!
+	
+	override func loadView() {
+		super.loadView()
+		
+		self.view.backgroundColor = UIColor.secondaryColor
+		
+		
+		do {
+			self.statusPanelView.backgroundColor = UIColor.white
+			let layer = self.statusPanelView.layer
+			layer.borderWidth = 3
+			layer.borderColor = UIColor.black.cgColor
+		}
+		
+		do {
+			self.statusPanelTitleContainer.backgroundColor = UIColor.white
+			let layer = self.statusPanelTitleContainer.layer
+			layer.borderWidth = 3
+			layer.borderColor = UIColor.black.cgColor
+		}
+		
+		do {
+			if let scene = SKScene(fileNamed: "FMMainScene") {
+				scene.scaleMode = .aspectFill
+				self.spriteView.presentScene(scene)
+			}
+			
+			self.spriteView.ignoresSiblingOrder = true
+		}
+		
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 

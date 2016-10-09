@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -125,22 +126,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSl-jy-pdY">
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="47"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="8YC-Pa-oA1"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hmX-4b-wH4" firstAttribute="top" secondItem="DVp-27-Lbr" secondAttribute="top" constant="10" id="6KW-KE-oBi"/>
+                                    <constraint firstAttribute="trailing" secondItem="hmX-4b-wH4" secondAttribute="trailing" constant="10" id="gs3-Vh-J28"/>
+                                    <constraint firstAttribute="bottom" secondItem="hmX-4b-wH4" secondAttribute="bottom" constant="10" id="hh5-Sd-pIB"/>
+                                    <constraint firstItem="hmX-4b-wH4" firstAttribute="leading" secondItem="DVp-27-Lbr" secondAttribute="leading" constant="10" id="k23-jU-kUG"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZSl-jy-pdY" firstAttribute="centerX" secondItem="pnF-eo-036" secondAttribute="centerX" id="DrM-VA-qRY"/>
-                            <constraint firstItem="ZSl-jy-pdY" firstAttribute="centerY" secondItem="pnF-eo-036" secondAttribute="centerY" id="aUn-qE-Lvu"/>
+                            <constraint firstItem="DVp-27-Lbr" firstAttribute="top" secondItem="U2L-BY-CPQ" secondAttribute="bottom" constant="50" id="9Cv-bW-kvP"/>
+                            <constraint firstItem="0Vj-hy-d9D" firstAttribute="top" secondItem="HUT-dN-j7h" secondAttribute="bottom" constant="44" id="G3o-Rr-WHa"/>
+                            <constraint firstAttribute="trailing" secondItem="HUT-dN-j7h" secondAttribute="trailing" id="MhQ-XW-fi4"/>
+                            <constraint firstAttribute="trailing" secondItem="jk7-0T-r2c" secondAttribute="trailing" constant="30" id="Qnc-wi-Uft"/>
+                            <constraint firstItem="DVp-27-Lbr" firstAttribute="centerX" secondItem="jk7-0T-r2c" secondAttribute="centerX" id="e8v-eb-A1j"/>
+                            <constraint firstItem="jk7-0T-r2c" firstAttribute="top" secondItem="DVp-27-Lbr" secondAttribute="centerY" id="eoQ-w0-opl"/>
+                            <constraint firstItem="HUT-dN-j7h" firstAttribute="top" secondItem="jk7-0T-r2c" secondAttribute="bottom" constant="30" id="h5b-yn-Eb1"/>
+                            <constraint firstItem="jk7-0T-r2c" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" constant="30" id="hQl-Vr-wph"/>
+                            <constraint firstItem="HUT-dN-j7h" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="w2R-iT-Nai"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="spriteView" destination="HUT-dN-j7h" id="uRG-gS-Akt"/>
+                        <outlet property="statusPanelTitleContainer" destination="DVp-27-Lbr" id="vGL-DR-XV6"/>
+                        <outlet property="statusPanelTitleLabel" destination="hmX-4b-wH4" id="BB3-D4-GBO"/>
+                        <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="763"/>
+            <point key="canvasLocation" x="880.79999999999995" y="762.36881559220399"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="S3W-oo-s4v">
