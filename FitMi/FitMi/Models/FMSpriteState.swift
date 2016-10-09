@@ -14,6 +14,10 @@ class FMSpriteState: Object {
 	dynamic var strength: Int = SPRITE_STRENGTH_DEFAULT
 	dynamic var stamina: Int = SPRITE_STAMINA_DEFAULT
 	dynamic var agility: Int = SPRITE_AGILITY_DEFAULT
+	dynamic var stepCount: Int = SPRITE_STRENGTH_DEFAULT
+	dynamic var distance: Int = SPRITE_STAMINA_DEFAULT
+	dynamic var flightsClimbed: Int = SPRITE_AGILITY_DEFAULT
+	
 	dynamic var date: Date = Date()
 	dynamic var level: Int = 0
 	dynamic var experience: Int = 0

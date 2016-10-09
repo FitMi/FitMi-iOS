@@ -82,6 +82,9 @@ class FMSpriteStatusManager: NSObject {
 			error, value in
 			DispatchQueue.main.async {
 				stepCount = error == nil ? value : 0
+				FMDatabaseManager.sharedManager.realmUpdate {
+					state.stepCount = stepCount!
+				}
 				strength = self.strengthForDate(date: date, steps: stepCount!)
 				if strength != nil && stamina != nil && agility != nil {
 					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)
@@ -93,6 +96,9 @@ class FMSpriteStatusManager: NSObject {
 			error, value in
 			DispatchQueue.main.async {
 				distance = error == nil ? value : 0
+				FMDatabaseManager.sharedManager.realmUpdate {
+					state.distance = distance!
+				}
 				stamina = self.staminaForDate(date: date, distance: distance!)
 				if strength != nil && stamina != nil && agility != nil {
 					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)
@@ -104,6 +110,9 @@ class FMSpriteStatusManager: NSObject {
 			error, value in
 			DispatchQueue.main.async {
 				flights = error == nil ? value : 0
+				FMDatabaseManager.sharedManager.realmUpdate {
+					state.agility = agility!
+				}
 				agility = self.agilityForDate(date: date, flights: flights!)
 				if strength != nil && stamina != nil && agility != nil {
 					completion(state, strength!, stamina!, agility!, stepCount!, distance!, flights!)

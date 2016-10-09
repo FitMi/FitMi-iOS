@@ -15,11 +15,7 @@ class FMStatisticsViewController: FMViewController {
 	private static var defaultController: FMStatisticsViewController?
 	
 	@IBOutlet var tableView: UITableView!
-	var chartValueArrayHealth = [Int?]()
-	var chartValueArrayStrength = [Int?]()
-	var chartValueArrayStamina = [Int?]()
-	var chartValueArrayAgility = [Int?]()
-	var chartDateArray = [Date?]()
+	var states = [FMSpriteState?]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -60,26 +56,9 @@ class FMStatisticsViewController: FMViewController {
 							let sprite = FMSpriteStatusManager.sharedManager.sprite!
 							let states = sprite.states.sorted(byProperty: "date", ascending: false)
 							for i in 0..<7 {
-								if i < states.count {
-									self.chartDateArray.append(states[i].date)
-									self.chartValueArrayHealth.append(states[i].health)
-									self.chartValueArrayStrength.append(states[i].strength)
-									self.chartValueArrayStamina.append(states[i].stamina)
-									self.chartValueArrayAgility.append(states[i].agility)
-								} else {
-									self.chartDateArray.append(nil)
-									self.chartValueArrayHealth.append(nil)
-									self.chartValueArrayStrength.append(nil)
-									self.chartValueArrayStamina.append(nil)
-									self.chartValueArrayAgility.append(nil)
-								}
+								self.states.append(i < states.count ? states[i] : nil)
 							}
-							
-							self.chartDateArray.reverse()
-							self.chartValueArrayHealth.reverse()
-							self.chartValueArrayStrength.reverse()
-							self.chartValueArrayStamina.reverse()
-							self.chartValueArrayAgility.reverse()
+							self.states.reverse()
 							
 							self.tableView.reloadData()
 						} else {
@@ -134,19 +113,19 @@ extension FMStatisticsViewController: UITableViewDataSource {
 			switch indexPath.row {
 			case 0:
 				cell.titleLabel.text = "Health".uppercased()
-				cell.setChartData(values: self.chartValueArrayHealth, dates: self.chartDateArray)
+				cell.setChartData(states: self.states, type: .health)
 				
 			case 1:
 				cell.titleLabel.text = "Strength".uppercased()
-				cell.setChartData(values: self.chartValueArrayStrength, dates: self.chartDateArray)
+				cell.setChartData(states: self.states, type: .strength)
 				
 			case 2:
 				cell.titleLabel.text = "Stamina".uppercased()
-				cell.setChartData(values: self.chartValueArrayStamina, dates: self.chartDateArray)
+				cell.setChartData(states: self.states, type: .stamina)
 				
 			case 3:
 				cell.titleLabel.text = "Agility".uppercased()
-				cell.setChartData(values: self.chartValueArrayAgility, dates: self.chartDateArray)
+				cell.setChartData(states: self.states, type: .agility)
 				
 			default:
 				print("unsupported indexpath: \(indexPath)")

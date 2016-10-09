@@ -18,8 +18,15 @@ class FMChartTableViewCell: UITableViewCell {
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var dateLabel: UILabel!
 	
-	var dates = [Date?]()
-	var values = [Int?]()
+	enum StateDataType {
+		case health
+		case strength
+		case stamina
+		case agility
+	}
+	
+	var states = [FMSpriteState?]()
+	var type: StateDataType = .health
 	var dateFormatter: DateFormatter!
 	var labelDateFormatter: DateFormatter!
 	
@@ -42,23 +49,34 @@ class FMChartTableViewCell: UITableViewCell {
 		layer.borderColor = UIColor.primaryColor.cgColor
 	}
 	
-	func setChartData(values: [Int?], dates: [Date?]) {
-		self.dates = dates
-		self.values = values
+	func setChartData(states: [FMSpriteState?], type: StateDataType) {
+		self.states = states
+		self.type = type
 		
-		if dates.count > 0 && dates.first != nil {
-			if let optionalValue = dates.first {
-				if let value = optionalValue {
-					self.dateLabel.text = "\(self.labelDateFormatter.string(from: value)) - TODAY".uppercased()
+		self.dateLabel.text = ""
+		if states.count > 1 {
+			for i in 0..<states.count - 1 {
+				if let value = states[i] {
+					self.dateLabel.text = "\(self.labelDateFormatter.string(from: value.date)) - TODAY".uppercased()
+					break
 				}
 			}
-		} else {
-			self.dateLabel.text = ""
 		}
 		
 		var dataEntries = [ChartDataEntry]()
-		for i in 0..<dates.count {
-			let dataEntry = BarChartDataEntry(x: Double(i), yValues: [Double(values[i] == nil ? 0 : values[i]!)], label: "")
+		for i in 0..<states.count {
+			var values: [Double]
+			switch type {
+			case .strength:
+				values = [Double(states[i] == nil ? 0 : states[i]!.strength)]
+			case .stamina:
+				values = [Double(states[i] == nil ? 0 : states[i]!.stamina)]
+			case .agility:
+				values = [Double(states[i] == nil ? 0 : states[i]!.agility)]
+			default:
+				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
+			}
+			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, label: "")
 			dataEntries.append(dataEntry)
 		}
 		
@@ -116,9 +134,9 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter {
 	func stringForValue(_ value: Double,
 	                    axis: AxisBase?) -> String {
 		let index = Int(value)
-		if index < self.dates.count {
-			if let date = self.dates[Int(value)] {
-				return self.dateFormatter.string(from: date).uppercased()
+		if index < self.states.count {
+			if let state = self.states[Int(value)] {
+				return self.dateFormatter.string(from: state.date).uppercased()
 			} else {
 				return "-"
 			}
