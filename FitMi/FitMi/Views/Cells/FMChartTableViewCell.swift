@@ -69,12 +69,16 @@ class FMChartTableViewCell: UITableViewCell {
 			switch type {
 			case .strength:
 				values = [Double(states[i] == nil ? 0 : states[i]!.strength)]
+				chartView.highlightPerTapEnabled = true
 			case .stamina:
 				values = [Double(states[i] == nil ? 0 : states[i]!.stamina)]
+				chartView.highlightPerTapEnabled = true
 			case .agility:
 				values = [Double(states[i] == nil ? 0 : states[i]!.agility)]
+				chartView.highlightPerTapEnabled = true
 			default:
 				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
+				chartView.highlightPerTapEnabled = false
 			}
 			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, label: "")
 			dataEntry.data = states[i]
@@ -89,6 +93,7 @@ class FMChartTableViewCell: UITableViewCell {
 		let data = BarChartData(dataSet: dataSet)
 		data.barWidth = 0.3
 		chartView.data = data
+		chartView.highlightValue(nil)
 		chartView.animate(yAxisDuration: 0.5, easingOption: .easeInSine)
 	}
 	
@@ -156,11 +161,11 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter, ChartViewD
 		if let state = entry.data as! FMSpriteState? {
 			switch type {
 			case .strength:
-				self.dateLabel.text = "\(state.stepCount) STEPS"
+				self.dateLabel.text = "YOU MADE \(state.stepCount) STEPS"
 			case .stamina:
-				self.dateLabel.text = "\(state.distance) METERS"
+				self.dateLabel.text = "YOU WALKED \(state.distance) METERS"
 			case .agility:
-				self.dateLabel.text = "\(state.flightsClimbed) FLIGHTS"
+				self.dateLabel.text = "YOU CLIMBED \(state.flightsClimbed) FLIGHTS"
 			default:
 				print("Do Nothing")
 			}
