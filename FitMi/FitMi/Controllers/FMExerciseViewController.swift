@@ -118,6 +118,24 @@ class FMExerciseViewController: FMViewController {
 		print("Start: \(self.exerciseStartDate)")
 		print("End: \(self.exerciseEndDate)")
 		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
+		
+		if !(self.stepCount == 0 && self.distance == 0 && self.flights == 0) {
+			let record = FMExerciseRecord()
+			record.steps = self.stepCount
+			record.distance = self.distance
+			record.flights = self.flights
+			record.startTime = self.exerciseStartDate
+			record.endTime = self.exerciseEndDate
+			
+			let databaseManager = FMDatabaseManager.sharedManager
+			databaseManager.realmUpdate {
+				databaseManager.getCurrentSprite().exercises.append(record)
+			}
+		}
+	}
+	
+	@IBAction func toggleExercise(_ sender: AnyObject) {
+		
 	}
 
     @IBAction func startExercise(_ sender: AnyObject) {
@@ -137,6 +155,7 @@ class FMExerciseViewController: FMViewController {
 		self.buttonEndExercise.isEnabled = false
 		self.buttonEndExercise.alpha = 0.4
 		self.exerciseEndDate = Date()
+		self.durationUpdateTimer.invalidate()
 		
 		self.generateExerciseReport()
     }

@@ -17,6 +17,7 @@ class FMSprite: Object {
 	dynamic var mood: Int = 100
 	dynamic var birthday:Date = Date()
 	let states = List<FMSpriteState>()
+	let exercises = List<FMExerciseRecord>()
 	
 	override static func indexedProperties() -> [String] {
 		return ["identifier"]

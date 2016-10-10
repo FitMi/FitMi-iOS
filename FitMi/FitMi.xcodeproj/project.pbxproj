@@ -11,6 +11,7 @@
 		0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */; };
 		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
+		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
 		0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteStatusManager.swift; sourceTree = "<group>"; };
 		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CD3CCEE1D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				0CE74F5F1D9FB1D800CAB9CE /* FMSprite.swift */,
 				0CFC8B7B1DA9040E0084DD6F /* FMSpriteState.swift */,
+				0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */,
+				0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
