@@ -14,9 +14,6 @@ class FMSpriteStatusManager: NSObject {
 	var sprite: FMSprite!
 	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
-	// This should only be called when resumed from background or newly started up
-	// In-app states update should use other approach due to the mood property
-	
 	var refreshInProgress = false
 	func refreshSprite(completion: @escaping ((_ success: Bool)->Void)) {
 		if refreshInProgress == true {

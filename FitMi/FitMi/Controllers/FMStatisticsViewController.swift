@@ -40,7 +40,7 @@ class FMStatisticsViewController: FMViewController {
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
 		headerLabel.font = UIFont(name: "Pixeled", size: 20)
-		headerLabel.text = "SPRITE STATISTICS"
+		headerLabel.text = "Mi STATISTICS"
 		headerLabel.textAlignment = .center
 		self.tableView.tableHeaderView = headerLabel
 	}
@@ -50,22 +50,7 @@ class FMStatisticsViewController: FMViewController {
 		FMHealthStatusManager.sharedManager.authorizeHealthKit {
 			(authorized,  error) -> Void in
 			if authorized {
-				FMSpriteStatusManager.sharedManager.refreshSprite {success in
-					DispatchQueue.main.async {
-						if (success) {
-							let sprite = FMSpriteStatusManager.sharedManager.sprite!
-							let states = sprite.states.sorted(byProperty: "date", ascending: false)
-							for i in 0..<7 {
-								self.states.append(i < states.count ? states[i] : nil)
-							}
-							self.states.reverse()
-							
-							self.tableView.reloadData()
-						} else {
-							print("sprite not updated")
-						}
-					}
-				}
+				self.refreshSprite()
 			} else {
 				print("HealthKit authorization denied!")
 				if error != nil {
@@ -75,6 +60,24 @@ class FMStatisticsViewController: FMViewController {
 		}
 	}
 	
+	private func refreshSprite() {
+		FMSpriteStatusManager.sharedManager.refreshSprite {success in
+			DispatchQueue.main.async {
+				if (success) {
+					let sprite = FMSpriteStatusManager.sharedManager.sprite!
+					let states = sprite.states.sorted(byProperty: "date", ascending: false)
+					for i in 0..<7 {
+						self.states.append(i < states.count ? states[i] : nil)
+					}
+					self.states.reverse()
+					
+					self.tableView.reloadData()
+				} else {
+					print("sprite not updated")
+				}
+			}
+		}
+	}
 	
 	
 	override func didReceiveMemoryWarning() {
@@ -95,7 +98,7 @@ class FMStatisticsViewController: FMViewController {
 	
 	override func willMove(toParentViewController parent: UIViewController?) {
 		super.willMove(toParentViewController: parent)
-		self.tableView.reloadData()
+		self.refreshSprite()
 	}
 	
 	override func didMove(toParentViewController parent: UIViewController?) {

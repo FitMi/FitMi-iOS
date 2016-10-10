@@ -69,16 +69,12 @@ class FMChartTableViewCell: UITableViewCell {
 			switch type {
 			case .strength:
 				values = [Double(states[i] == nil ? 0 : states[i]!.strength)]
-				chartView.highlightPerTapEnabled = true
 			case .stamina:
 				values = [Double(states[i] == nil ? 0 : states[i]!.stamina)]
-				chartView.highlightPerTapEnabled = true
 			case .agility:
 				values = [Double(states[i] == nil ? 0 : states[i]!.agility)]
-				chartView.highlightPerTapEnabled = true
 			default:
 				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
-				chartView.highlightPerTapEnabled = false
 			}
 			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, label: "")
 			dataEntry.data = states[i]
@@ -167,7 +163,7 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter, ChartViewD
 			case .agility:
 				self.dateLabel.text = "YOU CLIMBED \(state.flightsClimbed) FLIGHTS"
 			default:
-				print("Do Nothing")
+				self.dateLabel.text = "CALCULATED FROM THE REST"
 			}
 		}
 	}
