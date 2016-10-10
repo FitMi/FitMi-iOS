@@ -15,9 +15,6 @@ class FMRootViewController: FMViewController {
 	
 	@IBOutlet weak var menuButton: UIButton!
 	
-	@IBOutlet weak var leftButton: UIButton!
-	@IBOutlet weak var rightButton: UIButton!
-	
 	let transition = BubbleTransition()
 	let healthStatusManager = FMHealthStatusManager.sharedManager
 	
