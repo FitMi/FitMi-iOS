@@ -42,6 +42,9 @@ class FMSpriteStatusManager: NSObject {
 						state.strength = strength
 						state.stamina = stamina
 						state.agility = agility
+						state.stepCount = stepCount
+						state.distance = distance
+						state.flightsClimbed = flights
 					}
 					
 					self.refreshHealthForState(state: state, stepCount: stepCount, distance: distance, flights: flights)
@@ -57,6 +60,7 @@ class FMSpriteStatusManager: NSObject {
 						}
 						self.refreshState(state: nextState, completion: placeholder)
 					}
+
 				}
 			}
 			
@@ -74,6 +78,7 @@ class FMSpriteStatusManager: NSObject {
 		var distance: Int?
 		var flights: Int?
 		let date = state.date
+		let healthStatusManager = FMHealthStatusManager.sharedManager
 		
 		FMHealthStatusManager.sharedManager.stepsForDate(date: date, completion: {
 			error, value in
@@ -81,6 +86,7 @@ class FMSpriteStatusManager: NSObject {
 				stepCount = error == nil ? value : 0
 				FMDatabaseManager.sharedManager.realmUpdate {
 					state.stepCount = stepCount!
+					state.stepGoal = healthStatusManager.goalForSteps()
 				}
 				strength = self.strengthForDate(date: date, steps: stepCount!)
 				if strength != nil && stamina != nil && agility != nil {
@@ -95,6 +101,7 @@ class FMSpriteStatusManager: NSObject {
 				distance = error == nil ? value : 0
 				FMDatabaseManager.sharedManager.realmUpdate {
 					state.distance = distance!
+					state.distanceGoal = healthStatusManager.goalForDistance()
 				}
 				stamina = self.staminaForDate(date: date, distance: distance!)
 				if strength != nil && stamina != nil && agility != nil {
@@ -109,6 +116,7 @@ class FMSpriteStatusManager: NSObject {
 				flights = error == nil ? value : 0
 				FMDatabaseManager.sharedManager.realmUpdate {
 					state.agility = agility!
+					state.flightsGoal = healthStatusManager.goalForFlights()
 				}
 				agility = self.agilityForDate(date: date, flights: flights!)
 				if strength != nil && stamina != nil && agility != nil {
@@ -130,7 +138,7 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForSteps(date: date))
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForSteps())
 		sum += Double(steps)/goal * weights[0] * Double(SPRITE_STRENGTH_DEFAULT)
 		return Int(sum)
 	}
@@ -147,7 +155,7 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForDistance(date: date))
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForDistance())
 		sum += Double(distance)/goal * weights[0] * Double(SPRITE_STAMINA_DEFAULT)
 		return Int(sum)
 	}
@@ -164,7 +172,7 @@ class FMSpriteStatusManager: NSObject {
 			}
 		}
 		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForFlights(date: date))
+		let goal = Double(FMHealthStatusManager.sharedManager.goalForFlights())
 		sum += Double(flights)/goal * weights[0] * Double(SPRITE_AGILITY_DEFAULT)
 		return Int(sum)
 	}
@@ -183,81 +191,48 @@ class FMSpriteStatusManager: NSObject {
 	
 	func healthFactor(date: Date, stepCount: Int, distance: Int, flights: Int) -> Double{
 		let manager = FMHealthStatusManager.sharedManager
-		let stepCountGoal = Double(manager.goalForSteps(date: date))
-		let distanceGoal = Double(manager.goalForDistance(date: date))
-		let flightsGoal = Double(manager.goalForFlights(date: date))
+		let stepCountGoal = Double(manager.goalForSteps())
+		let distanceGoal = Double(manager.goalForDistance())
+		let flightsGoal = Double(manager.goalForFlights())
 		return (Double(stepCount) / stepCountGoal) * (Double(distance) / distanceGoal) * (Double(flights) / flightsGoal)
 	}
 	
 	// -------------- current data getter ---------------
 	
 	func currentStrength() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.strength
 	}
 	
 	func currentStamina() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.stamina
 	}
 	
 	func currentAgility() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.agility
 	}
 	
 	func currentExperience() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.experience
 	}
 	
 	func currentLevel() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.level
 	}
 	
 	func currentMood() -> Int {
 		// TODO: check the time of last data point and calculate current mode
-		return 50
+		return self.sprite.mood
 	}
 	
 	func currentHP() -> Int {
-		return 0
+		let firstState = self.sprite.states.first
+		return firstState == nil ? 0 : firstState!.health
 	}
-	
-	
-	
-	
-	// -------------- historical data getter ---------------
-	
-	
-	
-	
-	func historicalStrength(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalStamina(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalAgility(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalExperience(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalLevel(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalMood(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	func historicalHP(daysBack: Int) -> [Int] {
-		return [0]
-	}
-	
-	
-	
 	
 	// -------------- data setter ---------------
 	

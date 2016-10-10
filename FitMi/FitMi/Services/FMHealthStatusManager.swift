@@ -165,15 +165,15 @@ class FMHealthStatusManager: NSObject {
 		self.healthKitStore.execute(query)
 	}
 	
-	func goalForSteps(date: Date) -> Int {
+	func goalForSteps() -> Int {
 		return WORKOUT_GOAL_DEFAULT_STEPS
 	}
 	
-	func goalForDistance(date: Date) -> Int {
+	func goalForDistance() -> Int {
 		return WORKOUT_GOAL_DEFAULT_DISTANCE
 	}
 	
-	func goalForFlights(date: Date) -> Int {
+	func goalForFlights() -> Int {
 		return WORKOUT_GOAL_DEFAULT_FLIGHTS
 	}
 }

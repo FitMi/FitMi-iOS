@@ -17,6 +17,9 @@ class FMSpriteState: Object {
 	dynamic var stepCount: Int = 0
 	dynamic var distance: Int = 0
 	dynamic var flightsClimbed: Int = 0
+	dynamic var stepGoal: Int = WORKOUT_GOAL_DEFAULT_STEPS
+	dynamic var distanceGoal: Int = WORKOUT_GOAL_DEFAULT_DISTANCE
+	dynamic var flightsGoal: Int = WORKOUT_GOAL_DEFAULT_FLIGHTS
 	
 	dynamic var date: Date = Date()
 	dynamic var level: Int = 0
