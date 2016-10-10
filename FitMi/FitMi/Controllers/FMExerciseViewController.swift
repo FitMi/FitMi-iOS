@@ -27,6 +27,10 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelFlights: UILabel!
 	
 	var exerciseStartDate: Date!
+	var exerciseEndDate: Date!
+	var stepCount: Int = 0
+	var distance: Int = 0
+	var flights: Int = 0
 	var durationUpdateTimer: Timer!
 	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
@@ -105,6 +109,16 @@ class FMExerciseViewController: FMViewController {
 			self.labelDuration.text = "\(hour < 10 ? "0": "")\(hour) : \(min < 10 ? "0": "")\(min) : \(sec < 10 ? "0": "")\(sec)"
 		}
 	}
+	
+	func generateExerciseReport() {
+		print("Exercise Finished")
+		print("Steps: \(self.stepCount)")
+		print("Distance: \(self.distance)")
+		print("Flights: \(self.flights)")
+		print("Start: \(self.exerciseStartDate)")
+		print("End: \(self.exerciseEndDate)")
+		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
+	}
 
     @IBAction func startExercise(_ sender: AnyObject) {
         motionStatusManager.startMotionUpdates()
@@ -122,20 +136,27 @@ class FMExerciseViewController: FMViewController {
 		self.buttonStartExercise.alpha = 1
 		self.buttonEndExercise.isEnabled = false
 		self.buttonEndExercise.alpha = 0.4
+		self.exerciseEndDate = Date()
+		
+		self.generateExerciseReport()
     }
 }
 
 extension FMExerciseViewController: FMMotionStatusDelegate {
     func motionStatusManager(manager: FMMotionStatusManager, didRecieveData data: CMPedometerData) {
 		DispatchQueue.main.async {
-			self.labelStepCount.text = "\(data.numberOfSteps)"
+			self.stepCount = Int(data.numberOfSteps)
+			self.labelStepCount.text = "\(self.stepCount)"
+			
 			
 			if manager.isDistanceAvailable() {
-				self.labelDistance.text = "\(Int(data.distance!)) m"
+				self.distance = Int(data.distance!)
+				self.labelDistance.text = "\(self.distance) m"
 			}
 			
 			if manager.isFloorCountingAvailable() {
-				self.labelFlights.text = "\(Int(data.floorsAscended!))"
+				self.flights = Int(data.floorsAscended!)
+				self.labelFlights.text = "\(self.flights)"
 			}
 		}
     }
