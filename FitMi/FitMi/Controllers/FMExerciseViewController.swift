@@ -95,7 +95,7 @@ class FMExerciseViewController: FMViewController {
 }
 
 extension FMExerciseViewController: FMMotionStatusDelegate {
-    func motionStatusManager(manager: FMMotionStatusManager, didRecieveData data: CMPedometerData) {
+    func motionStatusManager(manager: FMMotionStatusManager, didRecieveMotionData data: CMPedometerData) {
         // TODO: collect the data and display them in the view
         print("received data from motion status update")
         print("Steps: \(data.numberOfSteps)")
@@ -106,6 +106,21 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
         
         if manager.isFloorCountingAvailable() {
             print("Floors: \(data.floorsAscended)")
+        }
+    }
+    
+    func motionStatusManager(manager: FMMotionStatusManager, didRecieveActivityData data: CMMotionActivity) {
+        // TODO: collect the data and reflect them in the view
+        if data.running {
+            print("Activity: running")
+        } else if data.cycling {
+            print("Activity: cycling")
+        } else if data.walking {
+            print("Activity: walking")
+        } else if data.stationary {
+            print("Activity: still")
+        } else {
+            print("Activity: unknown")
         }
     }
 }
