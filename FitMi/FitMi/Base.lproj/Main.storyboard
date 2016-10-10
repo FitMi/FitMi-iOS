@@ -161,7 +161,7 @@
                                                 <subviews>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-Bm-iHl">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Iib-Bm-iHl" secondAttribute="height" id="RfE-l2-dbS"/>
+                                                            <constraint firstAttribute="width" secondItem="Iib-Bm-iHl" secondAttribute="height" id="v7g-Ki-lxX"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DURATON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-zH-WpS">
@@ -180,7 +180,7 @@
                                                 <subviews>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Umr-3D-bQW">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Umr-3D-bQW" secondAttribute="height" id="huB-PJ-9cE"/>
+                                                            <constraint firstAttribute="width" secondItem="Umr-3D-bQW" secondAttribute="height" id="nXE-Ef-4AU"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybL-4p-8Oj">
@@ -199,7 +199,7 @@
                                                 <subviews>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-nS-e8n">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Ylh-nS-e8n" secondAttribute="height" id="aTt-9d-rHb"/>
+                                                            <constraint firstAttribute="width" secondItem="Ylh-nS-e8n" secondAttribute="height" id="lN8-RW-mMg"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISTANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndt-Io-F4c">
@@ -218,7 +218,7 @@
                                                 <subviews>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzY-7r-8Yh">
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="wzY-7r-8Yh" secondAttribute="height" id="vce-4I-n1B"/>
+                                                            <constraint firstAttribute="width" secondItem="wzY-7r-8Yh" secondAttribute="height" id="ZmC-Ry-uy7"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIGHTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL5-6z-5Xx">
@@ -287,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880.79999999999995" y="762.36881559220399"/>
+            <point key="canvasLocation" x="716" y="762"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="S3W-oo-s4v">
