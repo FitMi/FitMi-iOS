@@ -245,6 +245,9 @@
                                         <state key="normal" title="START EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onExerciseStart:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="A1M-Jj-arR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
                                         <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -252,6 +255,9 @@
                                         <state key="normal" title="END EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onExerciseEnd:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="K1d-fr-69i"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

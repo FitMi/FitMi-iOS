@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class FMExerciseViewController: FMViewController {
 
@@ -16,12 +17,14 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var statusPanelTitleContainer: UIView!
 	@IBOutlet var statusPanelTitleLabel: UILabel!
 	@IBOutlet var spriteView: SKView!
+    
+    private let motionStatusManager = FMMotionStatusManager.sharedManager
 	
 	override func loadView() {
 		super.loadView()
 		
 		self.view.backgroundColor = UIColor.secondaryColor
-		
+        motionStatusManager.delegate = self
 		
 		do {
 			self.statusPanelView.backgroundColor = UIColor.white
@@ -81,4 +84,28 @@ class FMExerciseViewController: FMViewController {
 	
 	override func willMoveAway(fromParentViewController parent: UIViewController?) {
 	}
+
+    @IBAction func onExerciseStart(_ sender: AnyObject) {
+        motionStatusManager.startMotionUpdates()
+    }
+    
+    @IBAction func onExerciseEnd(_ sender: AnyObject) {
+        motionStatusManager.stopMotionUpdates()
+    }
+}
+
+extension FMExerciseViewController: FMMotionStatusDelegate {
+    func motionStatusManager(manager: FMMotionStatusManager, didRecieveData data: CMPedometerData) {
+        // TODO: collect the data and display them in the view
+        print("received data from motion status update")
+        print("Steps: \(data.numberOfSteps)")
+        
+        if manager.isDistanceAvailable() {
+            print("Steps: \(data.distance)")
+        }
+        
+        if manager.isFloorCountingAvailable() {
+            print("Floors: \(data.floorsAscended)")
+        }
+    }
 }
