@@ -26,6 +26,8 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelDistance: UILabel!
 	@IBOutlet var labelFlights: UILabel!
 	
+	@IBOutlet var tap: UITapGestureRecognizer!
+	
 	private let buttonAlphaDisabled: CGFloat = 0.3
 	
 	var exerciseStartDate: Date!
@@ -66,6 +68,7 @@ class FMExerciseViewController: FMViewController {
 			self.spriteView.ignoresSiblingOrder = true
 		}
 		
+		self.view.isUserInteractionEnabled = true
 	}
 	
     override func viewDidLoad() {
@@ -138,27 +141,29 @@ class FMExerciseViewController: FMViewController {
 		}
 	}
 	
-	@IBAction func toggleExercise(_ sender: AnyObject) {
-		
-	}
-
-    @IBAction func startExercise(_ sender: AnyObject) {
-        motionStatusManager.startMotionUpdates()
-		self.buttonStartExercise.isEnabled = false
-		self.buttonStartExercise.alpha = buttonAlphaDisabled
-		self.buttonEndExercise.isEnabled = true
-		self.buttonEndExercise.alpha = 1
-		self.exerciseStartDate = Date()
+	@IBAction func reset(_ sender: AnyObject) {
+		self.exerciseStartDate = nil
 		self.exerciseEndDate = nil
 		self.stepCount = 0
 		self.distance = 0
 		self.flights = 0
 		self.updateLabels()
+	}
+
+    @IBAction func startExercise(_ sender: AnyObject) {
+        motionStatusManager.startMotionUpdates()
+		self.tap.isEnabled = false
+		self.buttonStartExercise.isEnabled = false
+		self.buttonStartExercise.alpha = buttonAlphaDisabled
+		self.buttonEndExercise.isEnabled = true
+		self.buttonEndExercise.alpha = 1
+		self.exerciseStartDate = Date()
 		self.durationUpdateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDurationLabel), userInfo: nil, repeats: true)
     }
     
     @IBAction func endExercise(_ sender: AnyObject) {
         motionStatusManager.stopMotionUpdates()
+		self.tap.isEnabled = true
 		self.buttonStartExercise.isEnabled = true
 		self.buttonStartExercise.alpha = 1
 		self.buttonEndExercise.isEnabled = false
@@ -170,6 +175,9 @@ class FMExerciseViewController: FMViewController {
     }
 	
 	func updateLabels() {
+		if self.exerciseStartDate == nil {
+			self.labelDuration.text = "00 : 00 : 00"
+		}
 		self.labelStepCount.text = "\(self.stepCount)"
 		self.labelDistance.text = "\(self.distance) m"
 		self.labelFlights.text = "\(self.flights)"

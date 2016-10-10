@@ -128,7 +128,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MxB-Wd-IqA">
                                                 <subviews>
@@ -210,6 +210,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="8YC-Pa-oA1"/>
                                     <constraint firstItem="d7V-Vh-eZU" firstAttribute="leading" secondItem="jk7-0T-r2c" secondAttribute="leading" constant="20" id="OCl-XQ-Y4e"/>
@@ -217,6 +218,9 @@
                                     <constraint firstAttribute="trailing" secondItem="d7V-Vh-eZU" secondAttribute="trailing" constant="20" id="vRH-yc-iI6"/>
                                     <constraint firstAttribute="bottom" secondItem="d7V-Vh-eZU" secondAttribute="bottom" constant="15" id="vZn-46-e4U"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dJM-q9-MrG" appends="YES" id="SXL-NU-fPc"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -311,9 +315,15 @@
                         <outlet property="statusPanelTitleContainer" destination="DVp-27-Lbr" id="vGL-DR-XV6"/>
                         <outlet property="statusPanelTitleLabel" destination="hmX-4b-wH4" id="BB3-D4-GBO"/>
                         <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
+                        <outlet property="tap" destination="dJM-q9-MrG" id="hYE-6f-A9n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dJM-q9-MrG">
+                    <connections>
+                        <action selector="reset:" destination="Ywc-kV-1iz" id="LDw-wW-UdS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="716" y="762"/>
         </scene>
