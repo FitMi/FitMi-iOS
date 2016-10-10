@@ -162,7 +162,7 @@ class FMExerciseViewController: FMViewController {
 }
 
 extension FMExerciseViewController: FMMotionStatusDelegate {
-    func motionStatusManager(manager: FMMotionStatusManager, didRecieveData data: CMPedometerData) {
+    func motionStatusManager(manager: FMMotionStatusManager, didRecieveMotionData data: CMPedometerData) {
 		DispatchQueue.main.async {
 			self.stepCount = Int(data.numberOfSteps)
 			self.labelStepCount.text = "\(self.stepCount)"
@@ -178,5 +178,20 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
 				self.labelFlights.text = "\(self.flights)"
 			}
 		}
+    }
+    
+    func motionStatusManager(manager: FMMotionStatusManager, didRecieveActivityData data: CMMotionActivity) {
+        // TODO: collect the data and reflect them in the view
+        if data.running {
+            print("Activity: running")
+        } else if data.cycling {
+            print("Activity: cycling")
+        } else if data.walking {
+            print("Activity: walking")
+        } else if data.stationary {
+            print("Activity: still")
+        } else {
+            print("Activity: unknown")
+        }
     }
 }

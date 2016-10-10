@@ -11,7 +11,9 @@ import CoreMotion
 
 protocol FMMotionStatusDelegate {
     func motionStatusManager(manager: FMMotionStatusManager,
-                             didRecieveData data: CMPedometerData)
+                             didRecieveMotionData data: CMPedometerData)
+    func motionStatusManager(manager: FMMotionStatusManager,
+                             didRecieveActivityData data: CMMotionActivity)
 }
 
 class FMMotionStatusManager: NSObject {
@@ -22,6 +24,7 @@ class FMMotionStatusManager: NSObject {
     private let dataProcessingQueue = OperationQueue()
     private let pedometer = CMPedometer()
     private let lengthFormatter = LengthFormatter()
+    private let activityManager = CMMotionActivityManager()
     
     override init() {
         self.lengthFormatter.numberFormatter.usesSignificantDigits = false
@@ -38,14 +41,23 @@ class FMMotionStatusManager: NSObject {
             } else {
                 if let motionData: CMPedometerData = data {
                     self.delegate?.motionStatusManager(manager: self,
-                                                       didRecieveData: motionData)
+                                                       didRecieveMotionData: motionData)
                 }
+            }
+        }
+        
+        activityManager.startActivityUpdates(to: dataProcessingQueue) {
+            data in
+            if let activityData: CMMotionActivity = data {
+                self.delegate?.motionStatusManager(manager: self,
+                                                   didRecieveActivityData: activityData)
             }
         }
     }
     
     func stopMotionUpdates() {
         pedometer.stopUpdates()
+        activityManager.stopActivityUpdates()
     }
     
     func isDistanceAvailable() -> Bool {
