@@ -249,7 +249,7 @@
                                             <action selector="startExercise:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="pWv-LP-EOO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
                                         <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="END EXERCISE">
@@ -260,7 +260,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="FUO-Dw-SUB" firstAttribute="width" secondItem="Otp-E5-1l3" secondAttribute="width" id="7i0-nF-jlZ"/>
                                     <constraint firstAttribute="bottom" secondItem="FUO-Dw-SUB" secondAttribute="bottom" id="7ol-YA-TFf"/>

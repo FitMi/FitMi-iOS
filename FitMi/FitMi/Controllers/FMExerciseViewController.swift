@@ -26,6 +26,8 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelDistance: UILabel!
 	@IBOutlet var labelFlights: UILabel!
 	
+	private let buttonAlphaDisabled: CGFloat = 0.3
+	
 	var exerciseStartDate: Date!
 	var exerciseEndDate: Date!
 	var stepCount: Int = 0
@@ -73,7 +75,9 @@ class FMExerciseViewController: FMViewController {
 			FMExerciseViewController.defaultController = self
 		}
 		
-        // Do any additional setup after loading the view.
+		self.buttonStartExercise.isEnabled = true
+		self.buttonEndExercise.alpha = buttonAlphaDisabled
+		self.buttonEndExercise.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,10 +145,15 @@ class FMExerciseViewController: FMViewController {
     @IBAction func startExercise(_ sender: AnyObject) {
         motionStatusManager.startMotionUpdates()
 		self.buttonStartExercise.isEnabled = false
-		self.buttonStartExercise.alpha = 0.4
+		self.buttonStartExercise.alpha = buttonAlphaDisabled
 		self.buttonEndExercise.isEnabled = true
 		self.buttonEndExercise.alpha = 1
 		self.exerciseStartDate = Date()
+		self.exerciseEndDate = nil
+		self.stepCount = 0
+		self.distance = 0
+		self.flights = 0
+		self.updateLabels()
 		self.durationUpdateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDurationLabel), userInfo: nil, repeats: true)
     }
     
@@ -153,30 +162,34 @@ class FMExerciseViewController: FMViewController {
 		self.buttonStartExercise.isEnabled = true
 		self.buttonStartExercise.alpha = 1
 		self.buttonEndExercise.isEnabled = false
-		self.buttonEndExercise.alpha = 0.4
+		self.buttonEndExercise.alpha = buttonAlphaDisabled
 		self.exerciseEndDate = Date()
 		self.durationUpdateTimer.invalidate()
 		
 		self.generateExerciseReport()
     }
+	
+	func updateLabels() {
+		self.labelStepCount.text = "\(self.stepCount)"
+		self.labelDistance.text = "\(self.distance) m"
+		self.labelFlights.text = "\(self.flights)"
+	}
 }
 
 extension FMExerciseViewController: FMMotionStatusDelegate {
     func motionStatusManager(manager: FMMotionStatusManager, didRecieveMotionData data: CMPedometerData) {
+		self.stepCount = Int(data.numberOfSteps)
+		
+		if manager.isDistanceAvailable() {
+			self.distance = Int(data.distance!)
+		}
+		
+		if manager.isFloorCountingAvailable() {
+			self.flights = Int(data.floorsAscended!)
+		}
+		
 		DispatchQueue.main.async {
-			self.stepCount = Int(data.numberOfSteps)
-			self.labelStepCount.text = "\(self.stepCount)"
-			
-			
-			if manager.isDistanceAvailable() {
-				self.distance = Int(data.distance!)
-				self.labelDistance.text = "\(self.distance) m"
-			}
-			
-			if manager.isFloorCountingAvailable() {
-				self.flights = Int(data.floorsAscended!)
-				self.labelFlights.text = "\(self.flights)"
-			}
+			self.updateLabels()
 		}
     }
     
