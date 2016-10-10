@@ -17,7 +17,18 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var statusPanelTitleContainer: UIView!
 	@IBOutlet var statusPanelTitleLabel: UILabel!
 	@IBOutlet var spriteView: SKView!
-    
+	
+	@IBOutlet var buttonStartExercise: UIButton!
+	@IBOutlet var buttonEndExercise: UIButton!
+	
+	@IBOutlet var labelDuration: UILabel!
+	@IBOutlet var labelStepCount: UILabel!
+	@IBOutlet var labelDistance: UILabel!
+	@IBOutlet var labelFlights: UILabel!
+	
+	var exerciseStartDate: Date!
+	var durationUpdateTimer: Timer!
+	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
 	
 	override func loadView() {
@@ -84,29 +95,49 @@ class FMExerciseViewController: FMViewController {
 	
 	override func willMoveAway(fromParentViewController parent: UIViewController?) {
 	}
+	
+	func updateDurationLabel() {
+		let duration = Int(Date().timeIntervalSince(self.exerciseStartDate))
+		let hour = duration / 3600
+		let min = (duration - hour * 3600) / 60
+		let sec = duration % 60
+		DispatchQueue.main.async {
+			self.labelDuration.text = "\(hour < 10 ? "0": "")\(hour) : \(min < 10 ? "0": "")\(min) : \(sec < 10 ? "0": "")\(sec)"
+		}
+	}
 
-    @IBAction func onExerciseStart(_ sender: AnyObject) {
+    @IBAction func startExercise(_ sender: AnyObject) {
         motionStatusManager.startMotionUpdates()
+		self.buttonStartExercise.isEnabled = false
+		self.buttonStartExercise.alpha = 0.4
+		self.buttonEndExercise.isEnabled = true
+		self.buttonEndExercise.alpha = 1
+		self.exerciseStartDate = Date()
+		self.durationUpdateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDurationLabel), userInfo: nil, repeats: true)
     }
     
-    @IBAction func onExerciseEnd(_ sender: AnyObject) {
+    @IBAction func endExercise(_ sender: AnyObject) {
         motionStatusManager.stopMotionUpdates()
+		self.buttonStartExercise.isEnabled = true
+		self.buttonStartExercise.alpha = 1
+		self.buttonEndExercise.isEnabled = false
+		self.buttonEndExercise.alpha = 0.4
     }
 }
 
 extension FMExerciseViewController: FMMotionStatusDelegate {
     func motionStatusManager(manager: FMMotionStatusManager, didRecieveMotionData data: CMPedometerData) {
-        // TODO: collect the data and display them in the view
-        print("received data from motion status update")
-        print("Steps: \(data.numberOfSteps)")
-        
-        if manager.isDistanceAvailable() {
-            print("Steps: \(data.distance)")
-        }
-        
-        if manager.isFloorCountingAvailable() {
-            print("Floors: \(data.floorsAscended)")
-        }
+		DispatchQueue.main.async {
+			self.labelStepCount.text = "\(data.numberOfSteps)"
+			
+			if manager.isDistanceAvailable() {
+				self.labelDistance.text = "\(Int(data.distance!)) m"
+			}
+			
+			if manager.isFloorCountingAvailable() {
+				self.labelFlights.text = "\(Int(data.floorsAscended!))"
+			}
+		}
     }
     
     func motionStatusManager(manager: FMMotionStatusManager, didRecieveActivityData data: CMMotionActivity) {
