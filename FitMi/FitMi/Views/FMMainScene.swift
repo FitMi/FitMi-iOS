@@ -22,11 +22,11 @@ class FMMainScene: SKScene {
 		self.textureAtlas = SKTextureAtlas(named: "sprite-relax")
 		
 		for i in 1...self.textureAtlas.textureNames.count {
-			let name = "relax1-\((i + 6) % self.textureAtlas.textureNames.count + 1).png"
+			let name = "relax1-\(i).png"
 			textureArray.append(SKTexture(imageNamed: name))
 		}
 		
-		self.character = SKSpriteNode(imageNamed: "relax1-8.png")
+		self.character = SKSpriteNode(imageNamed: "relax1-1.png")
 		self.character.size = CGSize(width: 400, height: 400)
 		self.character.position = CGPoint(x: -15, y: 30)
 		self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
@@ -40,7 +40,19 @@ class FMMainScene: SKScene {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.character.removeAllActions()
+        self.textureAtlas = SKTextureAtlas(named: "sprite-touch")
+        var touchTextureArray = [SKTexture]()
+        
+        for i in 2...self.textureAtlas.textureNames.count {
+            let name = "touch1-\(i).png"
+            touchTextureArray.append(SKTexture(imageNamed: name))
+        }
+        self.character.texture = SKTexture(imageNamed: "touch1-1.png")
 		self.character.setScale(0.95 * self.defaultScale)
+        let wait = SKAction.wait(forDuration: 0.4)
+        let touchAction = SKAction.repeatForever(SKAction.animate(with: touchTextureArray, timePerFrame: 0.2, resize: true, restore: true))
+        let sequence = SKAction.sequence([wait, touchAction])
+        self.character.run(sequence)
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
