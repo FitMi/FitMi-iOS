@@ -19,7 +19,7 @@ class FMMainScene: SKScene {
 	
 	
     override func didMove(to view: SKView) {
-		self.textureAtlas = SKTextureAtlas(named: "sprite-a")
+		self.textureAtlas = SKTextureAtlas(named: "sprite-relax")
 		
 		for i in 1...self.textureAtlas.textureNames.count {
 			let name = "relax1-\((i + 6) % self.textureAtlas.textureNames.count + 1).png"
