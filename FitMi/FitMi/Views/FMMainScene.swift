@@ -16,11 +16,16 @@ class FMMainScene: SKScene {
 	private var defaultScale: CGFloat = 0.0
 	private var isInHomeScreen = false
 	var character = SKSpriteNode()
+    var background = SKSpriteNode()
 	
 	
     override func didMove(to view: SKView) {
-		self.textureAtlas = SKTextureAtlas(named: "sprite-relax")
+        self.background = SKSpriteNode(imageNamed: "background-1.png")
+        self.background.size = CGSize(width: self.frame.width, height: self.frame.height)
+        self.background.zPosition = -1
+        self.addChild(self.background)
 		
+        self.textureAtlas = SKTextureAtlas(named: "sprite-relax")
 		for i in 1...self.textureAtlas.textureNames.count {
 			let name = "relax1-\(i).png"
 			textureArray.append(SKTexture(imageNamed: name))
@@ -28,7 +33,7 @@ class FMMainScene: SKScene {
 		
 		self.character = SKSpriteNode(imageNamed: "relax1-1.png")
 		self.character.size = CGSize(width: 400, height: 400)
-		self.character.position = CGPoint(x: -15, y: 30)
+		self.character.position = CGPoint(x: -20, y: -130)
 		self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
 		self.defaultScale = self.isInHomeScreen ? 1 : 0.8
 		self.character.setScale(self.defaultScale)
