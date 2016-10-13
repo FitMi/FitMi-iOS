@@ -43,6 +43,8 @@
 		93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B223501DAD2D7C0067F43A /* sprite-run.atlas */; };
 		93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2236E1DAD50990067F43A /* sprite-touch.atlas */; };
 		98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */; };
+		98F1A92B1DAFD6560025FC1B /* FMOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1A92A1DAFD6560025FC1B /* FMOnboardViewController.swift */; };
+		98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F1A92C1DAFE1420025FC1B /* VT323.ttf */; };
 		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
 		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,8 @@
 		93B223501DAD2D7C0067F43A /* sprite-run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-run.atlas"; sourceTree = "<group>"; };
 		93B2236E1DAD50990067F43A /* sprite-touch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-touch.atlas"; sourceTree = "<group>"; };
 		98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMotionStatusManager.swift; sourceTree = "<group>"; };
+		98F1A92A1DAFD6560025FC1B /* FMOnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardViewController.swift; sourceTree = "<group>"; };
+		98F1A92C1DAFE1420025FC1B /* VT323.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VT323.ttf; sourceTree = "<group>"; };
 		9B6B86172301C312C9C0109C /* Pods-FitMiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.debug.xcconfig"; sourceTree = "<group>"; };
 		B69245928FE816CEC2A45635 /* Pods-FitMiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */,
 				0CE74F5A1D9FAE6500CAB9CE /* FMStatisticsViewController.swift */,
 				0CE74F5C1D9FAFA000CAB9CE /* FMAccountViewController.swift */,
+				98F1A92A1DAFD6560025FC1B /* FMOnboardViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 		0CFC8B811DA97FC40084DD6F /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				98F1A92C1DAFE1420025FC1B /* VT323.ttf */,
 				0CFC8B821DA97FC40084DD6F /* Pixeled.ttf */,
 			);
 			path = fonts;
@@ -472,6 +478,7 @@
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
+				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
 				0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */,
@@ -628,6 +635,7 @@
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
 				0CFC8B7C1DA9040E0084DD6F /* FMSpriteState.swift in Sources */,
+				98F1A92B1DAFD6560025FC1B /* FMOnboardViewController.swift in Sources */,
 				0C3B1A371DA9992E009DB425 /* FMPixelBubbleTransition.swift in Sources */,
 				0CFC8B7E1DA9199B0084DD6F /* FoundationExtension.swift in Sources */,
 				0CD3CD751D9F144600E47BF8 /* FMExerciseViewController.swift in Sources */,
