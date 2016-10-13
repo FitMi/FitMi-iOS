@@ -30,7 +30,16 @@ class FMMainScene: SKScene {
         self.loadBackgroundSprites()
         self.displayBackground()
         self.displayCharacter()
+        self.initializeStatusBar()
 	}
+    
+    private func initializeStatusBar() {
+        var statusBar = SKSpriteNode()
+        statusBar.size = CGSize(width: self.frame.width, height: 80)
+        statusBar.position = CGPoint(x: 0, y: self.frame.height / 2 - 40)
+        statusBar.color = UIColor(red: 250 / 255.0, green: 219 / 255.0, blue: 105 / 255.0, alpha: 1)
+        self.addChild(statusBar)
+    }
     
     private func loadBackgroundSprites() {
         self.backgroundAtlas = SKTextureAtlas(named: "background-01")
