@@ -30,9 +30,15 @@ class FMMainScene: SKScene {
 	
 	
     override func didMove(to view: SKView) {
+		self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
+		
         self.loadCharacterSprites()
         self.loadBackgroundSprites()
-        self.displayBackground()
+		
+		if isInHomeScreen {
+			self.displayBackground()
+		}
+		
         self.displayCharacter()
         self.initializeStatusBar()
         self.initializeHealthBar()
@@ -110,8 +116,13 @@ class FMMainScene: SKScene {
     private func displayCharacter() {
         self.character = SKSpriteNode(imageNamed: "relax1-1.png")
         self.character.size = CGSize(width: 400, height: 400)
-        self.character.position = CGPoint(x: -20, y: -130)
-        self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
+		
+		if isInHomeScreen {
+			self.character.position = CGPoint(x: -20, y: -180)
+		} else {
+			self.character.position = CGPoint(x: -20, y: 40)
+		}
+		
         self.defaultScale = self.isInHomeScreen ? 1 : 0.8
         self.character.setScale(self.defaultScale)
         

@@ -363,7 +363,7 @@
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-hg-tbC">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="WORKOUT HISTORY ">
+                                        <state key="normal" title="MY WORKOUT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
