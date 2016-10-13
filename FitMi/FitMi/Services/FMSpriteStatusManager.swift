@@ -251,8 +251,20 @@ class FMSpriteStatusManager: NSObject {
 		// TODO: check whether the mood is full
 		return false
 	}
-	
-	func increaseExperience(increment: Int) {
-		
+
+	func increaseExperienceBySteps(steps: Int) {
+		// TODO: increase 2 experience for every step
+		let firstState = self.sprite.states.first
+		FMDatabaseManager.sharedManager.realmUpdate {
+			firstState!.experience += (2 * steps)
+		}
+	}
+
+	func increaseExperienceByGoals(goals: Int) {
+		// TODO: increase 250 experience for every finished goal
+		let firstState = self.sprite.states.first
+		FMDatabaseManager.sharedManager.realmUpdate {
+			firstState!.experience += (250 * goals)
+		}
 	}
 }

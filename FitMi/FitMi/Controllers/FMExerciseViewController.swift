@@ -38,7 +38,7 @@ class FMExerciseViewController: FMViewController {
 	var durationUpdateTimer: Timer!
 	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
-	
+
 	override func loadView() {
 		super.loadView()
 		
@@ -133,11 +133,15 @@ class FMExerciseViewController: FMViewController {
 			record.flights = self.flights
 			record.startTime = self.exerciseStartDate
 			record.endTime = self.exerciseEndDate
-			
+
 			let databaseManager = FMDatabaseManager.sharedManager
 			databaseManager.realmUpdate {
 				databaseManager.getCurrentSprite().exercises.append(record)
 			}
+
+			// increaseExperience?
+			let spriteStatusManager = FMSpriteStatusManager.sharedManager
+            spriteStatusManager.increaseExperienceBySteps(steps: self.stepCount)
 		}
 	}
 	
