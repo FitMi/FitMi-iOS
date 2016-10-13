@@ -132,11 +132,7 @@
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MxB-Wd-IqA">
                                                 <subviews>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-Bm-iHl">
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Iib-Bm-iHl" secondAttribute="height" id="v7g-Ki-lxX"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-Bm-iHl"/>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DURATON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-zH-WpS">
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
@@ -151,11 +147,7 @@
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q3N-r5-xad">
                                                 <subviews>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Umr-3D-bQW">
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Umr-3D-bQW" secondAttribute="height" id="nXE-Ef-4AU"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Umr-3D-bQW"/>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybL-4p-8Oj">
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
@@ -170,11 +162,7 @@
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kat-4E-i5P">
                                                 <subviews>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-nS-e8n">
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Ylh-nS-e8n" secondAttribute="height" id="lN8-RW-mMg"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-nS-e8n"/>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISTANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndt-Io-F4c">
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
@@ -189,11 +177,7 @@
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d5v-Xa-t4m">
                                                 <subviews>
-                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzY-7r-8Yh">
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="wzY-7r-8Yh" secondAttribute="height" id="ZmC-Ry-uy7"/>
-                                                        </constraints>
-                                                    </imageView>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzY-7r-8Yh"/>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL5-6z-5Xx">
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
@@ -478,6 +462,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-OC-d7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1741.5999999999999" y="762.36881559220399"/>
+        </scene>
+        <!--Statistics Detail View Controller-->
+        <scene sceneID="sKg-tW-TsV">
+            <objects>
+                <viewController storyboardIdentifier="FMStatisticsDetailViewController" id="NAM-e2-GKt" customClass="FMStatisticsDetailViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JMe-l8-pip"/>
+                        <viewControllerLayoutGuide type="bottom" id="rfR-8I-iUI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m0s-Ys-D9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sPu-gM-Vcs">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9F-Ua-LC6">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYr-rI-kLe">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                        <state key="normal" title="DISMISS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="NAM-e2-GKt" eventType="touchUpInside" id="moM-Cm-Kn0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="HISTORICAL DATA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDW-ef-QyT">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="OYr-rI-kLe" firstAttribute="centerY" secondItem="F9F-Ua-LC6" secondAttribute="centerY" id="8Fn-i3-8aj"/>
+                                    <constraint firstAttribute="height" constant="60" id="Dhk-ly-oBo"/>
+                                    <constraint firstItem="rDW-ef-QyT" firstAttribute="leading" secondItem="F9F-Ua-LC6" secondAttribute="leading" constant="15" id="YxN-KP-VAr"/>
+                                    <constraint firstItem="OYr-rI-kLe" firstAttribute="leading" secondItem="rDW-ef-QyT" secondAttribute="trailing" constant="15" id="gh0-HZ-lHy"/>
+                                    <constraint firstItem="rDW-ef-QyT" firstAttribute="centerY" secondItem="F9F-Ua-LC6" secondAttribute="centerY" id="whc-E8-XQJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="OYr-rI-kLe" secondAttribute="trailing" constant="15" id="z4S-7T-Tt5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F9F-Ua-LC6" firstAttribute="top" secondItem="m0s-Ys-D9Z" secondAttribute="top" id="DM2-6M-XVS"/>
+                            <constraint firstAttribute="trailing" secondItem="sPu-gM-Vcs" secondAttribute="trailing" id="M3v-T6-goF"/>
+                            <constraint firstItem="rfR-8I-iUI" firstAttribute="top" secondItem="sPu-gM-Vcs" secondAttribute="bottom" id="UY7-QE-TuJ"/>
+                            <constraint firstAttribute="trailing" secondItem="F9F-Ua-LC6" secondAttribute="trailing" id="XkN-zV-bH0"/>
+                            <constraint firstItem="F9F-Ua-LC6" firstAttribute="leading" secondItem="m0s-Ys-D9Z" secondAttribute="leading" id="ZTv-ds-z3E"/>
+                            <constraint firstItem="sPu-gM-Vcs" firstAttribute="leading" secondItem="m0s-Ys-D9Z" secondAttribute="leading" id="bcb-ci-p8r"/>
+                            <constraint firstItem="sPu-gM-Vcs" firstAttribute="top" secondItem="m0s-Ys-D9Z" secondAttribute="top" id="hu3-lR-1r9"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="sPu-gM-Vcs" id="9Y4-xL-0a9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZN-Og-3BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741.5999999999999" y="1478.4107946026988"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="vaU-oJ-Fra">

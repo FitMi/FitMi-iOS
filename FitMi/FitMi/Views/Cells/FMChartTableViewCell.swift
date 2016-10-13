@@ -9,6 +9,13 @@
 import UIKit
 import Charts
 
+enum StateDataType {
+	case health
+	case strength
+	case stamina
+	case agility
+}
+
 class FMChartTableViewCell: UITableViewCell {
 
 	static let identifier = "FMChartTableViewCell"
@@ -17,13 +24,6 @@ class FMChartTableViewCell: UITableViewCell {
 	@IBOutlet var chartView: BarChartView!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var dateLabel: UILabel!
-	
-	enum StateDataType {
-		case health
-		case strength
-		case stamina
-		case agility
-	}
 	
 	var states = [FMSpriteState?]()
 	var type: StateDataType = .health

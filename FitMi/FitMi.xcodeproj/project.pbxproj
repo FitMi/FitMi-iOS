@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */; };
+		0C2E95561DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */; };
+		0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */; };
+		0C2E955C1DAFE4C000C03669 /* FMStatsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E955A1DAFE4C000C03669 /* FMStatsDetailCell.swift */; };
+		0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */; };
 		0C3B1A371DA9992E009DB425 /* FMPixelBubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */; };
 		0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */; };
 		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
@@ -65,6 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMStatisticsDetailViewController.swift; sourceTree = "<group>"; };
+		0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMiddleAlignedLabelCell.swift; sourceTree = "<group>"; };
+		0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMMiddleAlignedLabelCell.xib; sourceTree = "<group>"; };
+		0C2E955A1DAFE4C000C03669 /* FMStatsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMStatsDetailCell.swift; sourceTree = "<group>"; };
+		0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMStatsDetailCell.xib; sourceTree = "<group>"; };
 		0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPixelBubbleTransition.swift; sourceTree = "<group>"; };
 		0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteStatusManager.swift; sourceTree = "<group>"; };
 		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +232,7 @@
 				0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */,
 				0CD3CD741D9F144600E47BF8 /* FMExerciseViewController.swift */,
 				0CE74F5A1D9FAE6500CAB9CE /* FMStatisticsViewController.swift */,
+				0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */,
 				0CE74F5C1D9FAFA000CAB9CE /* FMAccountViewController.swift */,
 			);
 			path = Controllers;
@@ -309,6 +320,10 @@
 			children = (
 				0CFC8B771DA8227D0084DD6F /* FMChartTableViewCell.swift */,
 				0CFC8B781DA8227D0084DD6F /* FMChartTableViewCell.xib */,
+				0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */,
+				0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */,
+				0C2E955A1DAFE4C000C03669 /* FMStatsDetailCell.swift */,
+				0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -468,6 +483,8 @@
 				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
+				0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */,
+				0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */,
 				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
@@ -629,8 +646,10 @@
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
 				0CFC8B7C1DA9040E0084DD6F /* FMSpriteState.swift in Sources */,
 				0C3B1A371DA9992E009DB425 /* FMPixelBubbleTransition.swift in Sources */,
+				0C2E95561DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift in Sources */,
 				0CFC8B7E1DA9199B0084DD6F /* FoundationExtension.swift in Sources */,
 				0CD3CD751D9F144600E47BF8 /* FMExerciseViewController.swift in Sources */,
+				0C2E955C1DAFE4C000C03669 /* FMStatsDetailCell.swift in Sources */,
 				0CD3CD731D9F088200E47BF8 /* FMMenuViewController.swift in Sources */,
 				0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */,
 				0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */,
@@ -642,6 +661,7 @@
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,
 				0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */,
 				0CFC8B791DA8227D0084DD6F /* FMChartTableViewCell.swift in Sources */,
+				0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */,
 			);

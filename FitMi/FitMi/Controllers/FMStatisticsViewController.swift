@@ -30,6 +30,7 @@ class FMStatisticsViewController: FMViewController {
 	
 	private func registerCells() {
 		FMChartTableViewCell.registerCell(tableView: self.tableView, reuseIdentifier: FMChartTableViewCell.identifier)
+		FMMiddleAlignedLabelCell.registerCell(tableView: self.tableView, reuseIdentifier: FMMiddleAlignedLabelCell.identifier)
 	}
 	
 	private func configureTableView() {
@@ -109,19 +110,28 @@ class FMStatisticsViewController: FMViewController {
 
 extension FMStatisticsViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4
+		switch section {
+		case 0:
+			return 4
+			
+		case 1:
+			return 1
+			
+		default:
+			return 0
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath) as! FMChartTableViewCell
-		cell.selectionStyle = .none
-		
+		var defaultCell: UITableViewCell!
 		switch indexPath.section {
 		case 0:
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath) as! FMChartTableViewCell
+			cell.selectionStyle = .none
 			switch indexPath.row {
 			case 0:
 				cell.titleLabel.text = "Health".uppercased()
@@ -142,16 +152,29 @@ extension FMStatisticsViewController: UITableViewDataSource {
 			default:
 				print("unsupported indexpath: \(indexPath)")
 			}
+			
+			defaultCell = cell
 		default:
-			print("unsupported indexpath: \(indexPath)")
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
+			cell.selectionStyle = .none
+			defaultCell = cell
 		}
 		
-		return cell
+		return defaultCell
 	}
 }
 
 extension FMStatisticsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print(indexPath)
+		switch indexPath.section {
+		case 1:
+			let controller = FMStatisticsDetailViewController.controllerFromStoryboard()
+			UIApplication.shared.keyWindow!.rootViewController!.present(controller, animated: true, completion: {
+				
+			})
+			
+		default:
+			print(indexPath)
+		}
 	}
 }
