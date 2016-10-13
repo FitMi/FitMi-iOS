@@ -38,11 +38,10 @@
 		0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B7F1DA96BCE0084DD6F /* FMSpriteLevelManager.swift */; };
 		0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B821DA97FC40084DD6F /* Pixeled.ttf */; };
 		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
+		93A5D3721DAF87D200439264 /* background-01.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93A5D36E1DAF82DF00439264 /* background-01.atlas */; };
 		93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */; };
 		93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B223501DAD2D7C0067F43A /* sprite-run.atlas */; };
 		93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2236E1DAD50990067F43A /* sprite-touch.atlas */; };
-		93C050871DAEAB3A00A3630D /* backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = 93C5B2361DAE9D2E00CA654F /* backgrounds */; };
-		93C0508F1DAEAE6600A3630D /* background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C0508E1DAEAE6600A3630D /* background-1.png */; };
 		98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */; };
 		A8316A084B18A3CCD42D14AC /* Pods_FitMiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */; };
 		C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2529E0186F433C773AE43B /* Pods_FitMi.framework */; };
@@ -108,11 +107,10 @@
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.release.xcconfig"; sourceTree = "<group>"; };
+		93A5D36E1DAF82DF00439264 /* background-01.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "background-01.atlas"; sourceTree = "<group>"; };
 		93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-relax.atlas"; sourceTree = "<group>"; };
 		93B223501DAD2D7C0067F43A /* sprite-run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-run.atlas"; sourceTree = "<group>"; };
 		93B2236E1DAD50990067F43A /* sprite-touch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-touch.atlas"; sourceTree = "<group>"; };
-		93C0508E1DAEAE6600A3630D /* background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-1.png"; sourceTree = "<group>"; };
-		93C5B2361DAE9D2E00CA654F /* backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = backgrounds; sourceTree = "<group>"; };
 		98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMotionStatusManager.swift; sourceTree = "<group>"; };
 		9B6B86172301C312C9C0109C /* Pods-FitMiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiTests/Pods-FitMiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F0044B78ED30D1E7AFFAC62 /* Pods-FitMi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,8 +277,7 @@
 		0CD3CD761D9F168D00E47BF8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				93C0508D1DAEAE6600A3630D /* backgrounds */,
-				93C5B2361DAE9D2E00CA654F /* backgrounds */,
+				93A5D36D1DAF82DF00439264 /* backgrounds */,
 				0CFC8B811DA97FC40084DD6F /* fonts */,
 				0CD3CD771D9F168D00E47BF8 /* sprites */,
 			);
@@ -337,10 +334,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		93C0508D1DAEAE6600A3630D /* backgrounds */ = {
+		93A5D36D1DAF82DF00439264 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				93C0508E1DAEAE6600A3630D /* background-1.png */,
+				93A5D36E1DAF82DF00439264 /* background-01.atlas */,
 			);
 			path = backgrounds;
 			sourceTree = "<group>";
@@ -468,7 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C050871DAEAB3A00A3630D /* backgrounds in Resources */,
+				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
 				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
@@ -478,7 +475,6 @@
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
 				0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */,
-				93C0508F1DAEAE6600A3630D /* background-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
