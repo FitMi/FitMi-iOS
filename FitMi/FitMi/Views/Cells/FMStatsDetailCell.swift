@@ -20,5 +20,10 @@ class FMStatsDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+	
+	static let identifier = "FMStatsDetailCell"
+	class func registerCell(tableView: UITableView, reuseIdentifier: String) {
+		let nib = UINib(nibName: "FMStatsDetailCell", bundle: Bundle.main)
+		tableView.register(nib, forCellReuseIdentifier: reuseIdentifier)
+	}
 }

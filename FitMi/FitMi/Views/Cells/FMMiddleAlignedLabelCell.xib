@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,22 +19,34 @@
                 <frame key="frameInset" width="320" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALL HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-0f-SFI">
-                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUd-hh-uc3">
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALL HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRJ-0f-SFI">
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eRJ-0f-SFI" secondAttribute="bottom" constant="30" id="4eD-QO-Mlv"/>
+                            <constraint firstAttribute="trailing" secondItem="eRJ-0f-SFI" secondAttribute="trailing" id="AJ6-zv-2Pc"/>
+                            <constraint firstItem="eRJ-0f-SFI" firstAttribute="top" secondItem="zUd-hh-uc3" secondAttribute="top" constant="30" id="C0O-y6-kJL"/>
+                            <constraint firstItem="eRJ-0f-SFI" firstAttribute="leading" secondItem="zUd-hh-uc3" secondAttribute="leading" id="V1V-YI-6yh"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="eRJ-0f-SFI" secondAttribute="bottom" constant="20" id="2pY-P8-pGU"/>
-                    <constraint firstItem="eRJ-0f-SFI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="6v3-iG-Gph"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="eRJ-0f-SFI" secondAttribute="trailing" constant="20" id="ENP-fe-Gs2"/>
-                    <constraint firstItem="eRJ-0f-SFI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="rZ9-go-o0T"/>
+                    <constraint firstAttribute="bottom" secondItem="zUd-hh-uc3" secondAttribute="bottom" constant="20" id="42U-x6-L5n"/>
+                    <constraint firstAttribute="trailing" secondItem="zUd-hh-uc3" secondAttribute="trailing" constant="20" id="IsC-LK-Tu9"/>
+                    <constraint firstItem="zUd-hh-uc3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="XiE-Ho-36X"/>
+                    <constraint firstItem="zUd-hh-uc3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="yDV-N0-bLo"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="cardView" destination="zUd-hh-uc3" id="vlD-Ra-umI"/>
                 <outlet property="label" destination="eRJ-0f-SFI" id="OxM-Ko-eVG"/>
             </connections>
             <point key="canvasLocation" x="25" y="112.5"/>
