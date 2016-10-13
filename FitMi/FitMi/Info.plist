@@ -46,5 +46,25 @@
 	<string>FitMi needs your workout data to raise your little sprite. These data will only be kept locally on your device.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>FitMi needs to access your motion data to help monitor your exercise data. These data will only be kept locally on your device.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>fb1768015020120341</string>
+		</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1768015020120341</string>
+	<key>FacebookDisplayName</key>
+	<string>FitMi</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>
