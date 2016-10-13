@@ -17,18 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let defaults = UserDefaults.standard
-        let hasOnboard = defaults.bool(forKey: "hasOnboard")
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let onboardVC: FMOnboardViewController = storyBoard.instantiateViewController(withIdentifier: "FMOnboardViewController") as! FMOnboardViewController
-        let rootVC: FMRootViewController = storyBoard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMRootViewController
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        if hasOnboard {
+        let hasOnboard = application.hasOnboard
+		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		
+		if hasOnboard {
+			let rootVC: FMRootViewController = storyBoard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMRootViewController
             self.window?.rootViewController = rootVC
         } else {
+			let onboardVC: FMOnboardViewController = storyBoard.instantiateViewController(withIdentifier: "FMOnboardViewController") as! FMOnboardViewController
             self.window?.rootViewController = onboardVC
         }
         self.window?.makeKeyAndVisible()
+		
 		return true
 	}
 

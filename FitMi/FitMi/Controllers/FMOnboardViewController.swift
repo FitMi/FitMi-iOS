@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EAIntroView
 
 class FMOnboardViewController: UIViewController {
     override func viewDidLoad() {
