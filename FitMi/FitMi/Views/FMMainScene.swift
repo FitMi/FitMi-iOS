@@ -11,6 +11,8 @@ import GameplayKit
 
 class FMMainScene: SKScene {
     
+    private let spriteStatusManager = FMSpriteStatusManager.sharedManager
+    
     private var backgroundAtlas = SKTextureAtlas()
     private var backgroundArray = [SKTexture]()
     private var normalSpriteAtlas = SKTextureAtlas()
@@ -23,6 +25,8 @@ class FMMainScene: SKScene {
 	private var isInHomeScreen = false
 	var character = SKSpriteNode()
     var background = SKSpriteNode()
+    let healthIcon = SKSpriteNode(imageNamed: "health_icon.png")
+    let healthBar = SKSpriteNode()
 	
 	
     override func didMove(to view: SKView) {
@@ -30,7 +34,47 @@ class FMMainScene: SKScene {
         self.loadBackgroundSprites()
         self.displayBackground()
         self.displayCharacter()
+        self.initializeStatusBar()
+        self.initializeHealthBar()
 	}
+    
+    private func initializeStatusBar() {
+        let statusBar = SKSpriteNode()
+        let height = CGFloat(80)
+        statusBar.size = CGSize(width: self.frame.width, height: height)
+        statusBar.position = CGPoint(x: 0, y: self.frame.height / 2 - height / 2)
+        statusBar.color = UIColor.secondaryColor
+        statusBar.zPosition = 0
+        self.addChild(statusBar)
+    }
+    
+    private func initializeHealthBar() {
+        let healthBarY = self.frame.height / 2 - 40
+        let HPColour = UIColor(red: 133 / 255.0, green: 239 / 255.0, blue: 163 / 255.0, alpha: 1)
+        
+        self.healthIcon.zPosition = 2
+        self.healthIcon.position = CGPoint(x: -130, y: healthBarY)
+        self.addChild(healthIcon)
+        
+        self.healthBar.color = HPColour
+        self.healthBar.zPosition = 2
+        self.addChild(healthBar)
+        
+        let healthBarBorder = SKSpriteNode(imageNamed: "bar_border.png")
+        healthBarBorder.position = CGPoint(x: 40, y: healthBarY)
+        healthBarBorder.zPosition = 1
+        self.addChild(healthBarBorder)
+    }
+    
+    func updateHealthBar(health: Int) {
+        let maxHP = 100
+        let healthBarMaxLength = 256
+        let healthBarLength = healthBarMaxLength * health / maxHP
+        let healthBarX = (CGFloat(healthBarLength) - 256) / 2 + 40
+        let healthBarY = self.frame.height / 2 - 40
+        healthBar.size = CGSize(width: healthBarLength, height: 20)
+        healthBar.position = CGPoint(x: healthBarX, y: healthBarY)
+    }
     
     private func loadBackgroundSprites() {
         self.backgroundAtlas = SKTextureAtlas(named: "background-01")
