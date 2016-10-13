@@ -16,7 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+
+        let hasOnboard = false//application.hasOnboard
+		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		
+		if hasOnboard {
+			let rootVC: FMRootViewController = storyBoard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMRootViewController
+            self.window?.rootViewController = rootVC
+        } else {
+			let onboardVC: FMOnboardViewController = storyBoard.instantiateViewController(withIdentifier: "FMOnboardViewController") as! FMOnboardViewController
+            self.window?.rootViewController = onboardVC
+        }
+        self.window?.makeKeyAndVisible()
+		
 		return true
 	}
 
