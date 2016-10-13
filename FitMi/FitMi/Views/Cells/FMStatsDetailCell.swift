@@ -10,9 +10,20 @@ import UIKit
 
 class FMStatsDetailCell: UITableViewCell {
 
+	@IBOutlet var dateLabel: UILabel!
+	@IBOutlet var stepsLabel: UILabel!
+	@IBOutlet var distanceLabel: UILabel!
+	@IBOutlet var floorsLabel: UILabel!
+	
+	fileprivate static var dateFormatter: DateFormatter!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		if FMStatsDetailCell.dateFormatter == nil {
+			FMStatsDetailCell.dateFormatter = DateFormatter()
+			FMStatsDetailCell.dateFormatter.dateFormat = "YYYY-MM-dd"
+		}
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,6 +31,14 @@ class FMStatsDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	func configureCell(withState state: FMSpriteState) {
+		self.dateLabel.text = FMStatsDetailCell.dateFormatter.string(from: state.date)
+		self.stepsLabel.text = "\(state.stepCount)"
+		self.distanceLabel.text = "\(state.distance)"
+		self.floorsLabel.text = "\(state.flightsClimbed)"
+		self.setNeedsUpdateConstraints()
+	}
 	
 	static let identifier = "FMStatsDetailCell"
 	class func registerCell(tableView: UITableView, reuseIdentifier: String) {

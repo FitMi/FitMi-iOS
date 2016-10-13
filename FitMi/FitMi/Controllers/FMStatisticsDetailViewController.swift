@@ -12,8 +12,8 @@ class FMStatisticsDetailViewController: FMViewController {
 	
 	@IBOutlet var tableView: UITableView!
 	var refreshControl: UIRefreshControl!
-	fileprivate var numberOfStates = 14
 	fileprivate var sprite = FMSpriteStatusManager.sharedManager.sprite!
+	fileprivate var numberOfStates = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,9 +24,14 @@ class FMStatisticsDetailViewController: FMViewController {
 	
 	private func configureTableView() {
 		self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
+		self.tableView.estimatedRowHeight = 100
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		
 		self.refreshControl = UIRefreshControl()
 		self.tableView.addSubview(self.refreshControl)
 		self.refreshControl.addTarget(self, action: #selector(tableDidRefreshed), for: .valueChanged)
+		
+		self.numberOfStates = min(sprite.states.count, 14)
 	}
 	
 	func tableDidRefreshed() {
@@ -76,10 +81,10 @@ extension FMStatisticsDetailViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		switch indexPath.section {
 		case 0:
-			let cell = tableView.dequeueReusableCell(withIdentifier: FMStatsDetailCell.identifier, for: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMStatsDetailCell.identifier, for: indexPath) as! FMStatsDetailCell
 			cell.selectionStyle = .none
 			let index = self.sprite.states.count - (self.numberOfStates - indexPath.row)
-			cell.textLabel?.text = "\(self.sprite.states[index].date)"
+			cell.configureCell(withState: self.sprite.states[index])
 			return cell
 		default:
 			let cell = tableView.dequeueReusableCell(withIdentifier: FMStatsDetailCell.identifier, for: indexPath)
