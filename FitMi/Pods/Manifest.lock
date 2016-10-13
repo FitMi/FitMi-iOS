@@ -1,8 +1,33 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - BubbleTransition (2.0.0)
   - Charts (3.0.0):
     - Charts/Core (= 3.0.0)
   - Charts/Core (3.0.0)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FacebookShare (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKShareKit (~> 4.15)
+  - FBSDKCoreKit (4.16.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.16.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.16.1):
+    - FBSDKCoreKit
   - FontBlaster (3.0.0)
   - Realm (2.0.2):
     - Realm/Headers (= 2.0.2)
@@ -13,6 +38,9 @@ PODS:
 DEPENDENCIES:
   - BubbleTransition
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
   - FontBlaster
   - RealmSwift (~> 2.0)
 
@@ -27,12 +55,19 @@ CHECKOUT OPTIONS:
     :git: https://github.com/danielgindi/Charts.git
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
+  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
+  FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
+  FBSDKShareKit: 53af0239b5bd2ebf191f32f75991245a208cc982
   FontBlaster: 0f4a3e2f965968e2dfc3f7f5cec7214c3f3b2f07
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
 
-PODFILE CHECKSUM: 8b4a9e1913f5bef695ad9d39a32ce4337f4dee67
+PODFILE CHECKSUM: e99dbcb7ffbf08c93b7ce879fd308207cf747f12
 
 COCOAPODS: 1.0.1
