@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class FMAccountViewController: FMViewController {
 
 	private static var defaultController: FMAccountViewController?
 	
+    @IBOutlet weak var loginButton: LoginButton!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -20,6 +23,7 @@ class FMAccountViewController: FMViewController {
 		}
 		
 		// Do any additional setup after loading the view.
+        loginButton = LoginButton(readPermissions: [ .publicProfile ])
 	}
 	
 	override func didReceiveMemoryWarning() {
