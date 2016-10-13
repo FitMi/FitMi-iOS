@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let hasOnboard = application.hasOnboard
+        let hasOnboard = false//application.hasOnboard
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		

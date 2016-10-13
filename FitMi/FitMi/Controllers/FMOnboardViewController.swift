@@ -7,13 +7,42 @@
 //
 
 import UIKit
+import JazzHands
+import Masonry
 
-class FMOnboardViewController: UIViewController {
+class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
+	
+	private var page0Label0: UILabel!
+	private var page0ImageView0: UILabel!
+	
+	override func numberOfPages() -> UInt {
+		return 1
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do something
+		
+		self.configureViews()
     }
+	
+	private func configureViews() {
+		
+		
+		do {
+			let label = UILabel()
+			label.text = "Welcome"
+			label.textAlignment = .center
+			
+			
+			self.view.addSubview(label)
+			self.page0Label0 = label
+		}
+		
+	}
+	
+	private func configureAnimations() {
+		
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

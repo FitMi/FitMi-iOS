@@ -9,6 +9,8 @@ target 'FitMi' do
   pod 'RealmSwift', '~> 2.0'
   pod 'FontBlaster'
   pod 'BubbleTransition'
+  pod 'JazzHands'
+  pod 'Masonry'
   pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
 
   target 'FitMiTests' do
