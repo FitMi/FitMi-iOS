@@ -67,4 +67,18 @@ class FMMotionStatusManager: NSObject {
     func isFloorCountingAvailable() -> Bool {
         return CMPedometer.isFloorCountingAvailable()
     }
+
+    func isAuthorized(handler: @escaping (Bool) -> Void) {
+        pedometer.queryPedometerData(from: Date(), to: Date(), withHandler: {(data, error) in
+            if error != nil {
+                if (error as! NSError).code == Int(CMErrorMotionActivityNotAuthorized.rawValue) {
+                    handler(false)
+                } else {
+                    handler(true)
+                }
+                return
+            }
+            handler(true)
+        })
+    }
 }
