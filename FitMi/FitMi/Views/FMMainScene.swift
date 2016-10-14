@@ -17,10 +17,16 @@ class FMMainScene: SKScene {
     private var backgroundArray = [SKTexture]()
     private var normalSpriteAtlas = SKTextureAtlas()
     private var normalSpriteArray = [SKTexture]()
+    private var tiredSpriteAtlas = SKTextureAtlas()
+    private var tiredSpriteArray = [SKTexture]()
     private var sleepSpriteAtlas = SKTextureAtlas()
     private var sleepSpriteArray = [SKTexture]()
     private var touchSpriteAtlas = SKTextureAtlas()
     private var touchSpriteArray = [SKTexture]()
+    private var wakeSpriteAtlas = SKTextureAtlas()
+    private var wakeSpriteArray = [SKTexture]()
+    private var runSpriteAtlas = SKTextureAtlas()
+    private var runSpriteArray = [SKTexture]()
 	private var defaultScale: CGFloat = 0.0
 	private var isInHomeScreen = false
 	var character = SKSpriteNode()
@@ -97,10 +103,34 @@ class FMMainScene: SKScene {
             normalSpriteArray.append(SKTexture(imageNamed: name))
         }
         
+        self.tiredSpriteAtlas = SKTextureAtlas(named: "sprite-tired")
+        for i in 1...self.tiredSpriteAtlas.textureNames.count {
+            let name = "tired1-\(i).png"
+            tiredSpriteArray.append(SKTexture(imageNamed: name))
+        }
+        
+        self.sleepSpriteAtlas = SKTextureAtlas(named: "sprite-sleep")
+        for i in 1...self.sleepSpriteAtlas.textureNames.count {
+            let name = "sleep1-\(i).png"
+            sleepSpriteArray.append(SKTexture(imageNamed: name))
+        }
+        
+        self.wakeSpriteAtlas = SKTextureAtlas(named: "sprite-wake")
+        for i in 1...self.wakeSpriteAtlas.textureNames.count {
+            let name = "wake1-\(i).png"
+            wakeSpriteArray.append(SKTexture(imageNamed: name))
+        }
+        
         self.touchSpriteAtlas = SKTextureAtlas(named: "sprite-touch")
         for i in 2...self.touchSpriteAtlas.textureNames.count {
             let name = "touch1-\(i).png"
             touchSpriteArray.append(SKTexture(imageNamed: name))
+        }
+        
+        self.runSpriteAtlas = SKTextureAtlas(named: "sprite-run")
+        for i in 1...self.runSpriteAtlas.textureNames.count {
+            let name = "run1-\(i).png"
+            runSpriteArray.append(SKTexture(imageNamed: name))
         }
     }
     
