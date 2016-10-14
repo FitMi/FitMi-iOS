@@ -12,6 +12,8 @@ import Masonry
 
 class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 	
+	fileprivate var pageControl: UIPageControl!
+	
 	fileprivate var page0Label0: UILabel!
 	fileprivate var page0Label1: UILabel!
 	fileprivate var page0ImageView0: UIImageView!
@@ -50,6 +52,16 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		self.contentView.backgroundColor = UIColor(red:0.26, green:0.84, blue:0.80, alpha:1.00)
 		self.view.backgroundColor = self.contentView.backgroundColor
+		
+		do {
+			let control = UIPageControl()
+			control.numberOfPages = Int(self.numberOfPages())
+			control.currentPage = 0
+			control.isUserInteractionEnabled = false
+			
+			self.contentView.addSubview(control)
+			self.pageControl = control
+		}
 		
 		do {
 			let label = UILabel()
@@ -236,6 +248,8 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 	}
 	
 	private func configureAnimations() {
+		self.configureAnimationPageControl()
+		
 		self.configureAnimationPage0Label0()
 		self.configureAnimationPage0Label1()
 		self.configureAnimationPage0ImageView0()
@@ -253,6 +267,16 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		self.configureAnimationPage3Button0()
 		self.configureAnimationPage3Label2()
 		self.configureAnimationPage3Button1()
+	}
+	
+	private func configureAnimationPageControl() {
+		self.pageControl.mas_makeConstraints({
+			make in
+			_ = make?.width.equalTo()(self.scrollView)?.multipliedBy()(0.4)
+			_ = make?.centerY.equalTo()(self.contentView)?.multipliedBy()(1.9)
+		})
+		
+		self.keepView(self.pageControl, onPages: [0, 1, 2, 3])
 	}
 	
 	private func configureAnimationPage0Label0() {
@@ -461,5 +485,14 @@ extension FMOnboardViewController {
 	func openPrivacyPolicy() {
 		let url = URL(string: "https://fitmi.club/privacy.html")!
 		UIApplication.shared.openURL(url)
+	}
+}
+
+extension FMOnboardViewController {
+	override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		super.scrollViewDidScroll(scrollView)
+		let width = scrollView.frame.size.width
+		let x = scrollView.contentOffset.x
+		self.pageControl.currentPage = Int(x / width)
 	}
 }
