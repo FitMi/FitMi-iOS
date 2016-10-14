@@ -84,7 +84,7 @@ class FMMainScene: SKScene {
     func updateHealthBar(health: Int) {
         let maxHP = 100
         let healthBarMaxLength = 256
-        let healthBarLength = healthBarMaxLength * health / maxHP
+        let healthBarLength = min(healthBarMaxLength * health / maxHP, 256)
         let healthBarX = (CGFloat(healthBarLength) - 256) / 2 + 40
         let healthBarY = self.frame.height / 2 - 40
         healthBar.size = CGSize(width: healthBarLength, height: 20)
