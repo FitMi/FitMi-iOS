@@ -511,11 +511,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juq-WB-ZQb" customClass="FBSDKLoginButton">
-                                <frame key="frameInset" minX="124" minY="460" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -526,9 +521,6 @@
                             <constraint firstItem="G3o-Zq-URO" firstAttribute="top" secondItem="aMk-tz-RSV" secondAttribute="bottom" id="r1A-PN-wa9"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="juq-WB-ZQb" id="YFH-WN-zr4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
