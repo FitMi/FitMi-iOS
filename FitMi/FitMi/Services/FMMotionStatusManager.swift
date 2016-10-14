@@ -14,6 +14,8 @@ protocol FMMotionStatusDelegate {
                              didRecieveMotionData data: CMPedometerData)
     func motionStatusManager(manager: FMMotionStatusManager,
                              didRecieveActivityData data: CMMotionActivity)
+    func motionStatusManager(manager: FMMotionStatusManager,
+                             onError error: NSError)
 }
 
 class FMMotionStatusManager: NSObject {
@@ -37,7 +39,7 @@ class FMMotionStatusManager: NSObject {
         pedometer.startUpdates(from: currentDate) {
             (data, error) in
             if error != nil {
-                print("There was an error obtaining pedometer data: \(error)")
+                self.handleError(error: error as! NSError)
             } else {
                 if let motionData: CMPedometerData = data {
                     self.delegate?.motionStatusManager(manager: self,
@@ -67,18 +69,9 @@ class FMMotionStatusManager: NSObject {
     func isFloorCountingAvailable() -> Bool {
         return CMPedometer.isFloorCountingAvailable()
     }
-
-    func isAuthorized(handler: @escaping (Bool) -> Void) {
-        pedometer.queryPedometerData(from: Date(), to: Date(), withHandler: {(data, error) in
-            if error != nil {
-                if (error as! NSError).code == Int(CMErrorMotionActivityNotAuthorized.rawValue) {
-                    handler(false)
-                } else {
-                    handler(true)
-                }
-                return
-            }
-            handler(true)
-        })
+    
+    private func handleError(error: NSError) {
+        self.stopMotionUpdates()
+        self.delegate?.motionStatusManager(manager: self, onError: error)
     }
 }

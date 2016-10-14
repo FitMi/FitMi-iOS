@@ -168,8 +168,6 @@ class FMExerciseViewController: FMViewController {
 	}
 
     @IBAction func startExercise(_ sender: AnyObject) {
-        self.mainScene.removeAllActions()
-        motionStatusManager.startMotionUpdates()
 		self.tap.isEnabled = false
 		self.buttonStartExercise.isEnabled = false
 		self.buttonStartExercise.alpha = buttonAlphaDisabled
@@ -177,6 +175,7 @@ class FMExerciseViewController: FMViewController {
 		self.buttonEndExercise.alpha = 1
 		self.exerciseStartDate = Date()
 		self.durationUpdateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateDurationLabel), userInfo: nil, repeats: true)
+        motionStatusManager.startMotionUpdates()
     }
     
     @IBAction func endExercise(_ sender: AnyObject) {
@@ -250,5 +249,33 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
         }
         
         self.wasMoving = isMoving
+    }
+    
+    func motionStatusManager(manager: FMMotionStatusManager, onError error: NSError) {
+        if error.code == Int(CMErrorMotionActivityNotAuthorized.rawValue) {
+            let message = "Turn off motion activity will disable built-in pedometer. " +
+                            "Please turn it back on in Settings > Privacy > Motion&Fitness > FitMi."
+            let alertController = UIAlertController(title: "MOTION ACTIVITY ERROR", message:
+                message, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: {
+                (_) in
+                // Stop Exercise
+                self.tap.isEnabled = true
+                self.buttonStartExercise.isEnabled = true
+                self.buttonStartExercise.alpha = 1
+                self.buttonEndExercise.isEnabled = false
+                self.buttonEndExercise.alpha = self.buttonAlphaDisabled
+                self.durationUpdateTimer.invalidate()
+                // Update UI
+                self.exerciseStartDate = nil
+                self.exerciseEndDate = nil
+                self.stepCount = 0
+                self.distance = 0
+                self.flights = 0
+                self.updateLabels()
+            }))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
