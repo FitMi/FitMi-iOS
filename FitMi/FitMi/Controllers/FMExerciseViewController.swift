@@ -30,7 +30,7 @@ class FMExerciseViewController: FMViewController {
     
     var mainScene = FMMainScene()
     
-	private let buttonAlphaDisabled: CGFloat = 0.3
+	let buttonAlphaDisabled: CGFloat = 0.3
 	
 	var exerciseStartDate: Date!
 	var exerciseEndDate: Date!
