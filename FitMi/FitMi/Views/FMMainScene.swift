@@ -27,8 +27,11 @@ class FMMainScene: SKScene {
     private var wakeSpriteArray = [SKTexture]()
     private var runSpriteAtlas = SKTextureAtlas()
     private var runSpriteArray = [SKTexture]()
+    
 	private var defaultScale: CGFloat = 0.0
 	private var isInHomeScreen = false
+    private var isSleeping = false
+    
 	var character = SKSpriteNode()
     var background = SKSpriteNode()
     let healthIcon = SKSpriteNode(imageNamed: "health_icon.png")
@@ -116,7 +119,7 @@ class FMMainScene: SKScene {
         }
         
         self.wakeSpriteAtlas = SKTextureAtlas(named: "sprite-wake")
-        for i in 1...self.wakeSpriteAtlas.textureNames.count {
+        for i in 2...self.wakeSpriteAtlas.textureNames.count {
             let name = "wake1-\(i).png"
             wakeSpriteArray.append(SKTexture(imageNamed: name))
         }
@@ -162,27 +165,55 @@ class FMMainScene: SKScene {
     }
     
     private func animateNormalSprite() {
-        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 0.5, resize: true, restore: true), count: 5))
+        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 0.5, resize: true, restore: true), count: 5), completion: {() -> Void in
+                self.animateTiredSprite()
+            })
+    }
+    
+    private func animateTiredSprite() {
+        self.character.run(SKAction.animate(with: self.tiredSpriteArray, timePerFrame: 0.4, resize: true, restore: true), completion: {() -> Void in
+                self.animateSleepSprite()
+        })
     }
     
     private func animateSleepSprite() {
-        //self.character.run(SKAction.animate(with: self))
+        self.isSleeping = true
+        self.character.run(SKAction.repeatForever(SKAction.animate(with: self.sleepSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
     }
-	
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		self.character.removeAllActions()
-
-        self.character.texture = SKTexture(imageNamed: "touch1-1.png")
-		self.character.setScale(0.95 * self.defaultScale)
+    
+    private func animateWakeSprite() {
+        self.character.run(SKAction.animate(with: self.wakeSpriteArray, timePerFrame: 0.5, resize: true, restore: true), completion: {() -> Void in
+            self.animateNormalSprite()
+        })
+    }
+    
+    private func animateTouchSprite() {
+        if (self.isSleeping) {
+            self.character.texture = SKTexture(imageNamed: "wake1-1.png")
+        } else {
+            self.character.texture = SKTexture(imageNamed: "touch1-1.png")
+        }
+        
+        self.character.setScale(0.95 * self.defaultScale)
         let wait = SKAction.wait(forDuration: 0.4)
         let touchAction = SKAction.repeatForever(SKAction.animate(with: self.touchSpriteArray, timePerFrame: 0.2, resize: true, restore: true))
         let sequence = SKAction.sequence([wait, touchAction])
         self.character.run(sequence)
+    }
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		self.character.removeAllActions()
+        self.animateTouchSprite()
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.character.setScale(self.defaultScale)
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
+        if (self.isSleeping) {
+            self.animateWakeSprite()
+        } else {
+            self.animateNormalSprite()
+        }
+        self.isSleeping = false
 	}
 	
     override func update(_ currentTime: TimeInterval) {
