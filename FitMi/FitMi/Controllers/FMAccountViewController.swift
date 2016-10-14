@@ -8,12 +8,11 @@
 
 import UIKit
 import FacebookLogin
+import FBSDKLoginKit
 
 class FMAccountViewController: FMViewController {
 
 	private static var defaultController: FMAccountViewController?
-	
-    @IBOutlet weak var loginButton: LoginButton!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,8 +22,11 @@ class FMAccountViewController: FMViewController {
 		}
 		
 		// Do any additional setup after loading the view.
-        loginButton = LoginButton(readPermissions: [ .publicProfile ])
-	}
+        let loginButton = FBSDKLoginButton()
+        // Optional: Place the button in the center of your view.
+        loginButton.center = self.view.center
+        self.view.addSubview(loginButton)
+    }
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
