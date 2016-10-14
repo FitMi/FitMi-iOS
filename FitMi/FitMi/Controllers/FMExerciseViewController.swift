@@ -27,7 +27,9 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelFlights: UILabel!
 	
 	@IBOutlet var tap: UITapGestureRecognizer!
-	
+    
+    var mainScene = FMMainScene()
+    
 	private let buttonAlphaDisabled: CGFloat = 0.3
 	
 	var exerciseStartDate: Date!
@@ -36,6 +38,8 @@ class FMExerciseViewController: FMViewController {
 	var distance: Int = 0
 	var flights: Int = 0
 	var durationUpdateTimer: Timer!
+    
+    var wasMoving = false
 	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
 
@@ -60,7 +64,8 @@ class FMExerciseViewController: FMViewController {
 		}
 		
 		do {
-			if let scene = SKScene(fileNamed: "FMMainScene") {
+			if let scene = FMMainScene(fileNamed: "FMMainScene") {
+                self.mainScene = scene
 				scene.scaleMode = .aspectFill
 				self.spriteView.presentScene(scene)
 			}
@@ -163,6 +168,7 @@ class FMExerciseViewController: FMViewController {
 	}
 
     @IBAction func startExercise(_ sender: AnyObject) {
+        self.mainScene.removeAllActions()
         motionStatusManager.startMotionUpdates()
 		self.tap.isEnabled = false
 		self.buttonStartExercise.isEnabled = false
@@ -174,6 +180,7 @@ class FMExerciseViewController: FMViewController {
     }
     
     @IBAction func endExercise(_ sender: AnyObject) {
+        self.mainScene.animateNormalSprite()
         motionStatusManager.stopMotionUpdates()
 		self.tap.isEnabled = true
 		self.buttonStartExercise.isEnabled = true
@@ -215,16 +222,33 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
     
     func motionStatusManager(manager: FMMotionStatusManager, didRecieveActivityData data: CMMotionActivity) {
         // TODO: collect the data and reflect them in the view
+        var isMoving = false
         if data.running {
             print("Activity: running")
+            isMoving = true
         } else if data.cycling {
             print("Activity: cycling")
+            isMoving = true
         } else if data.walking {
             print("Activity: walking")
+            isMoving = true
         } else if data.stationary {
             print("Activity: still")
+            isMoving = false
         } else {
-            print("Activity: unknown")
         }
+        
+        if (isMoving != self.wasMoving) {
+            print("satus changed!")
+            if (isMoving) {
+                self.mainScene.removeAllActions()
+                self.mainScene.animateRunSprite()
+            } else {
+                self.mainScene.removeAllActions()
+                self.mainScene.animateNormalSprite()
+            }
+        }
+        
+        self.wasMoving = isMoving
     }
 }

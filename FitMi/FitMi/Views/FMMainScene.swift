@@ -30,6 +30,7 @@ class FMMainScene: SKScene {
     
 	private var defaultScale: CGFloat = 0.0
 	private var isInHomeScreen = false
+    
     private var isSleeping = false
     
 	var character = SKSpriteNode()
@@ -164,7 +165,7 @@ class FMMainScene: SKScene {
         self.animateNormalSprite()
     }
     
-    private func animateNormalSprite() {
+    public func animateNormalSprite() {
         self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: true, restore: true), count: 3), completion: {() -> Void in
                 self.animateTiredSprite()
             })
@@ -200,20 +201,32 @@ class FMMainScene: SKScene {
         let sequence = SKAction.sequence([wait, touchAction])
         self.character.run(sequence)
     }
+    
+    public func animateRunSprite() {
+        self.character.run(SKAction.repeatForever(SKAction.animate(with: self.runSpriteArray, timePerFrame: 0.4, resize: true, restore: true)))
+    }
+    
+    public func removeSpriteAnimation() {
+        self.character.removeAllActions()
+    }
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		self.character.removeAllActions()
-        self.animateTouchSprite()
+        if (self.isInHomeScreen) {
+            self.character.removeAllActions()
+            self.animateTouchSprite()
+        }
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		self.character.setScale(self.defaultScale)
-        if (self.isSleeping) {
-            self.animateWakeSprite()
-        } else {
-            self.animateNormalSprite()
+        if (self.isInHomeScreen) {
+            self.character.setScale(self.defaultScale)
+            if (self.isSleeping) {
+                self.animateWakeSprite()
+            } else {
+                self.animateNormalSprite()
+            }
+            self.isSleeping = false
         }
-        self.isSleeping = false
 	}
 	
     override func update(_ currentTime: TimeInterval) {
