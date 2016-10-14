@@ -38,6 +38,16 @@ class FMWorkoutHistoryViewController: FMViewController {
             self.sprite = FMSpriteStatusManager.sharedManager.sprite
             self.numberOfRecords = min(self.sprite!.exercises.count, 14)
             self.tableView.reloadData()
+			if self.sprite?.exercises.count == 0 {
+				let label = UILabel()
+				label.text = "YOU HAVE NO IN-APP WORKOUT RECORD."
+				label.numberOfLines = 0
+				label.textAlignment = .center
+				label.font = UIFont(name: "Pixeled", size: 8)
+				self.tableView.backgroundView = label
+			} else {
+				self.tableView.backgroundView = nil
+			}
         }
     }
     
@@ -61,6 +71,9 @@ class FMWorkoutHistoryViewController: FMViewController {
     
     func refresh() {
         self.refreshControl.endRefreshing()
+		if self.numberOfRecords != 0 && self.tableView.backgroundView != nil	{
+			self.tableView.backgroundView = nil
+		}
         self.tableView.reloadSections([0], with: .automatic)
     }
     
