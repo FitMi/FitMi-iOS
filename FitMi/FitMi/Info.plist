@@ -17,10 +17,12 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
+	<string>FitMi needs your workout data to raise your little sprite. These data will only be kept locally on your device.</string>
+	<key>NSHealthUpdateUsageDescription</key>
 	<string>FitMi needs your workout data to raise your little sprite. These data will only be kept locally on your device.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>FitMi needs to access your motion data to help monitor your exercise data. These data will only be kept locally on your device.</string>
