@@ -90,7 +90,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		do {
 			let imageView = UIImageView()
-			imageView.image = UIImage(named: "page0Image0")
+			imageView.image = UIImage(named: "onboarding1-1")
 			
 			self.contentView.addSubview(imageView)
 			self.page0ImageView0 = imageView
@@ -150,7 +150,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		do {
 			let imageView = UIImageView()
-			imageView.image = UIImage(named: "page2Image0")
+			imageView.image = UIImage(named: "onboarding1-2")
 			
 			self.contentView.addSubview(imageView)
 			self.page2ImageView0 = imageView
