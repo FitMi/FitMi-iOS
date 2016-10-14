@@ -126,6 +126,8 @@ class FMExerciseViewController: FMViewController {
 		print("End: \(self.exerciseEndDate)")
 		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
 		
+		let controller = FMExercisePopupViewController.controllerFromStoryboard()
+		
 		if !(self.stepCount == 0 && self.distance == 0 && self.flights == 0) {
 			let record = FMExerciseRecord()
 			record.steps = self.stepCount
@@ -142,10 +144,16 @@ class FMExerciseViewController: FMViewController {
 			// increaseExperience?
 			let spriteStatusManager = FMSpriteStatusManager.sharedManager
             spriteStatusManager.increaseExperienceBySteps(steps: self.stepCount)
+			
+			controller.exerciseRecord = record
 		}
+		
+		FMRootViewController.defaultController.present(controller, animated: false, completion: {
+			self.reset(nil)
+		})
 	}
 	
-	@IBAction func reset(_ sender: AnyObject) {
+	@IBAction func reset(_ sender: AnyObject?) {
 		self.exerciseStartDate = nil
 		self.exerciseEndDate = nil
 		self.stepCount = 0
