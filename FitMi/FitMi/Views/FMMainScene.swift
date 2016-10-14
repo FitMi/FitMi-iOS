@@ -128,7 +128,15 @@ class FMMainScene: SKScene {
         
         self.addChild(self.character)
         
-        self.character.run(SKAction.repeatForever(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
+        self.animateNormalSprite()
+    }
+    
+    private func animateNormalSprite() {
+        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 0.5, resize: true, restore: true), count: 5))
+    }
+    
+    private func animateSleepSprite() {
+        //self.character.run(SKAction.animate(with: self))
     }
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

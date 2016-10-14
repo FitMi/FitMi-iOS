@@ -44,6 +44,9 @@
 		0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFC8B7F1DA96BCE0084DD6F /* FMSpriteLevelManager.swift */; };
 		0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B821DA97FC40084DD6F /* Pixeled.ttf */; };
 		2920B9E4DAC562EBC3158791 /* Pods_FitMiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */; };
+		9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */; };
+		9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1721DB0B37700227C89 /* sprite-wake.atlas */; };
+		9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1741DB0B88E00227C89 /* sprite-tired.atlas */; };
 		93A5D3721DAF87D200439264 /* background-01.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93A5D36E1DAF82DF00439264 /* background-01.atlas */; };
 		93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */; };
 		93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B223501DAD2D7C0067F43A /* sprite-run.atlas */; };
@@ -124,6 +127,9 @@
 		49ECDB7950536443F71A2AF9 /* Pods_FitMiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitMiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		719234BDB38DF8BD5F1890BB /* Pods-FitMi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitMi.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitMi/Pods-FitMi.release.xcconfig"; sourceTree = "<group>"; };
+		9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-sleep.atlas"; sourceTree = "<group>"; };
+		9352E1721DB0B37700227C89 /* sprite-wake.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-wake.atlas"; sourceTree = "<group>"; };
+		9352E1741DB0B88E00227C89 /* sprite-tired.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-tired.atlas"; sourceTree = "<group>"; };
 		93A5D36E1DAF82DF00439264 /* background-01.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "background-01.atlas"; sourceTree = "<group>"; };
 		93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-relax.atlas"; sourceTree = "<group>"; };
 		93B223501DAD2D7C0067F43A /* sprite-run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-run.atlas"; sourceTree = "<group>"; };
@@ -313,6 +319,9 @@
 		0CD3CD771D9F168D00E47BF8 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				9352E1741DB0B88E00227C89 /* sprite-tired.atlas */,
+				9352E1721DB0B37700227C89 /* sprite-wake.atlas */,
+				9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */,
 				93B2236E1DAD50990067F43A /* sprite-touch.atlas */,
 				93B223501DAD2D7C0067F43A /* sprite-run.atlas */,
 				93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */,
@@ -498,13 +507,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */,
 				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
+				9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */,
 				9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
 				0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */,
 				0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */,
 				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
+				9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
