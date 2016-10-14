@@ -13,6 +13,7 @@ class FMExercisePopupViewController: FMViewController {
 	@IBOutlet var cardView: UIView!
 	@IBOutlet var cardViewLayoutY: NSLayoutConstraint!
 	
+	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var startLabel: UILabel!
 	@IBOutlet var endLabel: UILabel!
 	@IBOutlet var durationLabel: UILabel!
@@ -69,6 +70,8 @@ class FMExercisePopupViewController: FMViewController {
 	
 	func setCardViewData() {
 		if let record = self.exerciseRecord {
+			self.titleLabel.text = "WORKOUT STORED"
+			
 			self.startLabel.text = FMExercisePopupViewController.dateFormater.string(from: record.startTime)
 			self.endLabel.text = FMExercisePopupViewController.dateFormater.string(from: record.endTime)
 			
