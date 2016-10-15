@@ -49,6 +49,11 @@
                                     <segue destination="9fl-Kp-Qco" kind="presentation" modalPresentationStyle="overFullScreen" id="ReP-vZ-BLZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAy-Sf-MnZ" customClass="FBSDKLoginButton">
+                                <frame key="frameInset" minX="267" minY="608" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -57,6 +62,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebookLoginButton" destination="mAy-Sf-MnZ" id="2Id-6B-vOy"/>
                         <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
                     </connections>
                 </viewController>
@@ -511,6 +517,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h4-gD-2Id" customClass="FBSDKLoginButton">
+                                <frame key="frameInset" minX="84" minY="390" width="207" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -521,6 +532,9 @@
                             <constraint firstItem="G3o-Zq-URO" firstAttribute="top" secondItem="aMk-tz-RSV" secondAttribute="bottom" id="r1A-PN-wa9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="facebookLoginButton" destination="4h4-gD-2Id" id="Lll-wE-lw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

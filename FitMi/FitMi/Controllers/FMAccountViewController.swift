@@ -14,18 +14,14 @@ class FMAccountViewController: FMViewController {
 
 	private static var defaultController: FMAccountViewController?
     
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		if FMAccountViewController.defaultController == nil {
 			FMAccountViewController.defaultController = self
 		}
-		
-		// Do any additional setup after loading the view.
-        let loginButton = FBSDKLoginButton()
-        // Optional: Place the button in the center of your view.
-        loginButton.center = self.view.center
-        self.view.addSubview(loginButton)
     }
 	
 	override func didReceiveMemoryWarning() {

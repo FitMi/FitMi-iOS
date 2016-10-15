@@ -8,6 +8,7 @@
 
 import UIKit
 import BubbleTransition
+import FBSDKLoginKit
 
 class FMRootViewController: FMViewController {
 
@@ -15,6 +16,8 @@ class FMRootViewController: FMViewController {
 	
 	@IBOutlet weak var menuButton: UIButton!
 	
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    
 	let transition = BubbleTransition()
 	let healthStatusManager = FMHealthStatusManager.sharedManager
 	
