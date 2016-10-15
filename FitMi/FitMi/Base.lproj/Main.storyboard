@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -265,25 +266,69 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-MS-NZX">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-V7-N4t">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-Oj-kJ2">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="QOq-LT-oYs"/>
+                                                    <constraint firstAttribute="width" constant="20" id="XN3-0a-DTw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_border" translatesAutoresizingMaskIntoConstraints="NO" id="k03-gI-jE5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5f-7s-tZu" userLabel="health_bar">
+                                                <color key="backgroundColor" red="0.52156862745098043" green="0.93725490196078431" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="k03-gI-jE5" firstAttribute="width" secondItem="wXA-V7-N4t" secondAttribute="width" id="2cq-Om-BA1"/>
+                                            <constraint firstItem="k03-gI-jE5" firstAttribute="height" secondItem="wXA-V7-N4t" secondAttribute="height" id="7WK-bG-d9U"/>
+                                            <constraint firstItem="rZO-Oj-kJ2" firstAttribute="centerY" secondItem="wXA-V7-N4t" secondAttribute="centerY" id="Imz-Y5-kSg"/>
+                                            <constraint firstItem="k03-gI-jE5" firstAttribute="leading" secondItem="wXA-V7-N4t" secondAttribute="leading" id="Kbj-9e-6Ag"/>
+                                            <constraint firstItem="W5f-7s-tZu" firstAttribute="leading" secondItem="k03-gI-jE5" secondAttribute="leading" constant="4" id="LPL-Gb-Ve3"/>
+                                            <constraint firstAttribute="trailing" secondItem="rZO-Oj-kJ2" secondAttribute="trailing" constant="183" id="TKU-OP-PYv"/>
+                                            <constraint firstAttribute="height" constant="16" id="UlY-Yv-9ka"/>
+                                            <constraint firstItem="W5f-7s-tZu" firstAttribute="top" secondItem="k03-gI-jE5" secondAttribute="top" constant="3" id="crJ-uG-vSW"/>
+                                            <constraint firstItem="k03-gI-jE5" firstAttribute="top" secondItem="wXA-V7-N4t" secondAttribute="top" id="e7u-Jd-ZhT"/>
+                                            <constraint firstAttribute="width" constant="180" id="f2k-eD-KR8"/>
+                                            <constraint firstItem="W5f-7s-tZu" firstAttribute="width" secondItem="wXA-V7-N4t" secondAttribute="width" multiplier="0.96" id="mSr-X2-fX4"/>
+                                            <constraint firstItem="W5f-7s-tZu" firstAttribute="bottom" secondItem="k03-gI-jE5" secondAttribute="bottom" constant="-3" id="xZV-2W-nBj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="119" id="JJC-co-55a"/>
+                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="30" id="W3b-WP-Eyr"/>
+                                    <constraint firstAttribute="height" constant="56" id="dzz-se-ky8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="unp-FO-h7i" secondAttribute="bottom" id="3M4-03-jvn"/>
                             <constraint firstItem="0ST-1L-IBL" firstAttribute="top" secondItem="xHr-9q-uPC" secondAttribute="top" id="HWH-cw-vmv"/>
+                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="width" secondItem="xHr-9q-uPC" secondAttribute="width" id="KGn-bg-oQk"/>
                             <constraint firstAttribute="trailing" secondItem="0ST-1L-IBL" secondAttribute="trailing" id="OvA-9S-LeT"/>
                             <constraint firstAttribute="trailing" secondItem="unp-FO-h7i" secondAttribute="trailing" id="SSm-pB-KHg"/>
                             <constraint firstItem="0ST-1L-IBL" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="Uib-yR-KMB"/>
+                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-20" id="ZsW-ah-zWy"/>
+                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leadingMargin" constant="-16" id="fXp-mC-W9c"/>
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="fsc-Wf-FzN"/>
                             <constraint firstItem="unp-FO-h7i" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="h3O-Bg-0sb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="healthBar" destination="W5f-7s-tZu" id="3OF-fr-tps"/>
+                        <outlet property="healthBarWidth" destination="mSr-X2-fX4" id="2fm-wR-p6d"/>
                         <outlet property="spriteView" destination="0ST-1L-IBL" id="dbJ-lJ-hbF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sl-Lw-FT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="763.26836581709154"/>
+            <point key="canvasLocation" x="24.5" y="762.5"/>
         </scene>
         <!--Exercise View Controller-->
         <scene sceneID="Znk-bv-3mV">
@@ -844,6 +889,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bar_border" width="272" height="32"/>
+        <image name="health_icon" width="44" height="44"/>
         <image name="ic_explore_48pt" width="48" height="48"/>
     </resources>
 </document>

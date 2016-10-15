@@ -10,11 +10,17 @@ import UIKit
 
 class FMHomeViewController: FMViewController {
 
+    @IBOutlet weak var healthBar: UIView!
 	@IBOutlet weak var spriteView: SKView!
     var mainScene = FMMainScene()
     var state = FMSpriteState()
 	
-	private static var defaultController: FMHomeViewController?
+    @IBOutlet weak var healthBarWidth: NSLayoutConstraint!
+	
+    private static var defaultController: FMHomeViewController?
+    
+    let maxHealth = 100
+    var maxBarLength: CGFloat = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -61,9 +67,10 @@ class FMHomeViewController: FMViewController {
     }
     
     private func displaySpriteData() {
-        let health = self.state.health
-        print("health is \(health)")
-        self.mainScene.updateHealthBar(health: health)
+        self.maxBarLength = self.healthBar.frame.width
+        let health = min(self.state.health, self.maxHealth)
+        let percentage = Float(health) / Float(maxHealth)
+        self.healthBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxBarLength)
     }
 
     override func didReceiveMemoryWarning() {
