@@ -39,5 +39,20 @@ class FMAccountViewController: FMViewController {
 		
 		return FMAccountViewController.defaultController!
 	}
+    
+    override func didMove(toParentViewController parent: UIViewController?) {
+        super.didMove(toParentViewController: parent)
+        
+        FMRootViewController.defaultController.addChildViewController(self)
+    }
+    
+    override func willMoveAway(fromParentViewController parent: UIViewController?) {
+        super.willMoveAway(fromParentViewController: parent)
+        self.removeFromParentViewController()
+    }
+    
+    @IBAction func facebookLoginDidClick(sender: AnyObject?) {
+//        FMRootViewController.defaultController.facebookLoginButton
+    }
 
 }
