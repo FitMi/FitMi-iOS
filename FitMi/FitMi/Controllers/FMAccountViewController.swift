@@ -143,7 +143,7 @@ extension FMAccountViewController: UITableViewDataSource {
 				cell.selectionStyle = .none
 				cell.highlightEnabled = true
 				cell.titleLabel.text = "STEPS GOAL"
-				var count = FMSpriteStatusManager.sharedManager.sprite?.states.last?.flightsGoal
+				var count = FMSpriteStatusManager.sharedManager.sprite?.states.last?.stepGoal
 				count = count == nil ? 0 : count
 				cell.contentLabel.text = "\(count!)"
 				return cell
@@ -192,8 +192,16 @@ extension FMAccountViewController: UITableViewDataSource {
 		return 60
 	}
 	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return ""
+	}
+	
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		return 30
+	}
+	
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		return ""
 	}
 	
 }
