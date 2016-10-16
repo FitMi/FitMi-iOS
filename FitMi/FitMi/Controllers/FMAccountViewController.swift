@@ -90,7 +90,7 @@ class FMAccountViewController: FMViewController {
 
 extension FMAccountViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 2
+		return 3
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,9 +98,9 @@ extension FMAccountViewController: UITableViewDataSource {
 		case 0:
 			return 3
 		case 1:
-			return 1
+			return 3
 		default:
-			return 0
+			return 1
 		}
 	}
 	
@@ -134,7 +134,41 @@ extension FMAccountViewController: UITableViewDataSource {
 			default:
 				print("indexPath not supported")
 			}
+			
 		case 1:
+			switch indexPath.row {
+			case 0:
+				let cell = tableView.dequeueReusableCell(withIdentifier: FMLabelCell.identifier, for: indexPath) as! FMLabelCell
+				cell.selectionStyle = .none
+				cell.highlightEnabled = true
+				cell.titleLabel.text = "STEPS GOAL"
+				var count = FMSpriteStatusManager.sharedManager.sprite?.states.last?.flightsGoal
+				count = count == nil ? 0 : count
+				cell.contentLabel.text = "\(count!)"
+				return cell
+			case 1:
+				let cell = tableView.dequeueReusableCell(withIdentifier: FMLabelCell.identifier, for: indexPath) as! FMLabelCell
+				cell.selectionStyle = .none
+				cell.highlightEnabled = true
+				cell.titleLabel.text = "DISTANCE GOAL"
+				var count = FMSpriteStatusManager.sharedManager.sprite?.states.last?.distanceGoal
+				count = count == nil ? 0 : count
+				cell.contentLabel.text = "\(count!) m"
+				return cell
+			case 2:
+				let cell = tableView.dequeueReusableCell(withIdentifier: FMLabelCell.identifier, for: indexPath) as! FMLabelCell
+				cell.selectionStyle = .none
+				cell.highlightEnabled = true
+				cell.titleLabel.text = "FLIGHTS GOAL"
+				var count = FMSpriteStatusManager.sharedManager.sprite?.states.last?.flightsGoal
+				count = count == nil ? 0 : count
+				cell.contentLabel.text = "\(count!) FLOOR\(count! > 1 ? "S" : "")"
+				return cell
+			default:
+				print("indexPath not supported")
+			}
+			
+		case 2:
 			switch indexPath.row {
 			case 0:
 				let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
