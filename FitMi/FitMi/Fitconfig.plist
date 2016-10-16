@@ -9,11 +9,15 @@
 			<string>Brown Bear</string>
 			<key>LastUpdate</key>
 			<string>2016-10-12-A-Time-Stamp</string>
+			<key>UnlockLevel</key>
+			<integer>0</integer>
 			<key>Skills</key>
 			<array>
 				<dict>
 					<key>DisplayName</key>
 					<string>Slash</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>StrengthFactor</key>
 					<integer>1</integer>
 					<key>StaminaFactor</key>
@@ -40,6 +44,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Kick</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>StrengthFactor</key>
 					<real>1.2</real>
 					<key>StaminaFactor</key>
@@ -69,6 +75,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Sleep Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Sleep</string>
 					<key>SpriteAtlas</key>
@@ -83,6 +91,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Sleep Fancy</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Sleep</string>
 					<key>SpriteAtlas</key>
@@ -97,6 +107,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Relax Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Relax</string>
 					<key>SpriteAtlas</key>
@@ -111,6 +123,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Tired Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Tired</string>
 					<key>SpriteAtlas</key>
@@ -129,11 +143,15 @@
 			<string>White Bear</string>
 			<key>LastUpdate</key>
 			<string>2016-10-12-A-Time-Stamp</string>
+			<key>UnlockLevel</key>
+			<integer>0</integer>
 			<key>Skills</key>
 			<array>
 				<dict>
 					<key>DisplayName</key>
 					<string>Slash</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>StrengthFactor</key>
 					<integer>1</integer>
 					<key>StaminaFactor</key>
@@ -160,6 +178,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Kick</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>StrengthFactor</key>
 					<real>1.2</real>
 					<key>StaminaFactor</key>
@@ -189,6 +209,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Sleep Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Sleep</string>
 					<key>SpriteAtlas</key>
@@ -203,6 +225,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Sleep Fancy</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Sleep</string>
 					<key>SpriteAtlas</key>
@@ -217,6 +241,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Relax Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Relax</string>
 					<key>SpriteAtlas</key>
@@ -231,6 +257,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Tired Default</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
 					<key>Type</key>
 					<string>Tired</string>
 					<key>SpriteAtlas</key>

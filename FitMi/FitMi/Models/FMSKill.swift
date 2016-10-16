@@ -15,6 +15,7 @@ class FMSKill: Object {
 	dynamic var strengthFactor: Double = 1
 	dynamic var staminaFactor: Double = 1
 	dynamic var agilityFactor: Double = 1
+	dynamic var	unlockLevel: Int = 0
 	
 	dynamic var attackSpriteAtlasName: String = ""
 	dynamic var defenseSpriteAtlasName: String = ""

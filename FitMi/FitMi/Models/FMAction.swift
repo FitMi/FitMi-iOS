@@ -13,6 +13,7 @@ class FMAction: Object {
 	
 	dynamic var id: String = "randomidrandomid"
 	dynamic var	type: String = "SLEEP"
+	dynamic var	unlockLevel: Int = 0
 	
 	dynamic var spriteAtlasName: String = ""
 	
