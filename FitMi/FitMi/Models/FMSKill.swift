@@ -23,20 +23,50 @@ class FMSKill: Object {
 	
 	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "skills")
 	
+	func attackSprites() -> [UIImage] {
+		var imageNames = [String]()
+		for i in 0..<self.attackSpriteAtlasCount {
+			imageNames.append(self.attackSpriteName(forIndex: i))
+		}
+		
+		let images = imageNames.map{ return FMLocalStorageManager.sharedManager.getImage(imageName: $0)}
+		
+		return images as! [UIImage]
+	}
+	
 	func attackSpriteUrls() -> [String] {
 		var urls = [String]()
 		for i in 0..<self.attackSpriteAtlasCount {
-			urls.append("\(SPRITE_IMAGE_BASE_URL)attack-\(self.identifier)-@\(i).png")
+			urls.append("\(SPRITE_IMAGE_BASE_URL)\(self.attackSpriteName(forIndex: i))")
 		}
 		return urls
+	}
+	
+	func attackSpriteName(forIndex i: Int) -> String {
+		return "attack-\(self.identifier)-@\(i).png"
+	}
+	
+	func defenceSprites() -> [UIImage] {
+		var imageNames = [String]()
+		for i in 0..<self.defenceSpriteAtlasCount {
+			imageNames.append(self.defenceSpriteName(forIndex: i))
+		}
+		
+		let images = imageNames.map{ return FMLocalStorageManager.sharedManager.getImage(imageName: $0)}
+		
+		return images as! [UIImage]
 	}
 	
 	func defenceSpriteUrls() -> [String] {
 		var urls = [String]()
 		for i in 0..<self.defenceSpriteAtlasCount {
-			urls.append("\(SPRITE_IMAGE_BASE_URL)defence-\(self.identifier)-@\(i).png")
+			urls.append("\(SPRITE_IMAGE_BASE_URL)\(self.defenceSpriteName(forIndex: i))")
 		}
 		return urls
+	}
+	
+	func defenceSpriteName(forIndex i: Int) -> String {
+		return "defence-\(self.identifier)-@\(i).png"
 	}
 	
 	override static func indexedProperties() -> [String] {
