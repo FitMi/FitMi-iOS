@@ -65,6 +65,9 @@
 		93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */; };
 		93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B223501DAD2D7C0067F43A /* sprite-run.atlas */; };
 		93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B2236E1DAD50990067F43A /* sprite-touch.atlas */; };
+		93B34DF31DB40914005D530E /* battle-1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF01DB40914005D530E /* battle-1.atlas */; };
+		93B34DF41DB40914005D530E /* battle-2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF11DB40914005D530E /* battle-2.atlas */; };
+		93B34DF51DB40914005D530E /* defend.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF21DB40914005D530E /* defend.atlas */; };
 		9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */; };
 		9861CEFB1DB0221900D659E4 /* FMWorkoutHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */; };
 		9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */; };
@@ -162,6 +165,9 @@
 		93B2234E1DAD2CFC0067F43A /* sprite-relax.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-relax.atlas"; sourceTree = "<group>"; };
 		93B223501DAD2D7C0067F43A /* sprite-run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-run.atlas"; sourceTree = "<group>"; };
 		93B2236E1DAD50990067F43A /* sprite-touch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-touch.atlas"; sourceTree = "<group>"; };
+		93B34DF01DB40914005D530E /* battle-1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "battle-1.atlas"; sourceTree = "<group>"; };
+		93B34DF11DB40914005D530E /* battle-2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "battle-2.atlas"; sourceTree = "<group>"; };
+		93B34DF21DB40914005D530E /* defend.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = defend.atlas; sourceTree = "<group>"; };
 		9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryViewController.swift; sourceTree = "<group>"; };
 		9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryCell.swift; sourceTree = "<group>"; };
 		9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMWorkoutHistoryCell.xib; sourceTree = "<group>"; };
@@ -348,6 +354,7 @@
 		0CD3CD761D9F168D00E47BF8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93B34DEF1DB40914005D530E /* battle */,
 				93A5D36D1DAF82DF00439264 /* backgrounds */,
 				0CFC8B811DA97FC40084DD6F /* fonts */,
 				0CD3CD771D9F168D00E47BF8 /* sprites */,
@@ -424,6 +431,16 @@
 				93A5D36E1DAF82DF00439264 /* background-01.atlas */,
 			);
 			path = backgrounds;
+			sourceTree = "<group>";
+		};
+		93B34DEF1DB40914005D530E /* battle */ = {
+			isa = PBXGroup;
+			children = (
+				93B34DF01DB40914005D530E /* battle-1.atlas */,
+				93B34DF11DB40914005D530E /* battle-2.atlas */,
+				93B34DF21DB40914005D530E /* defend.atlas */,
+			);
+			path = battle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +574,7 @@
 				9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */,
 				0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */,
 				9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */,
+				93B34DF51DB40914005D530E /* defend.atlas in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
@@ -566,6 +584,8 @@
 				9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
+				93B34DF31DB40914005D530E /* battle-1.atlas in Resources */,
+				93B34DF41DB40914005D530E /* battle-2.atlas in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
 				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
