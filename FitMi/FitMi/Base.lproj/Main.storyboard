@@ -145,7 +145,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hwQ-28-TjQ" secondAttribute="trailing" constant="20" id="Asd-D5-fvk"/>
                                     <constraint firstAttribute="bottom" secondItem="hwQ-28-TjQ" secondAttribute="bottom" constant="25" id="Ee7-BD-Jav"/>
@@ -342,7 +342,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-Dw-SUB">
+                                        <color key="backgroundColor" red="0.0" green="0.34901960780000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                        <state key="normal" title="START EXERCISE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startExercise:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="pWv-LP-EOO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
+                                        <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                        <state key="normal" title="END EXERCISE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endExercise:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="M0b-z5-5sa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="width" secondItem="Otp-E5-1l3" secondAttribute="width" id="7i0-nF-jlZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FUO-Dw-SUB" secondAttribute="bottom" id="7ol-YA-TFf"/>
+                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="leading" secondItem="Otp-E5-1l3" secondAttribute="trailing" id="GKl-Tp-39a"/>
+                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="leading" secondItem="Otp-E5-1l3" secondAttribute="trailing" id="JVu-Xy-wag"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="MRp-Zg-TJA"/>
+                                    <constraint firstItem="Otp-E5-1l3" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="top" id="SM8-Ym-GWR"/>
+                                    <constraint firstItem="Otp-E5-1l3" firstAttribute="leading" secondItem="NBu-KQ-46g" secondAttribute="leading" id="ZdE-e1-W35"/>
+                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="top" id="km5-n5-6us"/>
+                                    <constraint firstAttribute="trailing" secondItem="FUO-Dw-SUB" secondAttribute="trailing" id="s76-Xk-mYH"/>
+                                    <constraint firstAttribute="height" constant="44" id="vGE-41-9rp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Otp-E5-1l3" secondAttribute="bottom" id="z9n-YA-OCv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-FL-HNI">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49692307692307691" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="deHighlightPanel" destination="Ywc-kV-1iz" eventType="touchUpInside" id="QUq-cq-RU3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
                                         <subviews>
@@ -418,10 +473,7 @@
                                     <outletCollection property="gestureRecognizers" destination="dJM-q9-MrG" appends="YES" id="SXL-NU-fPc"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
+                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
@@ -437,65 +489,23 @@
                                     <constraint firstItem="hmX-4b-wH4" firstAttribute="leading" secondItem="DVp-27-Lbr" secondAttribute="leading" constant="10" id="k23-jU-kUG"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-Dw-SUB">
-                                        <color key="backgroundColor" red="0.0" green="0.34901960780000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
-                                        <state key="normal" title="START EXERCISE">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startExercise:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="pWv-LP-EOO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
-                                        <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
-                                        <state key="normal" title="END EXERCISE">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="endExercise:" destination="Ywc-kV-1iz" eventType="touchUpInside" id="M0b-z5-5sa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="width" secondItem="Otp-E5-1l3" secondAttribute="width" id="7i0-nF-jlZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="FUO-Dw-SUB" secondAttribute="bottom" id="7ol-YA-TFf"/>
-                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="leading" secondItem="Otp-E5-1l3" secondAttribute="trailing" id="GKl-Tp-39a"/>
-                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="leading" secondItem="Otp-E5-1l3" secondAttribute="trailing" id="JVu-Xy-wag"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="MRp-Zg-TJA"/>
-                                    <constraint firstItem="Otp-E5-1l3" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="top" id="SM8-Ym-GWR"/>
-                                    <constraint firstItem="Otp-E5-1l3" firstAttribute="leading" secondItem="NBu-KQ-46g" secondAttribute="leading" id="ZdE-e1-W35"/>
-                                    <constraint firstItem="FUO-Dw-SUB" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="top" id="km5-n5-6us"/>
-                                    <constraint firstAttribute="trailing" secondItem="FUO-Dw-SUB" secondAttribute="trailing" id="s76-Xk-mYH"/>
-                                    <constraint firstAttribute="height" constant="44" id="vGE-41-9rp"/>
-                                    <constraint firstAttribute="bottom" secondItem="Otp-E5-1l3" secondAttribute="bottom" id="z9n-YA-OCv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="RYI-FL-HNI" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="3Vy-tE-q9B"/>
                             <constraint firstItem="DVp-27-Lbr" firstAttribute="top" secondItem="U2L-BY-CPQ" secondAttribute="bottom" constant="40" id="9Cv-bW-kvP"/>
                             <constraint firstAttribute="trailing" secondItem="HUT-dN-j7h" secondAttribute="trailing" id="MhQ-XW-fi4"/>
                             <constraint firstItem="NBu-KQ-46g" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="OWm-7Y-q0R"/>
+                            <constraint firstItem="RYI-FL-HNI" firstAttribute="top" secondItem="pnF-eo-036" secondAttribute="top" id="PmG-CZ-9lY"/>
                             <constraint firstAttribute="trailing" secondItem="jk7-0T-r2c" secondAttribute="trailing" constant="30" id="Qnc-wi-Uft"/>
+                            <constraint firstAttribute="trailing" secondItem="RYI-FL-HNI" secondAttribute="trailing" id="R7m-mE-bBg"/>
                             <constraint firstItem="NBu-KQ-46g" firstAttribute="top" secondItem="HUT-dN-j7h" secondAttribute="bottom" id="SZM-MH-mcA"/>
                             <constraint firstAttribute="trailing" secondItem="NBu-KQ-46g" secondAttribute="trailing" id="XHt-OD-r7R"/>
                             <constraint firstItem="DVp-27-Lbr" firstAttribute="centerX" secondItem="jk7-0T-r2c" secondAttribute="centerX" id="e8v-eb-A1j"/>
                             <constraint firstItem="jk7-0T-r2c" firstAttribute="top" secondItem="DVp-27-Lbr" secondAttribute="centerY" id="eoQ-w0-opl"/>
                             <constraint firstItem="HUT-dN-j7h" firstAttribute="top" secondItem="jk7-0T-r2c" secondAttribute="bottom" constant="30" id="h5b-yn-Eb1"/>
                             <constraint firstItem="jk7-0T-r2c" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" constant="30" id="hQl-Vr-wph"/>
+                            <constraint firstItem="0Vj-hy-d9D" firstAttribute="top" secondItem="RYI-FL-HNI" secondAttribute="bottom" id="vDo-QE-lwB"/>
                             <constraint firstItem="HUT-dN-j7h" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="w2R-iT-Nai"/>
                             <constraint firstItem="0Vj-hy-d9D" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="bottom" id="xj6-kh-eFA"/>
                         </constraints>
@@ -503,6 +513,7 @@
                     <connections>
                         <outlet property="buttonEndExercise" destination="Otp-E5-1l3" id="ysN-8o-W8t"/>
                         <outlet property="buttonStartExercise" destination="FUO-Dw-SUB" id="xug-s0-ZQ7"/>
+                        <outlet property="highlightBackground" destination="RYI-FL-HNI" id="4qb-HI-LUK"/>
                         <outlet property="labelDistance" destination="9Bw-Xi-jRf" id="ksQ-NY-ud4"/>
                         <outlet property="labelDuration" destination="7lY-YO-dTj" id="qOv-ZQ-Nap"/>
                         <outlet property="labelFlights" destination="4eN-uC-pak" id="4Ze-hv-r68"/>
@@ -511,6 +522,7 @@
                         <outlet property="statusPanelTitleContainer" destination="DVp-27-Lbr" id="vGL-DR-XV6"/>
                         <outlet property="statusPanelTitleLabel" destination="hmX-4b-wH4" id="BB3-D4-GBO"/>
                         <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
+                        <outlet property="statusPanelViewTopConstraint" destination="9Cv-bW-kvP" id="aG0-Lk-gkg"/>
                         <outlet property="tap" destination="dJM-q9-MrG" id="hYE-6f-A9n"/>
                     </connections>
                 </viewController>
@@ -521,7 +533,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="881" y="763"/>
+            <point key="canvasLocation" x="880.79999999999995" y="762.36881559220399"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="S3W-oo-s4v">

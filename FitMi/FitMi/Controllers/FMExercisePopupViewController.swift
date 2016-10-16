@@ -62,10 +62,12 @@ class FMExercisePopupViewController: FMViewController {
 	
 	func setCardViewStyle() {
 		let layer = self.cardView.layer
-		layer.shadowColor = UIColor.black.cgColor
-		layer.shadowOffset = CGSize.zero
-		layer.shadowRadius = 20
-		layer.shadowOpacity = 0.3
+//		layer.shadowColor = UIColor.black.cgColor
+//		layer.shadowOffset = CGSize.zero
+//		layer.shadowRadius = 20
+//		layer.shadowOpacity = 0.3
+		layer.borderWidth = 5
+		layer.borderColor = UIColor.primaryColor.cgColor
 	}
 	
 	func setCardViewData() {
@@ -93,7 +95,7 @@ class FMExercisePopupViewController: FMViewController {
         super.viewDidLoad()
 
 		let dateFormater = DateFormatter()
-		dateFormater.dateFormat = "MMM dd, hh:mm:ss"
+		dateFormater.dateFormat = "MM-dd, hh:mm"
 		FMExercisePopupViewController.dateFormater = dateFormater
 		
     }

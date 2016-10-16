@@ -13,10 +13,12 @@ class FMExerciseViewController: FMViewController {
 
 	private static var defaultController: FMExerciseViewController?
 	
+	@IBOutlet var statusPanelViewTopConstraint: NSLayoutConstraint!
 	@IBOutlet var statusPanelView: UIView!
 	@IBOutlet var statusPanelTitleContainer: UIView!
 	@IBOutlet var statusPanelTitleLabel: UILabel!
 	@IBOutlet var spriteView: SKView!
+	@IBOutlet var highlightBackground: UIButton!
 	
 	@IBOutlet var buttonStartExercise: UIButton!
 	@IBOutlet var buttonEndExercise: UIButton!
@@ -131,8 +133,6 @@ class FMExerciseViewController: FMViewController {
 		print("End: \(self.exerciseEndDate)")
 		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
 		
-		let controller = FMExercisePopupViewController.controllerFromStoryboard()
-		
 		if !(self.stepCount == 0 && self.distance == 0 && self.flights == 0) {
 			let record = FMExerciseRecord()
 			record.steps = self.stepCount
@@ -149,14 +149,45 @@ class FMExerciseViewController: FMViewController {
 			// increaseExperience?
 			let spriteStatusManager = FMSpriteStatusManager.sharedManager
             spriteStatusManager.increaseExperienceBySteps(steps: self.stepCount)
-			
-			controller.exerciseRecord = record
 		}
-		
-		FMRootViewController.defaultController.present(controller, animated: false, completion: {
-			self.reset(nil)
+
+		self.highlightPanel()
+	}
+	
+	func highlightPanel() {
+		self.highlightBackground.isHidden = false
+		UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
+			self.spriteView.alpha = 0
+			self.highlightBackground.alpha = 1
+		}, completion: {
+			_ in
+			self.view.setNeedsLayout()
+			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
+				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 160
+				self.view.layoutIfNeeded()
+			}, completion: nil)
 		})
 	}
+	
+	@IBAction func deHighlightPanel() {
+		UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+			self.spriteView.alpha = 1
+			self.highlightBackground.alpha = 0
+		}, completion: {
+			_ in
+			self.highlightBackground.isHidden = true
+		})
+		
+		self.reset(nil)
+		
+		self.view.setNeedsLayout()
+		UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
+			self.statusPanelViewTopConstraint.constant = 40
+			self.view.layoutIfNeeded()
+			}, completion: nil)
+	}
+	
+	
 	
 	@IBAction func reset(_ sender: AnyObject?) {
 		self.exerciseStartDate = nil
