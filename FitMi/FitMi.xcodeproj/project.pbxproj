@@ -26,6 +26,8 @@
 		0C7551251DB3A7B5002146FE /* Fitconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551241DB3A7B5002146FE /* Fitconfig.plist */; };
 		0C7551271DB3AE35002146FE /* FMConfigurationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551261DB3AE35002146FE /* FMConfigurationParser.swift */; };
 		0C7551291DB3D05C002146FE /* FMLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */; };
+		0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */; };
+		0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
@@ -110,6 +112,8 @@
 		0C7551241DB3A7B5002146FE /* Fitconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fitconfig.plist; sourceTree = "<group>"; };
 		0C7551261DB3AE35002146FE /* FMConfigurationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMConfigurationParser.swift; sourceTree = "<group>"; };
 		0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLocalStorageManager.swift; sourceTree = "<group>"; };
+		0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMNetworkManager.swift; sourceTree = "<group>"; };
+		0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAtomicCounter.swift; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 				0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */,
 				0C7551261DB3AE35002146FE /* FMConfigurationParser.swift */,
 				0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */,
+				0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				0CE74F611D9FB21F00CAB9CE /* UIKitExtention.swift */,
 				0C81DC1F1DA26DEE00E8856E /* Constants.swift */,
 				0CFC8B7D1DA9199B0084DD6F /* FoundationExtension.swift */,
+				0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,6 +721,7 @@
 				0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */,
 				0C75511F1DB38107002146FE /* FMSKill.swift in Sources */,
 				9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */,
+				0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */,
 				0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */,
 				0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
@@ -748,6 +755,7 @@
 				0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */,
+				0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */,
 				0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */,
 				0C7551271DB3AE35002146FE /* FMConfigurationParser.swift in Sources */,
 			);

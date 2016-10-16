@@ -11,14 +11,21 @@ import RealmSwift
 
 class FMConfigurationParser: NSObject {
 	
+	static let counter = FMAtomicCounter()
+	private static var total: Int = 0
+	
 	class func refreshConfiguration() {
 		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
 		let dictionary = NSDictionary(contentsOfFile: filePath)!
 		
-		self.constructDatabaseContent(fromDictionary: dictionary)
+		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
+		
 	}
 	
-	class func constructDatabaseContent(fromDictionary dict: NSDictionary) {
+	
+	//Return total number of images that need to be updated
+	class func constructDatabaseContent(fromDictionary dict: NSDictionary) -> Int{
+		var total = 0
 		if let appearances = dict["Appearances"] {
 			for a in appearances as! NSArray {
 				let this = a as! NSDictionary
@@ -66,6 +73,9 @@ class FMConfigurationParser: NSObject {
 					skill.attackSpriteAtlasCount = Int(skillDict["AttackSpriteAtlasCount"] as! NSNumber)
 					skill.defenceSpriteAtlasCount = Int(skillDict["DefenceSpriteAtlasCount"] as! NSNumber)
 					
+					total += skill.attackSpriteAtlasCount
+					total += skill.defenceSpriteAtlasCount
+					
 					appearance.skills.append(skill)
 					
 					self.downloadSprites(forSkill: skill)
@@ -82,6 +92,8 @@ class FMConfigurationParser: NSObject {
 					action.type = actionDict["Type"] as! String
 					action.spriteAtlasCount = Int(actionDict["SpriteAtlasCount"] as! NSNumber)
 					
+					total += action.spriteAtlasCount
+					
 					appearance.actions.append(action)
 					
 					self.downloadSprites(forAction: action)
@@ -92,6 +104,8 @@ class FMConfigurationParser: NSObject {
 				}
 			}
 		}
+		
+		return total
 	}
 	
 	class func removeAppearance(appearance: FMAppearance) {
