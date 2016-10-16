@@ -39,12 +39,19 @@ class FMAccountViewController: FMViewController {
 		self.tableView.estimatedRowHeight = 100
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		
-		self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
+		self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
 		self.registerCells()
+		
+		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+		headerLabel.font = UIFont(name: "Pixeled", size: 20)
+		headerLabel.text = "ACCOUNT"
+		headerLabel.textAlignment = .center
+		self.tableView.tableHeaderView = headerLabel
 	}
 	
 	fileprivate func registerCells() {
 		FMLabelCell.registerCell(tableView: self.tableView, reuseIdentifier: FMLabelCell.identifier)
+		FMMiddleAlignedLabelCell.registerCell(tableView: self.tableView, reuseIdentifier: FMMiddleAlignedLabelCell.identifier)
 	}
 	
 	var dateFormatter: DateFormatter!
@@ -83,11 +90,18 @@ class FMAccountViewController: FMViewController {
 
 extension FMAccountViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 3
+		switch section {
+		case 0:
+			return 3
+		case 1:
+			return 1
+		default:
+			return 0
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,6 +111,7 @@ extension FMAccountViewController: UITableViewDataSource {
 			case 0:
 				let cell = tableView.dequeueReusableCell(withIdentifier: FMLabelCell.identifier, for: indexPath) as! FMLabelCell
 				cell.selectionStyle = .none
+				cell.highlightEnabled = true
 				cell.titleLabel.text = "Mi NAME"
 				cell.contentLabel.text = FMSpriteStatusManager.sharedManager.sprite?.name.uppercased()
 				return cell
@@ -115,6 +130,17 @@ extension FMAccountViewController: UITableViewDataSource {
 				var count = FMSpriteStatusManager.sharedManager.sprite?.states.count
 				count = count == nil ? 0 : count
 				cell.contentLabel.text = "\(count!) DAY\(count! > 1 ? "S" : "")"
+				return cell
+			default:
+				print("indexPath not supported")
+			}
+		case 1:
+			switch indexPath.row {
+			case 0:
+				let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
+				cell.selectionStyle = .none
+				cell.label.font = UIFont(name: "Pixeled", size: 12)
+				cell.label.text = "FACEBOOK LOGIN"
 				return cell
 			default:
 				print("indexPath not supported")

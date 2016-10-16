@@ -26,12 +26,12 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roS-RG-Jyd">
-                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APh-jo-mtt">
-                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,10 +39,10 @@
                 <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
                 <constraints>
                     <constraint firstItem="APh-jo-mtt" firstAttribute="leading" secondItem="roS-RG-Jyd" secondAttribute="trailing" constant="15" id="17H-1o-5fb"/>
-                    <constraint firstAttribute="trailing" secondItem="APh-jo-mtt" secondAttribute="trailing" constant="15" id="9fg-l2-KJl"/>
+                    <constraint firstAttribute="trailing" secondItem="APh-jo-mtt" secondAttribute="trailing" constant="30" id="9fg-l2-KJl"/>
                     <constraint firstAttribute="bottom" secondItem="8vl-Sr-n9x" secondAttribute="bottom" id="HE7-bu-boE"/>
                     <constraint firstAttribute="trailing" secondItem="8vl-Sr-n9x" secondAttribute="trailing" constant="20" id="IMo-Ao-jGa"/>
-                    <constraint firstItem="roS-RG-Jyd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NX1-mF-6Q9"/>
+                    <constraint firstItem="roS-RG-Jyd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="NX1-mF-6Q9"/>
                     <constraint firstItem="8vl-Sr-n9x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Rfn-Pg-qFu"/>
                     <constraint firstItem="APh-jo-mtt" firstAttribute="centerY" secondItem="roS-RG-Jyd" secondAttribute="centerY" id="WEx-cZ-jCQ"/>
                     <constraint firstItem="8vl-Sr-n9x" firstAttribute="top" secondItem="roS-RG-Jyd" secondAttribute="bottom" constant="15" id="eQP-30-hpy"/>

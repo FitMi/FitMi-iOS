@@ -12,11 +12,33 @@ class FMLabelCell: UITableViewCell {
 
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var contentLabel: UILabel!
+	private var isHighlightEnabled = false
 	
-	var highlightEnabled: Bool = true
+	var highlightEnabled: Bool {
+		set(newValue) {
+			if highlightEnabled {
+				self.contentLabel.textColor = UIColor.primaryColor
+			} else {
+				self.contentLabel.textColor = UIColor.black
+			}
+			self.isHighlightEnabled = newValue
+		}
+		
+		get {
+			return self.isHighlightEnabled
+		}
+	}
 	
     override func awakeFromNib() {
         super.awakeFromNib()
+		
+		if highlightEnabled {
+			self.contentLabel.textColor = UIColor.primaryColor
+		} else {
+			self.contentLabel.textColor = UIColor.black
+		}
+		
+		self.highlightEnabled = false
         // Initialization code
     }
 

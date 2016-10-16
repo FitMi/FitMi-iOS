@@ -805,39 +805,13 @@
                                     <outlet property="delegate" destination="9sS-o5-Yzj" id="4FO-VV-Gfg"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bd-aS-NBG">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFq-hN-xJl">
-                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="cFq-hN-xJl" firstAttribute="leading" secondItem="6bd-aS-NBG" secondAttribute="leading" constant="15" id="7Vc-ZB-s8t"/>
-                                    <constraint firstAttribute="height" constant="60" id="d4q-7Q-yiH"/>
-                                    <constraint firstItem="cFq-hN-xJl" firstAttribute="centerY" secondItem="6bd-aS-NBG" secondAttribute="centerY" id="q9W-Gw-77V"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aMk-tz-RSV" secondAttribute="trailing" id="9mZ-pm-nmv"/>
-                            <constraint firstItem="6bd-aS-NBG" firstAttribute="top" secondItem="ml2-oa-5Is" secondAttribute="top" id="Dvz-bJ-6xF"/>
-                            <constraint firstItem="6bd-aS-NBG" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="Iw6-HP-HGC"/>
                             <constraint firstAttribute="trailing" secondItem="l9s-qa-nhc" secondAttribute="trailing" id="MF5-Wj-CXc"/>
                             <constraint firstItem="aMk-tz-RSV" firstAttribute="top" secondItem="l9s-qa-nhc" secondAttribute="bottom" id="XjI-kx-vD8"/>
                             <constraint firstItem="aMk-tz-RSV" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="cmP-9g-tSz"/>
-                            <constraint firstAttribute="trailing" secondItem="6bd-aS-NBG" secondAttribute="trailing" id="eyT-Gt-5Sg"/>
                             <constraint firstItem="l9s-qa-nhc" firstAttribute="top" secondItem="ml2-oa-5Is" secondAttribute="top" id="lX1-dt-HR5"/>
                             <constraint firstItem="l9s-qa-nhc" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="mEx-T4-4XB"/>
                             <constraint firstItem="G3o-Zq-URO" firstAttribute="top" secondItem="aMk-tz-RSV" secondAttribute="bottom" id="r1A-PN-wa9"/>
