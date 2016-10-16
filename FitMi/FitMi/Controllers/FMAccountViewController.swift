@@ -38,14 +38,15 @@ class FMAccountViewController: FMViewController {
 	private func configureTableView() {
 		self.tableView.estimatedRowHeight = 100
 		self.tableView.rowHeight = UITableViewAutomaticDimension
-		
-		self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+		self.tableView.backgroundColor = UIColor.secondaryColor
+		self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
 		self.registerCells()
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
 		headerLabel.font = UIFont(name: "Pixeled", size: 20)
 		headerLabel.text = "ACCOUNT"
 		headerLabel.textAlignment = .center
+		headerLabel.backgroundColor = UIColor.secondaryColor
 		self.tableView.tableHeaderView = headerLabel
 	}
 	
@@ -175,6 +176,7 @@ extension FMAccountViewController: UITableViewDataSource {
 				cell.selectionStyle = .none
 				cell.label.font = UIFont(name: "Pixeled", size: 12)
 				cell.label.text = "FACEBOOK LOGIN"
+				cell.backgroundColor = UIColor.secondaryColor
 				return cell
 			default:
 				print("indexPath not supported")
@@ -185,9 +187,38 @@ extension FMAccountViewController: UITableViewDataSource {
 		
 		return UITableViewCell()
 	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 60
+	}
+	
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return 30
+	}
+	
 }
 
 extension FMAccountViewController: UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let view = FMSectionHeaderView.viewFromNib()
+		switch section {
+		case 0:
+			view.titleLabel.text = "Mi"
+		case 1:
+			view.titleLabel.text = "GOAL"
+		default:
+			view.titleLabel.text = "BATTLE"
+		}
+		return view
+	}
+	
+	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		let view = UIView()
+		view.backgroundColor = UIColor.secondaryColor
+		return view
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.section {
 		case 0:

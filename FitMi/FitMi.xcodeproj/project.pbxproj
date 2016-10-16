@@ -18,6 +18,8 @@
 		0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C51F7491DB300D600A5231E /* FMLabelCell.xib */; };
 		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
 		0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551181DB3273F002146FE /* FMBattleViewController.swift */; };
+		0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */; };
+		0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
@@ -94,6 +96,8 @@
 		0C51F7491DB300D600A5231E /* FMLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMLabelCell.xib; sourceTree = "<group>"; };
 		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
 		0C7551181DB3273F002146FE /* FMBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleViewController.swift; sourceTree = "<group>"; };
+		0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMSectionHeaderView.xib; sourceTree = "<group>"; };
+		0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSectionHeaderView.swift; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				0CD3CD641D9EF86900E47BF8 /* FMMainScene.sks */,
 				0CD3CD651D9EF86900E47BF8 /* FMMainScene.swift */,
 				0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */,
+				0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */,
+				0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -525,6 +531,7 @@
 				0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */,
 				9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
+				0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
 				0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */,
 				0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */,
@@ -716,6 +723,7 @@
 				0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */,
+				0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
