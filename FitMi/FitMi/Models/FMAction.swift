@@ -24,11 +24,26 @@ class FMAction: Object {
 		return ["identifier"]
 	}
 	
+	func sprites() -> [UIImage] {
+		var imageNames = [String]()
+		for i in 0..<self.spriteAtlasCount {
+			imageNames.append(self.spriteName(forIndex: i))
+		}
+		
+		let images = imageNames.map{ return FMLocalStorageManager.sharedManager.getImage(imageName: $0)}
+		
+		return images as! [UIImage]
+	}
+	
 	func spriteUrls() -> [String] {
 		var urls = [String]()
 		for i in 0..<self.spriteAtlasCount {
-			urls.append("\(SPRITE_IMAGE_BASE_URL)sprite-\(self.identifier)-@\(i).png")
+			urls.append("\(SPRITE_IMAGE_BASE_URL)\(self.spriteName(forIndex: i))")
 		}
 		return urls
+	}
+	
+	func spriteName(forIndex i: Int) -> String{
+		return "sprite-\(self.identifier)-@\(i).png"
 	}
 }

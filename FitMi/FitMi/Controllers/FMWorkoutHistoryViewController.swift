@@ -32,24 +32,24 @@ class FMWorkoutHistoryViewController: FMViewController {
             self.registerCells()
         }
     }
-    
-    override func willMove(toParentViewController parent: UIViewController?) {
-        DispatchQueue.main.async {
-            self.sprite = FMSpriteStatusManager.sharedManager.sprite
-            self.numberOfRecords = min(self.sprite!.exercises.count, 14)
-            self.tableView.reloadData()
-			if self.sprite?.exercises.count == 0 {
-				let label = UILabel()
-				label.text = "YOU HAVE NO IN-APP WORKOUT RECORD."
-				label.numberOfLines = 0
-				label.textAlignment = .center
-				label.font = UIFont(name: "Pixeled", size: 8)
-				self.tableView.backgroundView = label
-			} else {
-				self.tableView.backgroundView = nil
-			}
-        }
-    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		self.sprite = FMSpriteStatusManager.sharedManager.sprite
+		self.numberOfRecords = min(self.sprite!.exercises.count, 14)
+		self.tableView.reloadData()
+		if self.sprite?.exercises.count == 0 {
+			let label = UILabel()
+			label.text = "YOU HAVE NO IN-APP WORKOUT RECORD."
+			label.numberOfLines = 0
+			label.textAlignment = .center
+			label.font = UIFont(name: "Pixeled", size: 8)
+			self.tableView.backgroundView = label
+		} else {
+			self.tableView.backgroundView = nil
+		}
+	}
     
     private func configureTableView() {
         self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 44, 0)
