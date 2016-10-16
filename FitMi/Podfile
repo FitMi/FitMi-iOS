@@ -12,6 +12,9 @@ target 'FitMi' do
   pod 'JazzHands'
   pod 'Masonry'
   pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
   target 'FitMiTests' do
     inherit! :search_paths
