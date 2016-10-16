@@ -17,7 +17,7 @@ class FMSprite: Object {
 	dynamic var birthday:Date = Date()
 	
 	dynamic var skillInUse: FMSKill!
-	dynamic var appearance: FMAppearance!
+	dynamic var appearanceIdentifier: String = ""
 	let skills = List<FMSKill>()
 	let actions = List<FMAction>()
 	

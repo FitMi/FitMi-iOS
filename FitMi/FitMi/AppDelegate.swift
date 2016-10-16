@@ -39,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Tell Realm to use this new configuration object for the default Realm
 		Realm.Configuration.defaultConfiguration = config
 		
+		
+		FMConfigurationParser.refreshConfiguration()
+		
+		
         let hasOnboard = application.hasOnboard
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 		self.window = UIWindow(frame: UIScreen.main.bounds)

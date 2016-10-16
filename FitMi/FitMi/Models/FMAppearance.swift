@@ -11,15 +11,15 @@ import RealmSwift
 
 class FMAppearance: Object {
 	
-	dynamic var name: String = "Default"
-	dynamic var id: String = "id"
+	dynamic var name: String = ""
+	dynamic var identifier: String = ""
+	dynamic var lastUpdateTime: Date = Date()
+	dynamic var unlockLevel: Int = 0
 	
 	let skills = List<FMSKill>()
 	let actions = List<FMAction>()
 	
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+	override static func indexedProperties() -> [String] {
+		return ["identifier"]
+	}
 }

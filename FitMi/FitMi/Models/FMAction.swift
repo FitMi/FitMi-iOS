@@ -11,17 +11,16 @@ import RealmSwift
 
 class FMAction: Object {
 	
-	dynamic var id: String = "randomidrandomid"
-	dynamic var	type: String = "SLEEP"
+	dynamic var name: String = ""
+	dynamic var identifier: String = ""
+	dynamic var	type: String = ""
 	dynamic var	unlockLevel: Int = 0
 	
-	dynamic var spriteAtlasName: String = ""
+	dynamic var spriteAtlasCount: Int = 0
 	
 	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "actions")
 	
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+	override static func indexedProperties() -> [String] {
+		return ["identifier"]
+	}
 }
