@@ -23,6 +23,22 @@ class FMSKill: Object {
 	
 	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "skills")
 	
+	func attackSpriteUrls() -> [String] {
+		var urls = [String]()
+		for i in 0..<self.attackSpriteAtlasCount {
+			urls.append("\(SPRITE_IMAGE_BASE_URL)attack-\(self.identifier)-@\(i).png")
+		}
+		return urls
+	}
+	
+	func defenceSpriteUrls() -> [String] {
+		var urls = [String]()
+		for i in 0..<self.defenceSpriteAtlasCount {
+			urls.append("\(SPRITE_IMAGE_BASE_URL)defence-\(self.identifier)-@\(i).png")
+		}
+		return urls
+	}
+	
 	override static func indexedProperties() -> [String] {
 		return ["identifier"]
 	}

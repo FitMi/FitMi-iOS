@@ -23,4 +23,12 @@ class FMAction: Object {
 	override static func indexedProperties() -> [String] {
 		return ["identifier"]
 	}
+	
+	func spriteUrls() -> [String] {
+		var urls = [String]()
+		for i in 0..<self.spriteAtlasCount {
+			urls.append("\(SPRITE_IMAGE_BASE_URL)sprite-\(self.identifier)-@\(i).png")
+		}
+		return urls
+	}
 }

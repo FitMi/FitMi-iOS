@@ -34,6 +34,7 @@ class FMConfigurationParser: NSObject {
 					let appearance = existing.first!
 					let lastUpdateTime = appearance.lastUpdateTime
 					if thisTime <= lastUpdateTime {
+						print("Assets update to date!")
 						break
 					} else {
 						self.removeAppearance(appearance: appearance)
@@ -86,7 +87,9 @@ class FMConfigurationParser: NSObject {
 					self.downloadSprites(forAction: action)
 				}
 				
-				print(appearance)
+				FMDatabaseManager.sharedManager.realmUpdate {
+					realm.add(appearance)
+				}
 			}
 		}
 	}
@@ -101,11 +104,23 @@ class FMConfigurationParser: NSObject {
 	}
 	
 	class func downloadSprites(forSkill skill: FMSKill) {
+		print("Downloading sprites for skill: \(skill.name)")
 		
+		for url in skill.attackSpriteUrls() {
+			print(url)
+		}
+		
+		for url in skill.defenceSpriteUrls() {
+			print(url)
+		}
 	}
 	
 	class func downloadSprites(forAction action: FMAction) {
+		print("Downloading sprites for action: \(action.name)")
 		
+		for url in action.spriteUrls() {
+			print(url)
+		}
 	}
 
 }
