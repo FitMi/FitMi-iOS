@@ -23,6 +23,7 @@
 		0C75511F1DB38107002146FE /* FMSKill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511E1DB38107002146FE /* FMSKill.swift */; };
 		0C7551211DB3822C002146FE /* FMAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551201DB3822C002146FE /* FMAction.swift */; };
 		0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551221DB382D3002146FE /* FMAppearance.swift */; };
+		0C7551251DB3A7B5002146FE /* Fitconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551241DB3A7B5002146FE /* Fitconfig.plist */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
@@ -104,6 +105,7 @@
 		0C75511E1DB38107002146FE /* FMSKill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSKill.swift; sourceTree = "<group>"; };
 		0C7551201DB3822C002146FE /* FMAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAction.swift; sourceTree = "<group>"; };
 		0C7551221DB382D3002146FE /* FMAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAppearance.swift; sourceTree = "<group>"; };
+		0C7551241DB3A7B5002146FE /* Fitconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fitconfig.plist; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */,
 				0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */,
 				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
+				0C7551241DB3A7B5002146FE /* Fitconfig.plist */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			files = (
 				9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */,
 				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
+				0C7551251DB3A7B5002146FE /* Fitconfig.plist in Resources */,
 				9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */,
 				0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */,
 				9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */,

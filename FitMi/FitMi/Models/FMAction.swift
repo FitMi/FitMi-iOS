@@ -13,9 +13,10 @@ class FMAction: Object {
 	
 	dynamic var id: String = "randomidrandomid"
 	dynamic var	type: String = "SLEEP"
-	dynamic var	appearanceId: String = "appearance-id"
 	
 	dynamic var spriteAtlasName: String = ""
+	
+	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "actions")
 	
 // Specify properties to ignore (Realm won't persist these)
     

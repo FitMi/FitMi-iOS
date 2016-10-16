@@ -12,15 +12,14 @@ import RealmSwift
 class FMSKill: Object {
 	
 	dynamic var name: String = "Default"
-	dynamic var id: String = "randomidrandomid"
 	dynamic var strengthFactor: Double = 1
 	dynamic var staminaFactor: Double = 1
 	dynamic var agilityFactor: Double = 1
 	
-	dynamic var	appearanceId: String = "appearance-id"
 	dynamic var attackSpriteAtlasName: String = ""
 	dynamic var defenseSpriteAtlasName: String = ""
 	
+	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "skills")
 	
 // Specify properties to ignore (Realm won't persist these)
     
