@@ -38,9 +38,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="zUd-hh-uc3" secondAttribute="bottom" constant="20" id="42U-x6-L5n"/>
+                    <constraint firstAttribute="bottom" secondItem="zUd-hh-uc3" secondAttribute="bottom" constant="10" id="42U-x6-L5n"/>
                     <constraint firstAttribute="trailing" secondItem="zUd-hh-uc3" secondAttribute="trailing" constant="20" id="IsC-LK-Tu9"/>
-                    <constraint firstItem="zUd-hh-uc3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="XiE-Ho-36X"/>
+                    <constraint firstItem="zUd-hh-uc3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="XiE-Ho-36X"/>
                     <constraint firstItem="zUd-hh-uc3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="yDV-N0-bLo"/>
                 </constraints>
             </tableViewCellContentView>

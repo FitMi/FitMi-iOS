@@ -569,7 +569,7 @@
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-hg-tbC">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="MY WORKOUT">
+                                        <state key="normal" title="BATTLE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -653,7 +653,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="40" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-zY-hma">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="44"/>
                                 <connections>
@@ -771,10 +771,10 @@
             </objects>
             <point key="canvasLocation" x="1741.5999999999999" y="1478.4107946026988"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Battle View Controller-->
         <scene sceneID="vaU-oJ-Fra">
             <objects>
-                <viewController storyboardIdentifier="FMAccountViewController" id="9sS-o5-Yzj" customClass="FMAccountViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FMBattleViewController" id="9sS-o5-Yzj" customClass="FMBattleViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FNf-iC-7tZ"/>
                         <viewControllerLayoutGuide type="bottom" id="G3o-Zq-URO"/>
@@ -798,32 +798,72 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l9s-qa-nhc">
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aMk-tz-RSV" secondAttribute="trailing" id="9mZ-pm-nmv"/>
+                            <constraint firstItem="aMk-tz-RSV" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="cmP-9g-tSz"/>
+                            <constraint firstItem="G3o-Zq-URO" firstAttribute="top" secondItem="aMk-tz-RSV" secondAttribute="bottom" id="r1A-PN-wa9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2658" y="762"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="L0x-KQ-vtW">
+            <objects>
+                <viewController storyboardIdentifier="FMAccountViewController" id="hXy-eq-N36" customClass="FMAccountViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bvq-rs-FgJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="9IQ-Cr-LhV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rsz-zP-Er8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hn-EY-DJq">
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="HNC-vE-JnJ"/>
+                                    <constraint firstAttribute="height" constant="44" id="VI4-ht-PpQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2GW-57-lSf">
                                 <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="9sS-o5-Yzj" id="zIy-M1-opf"/>
-                                    <outlet property="delegate" destination="9sS-o5-Yzj" id="4FO-VV-Gfg"/>
+                                    <outlet property="dataSource" destination="hXy-eq-N36" id="pY6-6F-Inf"/>
+                                    <outlet property="delegate" destination="hXy-eq-N36" id="Rbz-rM-UnM"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aMk-tz-RSV" secondAttribute="trailing" id="9mZ-pm-nmv"/>
-                            <constraint firstAttribute="trailing" secondItem="l9s-qa-nhc" secondAttribute="trailing" id="MF5-Wj-CXc"/>
-                            <constraint firstItem="aMk-tz-RSV" firstAttribute="top" secondItem="l9s-qa-nhc" secondAttribute="bottom" id="XjI-kx-vD8"/>
-                            <constraint firstItem="aMk-tz-RSV" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="cmP-9g-tSz"/>
-                            <constraint firstItem="l9s-qa-nhc" firstAttribute="top" secondItem="ml2-oa-5Is" secondAttribute="top" id="lX1-dt-HR5"/>
-                            <constraint firstItem="l9s-qa-nhc" firstAttribute="leading" secondItem="ml2-oa-5Is" secondAttribute="leading" id="mEx-T4-4XB"/>
-                            <constraint firstItem="G3o-Zq-URO" firstAttribute="top" secondItem="aMk-tz-RSV" secondAttribute="bottom" id="r1A-PN-wa9"/>
+                            <constraint firstItem="2GW-57-lSf" firstAttribute="leading" secondItem="Rsz-zP-Er8" secondAttribute="leading" id="4pK-Yi-k8f"/>
+                            <constraint firstAttribute="trailing" secondItem="2GW-57-lSf" secondAttribute="trailing" id="DqK-UH-ORZ"/>
+                            <constraint firstItem="9IQ-Cr-LhV" firstAttribute="top" secondItem="8Hn-EY-DJq" secondAttribute="bottom" id="I6n-Sd-WN7"/>
+                            <constraint firstItem="8Hn-EY-DJq" firstAttribute="leading" secondItem="Rsz-zP-Er8" secondAttribute="leading" id="YFq-Ml-aj3"/>
+                            <constraint firstItem="2GW-57-lSf" firstAttribute="top" secondItem="Rsz-zP-Er8" secondAttribute="top" id="aML-pC-Kvh"/>
+                            <constraint firstItem="8Hn-EY-DJq" firstAttribute="top" secondItem="2GW-57-lSf" secondAttribute="bottom" id="hcl-qI-8lh"/>
+                            <constraint firstAttribute="trailing" secondItem="8Hn-EY-DJq" secondAttribute="trailing" id="vmZ-x4-hjF"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="l9s-qa-nhc" id="MyX-Hu-asL"/>
+                        <outlet property="tableView" destination="2GW-57-lSf" id="j6X-Ic-Pvu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulK-8m-xlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3469.5999999999999" y="760.56971514242889"/>
+            <point key="canvasLocation" x="3558" y="762"/>
         </scene>
         <!--Workout History View Controller-->
         <scene sceneID="A3O-HK-obb">
@@ -847,7 +887,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ln7-8J-RPs">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="WORKOUT HISTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-Qa-tH9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="IN-APP WORKOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-Qa-tH9">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -868,6 +908,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iko-zY-bXd">
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                <state key="normal" title="DISMISS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss" destination="lBL-Mn-C88" eventType="touchUpInside" id="R5T-MU-naG"/>
+                                    <action selector="dismiss" destination="NAM-e2-GKt" eventType="touchUpInside" id="yCg-Aj-me8"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-r2-0TL">
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -890,6 +940,9 @@
                             <constraint firstItem="Ln7-8J-RPs" firstAttribute="leading" secondItem="ef8-P0-bcQ" secondAttribute="leading" id="Glp-SF-sVl"/>
                             <constraint firstAttribute="trailing" secondItem="Ln7-8J-RPs" secondAttribute="trailing" id="J7n-s3-8oI"/>
                             <constraint firstItem="Ln7-8J-RPs" firstAttribute="top" secondItem="ivd-oE-TCG" secondAttribute="top" id="Llk-B7-oyF"/>
+                            <constraint firstAttribute="trailing" secondItem="iko-zY-bXd" secondAttribute="trailing" constant="15" id="Mqo-Fm-Hel"/>
+                            <constraint firstItem="iko-zY-bXd" firstAttribute="leading" secondItem="v3P-Qa-tH9" secondAttribute="trailing" constant="15" id="NqL-aa-1fy"/>
+                            <constraint firstItem="iko-zY-bXd" firstAttribute="centerY" secondItem="Ln7-8J-RPs" secondAttribute="centerY" id="TQq-cu-vip"/>
                             <constraint firstItem="ivd-oE-TCG" firstAttribute="top" secondItem="ef8-P0-bcQ" secondAttribute="top" id="Trv-x5-hvH"/>
                             <constraint firstAttribute="trailing" secondItem="ivd-oE-TCG" secondAttribute="trailing" id="Ugg-Ge-GGl"/>
                             <constraint firstItem="Qcm-r2-0TL" firstAttribute="leading" secondItem="ef8-P0-bcQ" secondAttribute="leading" id="Zp0-hg-s0e"/>
@@ -904,7 +957,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1C-Kt-lCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2613.5999999999999" y="760.56971514242889"/>
+            <point key="canvasLocation" x="2657" y="1478"/>
         </scene>
     </scenes>
     <resources>

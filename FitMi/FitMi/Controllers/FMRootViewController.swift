@@ -38,12 +38,12 @@ class FMRootViewController: FMViewController {
 		self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[exerciseView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["exerciseView": exerciseViewController.view]))
 		exerciseViewController.view.isHidden = true
         
-        let workoutHistoryViewController = FMWorkoutHistoryViewController.getDefaultController()
-        self.view.addSubview(workoutHistoryViewController.view)
-        self.view.sendSubview(toBack: workoutHistoryViewController.view)
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[workoutHistoryView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["workoutHistoryView": workoutHistoryViewController.view]))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[workoutHistoryView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["workoutHistoryView": workoutHistoryViewController.view]))
-        workoutHistoryViewController.view.isHidden = true
+        let battleViewController = FMBattleViewController.getDefaultController()
+        self.view.addSubview(battleViewController.view)
+        self.view.sendSubview(toBack: battleViewController.view)
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[battleView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["battleView": battleViewController.view]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[battleView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["battleView": battleViewController.view]))
+        battleViewController.view.isHidden = true
 		
 		let statisticsViewController = FMStatisticsViewController.getDefaultController()
 		self.view.addSubview(statisticsViewController.view)

@@ -80,6 +80,10 @@ class FMWorkoutHistoryViewController: FMViewController {
     private func registerCells() {
         FMWorkoutHistoryCell.registerCell(tableView: self.tableView, reuseIdentifier: FMWorkoutHistoryCell.identifier)
     }
+	
+	@IBAction func dismiss() {
+		self.dismiss(animated: true, completion: nil)
+	}
     
     class func getDefaultController() -> FMWorkoutHistoryViewController {
         if FMWorkoutHistoryViewController.defaultController == nil {

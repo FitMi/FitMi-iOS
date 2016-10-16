@@ -36,7 +36,7 @@ class FMStatisticsViewController: FMViewController {
 	private func configureTableView() {
 		self.tableView.estimatedRowHeight = 100
 		self.tableView.rowHeight = UITableViewAutomaticDimension
-		self.tableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 88, right: 0)
+		self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 88, right: 0)
 		self.tableView.backgroundColor = UIColor.secondaryColor
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
@@ -119,7 +119,7 @@ extension FMStatisticsViewController: UITableViewDataSource {
 			return 4
 			
 		case 1:
-			return 1
+			return 2
 			
 		default:
 			return 0
@@ -154,6 +154,21 @@ extension FMStatisticsViewController: UITableViewDataSource {
 			}
 			
 			defaultCell = cell
+			
+		case 1:
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
+			cell.selectionStyle = .none
+			
+			switch indexPath.row {
+			case 0:
+				cell.label.text = "ALL HISTORY"
+			case 1:
+				cell.label.text = "IN-APP WORKOUTS"
+			default:
+				print("unsupported indexpath: \(indexPath)")
+			}
+			defaultCell = cell
+			
 		default:
 			let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
 			cell.selectionStyle = .none
@@ -168,10 +183,21 @@ extension FMStatisticsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.section {
 		case 1:
-			let controller = FMStatisticsDetailViewController.controllerFromStoryboard()
-			UIApplication.shared.keyWindow!.rootViewController!.present(controller, animated: true, completion: {
+			switch indexPath.row {
+			case 0:
+				let controller = FMStatisticsDetailViewController.controllerFromStoryboard()
+				UIApplication.shared.keyWindow!.rootViewController!.present(controller, animated: true, completion: {
+					
+				})
+			case 1:
+				let controller = FMWorkoutHistoryViewController.getDefaultController()
+				UIApplication.shared.keyWindow!.rootViewController!.present(controller, animated: true, completion: {
+					
+				})
 				
-			})
+			default:
+				print(indexPath)
+			}
 			
 		default:
 			print(indexPath)
