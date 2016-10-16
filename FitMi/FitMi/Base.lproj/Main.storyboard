@@ -248,9 +248,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ST-1L-IBL" customClass="SKView">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ST-1L-IBL" customClass="SKView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unp-FO-h7i">
@@ -311,11 +309,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="unp-FO-h7i" secondAttribute="bottom" id="3M4-03-jvn"/>
-                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="width" secondItem="xHr-9q-uPC" secondAttribute="width" id="KGn-bg-oQk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0ST-1L-IBL" secondAttribute="trailing" constant="-20" id="L8T-Bo-RV0"/>
                             <constraint firstAttribute="trailing" secondItem="unp-FO-h7i" secondAttribute="trailing" id="SSm-pB-KHg"/>
                             <constraint firstItem="8Kd-MS-NZX" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-20" id="ZsW-ah-zWy"/>
-                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leadingMargin" constant="-16" id="fXp-mC-W9c"/>
+                            <constraint firstItem="0ST-1L-IBL" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-20" id="bGR-Ek-Viv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Kd-MS-NZX" secondAttribute="trailing" constant="-20" id="eXK-FZ-rho"/>
+                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leadingMargin" constant="-20" id="fXp-mC-W9c"/>
                             <constraint firstItem="unp-FO-h7i" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="h3O-Bg-0sb"/>
+                            <constraint firstItem="0ST-1L-IBL" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leadingMargin" constant="-20" id="ye7-eA-Ezb"/>
+                            <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="yoZ-tL-dc0"/>
                         </constraints>
                     </view>
                     <connections>
