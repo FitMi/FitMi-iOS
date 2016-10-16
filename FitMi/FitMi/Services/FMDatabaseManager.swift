@@ -24,7 +24,6 @@ class FMDatabaseManager: NSObject {
 		var sprite = realm.objects(FMSprite.self).first
 		if sprite == nil {
 			sprite = FMSprite()
-			sprite?.type = "CAT"
 			try! realm.write {
 				realm.add(sprite!)
 			}

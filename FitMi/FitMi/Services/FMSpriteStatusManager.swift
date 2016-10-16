@@ -135,53 +135,26 @@ class FMSpriteStatusManager: NSObject {
 	
 	func strengthForDate(date: Date, steps: Int) -> Int {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
-		var sum = 0.0
-		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
-		for i in 0..<weights.count - 1 {
-			if i < states.count {
-				sum += Double(states[i].strength) * weights[i + 1]
-			} else {
-				sum += Double(SPRITE_STRENGTH_DEFAULT) * weights[i + 1]
-			}
-		}
-		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForSteps())
-		sum += Double(steps)/goal * weights[0] * Double(SPRITE_STRENGTH_DEFAULT)
-		return Int(sum)
+		let base = states.count > 0 ? states.first!.strength : 100
+		let goal = FMHealthStatusManager.sharedManager.goalForSteps()
+		let bonus = steps > goal ? (goal / WORKOUT_GOAL_PER_UNIT_BONUS_STEPS) : 0
+		return base + steps/1000 + bonus
 	}
 	
 	func staminaForDate(date: Date, distance: Int) -> Int {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
-		var sum = 0.0
-		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
-		for i in 0..<weights.count - 1 {
-			if i < states.count {
-				sum += Double(states[i].stamina) * weights[i + 1]
-			} else {
-				sum += Double(SPRITE_STAMINA_DEFAULT) * weights[i + 1]
-			}
-		}
-		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForDistance())
-		sum += Double(distance)/goal * weights[0] * Double(SPRITE_STAMINA_DEFAULT)
-		return Int(sum)
+		let base = states.count > 0 ? states.first!.stamina : 100
+		let goal = FMHealthStatusManager.sharedManager.goalForDistance()
+		let bonus = distance > goal ? (goal / WORKOUT_GOAL_PER_UNIT_BONUS_DISTANCE) : 0
+		return base + distance/500 + bonus
 	}
 	
 	func agilityForDate(date: Date, flights: Int) -> Int {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: date)).sorted(byProperty: "date", ascending: false)
-		var sum = 0.0
-		var weights: [Double] = [0.25, 0.2, 0.15, 0.1, 0.1, 0.1, 0.1]
-		for i in 0..<weights.count - 1 {
-			if i < states.count {
-				sum += Double(states[i].agility) * weights[i + 1]
-			} else {
-				sum += Double(SPRITE_AGILITY_DEFAULT) * weights[i + 1]
-			}
-		}
-		
-		let goal = Double(FMHealthStatusManager.sharedManager.goalForFlights())
-		sum += Double(flights)/goal * weights[0] * Double(SPRITE_AGILITY_DEFAULT)
-		return Int(sum)
+		let base = states.count > 0 ? states.first!.agility : 100
+		let goal = FMHealthStatusManager.sharedManager.goalForFlights()
+		let bonus = flights > goal ? (goal / WORKOUT_GOAL_PER_UNIT_BONUS_FLIGHTS) : 0
+		return base + flights + bonus
 	}
 	
 	func refreshHealthForState(state: FMSpriteState, stepCount: Int, distance: Int, flights: Int) {
