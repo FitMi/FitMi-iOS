@@ -13,9 +13,14 @@ class FMSprite: Object {
 	
 	dynamic var identifier: String = UUID().uuidString
 	dynamic var name: String = "Default"
-	dynamic var type: String = "CAT"
 	dynamic var mood: Int = 100
 	dynamic var birthday:Date = Date()
+	
+	dynamic var skillInUse: FMSKill!
+	dynamic var appearance: FMAppearance!
+	let skills = List<FMSKill>()
+	let actions = List<FMAction>()
+	
 	let states = List<FMSpriteState>()
 	let exercises = List<FMExerciseRecord>()
 	
