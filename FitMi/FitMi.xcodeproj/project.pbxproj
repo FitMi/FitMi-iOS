@@ -490,11 +490,13 @@
 					};
 					0CD3CCF91D9EF0FB00E47BF8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EQ5L798SLT;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0CD3CCE51D9EF0FA00E47BF8;
 					};
 					0CD3CD041D9EF0FB00E47BF8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EQ5L798SLT;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0CD3CCE51D9EF0FA00E47BF8;
 					};
@@ -921,6 +923,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = EQ5L798SLT;
 				INFOPLIST_FILE = FitMiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMiTests;
@@ -936,6 +939,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = EQ5L798SLT;
 				INFOPLIST_FILE = FitMiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMiTests;
@@ -950,6 +954,7 @@
 			baseConfigurationReference = 669192A5417414353ED5801E /* Pods-FitMiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
 				INFOPLIST_FILE = FitMiUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMiUITests;
@@ -964,6 +969,7 @@
 			baseConfigurationReference = C44F2DCAE54CDA82D3FD9227 /* Pods-FitMiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
 				INFOPLIST_FILE = FitMiUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMiUITests;
