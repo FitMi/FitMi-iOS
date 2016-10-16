@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class FMAccountViewController: FMViewController {
 
@@ -253,6 +255,25 @@ extension FMAccountViewController: UITableViewDelegate {
 			default:
 				print("indexPath not supported")
 			}
+        case 2:
+            switch indexPath.row {
+            case 0:
+                FMRootViewController.defaultController.addChildViewController(self)
+                let loginManager = LoginManager()
+                loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+                    self.removeFromParentViewController()
+                    switch loginResult {
+                    case .failed(let error):
+                        print(error)
+                    case .cancelled:
+                        print("User cancelled login.")
+                    case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                        print("Logged in!")
+                    }
+                }
+            default:
+                print("indexPath not supported")
+            }
 		default:
 			print("indexPath not supported")
 		}
