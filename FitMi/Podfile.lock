@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -41,6 +43,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - AlamofireImage (~> 3.1)
   - BubbleTransition
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - FacebookCore
@@ -64,6 +67,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
@@ -80,6 +84,6 @@ SPEC CHECKSUMS:
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 46e8902d146ce919fb34cbf7d90878d840f0ca16
+PODFILE CHECKSUM: 13de42bdc63d6be39aeb74cd8f77525bc46a9a54
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.0.1

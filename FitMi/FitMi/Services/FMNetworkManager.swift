@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
 
 class FMNetworkManager: NSObject {
@@ -45,11 +46,11 @@ class FMNetworkManager: NSObject {
             }
 	}
 	
-	func downloadImageFromUrl(urlString: String, completion: @escaping (_ error: Error?, _ imageData: Data?) -> Void) {
+	func downloadImageFromUrl(urlString: String, completion: @escaping (_ error: Error?, _ image: UIImage?) -> Void) {
 		let url = URL(string: urlString)!
-		Alamofire.request(url).responseData(completionHandler: {
+		Alamofire.request(url).responseImage(completionHandler: {
 			response in
-			if let data = response.data {
+			if let data = response.result.value {
 				completion(nil, data)
 			} else {
 				let error = NSError(domain: "fitmi-image-fault", code: 2, userInfo: nil) as Error
