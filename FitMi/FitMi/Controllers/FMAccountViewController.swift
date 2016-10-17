@@ -269,8 +269,8 @@ extension FMAccountViewController: UITableViewDelegate {
                         print("User cancelled login.")
                     case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                         print("Logged in!")
-                        // let networkManager = FMNetworkManager.sharedManager
-                        // networkManager.authenticateWithToken(urlString: "localhost:3000/api/authenticate", token: accessToken.authenticationToken)
+                        let networkManager = FMNetworkManager.sharedManager
+                        networkManager.authenticateWithToken(urlString: "http://localhost:3000/api/authenticate", token: accessToken.authenticationToken)
                     }
                 }
             default:
