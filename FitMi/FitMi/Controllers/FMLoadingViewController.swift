@@ -54,7 +54,7 @@ extension FMLoadingViewController: FMConfigurationParserDelegate {
 		print("Update Completed")
 		self.progressView.percentage = 1
 		
-		Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(redirectToMainView), userInfo: nil, repeats: false)
+		Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(redirectToMainView), userInfo: nil, repeats: false)
 	}
 	
 	func redirectToMainView() {
