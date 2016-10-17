@@ -226,7 +226,7 @@
                         <color key="backgroundColor" red="0.26274509800000001" green="0.84313725490000002" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FVw-H0-7yp" firstAttribute="top" secondItem="bxm-sc-fQk" secondAttribute="bottom" constant="20" id="0SN-5e-t3G"/>
-                            <constraint firstItem="bxm-sc-fQk" firstAttribute="centerY" secondItem="cyZ-vw-wQV" secondAttribute="centerY" id="Edj-eD-Soy"/>
+                            <constraint firstItem="bxm-sc-fQk" firstAttribute="centerY" secondItem="cyZ-vw-wQV" secondAttribute="centerY" constant="-30" id="Edj-eD-Soy"/>
                             <constraint firstItem="bxm-sc-fQk" firstAttribute="centerX" secondItem="cyZ-vw-wQV" secondAttribute="centerX" id="Jz0-KQ-1YQ"/>
                             <constraint firstItem="FVw-H0-7yp" firstAttribute="centerX" secondItem="cyZ-vw-wQV" secondAttribute="centerX" id="aFj-2f-Qu4"/>
                             <constraint firstItem="bxm-sc-fQk" firstAttribute="width" secondItem="cyZ-vw-wQV" secondAttribute="width" multiplier="0.3" id="diV-Yl-fe6"/>

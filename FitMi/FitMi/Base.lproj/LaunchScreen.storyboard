@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstItem="ZiE-CB-YFX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ada-dW-cod"/>
                             <constraint firstItem="ZiE-CB-YFX" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="Ev7-YO-oDD"/>
-                            <constraint firstItem="ZiE-CB-YFX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gpq-J0-mbN"/>
+                            <constraint firstItem="ZiE-CB-YFX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="gpq-J0-mbN"/>
                         </constraints>
                     </view>
                 </viewController>
