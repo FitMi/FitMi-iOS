@@ -69,6 +69,12 @@ class FMNetworkManager: NSObject {
 			}
 		})
 	}
-	
-	
+    
+    /*
+    func authenticateWithToken(urlString: String, token: String) {
+        let url = URL(string: urlString)!
+        let parameters: [String: AnyObject] = ["token": token as AnyObject]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:])
+    }
+     */
 }
