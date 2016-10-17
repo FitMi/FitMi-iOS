@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.0.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -36,9 +37,10 @@ PODS:
   - Realm/Headers (2.0.2)
   - RealmSwift (2.0.2):
     - Realm (= 2.0.2)
-  - SwiftHTTP (2.0.1)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - BubbleTransition
   - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
   - FacebookCore
@@ -48,7 +50,7 @@ DEPENDENCIES:
   - JazzHands
   - Masonry
   - RealmSwift (~> 2.0)
-  - SwiftHTTP
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   Charts:
@@ -61,6 +63,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/danielgindi/Charts.git
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
@@ -75,8 +78,8 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
-  SwiftHTTP: 6d57b54ee84d9ad9cf81b6bc1c4cae593e3f6329
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 865c0bcdff79c4b0f07a052f5c66867f8feadd34
+PODFILE CHECKSUM: 46e8902d146ce919fb34cbf7d90878d840f0ca16
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.3

@@ -8,7 +8,6 @@ target 'FitMi' do
   # Pods for FitMi
   pod 'RealmSwift', '~> 2.0'
   pod 'FontBlaster'
-  pod 'SwiftHTTP'
   pod 'BubbleTransition'
   pod 'JazzHands'
   pod 'Masonry'
@@ -16,6 +15,8 @@ target 'FitMi' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON'
 
   target 'FitMiTests' do
     inherit! :search_paths
