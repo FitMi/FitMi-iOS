@@ -10,12 +10,23 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import RealmSwift
 
 class FMNetworkManager: NSObject {
 	static var sharedManager = FMNetworkManager()
 	
 	func checkConfiguratonFileUpdate(completion: @escaping (_ error: Error?, _ requireUpdate: Bool, _ configDict: NSDictionary?) -> Void) {
-		let param: Parameters = ["updateTime": ""]
+		
+		let realm = try! Realm()
+		let appearances = realm.objects(FMAppearance.self).sorted(byProperty: "lastUpdateTime", ascending: false)
+		var dateString = ""
+		if let appearance = appearances.first {
+			dateString = appearance.lastUpdateTime.timeStamp
+		}
+		
+		print(dateString)
+		
+		let param: Parameters = ["updateTime": dateString]
         Alamofire.request("https://72s7ml6tyb.execute-api.ap-southeast-1.amazonaws.com/production/updateCheck", method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
 				if let error = response.result.error {

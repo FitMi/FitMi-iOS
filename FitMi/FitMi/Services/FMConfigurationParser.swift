@@ -19,6 +19,8 @@ class FMConfigurationParser: NSObject {
 			error, required, dict in
 			if error == nil && required && dict != nil {
 				self.total = self.constructDatabaseContent(fromDictionary: dict!)
+			} else if (!required) {
+				print("Assets up to date")
 			}
 		})
 	}

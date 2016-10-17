@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FMBattleViewController: FMViewController {
 
+	@IBOutlet var testImageViewLeft: UIImageView!
+	@IBOutlet var testImageViewRight: UIImageView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,27 @@ class FMBattleViewController: FMViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	
+	override func didMove(toParentViewController parent: UIViewController?) {
+		super.didMove(toParentViewController: parent)
+		
+		let realm = try! Realm()
+		let skill = realm.objects(FMSKill.self).first!
+		let attackImages = skill.attackSprites()
+		self.testImageViewLeft.image = attackImages.last
+		self.testImageViewLeft.animationImages = attackImages
+		self.testImageViewLeft.animationDuration = 1
+		self.testImageViewLeft.animationRepeatCount = 3
+		self.testImageViewLeft.startAnimating()
+		
+		let defenceImages = skill.defenceSprites()
+		self.testImageViewRight.image = defenceImages.last
+		self.testImageViewRight.animationImages = defenceImages
+		self.testImageViewRight.animationDuration = 1
+		self.testImageViewRight.transform = CGAffineTransform(scaleX: -1, y: 1)
+		self.testImageViewRight.animationRepeatCount = 3
+		self.testImageViewRight.startAnimating()
+	}
 	
 	private static var defaultController: FMBattleViewController?
 	class func getDefaultController() -> FMBattleViewController {
