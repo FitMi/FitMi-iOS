@@ -30,7 +30,7 @@ class FMExerciseViewController: FMViewController {
 	
 	@IBOutlet var tap: UITapGestureRecognizer!
     
-    var mainScene = FMMainScene()
+    var mainScene = FMExerciseScene()
     
 	let buttonAlphaDisabled: CGFloat = 0.3
 	
@@ -66,7 +66,7 @@ class FMExerciseViewController: FMViewController {
 		}
 		
 		do {
-			if let scene = FMMainScene(fileNamed: "FMMainScene") {
+			if let scene = FMExerciseScene(fileNamed: "FMExerciseScene") {
                 self.mainScene = scene
 				scene.scaleMode = .aspectFill
 				self.spriteView.presentScene(scene)

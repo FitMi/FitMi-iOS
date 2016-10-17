@@ -30,6 +30,8 @@
 		0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */; };
 		0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512E1DB4E5F9002146FE /* FMProgressView.swift */; };
 		0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551321DB4F503002146FE /* FMLoadingViewController.swift */; };
+		0C7551351DB55C5C002146FE /* FMExerciseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551341DB55C5C002146FE /* FMExerciseScene.sks */; };
+		0C7551371DB55CA4002146FE /* FMExerciseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551361DB55CA4002146FE /* FMExerciseScene.swift */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
@@ -121,6 +123,8 @@
 		0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAtomicCounter.swift; sourceTree = "<group>"; };
 		0C75512E1DB4E5F9002146FE /* FMProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMProgressView.swift; sourceTree = "<group>"; };
 		0C7551321DB4F503002146FE /* FMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLoadingViewController.swift; sourceTree = "<group>"; };
+		0C7551341DB55C5C002146FE /* FMExerciseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FMExerciseScene.sks; sourceTree = "<group>"; };
+		0C7551361DB55CA4002146FE /* FMExerciseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseScene.swift; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 				0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */,
 				0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */,
 				0C75512E1DB4E5F9002146FE /* FMProgressView.swift */,
+				0C7551341DB55C5C002146FE /* FMExerciseScene.sks */,
+				0C7551361DB55CA4002146FE /* FMExerciseScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				93B34DFA1DB409D7005D530E /* defend.atlas in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
+				0C7551351DB55C5C002146FE /* FMExerciseScene.sks in Resources */,
 				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
@@ -797,6 +804,7 @@
 				0CFC8B791DA8227D0084DD6F /* FMChartTableViewCell.swift in Sources */,
 				0C7551291DB3D05C002146FE /* FMLocalStorageManager.swift in Sources */,
 				0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */,
+				0C7551371DB55CA4002146FE /* FMExerciseScene.swift in Sources */,
 				0CD3CD5F1D9EF7DD00E47BF8 /* FMViewController.swift in Sources */,
 				0CE74F641D9FB5DD00CAB9CE /* FMHealthStatusManager.swift in Sources */,
 				0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */,

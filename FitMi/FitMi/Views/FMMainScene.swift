@@ -28,9 +28,7 @@ class FMMainScene: SKScene {
     private var runSpriteAtlas = SKTextureAtlas()
     private var runSpriteArray = [SKTexture]()
     
-	private var defaultScale: CGFloat = 0.0
-	private var isInHomeScreen = false
-    
+	private var defaultScale: CGFloat = 1.0
     private var isSleeping = false
     
 	var character = SKSpriteNode()
@@ -38,15 +36,9 @@ class FMMainScene: SKScene {
 	
 	
     override func didMove(to view: SKView) {
-		self.isInHomeScreen = view == FMHomeViewController.getDefaultController().spriteView
-		
         self.loadCharacterSprites()
         self.loadBackgroundSprites()
-		
-		if isInHomeScreen {
-			self.displayBackground()
-		}
-		
+		self.displayBackground()
         self.displayCharacter()
 	}
     
@@ -108,14 +100,7 @@ class FMMainScene: SKScene {
     private func displayCharacter() {
         self.character = SKSpriteNode(imageNamed: "relax1-1.png")
         self.character.size = CGSize(width: 400, height: 400)
-		
-		if isInHomeScreen {
-			self.character.position = CGPoint(x: -20, y: -180)
-		} else {
-			self.character.position = CGPoint(x: -20, y: 40)
-		}
-		
-        self.defaultScale = self.isInHomeScreen ? 1 : 0.8
+		self.character.position = CGPoint(x: -20, y: -180)
         self.character.setScale(self.defaultScale)
         
         self.addChild(self.character)
@@ -169,22 +154,18 @@ class FMMainScene: SKScene {
     }
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.isInHomeScreen) {
-            self.character.removeAllActions()
-            self.animateTouchSprite()
-        }
+		self.character.removeAllActions()
+		self.animateTouchSprite()
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (self.isInHomeScreen) {
-            self.character.setScale(self.defaultScale)
-            if (self.isSleeping) {
-                self.animateWakeSprite()
-            } else {
-                self.animateNormalSprite()
-            }
-            self.isSleeping = false
-        }
+		self.character.setScale(self.defaultScale)
+		if (self.isSleeping) {
+			self.animateWakeSprite()
+		} else {
+			self.animateNormalSprite()
+		}
+		self.isSleeping = false
 	}
 	
     override func update(_ currentTime: TimeInterval) {
