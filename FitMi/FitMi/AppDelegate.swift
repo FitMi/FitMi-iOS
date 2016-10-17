@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		FMConfigurationParser.refreshConfiguration()
-		FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {_ in })
 		
 		
         let hasOnboard = application.hasOnboard

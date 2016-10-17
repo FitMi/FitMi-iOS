@@ -16,6 +16,7 @@ target 'FitMi' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'Alamofire', '~> 4.0'
+  pod 'AlamofireImage', '~> 3.1' 
   pod 'SwiftyJSON'
 
   target 'FitMiTests' do
