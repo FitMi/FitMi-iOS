@@ -46,7 +46,7 @@ class FMAccountViewController: FMViewController {
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
 		headerLabel.font = UIFont(name: "Pixeled", size: 20)
-		headerLabel.text = "ACCOUNT"
+		headerLabel.text = "SETTINGS"
 		headerLabel.textAlignment = .center
 		headerLabel.backgroundColor = UIColor.secondaryColor
 		self.tableView.tableHeaderView = headerLabel

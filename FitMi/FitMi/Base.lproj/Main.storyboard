@@ -644,7 +644,7 @@
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-tN-nk2">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="ACCOUNT">
+                                        <state key="normal" title="SETTINGS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
