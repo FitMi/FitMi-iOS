@@ -15,6 +15,9 @@ target 'FitMi' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Alamofire', '~> 4.0'
+  pod 'AlamofireImage', '~> 3.1' 
+  pod 'SwiftyJSON'
 
   target 'FitMiTests' do
     inherit! :search_paths

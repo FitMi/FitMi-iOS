@@ -15,11 +15,12 @@ class FMConfigurationParser: NSObject {
 	private static var total: Int = 0
 	
 	class func refreshConfiguration() {
-		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
-		let dictionary = NSDictionary(contentsOfFile: filePath)!
-		
-		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
-		
+		FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {
+			error, required, dict in
+			if error == nil && required && dict != nil {
+				self.total = self.constructDatabaseContent(fromDictionary: dict!)
+			}
+		})
 	}
 	
 	
@@ -119,22 +120,62 @@ class FMConfigurationParser: NSObject {
 	
 	class func downloadSprites(forSkill skill: FMSKill) {
 		print("Downloading sprites for skill: \(skill.name)")
+		let networkManager = FMNetworkManager.sharedManager
+		let localStorageManager = FMLocalStorageManager.sharedManager
 		
 		for url in skill.attackSpriteUrls() {
-			print(url)
+			networkManager.downloadImageFromUrl(urlString: url, completion: {
+				error, optionalImage in
+			
+				if let image = optionalImage {
+					let name = url.lastPathComponent()!
+					let data = UIImagePNGRepresentation(image)!
+					if localStorageManager.saveImage(imageData: data, imageName: name) {
+						self.updateProgress(self.counter.incrementAndGet())
+					}
+				}
+			})
 		}
 		
 		for url in skill.defenceSpriteUrls() {
-			print(url)
+			networkManager.downloadImageFromUrl(urlString: url, completion: {
+				error, optionalImage in
+				
+				if let image = optionalImage {
+					let name = url.lastPathComponent()!
+					let data = UIImagePNGRepresentation(image)!
+					if localStorageManager.saveImage(imageData: data, imageName: name) {
+						self.updateProgress(self.counter.incrementAndGet())
+					}
+				}
+			})
 		}
 	}
 	
 	class func downloadSprites(forAction action: FMAction) {
 		print("Downloading sprites for action: \(action.name)")
+		let networkManager = FMNetworkManager.sharedManager
+		let localStorageManager = FMLocalStorageManager.sharedManager
 		
 		for url in action.spriteUrls() {
-			print(url)
+			networkManager.downloadImageFromUrl(urlString: url, completion: {
+				error, optionalImage in
+				
+				if let image = optionalImage {
+					let name = url.lastPathComponent()!
+					let data = UIImagePNGRepresentation(image)!
+					if localStorageManager.saveImage(imageData: data, imageName: name) {
+						self.updateProgress(self.counter.incrementAndGet())
+					}
+				}
+			})
 		}
 	}
-
+	
+	class func updateProgress(_ number: Int) {
+		print("Downloaded: \(number)/\(self.total)")
+		if number == self.total {
+			print("Update Completed")
+		}
+	}
 }

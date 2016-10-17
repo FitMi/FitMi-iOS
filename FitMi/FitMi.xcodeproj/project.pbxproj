@@ -496,6 +496,7 @@
 				0CD3CD021D9EF0FB00E47BF8 /* Frameworks */,
 				0CD3CD031D9EF0FB00E47BF8 /* Resources */,
 				875069EF087EDDC1E2DC7D71 /* [CP] Copy Pods Resources */,
+				2AF721B5CA69672FDBD32126 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -611,6 +612,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2AF721B5CA69672FDBD32126 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitMiUITests/Pods-FitMiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3E7DF73D6200A0F9242B5D99 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

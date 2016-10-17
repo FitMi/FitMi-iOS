@@ -27,3 +27,10 @@ extension Calendar {
 		return self.date(byAdding: components as DateComponents, to: date)!
 	}
 }
+
+extension String {
+	func lastPathComponent() -> String? {
+		let array = self.characters.split(separator: "/").map(String.init)
+		return array.last
+	}
+}
