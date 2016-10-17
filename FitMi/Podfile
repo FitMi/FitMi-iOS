@@ -8,6 +8,7 @@ target 'FitMi' do
   # Pods for FitMi
   pod 'RealmSwift', '~> 2.0'
   pod 'FontBlaster'
+  pod 'SwiftHTTP'
   pod 'BubbleTransition'
   pod 'JazzHands'
   pod 'Masonry'

@@ -36,6 +36,7 @@ PODS:
   - Realm/Headers (2.0.2)
   - RealmSwift (2.0.2):
     - Realm (= 2.0.2)
+  - SwiftHTTP (2.0.1)
 
 DEPENDENCIES:
   - BubbleTransition
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - JazzHands
   - Masonry
   - RealmSwift (~> 2.0)
+  - SwiftHTTP
 
 EXTERNAL SOURCES:
   Charts:
@@ -73,7 +75,8 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
+  SwiftHTTP: 6d57b54ee84d9ad9cf81b6bc1c4cae593e3f6329
 
-PODFILE CHECKSUM: 9496f27391ea2264fe6d530297169a21defc7302
+PODFILE CHECKSUM: 865c0bcdff79c4b0f07a052f5c66867f8feadd34
 
 COCOAPODS: 1.0.1
