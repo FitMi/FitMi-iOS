@@ -34,6 +34,7 @@ class FMNetworkManager: NSObject {
 				} else {
 					if let res = response.result.value {
 						let json = JSON(res)
+						print(res)
 						if json["required"].bool! {
 							// Update required
 							Alamofire.request(json["url"].string!).responsePropertyList {

@@ -115,9 +115,12 @@ class FMConfigurationParser: NSObject {
 		// TODO: remove images files in documents folder
 		
 		let realm = try! Realm()
-		realm.delete(appearance.skills)
-		realm.delete(appearance.actions)
-		realm.delete(appearance)
+		
+		FMDatabaseManager.sharedManager.realmUpdate{
+			realm.delete(appearance.skills)
+			realm.delete(appearance.actions)
+			realm.delete(appearance)
+		}
 	}
 	
 	class func downloadSprites(forSkill skill: FMSKill) {
