@@ -24,8 +24,6 @@ class FMNetworkManager: NSObject {
 			dateString = appearance.lastUpdateTime.timeStamp
 		}
 		
-		print(dateString)
-		
 		let param: Parameters = ["updateTime": dateString]
         Alamofire.request("https://72s7ml6tyb.execute-api.ap-southeast-1.amazonaws.com/production/updateCheck", method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -39,7 +37,6 @@ class FMNetworkManager: NSObject {
 							Alamofire.request(json["url"].string!).responsePropertyList {
 								response in
 								if let xml = response.result.value {
-									// print(xml as! NSDictionary)
 									completion(nil, true, xml as? NSDictionary)
 								} else {
 									let error = NSError(domain: "fitmi-config-fault", code: 1, userInfo: nil) as Error

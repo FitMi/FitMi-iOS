@@ -25,7 +25,7 @@ extension Date {
 	}
 	
 	var timeStamp: String {
-		return "\(Int(self.timeIntervalSince1970 - 1))"
+		return "\(Int(self.timeIntervalSince1970))"
 	}
 }
 
