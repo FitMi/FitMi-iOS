@@ -33,7 +33,6 @@ class FMLocalStorageManager: NSObject {
 	
 	func getImage(imageName: String) -> UIImage? {
 		let imagePath = self.imagePath(forName: imageName)
-		print(imagePath)
 		return UIImage(contentsOfFile: imagePath)
 	}
 	

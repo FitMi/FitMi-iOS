@@ -28,6 +28,8 @@
 		0C7551291DB3D05C002146FE /* FMLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */; };
 		0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */; };
 		0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */; };
+		0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512E1DB4E5F9002146FE /* FMProgressView.swift */; };
+		0C7551311DB4E60F002146FE /* FMProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551301DB4E60F002146FE /* FMProgressView.xib */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
@@ -117,6 +119,8 @@
 		0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLocalStorageManager.swift; sourceTree = "<group>"; };
 		0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMNetworkManager.swift; sourceTree = "<group>"; };
 		0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAtomicCounter.swift; sourceTree = "<group>"; };
+		0C75512E1DB4E5F9002146FE /* FMProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMProgressView.swift; sourceTree = "<group>"; };
+		0C7551301DB4E60F002146FE /* FMProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMProgressView.xib; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */,
 				0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */,
 				0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */,
+				0C75512E1DB4E5F9002146FE /* FMProgressView.swift */,
+				0C7551301DB4E60F002146FE /* FMProgressView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */,
 				0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */,
 				9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */,
+				0C7551311DB4E60F002146FE /* FMProgressView.xib in Resources */,
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
@@ -783,6 +790,7 @@
 				0CD2BA7B1DB0B54E00145AB2 /* FMExercisePopupViewController.swift in Sources */,
 				0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
+				0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */,
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,
 				0CD3CD681D9EF86900E47BF8 /* FMMainScene.swift in Sources */,
