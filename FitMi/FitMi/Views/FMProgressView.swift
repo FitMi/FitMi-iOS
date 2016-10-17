@@ -17,7 +17,7 @@ class FMProgressView: UIView {
         // Drawing code
     }
     */
-	fileprivate var _value: Double = 50
+	fileprivate var _value: Double = 0
 	fileprivate var _maxValue: Double = 100
 	
 	@IBOutlet var innerView: UIView!
@@ -33,7 +33,7 @@ class FMProgressView: UIView {
 				_maxValue = newValue
 			}
 			
-			self.updateAppearance()
+			self.updateAppearance(duration: 0)
 		}
 	}
 	
@@ -43,6 +43,7 @@ class FMProgressView: UIView {
 		}
 		
 		set (newValue) {
+			let oldValue = _value
 			if newValue > _maxValue {
 				_value = _maxValue
 			} else if (newValue < 0) {
@@ -51,7 +52,7 @@ class FMProgressView: UIView {
 				_value = value
 			}
 			
-			self.updateAppearance()
+			self.updateAppearance(duration: (oldValue - _value)/_maxValue)
 		}
 	}
 	
@@ -61,6 +62,7 @@ class FMProgressView: UIView {
 		}
 		
 		set (newValue) {
+			let oldValue = _value
 			if (newValue > 1) {
 				_value = _maxValue
 			} else if (newValue < 0) {
@@ -69,17 +71,21 @@ class FMProgressView: UIView {
 				_value = _maxValue * newValue
 			}
 			
-			self.updateAppearance()
+			self.updateAppearance(duration: (oldValue - _value)/_maxValue)
 		}
 	}
 	
-	fileprivate func updateAppearance() {
-		self.progressConstraint.constant = CGFloat(self.percentage)
+	fileprivate func updateAppearance(duration: Double) {
 		self.setNeedsLayout()
+		UIView.animate(withDuration: duration, animations: {
+			self.progressConstraint.constant = self.constant()
+			self.layoutIfNeeded()
+		})
 	}
 	
-	static func oneMore() -> FMProgressView {
-		let view = Bundle.main.loadNibNamed("FMProgressView", owner: self, options: nil)![0] as! FMProgressView
-		return view
+	fileprivate func constant() -> CGFloat {
+		let fullWidth = self.bounds.width
+		let constant = CGFloat(_value / _maxValue) * fullWidth
+		return constant
 	}
 }

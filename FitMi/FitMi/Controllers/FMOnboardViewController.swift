@@ -472,7 +472,7 @@ extension FMOnboardViewController {
 	func start() {
 		if self.page3Button1.title(for: .normal) == "START" {
 			let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-			let rootVC: FMRootViewController = storyBoard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMRootViewController
+			let rootVC = storyBoard.instantiateViewController(withIdentifier: "FMLoadingViewController")
 			UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.3, options: [.transitionCrossDissolve], animations: {
 				UIApplication.shared.keyWindow!.rootViewController = rootVC
 			}, completion: nil)

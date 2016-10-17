@@ -9,18 +9,25 @@
 import UIKit
 import RealmSwift
 
+protocol FMConfigurationParserDelegate {
+	func parserDidReceiveUpdate(newProgress: Int, total: Int)
+	func parserDidCompleteWork()
+}
+
 class FMConfigurationParser: NSObject {
 	
 	static let counter = FMAtomicCounter()
 	private static var total: Int = 0
+	static var delegate: FMConfigurationParserDelegate?
 	
 	class func refreshConfiguration() {
 		FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {
 			error, required, dict in
 			if error == nil && required && dict != nil {
 				self.total = self.constructDatabaseContent(fromDictionary: dict!)
-			} else if (!required) {
+			} else {
 				print("Assets up to date")
+				self.delegate?.parserDidCompleteWork()
 			}
 		})
 	}
@@ -178,9 +185,9 @@ class FMConfigurationParser: NSObject {
 	}
 	
 	class func updateProgress(_ number: Int) {
-		print("Downloaded: \(number)/\(self.total)")
+		self.delegate?.parserDidReceiveUpdate(newProgress: number, total: self.total)
 		if number == self.total {
-			print("Update Completed")
+			self.delegate?.parserDidCompleteWork()
 		}
 	}
 }

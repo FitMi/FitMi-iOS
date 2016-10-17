@@ -40,18 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Realm.Configuration.defaultConfiguration = config
 		
 		
-		FMConfigurationParser.refreshConfiguration()
-		
 		
         let hasOnboard = application.hasOnboard
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
 		if hasOnboard {
-			let rootVC: FMRootViewController = storyBoard.instantiateViewController(withIdentifier: "FMMainViewController") as! FMRootViewController
+			let rootVC = storyBoard.instantiateViewController(withIdentifier: "FMLoadingViewController")
             self.window?.rootViewController = rootVC
         } else {
-			let onboardVC: FMOnboardViewController = storyBoard.instantiateViewController(withIdentifier: "FMOnboardViewController") as! FMOnboardViewController
+			let onboardVC = storyBoard.instantiateViewController(withIdentifier: "FMOnboardViewController")
             self.window?.rootViewController = onboardVC
         }
         self.window?.makeKeyAndVisible()

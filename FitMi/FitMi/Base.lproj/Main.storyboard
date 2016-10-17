@@ -184,6 +184,63 @@
             </objects>
             <point key="canvasLocation" x="820" y="-661.61919040479768"/>
         </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="INK-Ba-VBf">
+            <objects>
+                <viewController storyboardIdentifier="FMLoadingViewController" id="Y5u-2u-6wa" customClass="FMLoadingViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eNw-N4-cDL"/>
+                        <viewControllerLayoutGuide type="bottom" id="cRJ-5n-gHT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyZ-vw-wQV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="bxm-sc-fQk">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bxm-sc-fQk" secondAttribute="height" id="xIv-Td-kFu"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVw-H0-7yp" customClass="FMProgressView" customModule="FitMi" customModuleProvider="target">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ju-9X-d0J">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" id="fzO-QI-x2W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.49803921568627452" green="0.8901960784313725" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="1gn-H9-FEM"/>
+                                    <constraint firstItem="1ju-9X-d0J" firstAttribute="leading" secondItem="FVw-H0-7yp" secondAttribute="leading" id="2Y0-Tv-hx2"/>
+                                    <constraint firstAttribute="bottom" secondItem="1ju-9X-d0J" secondAttribute="bottom" id="EDI-66-gQv"/>
+                                    <constraint firstItem="1ju-9X-d0J" firstAttribute="top" secondItem="FVw-H0-7yp" secondAttribute="top" id="o3q-Ie-ZAy"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="innerView" destination="1ju-9X-d0J" id="5Mf-Jl-Zqf"/>
+                                    <outlet property="progressConstraint" destination="fzO-QI-x2W" id="ov3-vl-E1l"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26274509800000001" green="0.84313725490000002" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FVw-H0-7yp" firstAttribute="top" secondItem="bxm-sc-fQk" secondAttribute="bottom" constant="20" id="0SN-5e-t3G"/>
+                            <constraint firstItem="bxm-sc-fQk" firstAttribute="centerY" secondItem="cyZ-vw-wQV" secondAttribute="centerY" id="Edj-eD-Soy"/>
+                            <constraint firstItem="bxm-sc-fQk" firstAttribute="centerX" secondItem="cyZ-vw-wQV" secondAttribute="centerX" id="Jz0-KQ-1YQ"/>
+                            <constraint firstItem="FVw-H0-7yp" firstAttribute="centerX" secondItem="cyZ-vw-wQV" secondAttribute="centerX" id="aFj-2f-Qu4"/>
+                            <constraint firstItem="bxm-sc-fQk" firstAttribute="width" secondItem="cyZ-vw-wQV" secondAttribute="width" multiplier="0.3" id="diV-Yl-fe6"/>
+                            <constraint firstItem="FVw-H0-7yp" firstAttribute="width" secondItem="cyZ-vw-wQV" secondAttribute="width" multiplier="0.5" id="mBB-DP-mub"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="FVw-H0-7yp" id="Fgm-PH-DzN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5d-pr-PiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.20000000000005" y="35.532233883058474"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -988,5 +1045,6 @@
         <image name="bar_border" width="272" height="32"/>
         <image name="health_icon" width="44" height="44"/>
         <image name="ic_explore_48pt" width="48" height="48"/>
+        <image name="icon" width="512" height="512"/>
     </resources>
 </document>
