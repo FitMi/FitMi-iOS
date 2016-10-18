@@ -37,6 +37,8 @@
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
+		0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */; };
+		0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */; };
 		0CD2BA7B1DB0B54E00145AB2 /* FMExercisePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2BA7A1DB0B54E00145AB2 /* FMExercisePopupViewController.swift */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
@@ -132,6 +134,8 @@
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
+		0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothItemCell.swift; sourceTree = "<group>"; };
+		0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBoothItemCell.xib; sourceTree = "<group>"; };
 		0CD2BA7A1DB0B54E00145AB2 /* FMExercisePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExercisePopupViewController.swift; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */,
 				9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */,
 				9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */,
+				0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */,
+				0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
+				0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */,
 				0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */,
 				0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */,
 				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
@@ -805,6 +812,7 @@
 				0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */,
 				0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
+				0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */,
 				0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */,
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,

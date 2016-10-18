@@ -458,26 +458,35 @@
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-PT-ZoM">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-gT-Kpg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-gT-Kpg">
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
                                         <state key="normal" title="Appearance">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="segmentDidTap:" destination="blh-bE-EnS" eventType="touchUpInside" id="Tnl-Jq-z7i"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGe-bX-qPT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGe-bX-qPT">
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
                                         <state key="normal" title="Skills">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="segmentDidTap:" destination="blh-bE-EnS" eventType="touchUpInside" id="AWG-2v-IX7"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-Ad-JEv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-Ad-JEv">
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
                                         <state key="normal" title="Actions">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="segmentDidTap:" destination="blh-bE-EnS" eventType="touchUpInside" id="HMb-HR-qhQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -486,6 +495,10 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-Xs-Ro7">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="blh-bE-EnS" id="XvY-MU-10Q"/>
+                                    <outlet property="delegate" destination="blh-bE-EnS" id="4Pt-Fb-EYL"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkv-r3-9Ty">
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -546,6 +559,10 @@
                     <connections>
                         <outlet property="primaryImageView" destination="uIR-OD-Eu6" id="p03-yd-bfC"/>
                         <outlet property="secondaryImageView" destination="oW8-Mb-p1B" id="Rm1-58-zva"/>
+                        <outlet property="segmentButton0" destination="bBF-gT-Kpg" id="0TD-Wv-4qw"/>
+                        <outlet property="segmentButton1" destination="iGe-bX-qPT" id="6H3-FL-L9T"/>
+                        <outlet property="segmentButton2" destination="wPF-Ad-JEv" id="Rlt-bv-myA"/>
+                        <outlet property="tableView" destination="6pE-Xs-Ro7" id="4yz-Kk-3qn"/>
                         <outlet property="topBar" destination="6E7-DN-ndP" id="67F-sL-Tvu"/>
                     </connections>
                 </viewController>

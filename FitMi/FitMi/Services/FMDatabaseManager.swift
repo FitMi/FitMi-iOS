@@ -38,4 +38,16 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 	}
+	
+	func appearances() -> Results<FMAppearance> {
+		return realm.objects(FMAppearance.self)
+	}
+	
+	func skills() -> Results<FMSkill> {
+		return realm.objects(FMSkill.self)
+	}
+	
+	func actions() -> Results<FMAction> {
+		return realm.objects(FMAction.self)
+	}
 }
