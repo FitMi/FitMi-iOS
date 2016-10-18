@@ -9,9 +9,20 @@
 import UIKit
 
 class FMViewController: UIViewController {
+	
+	@IBOutlet weak var toolBar: UIView!
+	@IBOutlet weak var topBar: UIView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		if self.toolBar != nil {
+			self.toolBar.backgroundColor = UIColor.primaryColor
+		}
+		
+		if self.topBar != nil {
+			self.topBar.backgroundColor = UIColor.primaryColor
+		}
 	}
 
 	override func didReceiveMemoryWarning() {

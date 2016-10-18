@@ -52,7 +52,7 @@ class FMWorkoutHistoryViewController: FMViewController {
 	}
     
     private func configureTableView() {
-        self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 44, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         

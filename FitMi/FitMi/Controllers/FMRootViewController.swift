@@ -22,6 +22,8 @@ class FMRootViewController: FMViewController {
 	override func loadView() {
 		super.loadView()
 		
+		self.menuButton.backgroundColor = UIColor.primaryColor
+		
 		FMRootViewController.defaultController = self
 		
 		let homeViewController = FMHomeViewController.getDefaultController()

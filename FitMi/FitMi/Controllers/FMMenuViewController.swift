@@ -13,9 +13,15 @@ class FMMenuViewController: FMViewController {
 	@IBOutlet weak var closeButton: UIButton!
 	private let viewControllers = [FMHomeViewController.getDefaultController(), FMExerciseViewController.getDefaultController(), FMBattleViewController.getDefaultController(), FMStatisticsViewController.getDefaultController(), FMAccountViewController.getDefaultController()]
 	
-	override func viewDidLoad() {
+	override func loadView() {
+		super.loadView()
 		closeButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
 		self.view.backgroundColor = UIColor.primaryColor
+		self.closeButton.setTitleColor(UIColor.primaryColor, for: .normal)
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 	}
 	
 	@IBAction func closeAction(_ sender: AnyObject) {

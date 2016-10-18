@@ -381,6 +381,7 @@
                         <outlet property="healthBar" destination="W5f-7s-tZu" id="3OF-fr-tps"/>
                         <outlet property="healthBarWidth" destination="mSr-X2-fX4" id="2fm-wR-p6d"/>
                         <outlet property="spriteView" destination="0ST-1L-IBL" id="dbJ-lJ-hbF"/>
+                        <outlet property="toolBar" destination="unp-FO-h7i" id="3Bz-2l-Q8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sl-Lw-FT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,6 +601,7 @@
                         <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
                         <outlet property="statusPanelViewTopConstraint" destination="9Cv-bW-kvP" id="aG0-Lk-gkg"/>
                         <outlet property="tap" destination="dJM-q9-MrG" id="hYE-6f-A9n"/>
+                        <outlet property="toolBar" destination="NBu-KQ-46g" id="Ykj-RM-m9u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -766,6 +768,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="RO3-zY-hma" id="hpu-zu-Gcu"/>
+                        <outlet property="toolBar" destination="6uc-gT-A0j" id="YJ9-vl-S9d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-OC-d7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -841,6 +844,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="sPu-gM-Vcs" id="9Y4-xL-0a9"/>
+                        <outlet property="topBar" destination="F9F-Ua-LC6" id="eKc-LI-gPA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZN-Og-3BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -905,6 +909,7 @@
                     <connections>
                         <outlet property="testImageViewLeft" destination="AVJ-KA-JMT" id="HAX-0d-Ind"/>
                         <outlet property="testImageViewRight" destination="I5d-1Q-vYm" id="Ucb-4K-lvG"/>
+                        <outlet property="toolBar" destination="aMk-tz-RSV" id="OPm-v5-qhN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -959,6 +964,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2GW-57-lSf" id="j6X-Ic-Pvu"/>
+                        <outlet property="toolBar" destination="8Hn-EY-DJq" id="Kfq-Zd-GRa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulK-8m-xlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1018,21 +1024,6 @@
                                     <action selector="dismiss" destination="NAM-e2-GKt" eventType="touchUpInside" id="yCg-Aj-me8"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-r2-0TL">
-                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="7Wg-C1-eMc"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="zaQ-ET-V7b"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1045,14 +1036,12 @@
                             <constraint firstItem="iko-zY-bXd" firstAttribute="centerY" secondItem="Ln7-8J-RPs" secondAttribute="centerY" id="TQq-cu-vip"/>
                             <constraint firstItem="ivd-oE-TCG" firstAttribute="top" secondItem="ef8-P0-bcQ" secondAttribute="top" id="Trv-x5-hvH"/>
                             <constraint firstAttribute="trailing" secondItem="ivd-oE-TCG" secondAttribute="trailing" id="Ugg-Ge-GGl"/>
-                            <constraint firstItem="Qcm-r2-0TL" firstAttribute="leading" secondItem="ef8-P0-bcQ" secondAttribute="leading" id="Zp0-hg-s0e"/>
-                            <constraint firstItem="8hV-8J-aZA" firstAttribute="top" secondItem="Qcm-r2-0TL" secondAttribute="bottom" id="hIk-8a-CWF"/>
-                            <constraint firstAttribute="trailing" secondItem="Qcm-r2-0TL" secondAttribute="trailing" id="q3h-a4-OWH"/>
                             <constraint firstItem="ivd-oE-TCG" firstAttribute="leading" secondItem="ef8-P0-bcQ" secondAttribute="leading" id="sFg-ep-mL0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ivd-oE-TCG" id="rOy-VK-W3x"/>
+                        <outlet property="topBar" destination="Ln7-8J-RPs" id="pFm-Vn-bpt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1C-Kt-lCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
