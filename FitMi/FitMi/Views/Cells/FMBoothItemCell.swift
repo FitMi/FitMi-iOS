@@ -10,6 +10,9 @@ import UIKit
 
 class FMBoothItemCell: UITableViewCell {
 
+	@IBOutlet var indicatorLabel: UILabel!
+	@IBOutlet var titleLabel: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

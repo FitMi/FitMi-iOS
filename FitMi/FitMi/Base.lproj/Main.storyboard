@@ -494,7 +494,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-Xs-Ro7">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="blh-bE-EnS" id="XvY-MU-10Q"/>
                                     <outlet property="delegate" destination="blh-bE-EnS" id="4Pt-Fb-EYL"/>

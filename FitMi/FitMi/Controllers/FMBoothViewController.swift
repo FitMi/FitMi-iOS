@@ -56,12 +56,12 @@ class FMBoothViewController: FMViewController {
     }
 	
 	private func registerCells() {
-		FMLabelCell.registerCell(tableView: self.tableView, reuseIdentifier: FMLabelCell.identifier)
+		FMBoothItemCell.registerCell(tableView: self.tableView, reuseIdentifier: FMBoothItemCell.identifier)
 	}
 
 	private func configureTableView() {
-		self.tableView.estimatedRowHeight = 100
-		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.rowHeight = 50
+		self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
 	}
 	
 	private func configureImageView() {
@@ -128,7 +128,7 @@ class FMBoothViewController: FMViewController {
 	class func controllerFromStoryboard() -> FMBoothViewController {
 		let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateViewController(withIdentifier: "FMBoothViewController") as! FMBoothViewController
-		controller.modalTransitionStyle = .crossDissolve
+		controller.modalTransitionStyle = .coverVertical
 		return controller
 	}
 
@@ -159,23 +159,20 @@ extension FMBoothViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: FMLabelCell.identifier, for: indexPath) as! FMLabelCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
 		
 		switch self.currentSelectedSegmentIndex {
 		case 0:
 			let appearance = self.appearances[indexPath.row]
 			cell.titleLabel.text = appearance.name
-			cell.contentLabel.text = ""
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
 			cell.titleLabel.text = skill.name
-			cell.contentLabel.text = ""
 			
 		case 2:
 			let action = self.actions[indexPath.row]
 			cell.titleLabel.text = action.name
-			cell.contentLabel.text = ""
 			
 		default:
 			print("unsupported index")
