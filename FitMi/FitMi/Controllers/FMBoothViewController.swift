@@ -27,6 +27,12 @@ class FMBoothViewController: FMViewController {
 	fileprivate var actions: Results<FMAction>!
 	
     override func viewDidLoad() {
+		let manager = FMDatabaseManager.sharedManager
+		self.appearances = manager.appearances()
+		self.skills = manager.skills()
+		self.actions = manager.actions()
+		
+		// call super after loading the data
         super.viewDidLoad()
 
 		let highlightedImage = UIImage.fromColor(color: UIColor.darkGray)
@@ -44,6 +50,7 @@ class FMBoothViewController: FMViewController {
 		
         self.selectSegment(at: 0)
 		
+		self.configureImageView()
 		self.configureTableView()
 		self.registerCells()
     }
@@ -57,6 +64,15 @@ class FMBoothViewController: FMViewController {
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 	}
 	
+	private func configureImageView() {
+		self.primaryImageView.animationDuration = 1
+		self.primaryImageView.animationRepeatCount = 3
+		
+		self.secondaryImageView.animationDuration = 1
+		self.secondaryImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+		self.secondaryImageView.animationRepeatCount = 3
+	}
+	
 	fileprivate func selectSegment(at index: Int) {
 		for button in segmentButtons {
 			button.isSelected = false
@@ -64,6 +80,36 @@ class FMBoothViewController: FMViewController {
 		
 		segmentButtons[index].isSelected = true
 		self.currentSelectedSegmentIndex = index
+	}
+	
+	fileprivate func setAnimationForSkill(skill: FMSkill) {
+		let attackImages = skill.attackSprites()
+		self.primaryImageView.image = attackImages.last
+		self.primaryImageView.animationImages = attackImages
+		
+		
+		let defenceImages = skill.defenceSprites()
+		self.secondaryImageView.image = defenceImages.last
+		self.secondaryImageView.animationImages = defenceImages
+		
+		self.primaryImageView.startAnimating()
+		self.secondaryImageView.startAnimating()
+	}
+	
+	fileprivate func setAnimationForAction(action: FMAction) {
+		let images = action.sprites()
+		self.primaryImageView.animationImages = images
+		self.primaryImageView.image = images.last
+		
+		self.secondaryImageView.image = nil
+	}
+	
+	fileprivate func setAnimationForAppearance(appearance: FMAppearance) {
+		let images = appearance.actions.first?.sprites()
+		self.primaryImageView.animationImages = images
+		self.primaryImageView.image = images?.last
+		
+		self.secondaryImageView.image = nil
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -95,18 +141,14 @@ extension FMBoothViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let manager = FMDatabaseManager.sharedManager
 		switch self.currentSelectedSegmentIndex {
 		case 0:
-			self.appearances = manager.appearances()
 			return self.appearances.count
 			
 		case 1:
-			self.skills = manager.skills()
 			return self.skills.count
 			
 		case 2:
-			self.actions = manager.actions()
 			return self.actions.count
 			
 		default:
@@ -144,5 +186,23 @@ extension FMBoothViewController: UITableViewDataSource {
 extension FMBoothViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		switch self.currentSelectedSegmentIndex {
+			
+		case 0:
+			let appearance = self.appearances[indexPath.row]
+			self.setAnimationForAppearance(appearance: appearance)
+			
+		case 1:
+			let skill = self.skills[indexPath.row]
+			self.setAnimationForSkill(skill: skill)
+			
+		case 2:
+			let action = self.actions[indexPath.row]
+			self.setAnimationForAction(action: action)
+			
+		default:
+			print("unsupported indexpath")
+		}
 	}
 }
