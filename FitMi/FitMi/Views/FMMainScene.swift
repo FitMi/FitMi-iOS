@@ -144,14 +144,6 @@ class FMMainScene: SKScene {
         let sequence = SKAction.sequence([wait, touchAction])
         self.character.run(sequence)
     }
-    
-    public func animateRunSprite() {
-        self.character.run(SKAction.repeatForever(SKAction.animate(with: self.runSpriteArray, timePerFrame: 0.4, resize: true, restore: true)))
-    }
-    
-    public func removeSpriteAnimation() {
-        self.character.removeAllActions()
-    }
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.character.removeAllActions()

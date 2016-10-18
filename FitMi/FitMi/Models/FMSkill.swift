@@ -1,5 +1,5 @@
 //
-//  FMSKill.swift
+//  FMSkill.swift
 //  FitMi
 //
 //  Created by Jinghan Wang on 16/10/16.
@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class FMSKill: Object {
+class FMSkill: Object {
 	
 	dynamic var name: String = ""
 	dynamic var identifier: String = ""

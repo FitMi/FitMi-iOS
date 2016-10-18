@@ -40,7 +40,7 @@ class FMBattleViewController: FMViewController {
 		super.didMove(toParentViewController: parent)
 		
 		let realm = try! Realm()
-		let skill = realm.objects(FMSKill.self).first!
+		let skill = realm.objects(FMSkill.self).first!
 		let attackImages = skill.attackSprites()
 		self.testImageViewLeft.image = attackImages.last
 		self.testImageViewLeft.animationImages = attackImages

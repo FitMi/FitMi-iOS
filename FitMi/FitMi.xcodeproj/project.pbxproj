@@ -20,7 +20,7 @@
 		0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551181DB3273F002146FE /* FMBattleViewController.swift */; };
 		0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */; };
 		0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */; };
-		0C75511F1DB38107002146FE /* FMSKill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511E1DB38107002146FE /* FMSKill.swift */; };
+		0C75511F1DB38107002146FE /* FMSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511E1DB38107002146FE /* FMSkill.swift */; };
 		0C7551211DB3822C002146FE /* FMAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551201DB3822C002146FE /* FMAction.swift */; };
 		0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551221DB382D3002146FE /* FMAppearance.swift */; };
 		0C7551251DB3A7B5002146FE /* Fitconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551241DB3A7B5002146FE /* Fitconfig.plist */; };
@@ -115,7 +115,7 @@
 		0C7551181DB3273F002146FE /* FMBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleViewController.swift; sourceTree = "<group>"; };
 		0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMSectionHeaderView.xib; sourceTree = "<group>"; };
 		0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSectionHeaderView.swift; sourceTree = "<group>"; };
-		0C75511E1DB38107002146FE /* FMSKill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSKill.swift; sourceTree = "<group>"; };
+		0C75511E1DB38107002146FE /* FMSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSkill.swift; sourceTree = "<group>"; };
 		0C7551201DB3822C002146FE /* FMAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAction.swift; sourceTree = "<group>"; };
 		0C7551221DB382D3002146FE /* FMAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAppearance.swift; sourceTree = "<group>"; };
 		0C7551241DB3A7B5002146FE /* Fitconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fitconfig.plist; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 				0CE74F5F1D9FB1D800CAB9CE /* FMSprite.swift */,
 				0CFC8B7B1DA9040E0084DD6F /* FMSpriteState.swift */,
 				0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */,
-				0C75511E1DB38107002146FE /* FMSKill.swift */,
+				0C75511E1DB38107002146FE /* FMSkill.swift */,
 				0C7551201DB3822C002146FE /* FMAction.swift */,
 				0C7551221DB382D3002146FE /* FMAppearance.swift */,
 			);
@@ -775,7 +775,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */,
-				0C75511F1DB38107002146FE /* FMSKill.swift in Sources */,
+				0C75511F1DB38107002146FE /* FMSkill.swift in Sources */,
 				9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */,
 				0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */,
 				0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */,

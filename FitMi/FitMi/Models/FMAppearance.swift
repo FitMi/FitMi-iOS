@@ -16,7 +16,7 @@ class FMAppearance: Object {
 	dynamic var lastUpdateTime: Date = Date()
 	dynamic var unlockLevel: Int = 0
 	
-	let skills = List<FMSKill>()
+	let skills = List<FMSkill>()
 	let actions = List<FMAction>()
 	
 	override static func indexedProperties() -> [String] {

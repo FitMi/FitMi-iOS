@@ -73,7 +73,7 @@ class FMConfigurationParser: NSObject {
 				for s in skills {
 					let skillDict = s as! NSDictionary
 					
-					let skill = FMSKill()
+					let skill = FMSkill()
 					skill.name = skillDict["DisplayName"] as! String
 					skill.identifier = skillDict["Identifier"] as! String
 					skill.unlockLevel = Int(skillDict["UnlockLevel"] as! NSNumber)
@@ -130,7 +130,7 @@ class FMConfigurationParser: NSObject {
 		}
 	}
 	
-	class func downloadSprites(forSkill skill: FMSKill) {
+	class func downloadSprites(forSkill skill: FMSkill) {
 		print("Downloading sprites for skill: \(skill.name)")
 		let networkManager = FMNetworkManager.sharedManager
 		let localStorageManager = FMLocalStorageManager.sharedManager
