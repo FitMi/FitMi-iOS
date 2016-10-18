@@ -17,7 +17,7 @@ class FMLabelCell: UITableViewCell {
 	var highlightEnabled: Bool {
 		set(newValue) {
 			if highlightEnabled {
-				self.contentLabel.textColor = UIColor.primaryColor
+				self.contentLabel.textColor = UIColor.activeColor
 			} else {
 				self.contentLabel.textColor = UIColor.black
 			}

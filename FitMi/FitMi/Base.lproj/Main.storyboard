@@ -387,6 +387,25 @@
             </objects>
             <point key="canvasLocation" x="24.5" y="762.5"/>
         </scene>
+        <!--Store View Controller-->
+        <scene sceneID="1Cr-8Q-LPz">
+            <objects>
+                <viewController storyboardIdentifier="FMStoreViewController" id="blh-bE-EnS" customClass="FMStoreViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jfr-b6-OzU"/>
+                        <viewControllerLayoutGuide type="bottom" id="YjC-KI-5sa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Uy-o9-TL6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohr-di-xOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="1477.5112443778112"/>
+        </scene>
         <!--Exercise View Controller-->
         <scene sceneID="Znk-bv-3mV">
             <objects>
@@ -1038,7 +1057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1C-Kt-lCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="1478"/>
+            <point key="canvasLocation" x="1742" y="2170"/>
         </scene>
     </scenes>
     <resources>

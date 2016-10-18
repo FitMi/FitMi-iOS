@@ -34,8 +34,8 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 	
 	fileprivate var titleFont = UIFont(name: "Pixeled", size: 23)
 	fileprivate var buttonFont = UIFont(name: "Pixeled", size: 12)
-	fileprivate var descriptionFont = UIFont(name: "VT323", size: 25)
-	fileprivate var captionFont = UIFont(name: "VT323", size: 17)
+	fileprivate var descriptionFont = UIFont(name: "Pokemon Pixel Font", size: 25)
+	fileprivate var captionFont = UIFont(name: "Pokemon Pixel Font", size: 17)
 	
 	override func numberOfPages() -> UInt {
 		return 4
@@ -77,7 +77,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 
 		do {
 			let label = UILabel()
-			label.text = "to a healthier life".uppercased()
+			label.text = "to a healthier life"
 			label.textAlignment = .center
 			label.numberOfLines = 0
 			label.font = descriptionFont
@@ -137,7 +137,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		do {
 			let label = UILabel()
-			label.text = "I read from HealthKit\nso that you won't lose any pieces of your workout data"
+			label.text = "I read from HealthKit\nso that you won't lose any\npieces of your workout data"
 			label.textAlignment = .center
 			label.numberOfLines = 0
 			label.font = descriptionFont
@@ -187,7 +187,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		do {
 			let label = UILabel()
-			label.text = "Your health data won't be shared with any one. Do check out the complete privacy policy below."
+			label.text = "Your health data won't be shared\nwith any one. Do check out the\ncomplete privacy policy below."
 			label.textAlignment = .center
 			label.numberOfLines = 0
 			label.font = descriptionFont

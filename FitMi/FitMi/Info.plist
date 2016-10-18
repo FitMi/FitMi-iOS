@@ -30,6 +30,7 @@
 	<array>
 		<string>VT323.ttf</string>
 		<string>Pixeled.ttf</string>
+		<string>Pokemon.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -60,10 +61,10 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>fb1768015020120341</string>
-		</array>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1768015020120341</string>
+			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
@@ -77,20 +78,20 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>yourdomain.com</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-        </dict>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>yourdomain.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

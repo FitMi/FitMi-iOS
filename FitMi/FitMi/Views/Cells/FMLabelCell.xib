@@ -5,8 +5,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Pixeled.ttf">
-            <string>Pixeled</string>
+        <array key="Pokemon.ttf">
+            <string>Pokemon-Pixel-Font</string>
         </array>
     </customFonts>
     <objects>
@@ -26,12 +26,12 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roS-RG-Jyd">
-                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="27"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APh-jo-mtt">
-                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="27"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
