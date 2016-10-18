@@ -258,19 +258,24 @@ extension FMAccountViewController: UITableViewDelegate {
         case 2:
             switch indexPath.row {
             case 0:
-                FMRootViewController.defaultController.addChildViewController(self)
-                let loginManager = LoginManager()
-                loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
-                    self.removeFromParentViewController()
-                    switch loginResult {
-                    case .failed(let error):
-                        print(error)
-                    case .cancelled:
-                        print("User cancelled login.")
-                    case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                        print("Logged in!")
-                        let networkManager = FMNetworkManager.sharedManager
-                        networkManager.authenticateWithToken(urlString: "http://localhost:3000/api/authenticate", token: accessToken.authenticationToken)
+                let prefs = UserDefaults.standard
+                if let jwt = prefs.string(forKey: "jwt"){
+                    print(jwt)
+                }else{
+                    FMRootViewController.defaultController.addChildViewController(self)
+                    let loginManager = LoginManager()
+                    loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+                        self.removeFromParentViewController()
+                        switch loginResult {
+                        case .failed(let error):
+                            print(error)
+                        case .cancelled:
+                            print("User cancelled login.")
+                        case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                            print("Logged in!")
+                            let networkManager = FMNetworkManager.sharedManager
+                            networkManager.authenticateWithToken(urlString: "http://45.55.17.187:3000/api/authenticate", token: accessToken.authenticationToken)
+                        }
                     }
                 }
             default:
