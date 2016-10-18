@@ -43,11 +43,13 @@ class FMDatabaseManager: NSObject {
 		return realm.objects(FMAppearance.self)
 	}
 	
-	func skills() -> Results<FMSkill> {
-		return realm.objects(FMSkill.self)
+	func skills() -> List<FMSkill> {
+		let appearance = self.appearances().filter("identifier = %@", FMSpriteStatusManager.sharedManager.sprite.appearanceIdentifier).first!
+		return appearance.skills
 	}
 	
-	func actions() -> Results<FMAction> {
-		return realm.objects(FMAction.self)
+	func actions() -> List<FMAction> {
+		let appearance = self.appearances().filter("identifier = %@", FMSpriteStatusManager.sharedManager.sprite.appearanceIdentifier).first!
+		return appearance.actions
 	}
 }

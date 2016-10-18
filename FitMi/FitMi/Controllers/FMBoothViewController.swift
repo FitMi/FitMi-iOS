@@ -23,8 +23,8 @@ class FMBoothViewController: FMViewController {
 	fileprivate var currentSelectedSegmentIndex = 0
 	
 	fileprivate var appearances: Results<FMAppearance>!
-	fileprivate var skills: Results<FMSkill>!
-	fileprivate var actions: Results<FMAction>!
+	fileprivate var skills: List<FMSkill>!
+	fileprivate var actions: List<FMAction>!
 	
     override func viewDidLoad() {
 		let manager = FMDatabaseManager.sharedManager
@@ -105,11 +105,13 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForAppearance(appearance: FMAppearance) {
-		let images = appearance.actions.first?.sprites()
-		self.primaryImageView.animationImages = images
-		self.primaryImageView.image = images?.last
+//		if let action = appearance.actions.first {
+//			self.setAnimationForAction(action: action)
+//		}
 		
-		self.secondaryImageView.image = nil
+		if let skill = appearance.skills.first {
+			self.setAnimationForSkill(skill: skill)
+		}
 	}
 	
     override func didReceiveMemoryWarning() {
