@@ -72,7 +72,11 @@ class FMNetworkManager: NSObject {
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if let res = response.result.value {
+                    let prefs = UserDefaults.standard
+                    prefs.set(res, forKey: "jwt")
                     print(res as! String)
+                } else {
+                    print("fail")
                 }
         }
     }
