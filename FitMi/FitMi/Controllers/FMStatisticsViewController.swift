@@ -143,7 +143,7 @@ extension FMStatisticsViewController: UITableViewDataSource {
 				cell.setChartData(states: self.states, type: .steps)
 				
 			case 1:
-				cell.titleLabel.text = "distance".uppercased()
+				cell.titleLabel.text = "meters".uppercased()
 				cell.setChartData(states: self.states, type: .distance)
 				
 			case 2:
