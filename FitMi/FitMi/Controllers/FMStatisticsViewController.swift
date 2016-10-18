@@ -67,6 +67,7 @@ class FMStatisticsViewController: FMViewController {
 				if (success) {
 					let sprite = FMSpriteStatusManager.sharedManager.sprite!
 					let states = sprite.states.sorted(byProperty: "date", ascending: false)
+					self.states = []
 					for i in 0..<7 {
 						self.states.append(i < states.count ? states[i] : nil)
 					}
@@ -116,7 +117,7 @@ extension FMStatisticsViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch section {
 		case 0:
-			return 4
+			return 3
 			
 		case 1:
 			return 2
@@ -133,21 +134,21 @@ extension FMStatisticsViewController: UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: FMChartTableViewCell.identifier, for: indexPath) as! FMChartTableViewCell
 			cell.selectionStyle = .none
 			switch indexPath.row {
+//			case 0:
+//				cell.titleLabel.text = "Health".uppercased()
+//				cell.setChartData(states: self.states, type: .health)
+				
 			case 0:
-				cell.titleLabel.text = "Health".uppercased()
-				cell.setChartData(states: self.states, type: .health)
+				cell.titleLabel.text = "steps".uppercased()
+				cell.setChartData(states: self.states, type: .steps)
 				
 			case 1:
-				cell.titleLabel.text = "Strength".uppercased()
-				cell.setChartData(states: self.states, type: .strength)
+				cell.titleLabel.text = "distance".uppercased()
+				cell.setChartData(states: self.states, type: .distance)
 				
 			case 2:
-				cell.titleLabel.text = "Stamina".uppercased()
-				cell.setChartData(states: self.states, type: .stamina)
-				
-			case 3:
-				cell.titleLabel.text = "Agility".uppercased()
-				cell.setChartData(states: self.states, type: .agility)
+				cell.titleLabel.text = "floors".uppercased()
+				cell.setChartData(states: self.states, type: .flights)
 				
 			default:
 				print("unsupported indexpath: \(indexPath)")

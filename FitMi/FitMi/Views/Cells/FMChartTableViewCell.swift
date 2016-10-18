@@ -11,9 +11,9 @@ import Charts
 
 enum StateDataType {
 	case health
-	case strength
-	case stamina
-	case agility
+	case steps
+	case distance
+	case flights
 }
 
 class FMChartTableViewCell: UITableViewCell {
@@ -67,12 +67,12 @@ class FMChartTableViewCell: UITableViewCell {
 		for i in 0..<states.count {
 			var values: [Double]
 			switch type {
-			case .strength:
-				values = [Double(states[i] == nil ? 0 : states[i]!.strength)]
-			case .stamina:
-				values = [Double(states[i] == nil ? 0 : states[i]!.stamina)]
-			case .agility:
-				values = [Double(states[i] == nil ? 0 : states[i]!.agility)]
+			case .steps:
+				values = [Double(states[i] == nil ? 0 : states[i]!.stepCount)]
+			case .distance:
+				values = [Double(states[i] == nil ? 0 : states[i]!.distance)]
+			case .flights:
+				values = [Double(states[i] == nil ? 0 : states[i]!.flightsClimbed)]
 			default:
 				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
 			}
@@ -156,12 +156,12 @@ extension FMChartTableViewCell: IAxisValueFormatter, IValueFormatter, ChartViewD
 	func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
 		if let state = entry.data as! FMSpriteState? {
 			switch type {
-			case .strength:
-				self.dateLabel.text = "YOU MADE \(state.stepCount) STEPS"
-			case .stamina:
-				self.dateLabel.text = "YOU WALKED \(state.distance) METERS"
-			case .agility:
-				self.dateLabel.text = "YOU CLIMBED \(state.flightsClimbed) FLIGHTS"
+			case .steps:
+				self.dateLabel.text = "STRENGTH \(state.strength)"
+			case .distance:
+				self.dateLabel.text = "STAMINA \(state.stamina)"
+			case .flights:
+				self.dateLabel.text = "AGILITY \(state.agility)"
 			default:
 				self.dateLabel.text = "CALCULATED FROM THE REST"
 			}
