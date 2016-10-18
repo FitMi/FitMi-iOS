@@ -48,10 +48,6 @@ class FMStatisticsDetailViewController: FMViewController {
 		FMStatsDetailCell.registerCell(tableView: self.tableView, reuseIdentifier: FMStatsDetailCell.identifier)
 	}
 	
-	@IBAction func dismiss() {
-		self.dismiss(animated: true, completion: nil)
-	}
-	
 	class func controllerFromStoryboard() -> FMStatisticsDetailViewController {
 		let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateViewController(withIdentifier: "FMStatisticsDetailViewController") as! FMStatisticsDetailViewController

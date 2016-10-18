@@ -33,4 +33,8 @@ class FMViewController: UIViewController {
 	func willMoveAway(fromParentViewController parent: UIViewController?) {
 		
 	}
+	
+	@IBAction func dismiss() {
+		self.dismiss(animated: true, completion: nil)
+	}
 }

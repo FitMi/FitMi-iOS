@@ -12,6 +12,9 @@
         <array key="Pixeled.ttf">
             <string>Pixeled</string>
         </array>
+        <array key="Pokemon.ttf">
+            <string>Pokemon-Pixel-Font</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Onboard View Controller-->
@@ -309,8 +312,21 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unp-FO-h7i">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuQ-FS-qKG">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        <state key="normal" title="BOOTH">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="presentBoothViewController" destination="vEV-4V-qZQ" eventType="touchUpInside" id="ddZ-Mg-nCM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="OuQ-FS-qKG" firstAttribute="leading" secondItem="unp-FO-h7i" secondAttribute="leading" constant="15" id="Gy8-or-RFT"/>
+                                    <constraint firstItem="OuQ-FS-qKG" firstAttribute="centerY" secondItem="unp-FO-h7i" secondAttribute="centerY" id="Mjb-gZ-yXe"/>
                                     <constraint firstAttribute="height" constant="44" id="Qdf-X0-iUM"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="jD2-qC-yqG"/>
                                 </constraints>
@@ -377,6 +393,7 @@
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="yoZ-tL-dc0"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="healthBar" destination="W5f-7s-tZu" id="3OF-fr-tps"/>
                         <outlet property="healthBarWidth" destination="mSr-X2-fX4" id="2fm-wR-p6d"/>
@@ -388,10 +405,10 @@
             </objects>
             <point key="canvasLocation" x="24.5" y="762.5"/>
         </scene>
-        <!--Store View Controller-->
+        <!--Booth View Controller-->
         <scene sceneID="1Cr-8Q-LPz">
             <objects>
-                <viewController storyboardIdentifier="FMStoreViewController" id="blh-bE-EnS" customClass="FMStoreViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FMBoothViewController" id="blh-bE-EnS" customClass="FMBoothViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jfr-b6-OzU"/>
                         <viewControllerLayoutGuide type="bottom" id="YjC-KI-5sa"/>
@@ -399,13 +416,118 @@
                     <view key="view" contentMode="scaleToFill" id="3Uy-o9-TL6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW8-Mb-p1B">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="oW8-Mb-p1B" secondAttribute="width" multiplier="0.333" id="fTp-CF-zXC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIR-OD-Eu6">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="c6b-hc-0Ac"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6E7-DN-ndP">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="god-so-eRf">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                        <state key="normal" title="DISMISS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="blh-bE-EnS" eventType="touchUpInside" id="gq3-fK-Z8S"/>
+                                            <action selector="dismiss" destination="NAM-e2-GKt" eventType="touchUpInside" id="py0-Wu-dJ7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="BOOTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdL-rV-GHF">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="god-so-eRf" firstAttribute="centerY" secondItem="6E7-DN-ndP" secondAttribute="centerY" id="BSg-HI-FaZ"/>
+                                    <constraint firstItem="god-so-eRf" firstAttribute="leading" secondItem="mdL-rV-GHF" secondAttribute="trailing" constant="15" id="KLg-YE-4dX"/>
+                                    <constraint firstAttribute="height" constant="60" id="eUO-jM-anb"/>
+                                    <constraint firstItem="mdL-rV-GHF" firstAttribute="centerY" secondItem="6E7-DN-ndP" secondAttribute="centerY" id="g3a-gi-NHA"/>
+                                    <constraint firstAttribute="trailing" secondItem="god-so-eRf" secondAttribute="trailing" constant="15" id="voR-8e-0OE"/>
+                                    <constraint firstItem="mdL-rV-GHF" firstAttribute="leading" secondItem="6E7-DN-ndP" secondAttribute="leading" constant="15" id="xiN-Ty-tX3"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-PT-ZoM">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-gT-Kpg">
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
+                                        <state key="normal" title="Appearance">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGe-bX-qPT">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
+                                        <state key="normal" title="Skills">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-Ad-JEv">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
+                                        <state key="normal" title="Actions">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qru-GL-ucn"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-Xs-Ro7">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uIR-OD-Eu6" firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="28P-Eq-9RI"/>
+                            <constraint firstAttribute="trailing" secondItem="oW8-Mb-p1B" secondAttribute="trailing" id="6qH-MU-jff"/>
+                            <constraint firstAttribute="trailing" secondItem="6E7-DN-ndP" secondAttribute="trailing" id="9nF-KQ-6Oh"/>
+                            <constraint firstItem="YjC-KI-5sa" firstAttribute="top" secondItem="uIR-OD-Eu6" secondAttribute="bottom" id="AhQ-yJ-zd1"/>
+                            <constraint firstItem="6pE-Xs-Ro7" firstAttribute="top" secondItem="HFC-PT-ZoM" secondAttribute="bottom" id="Gqf-Cq-3eO"/>
+                            <constraint firstItem="6E7-DN-ndP" firstAttribute="top" secondItem="Jfr-b6-OzU" secondAttribute="bottom" id="JzK-oa-D2J"/>
+                            <constraint firstAttribute="trailing" secondItem="HFC-PT-ZoM" secondAttribute="trailing" id="K26-Aw-04z"/>
+                            <constraint firstItem="uIR-OD-Eu6" firstAttribute="top" secondItem="6pE-Xs-Ro7" secondAttribute="bottom" id="OFN-mY-4K3"/>
+                            <constraint firstItem="uIR-OD-Eu6" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="Ojd-cz-y23"/>
+                            <constraint firstItem="HFC-PT-ZoM" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="S0K-5g-mq9"/>
+                            <constraint firstItem="6pE-Xs-Ro7" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="Ta9-XT-WJU"/>
+                            <constraint firstItem="6E7-DN-ndP" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="VHX-QU-wlo"/>
+                            <constraint firstAttribute="trailing" secondItem="6pE-Xs-Ro7" secondAttribute="trailing" id="WHj-xt-8LB"/>
+                            <constraint firstAttribute="trailing" secondItem="uIR-OD-Eu6" secondAttribute="trailing" id="bAn-IT-cKr"/>
+                            <constraint firstItem="HFC-PT-ZoM" firstAttribute="top" secondItem="6E7-DN-ndP" secondAttribute="bottom" id="g0d-LA-4QK"/>
+                            <constraint firstItem="YjC-KI-5sa" firstAttribute="top" secondItem="oW8-Mb-p1B" secondAttribute="bottom" id="kIy-rT-QIx"/>
+                            <constraint firstItem="oW8-Mb-p1B" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="vf3-JB-fDf"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="primaryImageView" destination="uIR-OD-Eu6" id="p03-yd-bfC"/>
+                        <outlet property="secondaryImageView" destination="oW8-Mb-p1B" id="Rm1-58-zva"/>
+                        <outlet property="topBar" destination="6E7-DN-ndP" id="67F-sL-Tvu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohr-di-xOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="1477.5112443778112"/>
+            <point key="canvasLocation" x="25" y="1554"/>
         </scene>
         <!--Exercise View Controller-->
         <scene sceneID="Znk-bv-3mV">

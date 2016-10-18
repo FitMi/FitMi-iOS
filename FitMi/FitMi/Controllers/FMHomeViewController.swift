@@ -73,11 +73,10 @@ class FMHomeViewController: FMViewController {
         self.healthBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxBarLength)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+	@IBAction func presentBoothViewController() {
+		let controller = FMBoothViewController.controllerFromStoryboard()
+		FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
+	}
 
 	class func getDefaultController() -> FMHomeViewController {
 		if FMHomeViewController.defaultController == nil {
