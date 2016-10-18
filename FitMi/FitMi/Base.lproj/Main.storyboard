@@ -601,7 +601,6 @@
                         <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
                         <outlet property="statusPanelViewTopConstraint" destination="9Cv-bW-kvP" id="aG0-Lk-gkg"/>
                         <outlet property="tap" destination="dJM-q9-MrG" id="hYE-6f-A9n"/>
-                        <outlet property="toolBar" destination="NBu-KQ-46g" id="Ykj-RM-m9u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
