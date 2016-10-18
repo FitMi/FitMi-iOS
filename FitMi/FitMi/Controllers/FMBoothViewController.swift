@@ -32,4 +32,7 @@ class FMBoothViewController: FMViewController {
 		return controller
 	}
 
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
 }
