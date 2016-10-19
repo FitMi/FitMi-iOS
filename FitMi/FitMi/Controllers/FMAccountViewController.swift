@@ -9,6 +9,7 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import JWTDecode
 
 class FMAccountViewController: FMViewController {
 
@@ -285,10 +286,24 @@ extension FMAccountViewController: UITableViewDelegate {
                         case .success(_, _, let accessToken):
                             let networkManager = FMNetworkManager.sharedManager
                             networkManager.authenticateWithToken(urlString: API_BASE_ENDPOINT + "/authenticate", token: accessToken.authenticationToken, completion: {
-                                error, jwt in
-                                if let apiToken = jwt {
+                                error, token in
+                                if let apiToken = token {
                                     prefs.set(apiToken, forKey: "jwt")
                                     self.tableView.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .automatic)
+                                    // Update Sprite id
+                                    do {
+                                        let jwt = try decode(jwt: apiToken)
+                                        
+                                        if let userId = jwt.claim(name: "_id").string {
+                                            DispatchQueue.main.async {
+                                                FMDatabaseManager.sharedManager.realmUpdate {
+                                                    FMSpriteStatusManager.sharedManager.sprite?.identifier = userId
+                                                }
+                                            }
+                                        }
+                                    } catch let error as NSError {
+                                        print(error.localizedDescription) // error decode jwt
+                                    }
                                 }
                             })
                         }
