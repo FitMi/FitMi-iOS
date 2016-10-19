@@ -62,8 +62,6 @@ class FMBoothViewController: FMViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
-		self.setAnimationForAppearance(appearance: appearance)
 	}
 	
 	private func registerCells() {
