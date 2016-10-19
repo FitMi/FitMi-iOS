@@ -275,7 +275,84 @@ class FMSpriteStatusManager: NSObject {
 	// -------------- data setter ---------------
 	
 	
+	func updateAppearance(appearance: FMAppearance) {
+		let newIdentifier = appearance.identifier
+		var newSkills = [FMSkill]()
+		var newActions = [FMAction]()
+		
+		FMDatabaseManager.sharedManager.realmUpdate {
+			self.sprite.appearanceIdentifier = newIdentifier
+		}
+		
+		let manager = FMDatabaseManager.sharedManager
+		
+		for skill in self.sprite.skills {
+			let newSkill = manager.skill(appearanceIdentifier: newIdentifier, name: skill.name)
+			newSkills.append(newSkill)
+		}
+		
+		for action in self.sprite.actions {
+			let newAction = manager.action(appearanceIdentifier: newIdentifier, name: action.name)
+			newActions.append(newAction)
+		}
+		
+		let runAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.runAction.name)
+		let sleepAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.sleepAction.name)
+		let tiredAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.tiredAction.name)
+		let relaxAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.relaxAction.name)
+		let touchAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.touchAction.name)
+		let wakeAction = manager.action(appearanceIdentifier: newIdentifier, name: self.sprite.wakeAction.name)
+		
+		
+		FMDatabaseManager.sharedManager.realmUpdate {
+			self.sprite.skills.removeAll()
+			self.sprite.skills.append(objectsIn: newSkills)
+			self.sprite.actions.removeAll()
+			self.sprite.actions.append(objectsIn: newActions)
+			
+			self.sprite.runAction = runAction
+			self.sprite.sleepAction = sleepAction
+			self.sprite.tiredAction = tiredAction
+			self.sprite.relaxAction = relaxAction
+			self.sprite.touchAction = touchAction
+			self.sprite.wakeAction = wakeAction
+		}
+	}
 	
+	func updateAction(action: FMAction) {
+		FMDatabaseManager.sharedManager.realmUpdate {
+			switch action.type {
+			case "Run":
+				self.sprite.runAction = action
+			case "Relax":
+				self.sprite.relaxAction = action
+			case "Sleep":
+				self.sprite.sleepAction = action
+			case "Wake":
+				self.sprite.wakeAction = action
+			case "Touch":
+				self.sprite.touchAction = action
+			case "Tired":
+				self.sprite.tiredAction = action
+			default:
+				print("unsupported action type")
+			}
+		}
+	}
+	
+	func updateSkill(skill: FMSkill?, at index: Int) {
+		FMDatabaseManager.sharedManager.realmUpdate {
+			if let s = skill {
+				if self.sprite.skillsInUse.count > index {
+					self.sprite.skillsInUse.replace(index: index, object: s)
+				} else {
+					self.sprite.skillsInUse.append(s)
+				}
+			} else {
+				self.sprite.skillsInUse.remove(objectAtIndex: index)
+			}
+		}
+	}
 	
 	func updateSpriteStatus(steps: Int, distance: Int, flights: Int, date: Date) {
 		// TODO: Check whether data exist for the date

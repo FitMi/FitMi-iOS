@@ -10,9 +10,10 @@ import UIKit
 
 class FMBoothItemCell: UITableViewCell {
 
-	@IBOutlet var indicatorLabel: UILabel!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var button: UIButton!
+	
+	var object: Any?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +24,24 @@ class FMBoothItemCell: UITableViewCell {
 		self.button.setBackgroundImage(normalImage, for: .normal)
 		self.button.setBackgroundImage(highlightedImage, for: .highlighted)
     }
-
+	
+	@IBAction func buttonDidClick() {
+		let title = self.button.title(for: .normal)
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BOOTH_BUTTON_DID_CLICK_NOTIFICATION"), object: self.object, userInfo:["USING": title == "USING"])
+	}
+	
+	func setButtonState(inUse: Bool) {
+		if inUse {
+			let normalImage = UIImage.fromColor(color: UIColor.darkGray)
+			self.button.setBackgroundImage(normalImage, for: .normal)
+			self.button.setTitle("USING", for: .normal)
+		} else {
+			let normalImage = UIImage.fromColor(color: UIColor.activeColor)
+			self.button.setBackgroundImage(normalImage, for: .normal)
+			self.button.setTitle("USE", for: .normal)
+		}
+	}
+	
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

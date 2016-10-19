@@ -141,4 +141,16 @@ class FMDatabaseManager: NSObject {
 		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
 		return appearance.actions
 	}
+	
+	func skill(appearanceIdentifier: String, name: String) -> FMSkill {
+		let appearance = self.appearances().filter("identifier = %@", appearanceIdentifier).first!
+		let skill = appearance.skills.filter("name = %@", name).first!
+		return skill
+	}
+	
+	func action(appearanceIdentifier: String, name: String) -> FMAction {
+		let appearance = self.appearances().filter("identifier = %@", appearanceIdentifier).first!
+		let action = appearance.actions.filter("name = %@", name).first!
+		return action
+	}
 }

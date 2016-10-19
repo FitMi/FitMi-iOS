@@ -24,14 +24,6 @@
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x4N-9E-aNK">
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="◆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-Q9-aQQ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="18" id="BJu-wB-V2p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH6-nI-jmh">
                                 <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -46,6 +38,9 @@
                                 <state key="normal" title="USE">
                                     <color key="titleColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonDidClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wmn-dJ-Ssk"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>
@@ -61,7 +56,6 @@
             <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="button" destination="uvf-jD-bQr" id="Ube-sx-I4t"/>
-                <outlet property="indicatorLabel" destination="zcl-Q9-aQQ" id="7cn-me-Fbj"/>
                 <outlet property="titleLabel" destination="DH6-nI-jmh" id="Ioz-ZZ-HQV"/>
             </connections>
             <point key="canvasLocation" x="25" y="104.5"/>

@@ -40,6 +40,8 @@ class FMBoothViewController: FMViewController {
 		// call super after loading the data
         super.viewDidLoad()
 
+		NotificationCenter.default.addObserver(self, selector: #selector(didReceiveInUseNotification(notification:)), name: NSNotification.Name(rawValue: "BOOTH_BUTTON_DID_CLICK_NOTIFICATION"), object: nil)
+		
 		let highlightedImage = UIImage.fromColor(color: UIColor.darkGray)
 		let selectedImage = UIImage.fromColor(color: UIColor.gray)
 		let normalImage = UIImage.fromColor(color: UIColor.lightGray)
@@ -62,6 +64,26 @@ class FMBoothViewController: FMViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+	}
+	
+	func didReceiveInUseNotification(notification: Notification) {
+		if let object = notification.object {
+			if let skill = object as? FMSkill {
+				let isTitleUsing = notification.userInfo!["USING"] as! Bool
+				if isTitleUsing {
+					FMSpriteStatusManager.sharedManager.updateSkill(skill: nil, at: 0)
+				} else {
+					FMSpriteStatusManager.sharedManager.updateSkill(skill: skill, at: 0)
+				}
+			} else if let action = object as? FMAction {
+				FMSpriteStatusManager.sharedManager.updateAction(action: action)
+			} else if let appearance = object as? FMAppearance {
+				FMSpriteStatusManager.sharedManager.updateAppearance(appearance: appearance)
+			}
+		}
+		
+		
+		self.tableView.reloadData()
 	}
 	
 	private func registerCells() {
@@ -186,7 +208,6 @@ extension FMBoothViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
-		cell.indicatorLabel.alpha = 0
 		cell.button.isHidden = false
 		cell.selectionStyle = .none
 		cell.contentView.alpha = 1
@@ -197,16 +218,16 @@ extension FMBoothViewController: UITableViewDataSource {
 			let appearance = self.appearances[indexPath.row]
 			cell.titleLabel.text = appearance.name
 			let inUse = appearance.identifier == FMSpriteStatusManager.sharedManager.spriteAppearance().identifier
-			cell.indicatorLabel.alpha = inUse ? 1 : 0
-			cell.button.isHidden = inUse
+			cell.setButtonState(inUse: inUse)
+			cell.object = appearance
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
+			cell.object = skill
 			if sprite.skills.contains(skill) {
 				cell.titleLabel.text = skill.name
 				let inUse = sprite.skillsInUse.contains(skill)
-				cell.indicatorLabel.alpha = inUse ? 1 : 0
-				cell.button.isHidden = inUse
+				cell.setButtonState(inUse: inUse)
 			} else {
 				cell.contentView.alpha = 0.3
 				cell.titleLabel.text = "\(skill.name)   ( require level \(skill.unlockLevel) )"
@@ -215,6 +236,7 @@ extension FMBoothViewController: UITableViewDataSource {
 			
 		case 2:
 			let action = self.actions[indexPath.row]
+			cell.object = action
 			if sprite.actions.contains(action) {
 				cell.titleLabel.text = action.name
 				let inUse = sprite.relaxAction.identifier == action.identifier ||
@@ -223,8 +245,7 @@ extension FMBoothViewController: UITableViewDataSource {
 							sprite.tiredAction.identifier == action.identifier ||
 							sprite.touchAction.identifier == action.identifier ||
 							sprite.runAction.identifier == action.identifier
-				cell.indicatorLabel.alpha = inUse ? 1 : 0
-				cell.button.isHidden = inUse
+				cell.setButtonState(inUse: inUse)
 				
 			} else {
 				cell.contentView.alpha = 0.3
