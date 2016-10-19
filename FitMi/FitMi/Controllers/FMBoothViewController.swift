@@ -211,7 +211,7 @@ extension FMBoothViewController: UITableViewDataSource {
 				cell.button.isHidden = inUse
 			} else {
 				cell.contentView.alpha = 0.3
-				cell.titleLabel.text = "\(skill.name) (locked)"
+				cell.titleLabel.text = "\(skill.name)   ( require level \(skill.unlockLevel) )"
 				cell.button.isHidden = true
 			}
 			
@@ -230,7 +230,7 @@ extension FMBoothViewController: UITableViewDataSource {
 				
 			} else {
 				cell.contentView.alpha = 0.3
-				cell.titleLabel.text = "\(action.name) (locked)"
+				cell.titleLabel.text = "\(action.name)   ( require level \(action.unlockLevel) )"
 				cell.button.isHidden = true
 			}
 			
