@@ -399,14 +399,14 @@
                                     <constraint firstItem="hi1-io-tbE" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="CwJ-VZ-j5s"/>
                                     <constraint firstItem="OYe-GJ-5jf" firstAttribute="width" secondItem="8Kd-MS-NZX" secondAttribute="width" id="Dkb-RB-2H5"/>
                                     <constraint firstItem="hi1-io-tbE" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="Ej3-5H-azF"/>
-                                    <constraint firstItem="EH7-Du-dxL" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="27" id="JET-j9-IO3"/>
+                                    <constraint firstItem="EH7-Du-dxL" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="32" id="JET-j9-IO3"/>
                                     <constraint firstItem="wXA-V7-N4t" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="140" id="JJC-co-55a"/>
                                     <constraint firstItem="lFt-3K-Zbu" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="4" id="LyE-Dx-Sxb"/>
                                     <constraint firstItem="OYe-GJ-5jf" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="M8h-MF-LFd"/>
                                     <constraint firstItem="EH7-Du-dxL" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="45" id="Vi2-B8-BbT"/>
-                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="30" id="W3b-WP-Eyr"/>
+                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="35" id="W3b-WP-Eyr"/>
                                     <constraint firstItem="OYe-GJ-5jf" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="Zge-0R-1SF"/>
-                                    <constraint firstAttribute="height" constant="56" id="dzz-se-ky8"/>
+                                    <constraint firstAttribute="height" constant="70" id="dzz-se-ky8"/>
                                     <constraint firstItem="hi1-io-tbE" firstAttribute="width" secondItem="8Kd-MS-NZX" secondAttribute="width" id="m3C-hS-hqJ"/>
                                 </constraints>
                             </view>

@@ -74,17 +74,22 @@ class FMHomeViewController: FMViewController {
     private func displaySpriteData() {
         self.maxBarLength = self.healthBar.frame.width
         let health = min(self.state.health, self.maxHealth)
-        var percentage = Float(health) / Float(maxHealth)
-        self.healthBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxBarLength)
+        self.healthBarWidth.constant = self.getPercentageBarConstant(currentValue: health, maxValue: self.maxHealth, maxLength: self.maxBarLength)
         
         self.maxExpBarLength = self.expBar.frame.width
         let experience = self.state.experience
         let level = self.state.level
         let maxExp = FMSpriteLevelManager.sharedManager.experienceLimitForLevel(level: level)
-        percentage = Float(experience) / Float(maxExp)
-        self.expBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxExpBarLength)
+        self.expBarWidth.constant = self.getPercentageBarConstant(currentValue: experience, maxValue: maxExp, maxLength: self.maxExpBarLength)
+        
         self.levelLabel.text = "Lv. \(level)"
         self.expLabel.text = "Exp: \(experience) / \(maxExp)"
+    }
+    
+    private func getPercentageBarConstant(currentValue: Int, maxValue: Int, maxLength: CGFloat) -> CGFloat {
+        let percentage = Float(currentValue) / Float(maxValue)
+        let constant = -CGFloat(1 - percentage) * CGFloat(maxLength)
+        return constant
     }
 
 	@IBAction func presentBoothViewController() {
