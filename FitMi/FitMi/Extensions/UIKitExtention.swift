@@ -80,6 +80,18 @@ extension UIColor {
 			return UIColor(red: 0/255.0, green: 89/255.0, blue: 82/255.0, alpha: 1)
 		}
 	}
+    
+    static var facebookBlue: UIColor {
+        get {
+            return UIColor(red: 58/255.0, green: 89/255.0, blue: 152/255.0, alpha: 1)
+        }
+    }
+    
+    static var logOutRed: UIColor {
+        get {
+            return UIColor(red: 245/255.0, green: 81/255.0, blue: 83/255.0, alpha: 1)
+        }
+    }
 }
 
 extension UIImage {

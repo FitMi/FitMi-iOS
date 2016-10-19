@@ -18,8 +18,6 @@ class FMAccountViewController: FMViewController {
 	
 	override func loadView() {
 		super.loadView()
-		
-		
 	}
 	
 	override func viewDidLoad() {
@@ -177,8 +175,17 @@ extension FMAccountViewController: UITableViewDataSource {
 				let cell = tableView.dequeueReusableCell(withIdentifier: FMMiddleAlignedLabelCell.identifier, for: indexPath) as! FMMiddleAlignedLabelCell
 				cell.selectionStyle = .none
 				cell.label.font = UIFont(name: "Pixeled", size: 12)
-				cell.label.text = "FACEBOOK LOGIN"
-				cell.backgroundColor = UIColor.secondaryColor
+                cell.backgroundColor = UIColor.secondaryColor
+                cell.label.textColor = UIColor.white
+                cell.cardView.layer.borderWidth = 0
+                let prefs = UserDefaults.standard
+                if prefs.string(forKey: "jwt") != nil && AccessToken.current != nil {
+                    cell.label.text = "FACEBOOK LOGOUT"
+                    cell.cardView.backgroundColor = .logOutRed
+                } else {
+                    cell.label.text = "FACEBOOK LOGIN"
+                    cell.cardView.backgroundColor = .facebookBlue
+                }
 				return cell
 			default:
 				print("indexPath not supported")
@@ -259,22 +266,31 @@ extension FMAccountViewController: UITableViewDelegate {
             switch indexPath.row {
             case 0:
                 let prefs = UserDefaults.standard
-                if let jwt = prefs.string(forKey: "jwt"){
-                    print(jwt)
-                }else{
+                if prefs.string(forKey: "jwt") != nil && AccessToken.current != nil {
+                    // TODO: add some confirmation dialog
+                    prefs.set(nil, forKey: "jwt")
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .automatic)
+                } else {
                     FMRootViewController.defaultController.addChildViewController(self)
                     let loginManager = LoginManager()
-                    loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+                    loginManager.logIn([ .publicProfile, .userFriends ], viewController: self) { loginResult in
                         self.removeFromParentViewController()
                         switch loginResult {
                         case .failed(let error):
+                            // TODO
                             print(error)
                         case .cancelled:
+                            // Should do nothing
                             print("User cancelled login.")
-                        case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                            print("Logged in!")
+                        case .success(_, _, let accessToken):
                             let networkManager = FMNetworkManager.sharedManager
-                            networkManager.authenticateWithToken(urlString: "http://45.55.17.187:3000/api/authenticate", token: accessToken.authenticationToken)
+                            networkManager.authenticateWithToken(urlString: API_BASE_ENDPOINT + "/authenticate", token: accessToken.authenticationToken, completion: {
+                                error, jwt in
+                                if let apiToken = jwt {
+                                    prefs.set(apiToken, forKey: "jwt")
+                                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .automatic)
+                                }
+                            })
                         }
                     }
                 }
