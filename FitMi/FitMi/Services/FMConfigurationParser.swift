@@ -27,6 +27,7 @@ class FMConfigurationParser: NSObject {
 				self.total = self.constructDatabaseContent(fromDictionary: dict!)
 			} else {
 				print("Assets up to date")
+				print(error)
 				self.delegate?.parserDidCompleteWork()
 			}
 		})
@@ -145,6 +146,8 @@ class FMConfigurationParser: NSObject {
 					if localStorageManager.saveImage(imageData: data, imageName: name) {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
+				} else {
+					print(error)
 				}
 			})
 		}
@@ -159,6 +162,8 @@ class FMConfigurationParser: NSObject {
 					if localStorageManager.saveImage(imageData: data, imageName: name) {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
+				} else {
+					print(error)
 				}
 			})
 		}
@@ -179,6 +184,8 @@ class FMConfigurationParser: NSObject {
 					if localStorageManager.saveImage(imageData: data, imageName: name) {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
+				} else {
+					print(error)
 				}
 			})
 		}
