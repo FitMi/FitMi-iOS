@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -370,12 +370,44 @@
                                             <constraint firstItem="W5f-7s-tZu" firstAttribute="bottom" secondItem="k03-gI-jE5" secondAttribute="bottom" constant="-3" id="xZV-2W-nBj"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EH7-Du-dxL">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
+                                        <color key="textColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-GJ-5jf">
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="N3o-mh-Wec"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi1-io-tbE">
+                                        <color key="backgroundColor" red="1" green="0.80227263947220984" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="PXR-OG-zAL"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exp: 200/500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-3K-Zbu">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="7"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="119" id="JJC-co-55a"/>
+                                    <constraint firstItem="lFt-3K-Zbu" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="8" id="0yY-zA-xPc"/>
+                                    <constraint firstItem="hi1-io-tbE" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="CwJ-VZ-j5s"/>
+                                    <constraint firstItem="OYe-GJ-5jf" firstAttribute="width" secondItem="8Kd-MS-NZX" secondAttribute="width" id="Dkb-RB-2H5"/>
+                                    <constraint firstItem="hi1-io-tbE" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="Ej3-5H-azF"/>
+                                    <constraint firstItem="EH7-Du-dxL" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="27" id="JET-j9-IO3"/>
+                                    <constraint firstItem="wXA-V7-N4t" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="140" id="JJC-co-55a"/>
+                                    <constraint firstItem="lFt-3K-Zbu" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="4" id="LyE-Dx-Sxb"/>
+                                    <constraint firstItem="OYe-GJ-5jf" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="M8h-MF-LFd"/>
+                                    <constraint firstItem="EH7-Du-dxL" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="45" id="Vi2-B8-BbT"/>
                                     <constraint firstItem="wXA-V7-N4t" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" constant="30" id="W3b-WP-Eyr"/>
+                                    <constraint firstItem="OYe-GJ-5jf" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="Zge-0R-1SF"/>
                                     <constraint firstAttribute="height" constant="56" id="dzz-se-ky8"/>
+                                    <constraint firstItem="hi1-io-tbE" firstAttribute="width" secondItem="8Kd-MS-NZX" secondAttribute="width" id="m3C-hS-hqJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -384,7 +416,7 @@
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="unp-FO-h7i" secondAttribute="bottom" id="3M4-03-jvn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0ST-1L-IBL" secondAttribute="trailing" constant="-20" id="L8T-Bo-RV0"/>
                             <constraint firstAttribute="trailing" secondItem="unp-FO-h7i" secondAttribute="trailing" id="SSm-pB-KHg"/>
-                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-20" id="ZsW-ah-zWy"/>
+                            <constraint firstItem="8Kd-MS-NZX" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-5" id="ZsW-ah-zWy"/>
                             <constraint firstItem="0ST-1L-IBL" firstAttribute="top" secondItem="m3N-0Z-zb3" secondAttribute="bottom" constant="-20" id="bGR-Ek-Viv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Kd-MS-NZX" secondAttribute="trailing" constant="-20" id="eXK-FZ-rho"/>
                             <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leadingMargin" constant="-20" id="fXp-mC-W9c"/>
@@ -395,15 +427,19 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="expBar" destination="hi1-io-tbE" id="JYk-zj-s6l"/>
+                        <outlet property="expBarWidth" destination="m3C-hS-hqJ" id="Wil-bA-0Tj"/>
+                        <outlet property="expLabel" destination="lFt-3K-Zbu" id="h3V-J8-EpJ"/>
                         <outlet property="healthBar" destination="W5f-7s-tZu" id="3OF-fr-tps"/>
                         <outlet property="healthBarWidth" destination="mSr-X2-fX4" id="2fm-wR-p6d"/>
+                        <outlet property="levelLabel" destination="EH7-Du-dxL" id="yJB-dE-Yd7"/>
                         <outlet property="spriteView" destination="0ST-1L-IBL" id="dbJ-lJ-hbF"/>
                         <outlet property="toolBar" destination="unp-FO-h7i" id="3Bz-2l-Q8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sl-Lw-FT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.5" y="762.5"/>
+            <point key="canvasLocation" x="23.199999999999999" y="762.36881559220399"/>
         </scene>
         <!--Booth View Controller-->
         <scene sceneID="1Cr-8Q-LPz">

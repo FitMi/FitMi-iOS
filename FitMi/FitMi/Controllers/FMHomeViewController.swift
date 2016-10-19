@@ -10,17 +10,22 @@ import UIKit
 
 class FMHomeViewController: FMViewController {
 
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var expLabel: UILabel!
     @IBOutlet weak var healthBar: UIView!
+    @IBOutlet weak var expBar: UIView!
 	@IBOutlet weak var spriteView: SKView!
     var mainScene = FMMainScene()
     var state = FMSpriteState()
 	
     @IBOutlet weak var healthBarWidth: NSLayoutConstraint!
+    @IBOutlet weak var expBarWidth: NSLayoutConstraint!
 	
     private static var defaultController: FMHomeViewController?
     
     let maxHealth = 100
     var maxBarLength: CGFloat = 0
+    var maxExpBarLength: CGFloat = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -69,8 +74,17 @@ class FMHomeViewController: FMViewController {
     private func displaySpriteData() {
         self.maxBarLength = self.healthBar.frame.width
         let health = min(self.state.health, self.maxHealth)
-        let percentage = Float(health) / Float(maxHealth)
+        var percentage = Float(health) / Float(maxHealth)
         self.healthBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxBarLength)
+        
+        self.maxExpBarLength = self.expBar.frame.width
+        let experience = self.state.experience
+        let level = self.state.level
+        let maxExp = FMSpriteLevelManager.sharedManager.experienceLimitForLevel(level: level)
+        percentage = Float(experience) / Float(maxExp)
+        self.expBarWidth.constant = -CGFloat(1 - percentage) * CGFloat(self.maxExpBarLength)
+        self.levelLabel.text = "Lv. \(level)"
+        self.expLabel.text = "Exp: \(experience) / \(maxExp)"
     }
 
 	@IBAction func presentBoothViewController() {
