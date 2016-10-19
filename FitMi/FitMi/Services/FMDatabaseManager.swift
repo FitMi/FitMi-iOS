@@ -35,6 +35,26 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 		
+		if sprite!.skills.count == 0 {
+			let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
+			let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
+			let skills = appearance.skills.filter("unlockLevel <= %ld", level)
+			
+			try! realm.write {
+				sprite!.skills.append(objectsIn: skills)
+			}
+		}
+		
+		if sprite!.actions.count == 0 {
+			let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
+			let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
+			let actions = appearance.actions.filter("unlockLevel <= %ld", level)
+			
+			try! realm.write {
+				sprite!.actions.append(objectsIn: actions)
+			}
+		}
+		
 		return sprite!
 	}
 	
