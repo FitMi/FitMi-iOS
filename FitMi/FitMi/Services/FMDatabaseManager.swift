@@ -28,6 +28,13 @@ class FMDatabaseManager: NSObject {
 				realm.add(sprite!)
 			}
 		}
+		
+		if sprite!.appearanceIdentifier == "" {
+			try! realm.write {
+				sprite?.appearanceIdentifier = "appearance-29d2d064-93a8-11e6-ae22-56b6b6499611"
+			}
+		}
+		
 		return sprite!
 	}
 	

@@ -89,6 +89,9 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForSkill(skill: FMSkill) {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		
 		let attackImages = skill.attackSprites()
 		self.primaryImageView.image = attackImages.last
 		self.primaryImageView.animationImages = attackImages
@@ -103,6 +106,9 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForAction(action: FMAction) {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		
 		let images = action.sprites()
 		self.primaryImageView.animationImages = images
 		self.primaryImageView.image = images.last
@@ -125,6 +131,10 @@ class FMBoothViewController: FMViewController {
 	
 	@IBAction func segmentDidTap(_ sender: UIButton) {
 		self.selectSegment(at: sender.tag)
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		self.primaryImageView.image = nil
+		self.secondaryImageView.image = nil
 		self.tableView.reloadData()
 	}
     
