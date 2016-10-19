@@ -174,19 +174,44 @@ extension FMBoothViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
+		let sprite = FMSpriteStatusManager.sharedManager.sprite!
 		
 		switch self.currentSelectedSegmentIndex {
 		case 0:
 			let appearance = self.appearances[indexPath.row]
 			cell.titleLabel.text = appearance.name
+			if appearance.identifier == FMSpriteStatusManager.sharedManager.spriteAppearance().identifier {
+				cell.indicatorLabel.alpha = 1
+			} else {
+				cell.indicatorLabel.alpha = 0
+			}
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
-			cell.titleLabel.text = skill.name
+			if sprite.skills.contains(skill) {
+				cell.titleLabel.text = skill.name
+				let inUse = sprite.skillsInUse.contains(skill)
+				cell.indicatorLabel.alpha = inUse ? 1 : 0
+				
+			} else {
+				cell.titleLabel.text = "Skill Locked"
+			}
 			
 		case 2:
 			let action = self.actions[indexPath.row]
-			cell.titleLabel.text = action.name
+			if sprite.actions.contains(action) {
+				cell.titleLabel.text = action.name
+				let inUse = sprite.relaxAction.identifier == action.identifier ||
+							sprite.wakeAction.identifier == action.identifier ||
+							sprite.sleepAction.identifier == action.identifier ||
+							sprite.tiredAction.identifier == action.identifier ||
+							sprite.touchAction.identifier == action.identifier ||
+							sprite.runAction.identifier == action.identifier
+				cell.indicatorLabel.alpha = inUse ? 1 : 0
+				
+			} else {
+				cell.titleLabel.text = "Skill Locked"
+			}
 			
 		default:
 			print("unsupported index")

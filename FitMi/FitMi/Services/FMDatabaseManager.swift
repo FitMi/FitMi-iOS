@@ -35,9 +35,10 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 		
+		let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
+		let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
+		
 		if sprite!.skills.count == 0 {
-			let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
-			let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
 			let skills = appearance.skills.filter("unlockLevel <= %ld", level)
 			
 			try! realm.write {
@@ -45,13 +46,62 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 		
+		if sprite!.skillSlotCount == 0 {
+			try! realm.write {
+				sprite!.skillSlotCount = FMSpriteLevelManager.sharedManager.skillSlotCountForLevel(level: level)
+			}
+		}
+		
 		if sprite!.actions.count == 0 {
-			let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
-			let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
 			let actions = appearance.actions.filter("unlockLevel <= %ld", level)
 			
 			try! realm.write {
 				sprite!.actions.append(objectsIn: actions)
+			}
+		}
+		
+		if sprite!.skillsInUse.count == 0 {
+			let numberOfSkillsAllowed: Int = min(sprite!.skillSlotCount, sprite!.skills.count)
+			try! realm.write {
+				for i in 0..<numberOfSkillsAllowed {
+					sprite!.skillsInUse.append(sprite!.skills[i])
+				}
+			}
+		}
+		
+		if sprite!.touchAction == nil {
+			try! realm.write {
+				sprite!.touchAction = sprite!.actions.filter("name = %@", "Touch Default").first!
+			}
+		}
+		
+		if sprite!.sleepAction == nil {
+			try! realm.write {
+				sprite!.sleepAction = sprite!.actions.filter("name = %@", "Sleep Default").first!
+			}
+		}
+		
+		if sprite!.relaxAction == nil {
+			try! realm.write {
+				sprite!.relaxAction = sprite!.actions.filter("name = %@", "Relax Default").first!
+			}
+		}
+		
+		if sprite!.wakeAction == nil {
+			try! realm.write {
+				sprite!.wakeAction = sprite!.actions.filter("name = %@", "Wake Default").first!
+			}
+		}
+		
+		if sprite!.runAction == nil {
+			try! realm.write {
+				sprite!.runAction = sprite!.actions.filter("name = %@", "Run Default").first!
+			}
+		}
+		
+		if sprite!.tiredAction == nil {
+			try! realm.write {
+				sprite!.tiredAction = sprite!.actions.filter("name = %@", "Tired Default").first!
 			}
 		}
 		
