@@ -201,15 +201,15 @@ class FMSpriteStatusManager: NSObject {
 	}
 	
 	func experienceForSteps(steps: Int) -> Int{
-		return steps / 20
+		return steps / 50
 	}
 	
 	func experienceForDistance(meters: Int) -> Int{
-		return meters / 20
+		return meters / 50
 	}
 	
 	func experienceForFlights(flights: Int) -> Int{
-		return flights * 50
+		return flights * 20
 	}
 	
 	func experienceForGoals(stepCount: Int, distance: Int, flights: Int) -> Int{
