@@ -26,6 +26,8 @@ class FMBoothViewController: FMViewController {
 	fileprivate var skills: List<FMSkill>!
 	fileprivate var actions: List<FMAction>!
 	
+	fileprivate var selectedIndexPath: IndexPath?
+	
     override func viewDidLoad() {
 		let manager = FMDatabaseManager.sharedManager
 		self.appearances = manager.appearances()
@@ -68,6 +70,11 @@ class FMBoothViewController: FMViewController {
 	private func configureTableView() {
 		self.tableView.rowHeight = 50
 		self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
+		self.tableView.delaysContentTouches = false
+		
+		for case let x as UIScrollView in self.tableView.subviews {
+			x.delaysContentTouches = false
+		}
 	}
 	
 	private func configureImageView() {
@@ -174,17 +181,19 @@ extension FMBoothViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
+		cell.indicatorLabel.alpha = 0
+		cell.button.isHidden = false
+		cell.selectionStyle = .none
+		cell.contentView.alpha = 1
 		let sprite = FMSpriteStatusManager.sharedManager.sprite!
 		
 		switch self.currentSelectedSegmentIndex {
 		case 0:
 			let appearance = self.appearances[indexPath.row]
 			cell.titleLabel.text = appearance.name
-			if appearance.identifier == FMSpriteStatusManager.sharedManager.spriteAppearance().identifier {
-				cell.indicatorLabel.alpha = 1
-			} else {
-				cell.indicatorLabel.alpha = 0
-			}
+			let inUse = appearance.identifier == FMSpriteStatusManager.sharedManager.spriteAppearance().identifier
+			cell.indicatorLabel.alpha = inUse ? 1 : 0
+			cell.button.isHidden = inUse
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
@@ -192,9 +201,11 @@ extension FMBoothViewController: UITableViewDataSource {
 				cell.titleLabel.text = skill.name
 				let inUse = sprite.skillsInUse.contains(skill)
 				cell.indicatorLabel.alpha = inUse ? 1 : 0
-				
+				cell.button.isHidden = inUse
 			} else {
-				cell.titleLabel.text = "Skill Locked"
+				cell.contentView.alpha = 0.3
+				cell.titleLabel.text = "\(skill.name) (locked)"
+				cell.button.isHidden = true
 			}
 			
 		case 2:
@@ -208,9 +219,12 @@ extension FMBoothViewController: UITableViewDataSource {
 							sprite.touchAction.identifier == action.identifier ||
 							sprite.runAction.identifier == action.identifier
 				cell.indicatorLabel.alpha = inUse ? 1 : 0
+				cell.button.isHidden = inUse
 				
 			} else {
-				cell.titleLabel.text = "Skill Locked"
+				cell.contentView.alpha = 0.3
+				cell.titleLabel.text = "\(action.name) (locked)"
+				cell.button.isHidden = true
 			}
 			
 		default:

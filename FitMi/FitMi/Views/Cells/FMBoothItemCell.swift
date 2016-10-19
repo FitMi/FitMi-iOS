@@ -12,10 +12,16 @@ class FMBoothItemCell: UITableViewCell {
 
 	@IBOutlet var indicatorLabel: UILabel!
 	@IBOutlet var titleLabel: UILabel!
+	@IBOutlet var button: UIButton!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		let normalImage = UIImage.fromColor(color: UIColor.activeColor)
+		let highlightedImage = UIImage.fromColor(color: UIColor.gray)
+		
+		self.button.setBackgroundImage(normalImage, for: .normal)
+		self.button.setBackgroundImage(highlightedImage, for: .highlighted)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
