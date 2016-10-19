@@ -44,12 +44,12 @@ class FMDatabaseManager: NSObject {
 	}
 	
 	func skills() -> List<FMSkill> {
-		let appearance = self.appearances().filter("identifier = %@", FMSpriteStatusManager.sharedManager.sprite.appearanceIdentifier).first!
+		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
 		return appearance.skills
 	}
 	
 	func actions() -> List<FMAction> {
-		let appearance = self.appearances().filter("identifier = %@", FMSpriteStatusManager.sharedManager.sprite.appearanceIdentifier).first!
+		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
 		return appearance.actions
 	}
 }

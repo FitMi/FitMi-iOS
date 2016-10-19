@@ -55,6 +55,12 @@ class FMBoothViewController: FMViewController {
 		self.registerCells()
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
+		self.setAnimationForAppearance(appearance: appearance)
+	}
+	
 	private func registerCells() {
 		FMBoothItemCell.registerCell(tableView: self.tableView, reuseIdentifier: FMBoothItemCell.identifier)
 	}
@@ -102,15 +108,13 @@ class FMBoothViewController: FMViewController {
 		self.primaryImageView.image = images.last
 		
 		self.secondaryImageView.image = nil
+		
+		self.primaryImageView.startAnimating()
 	}
 	
 	fileprivate func setAnimationForAppearance(appearance: FMAppearance) {
-//		if let action = appearance.actions.first {
-//			self.setAnimationForAction(action: action)
-//		}
-		
-		if let skill = appearance.skills.first {
-			self.setAnimationForSkill(skill: skill)
+		if let action = appearance.actions.first {
+			self.setAnimationForAction(action: action)
 		}
 	}
 	

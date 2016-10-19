@@ -19,7 +19,13 @@ class FMSpriteStatusManager: NSObject {
             self.sprite = self.databaseManager.getCurrentSprite()
         }
     }
-    
+	
+	func spriteAppearance() -> FMAppearance {
+		let manager = FMDatabaseManager.sharedManager
+		let appearance = manager.appearances().filter("identifier = %@", self.sprite.appearanceIdentifier).first!
+		return appearance
+	}
+	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
 	var refreshInProgress = false
 	func refreshSprite(completion: @escaping ((_ success: Bool)->Void)) {
