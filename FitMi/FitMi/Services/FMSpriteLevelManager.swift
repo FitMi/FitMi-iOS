@@ -60,5 +60,18 @@ class FMSpriteLevelManager: NSObject {
 		}
 	}
 	
+	func levelForExp(exp: Int) -> Int {
+		var level = 0
+		
+		for i in 0..<levels.count {
+			if exp > experienceLimitForLevel(level: i) {
+				level += 1
+			} else {
+				break
+			}
+		}
+		
+		return level
+	}
 	
 }

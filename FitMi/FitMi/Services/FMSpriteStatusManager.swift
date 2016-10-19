@@ -61,6 +61,7 @@ class FMSpriteStatusManager: NSObject {
 					}
 					
 					self.refreshHealthForState(state: state, stepCount: stepCount, distance: distance, flights: flights)
+					self.refreshExperienceForState(state: state, stepCount: stepCount, distance: distance, flights: flights)
 					
 					if NSCalendar.current.isDateInToday(state.date) {
 						self.refreshInProgress = false
@@ -165,7 +166,7 @@ class FMSpriteStatusManager: NSObject {
 	
 	func refreshHealthForState(state: FMSpriteState, stepCount: Int, distance: Int, flights: Int) {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: state.date)).sorted(byProperty: "date", ascending: false)
-		let lastHealth = Double(states.count == 0 ? SPRITE_HEALTH_DEFAULT :states.last!.health)
+		let lastHealth = Double(states.count == 0 ? SPRITE_HEALTH_DEFAULT :states.first!.health)
 		let factor = self.healthFactor(date: state.date, stepCount: stepCount, distance: distance, flights: flights)
 		let health = (1 - SPRITE_HEALTH_WEIGHT_TODAY) * lastHealth + SPRITE_HEALTH_WEIGHT_TODAY * lastHealth * factor
 		let healthLimit = FMSpriteLevelManager.sharedManager.healthLimitForLevel(level: self.sprite.states.last!.level)
@@ -181,6 +182,57 @@ class FMSpriteStatusManager: NSObject {
 		let distanceGoal = Double(manager.goalForDistance())
 		let flightsGoal = Double(manager.goalForFlights())
 		return (Double(stepCount) / stepCountGoal) * (Double(distance) / distanceGoal) * (Double(flights) / flightsGoal)
+	}
+	
+	func refreshExperienceForState(state: FMSpriteState, stepCount: Int, distance: Int, flights: Int) {
+		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: state.date)).sorted(byProperty: "date", ascending: false)
+		var exp = states.count == 0 ? 0 : states.first!.experience
+		
+		exp += self.experienceForSteps(steps: stepCount)
+		exp += self.experienceForDistance(meters: distance)
+		exp += self.experienceForFlights(flights: flights)
+		exp += self.experienceForGoals(stepCount: stepCount, distance: distance, flights: flights)
+		
+		FMDatabaseManager.sharedManager.realmUpdate {
+			print(exp)
+			state.experience = exp
+			state.level = FMSpriteLevelManager.sharedManager.levelForExp(exp: exp)
+		}
+	}
+	
+	func experienceForSteps(steps: Int) -> Int{
+		return steps / 20
+	}
+	
+	func experienceForDistance(meters: Int) -> Int{
+		return meters / 20
+	}
+	
+	func experienceForFlights(flights: Int) -> Int{
+		return flights * 50
+	}
+	
+	func experienceForGoals(stepCount: Int, distance: Int, flights: Int) -> Int{
+		let healthStatusManager = FMHealthStatusManager.sharedManager
+		let stepGoal = healthStatusManager.goalForSteps()
+		let distanceGoal = healthStatusManager.goalForDistance()
+		let flightGoal = healthStatusManager.goalForFlights()
+		
+		var exp = 0
+		
+		if stepCount > stepGoal {
+			exp += self.experienceForSteps(steps: stepGoal)
+		}
+		
+		if distance > distanceGoal {
+			exp += self.experienceForDistance(meters: distanceGoal)
+		}
+		
+		if flights > flightGoal {
+			exp += self.experienceForFlights(flights: flightGoal)
+		}
+		
+		return exp
 	}
 	
 	// -------------- current data getter ---------------
@@ -236,21 +288,5 @@ class FMSpriteStatusManager: NSObject {
 		// TODO: check the time of last data point and see whether increase mood is allowed
 		// TODO: check whether the mood is full
 		return false
-	}
-
-	func increaseExperienceBySteps(steps: Int) {
-		// TODO: increase 2 experience for every step
-		let firstState = self.sprite.states.first
-		FMDatabaseManager.sharedManager.realmUpdate {
-			firstState!.experience += (2 * steps)
-		}
-	}
-
-	func increaseExperienceByGoals(goals: Int) {
-		// TODO: increase 250 experience for every finished goal
-		let firstState = self.sprite.states.first
-		FMDatabaseManager.sharedManager.realmUpdate {
-			firstState!.experience += (250 * goals)
-		}
 	}
 }
