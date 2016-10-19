@@ -39,6 +39,12 @@ class FMStatisticsViewController: FMViewController {
 		self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 88, right: 0)
 		self.tableView.backgroundColor = UIColor.secondaryColor
 		
+		self.tableView.delaysContentTouches = false
+		
+		for case let x as UIScrollView in self.tableView.subviews {
+			x.delaysContentTouches = false
+		}
+		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
 		headerLabel.font = UIFont(name: "Pixeled", size: 20)
 		headerLabel.text = "Mi STATISTICS"

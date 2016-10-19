@@ -35,7 +35,7 @@ class FMMiddleAlignedLabelCell: UITableViewCell {
 	
 	override func setHighlighted(_ highlighted: Bool, animated: Bool) {
 		
-		let animationDuration: TimeInterval = 0.1
+		let animationDuration: TimeInterval = highlighted ? 0.0 : 0.1
 		
 		UIView.animate(withDuration: animationDuration, animations: {
 			if highlighted {

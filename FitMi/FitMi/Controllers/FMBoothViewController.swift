@@ -138,10 +138,7 @@ class FMBoothViewController: FMViewController {
 	
 	@IBAction func segmentDidTap(_ sender: UIButton) {
 		self.selectSegment(at: sender.tag)
-		self.primaryImageView.stopAnimating()
-		self.secondaryImageView.stopAnimating()
-		self.primaryImageView.image = nil
-		self.secondaryImageView.image = nil
+		self.clearImageView()
 		self.tableView.reloadData()
 	}
     
@@ -155,6 +152,13 @@ class FMBoothViewController: FMViewController {
 
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+	
+	fileprivate func clearImageView() {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		self.primaryImageView.image = nil
+		self.secondaryImageView.image = nil
 	}
 }
 
@@ -247,11 +251,21 @@ extension FMBoothViewController: UITableViewDelegate {
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
-			self.setAnimationForSkill(skill: skill)
+			let sprite = FMSpriteStatusManager.sharedManager.sprite!
+			if sprite.skills.contains(skill) {
+				self.setAnimationForSkill(skill: skill)
+			} else {
+//				self.clearImageView()
+			}
 			
 		case 2:
 			let action = self.actions[indexPath.row]
-			self.setAnimationForAction(action: action)
+			let sprite = FMSpriteStatusManager.sharedManager.sprite!
+			if sprite.actions.contains(action) {
+				self.setAnimationForAction(action: action)
+			} else {
+//				self.clearImageView()
+			}
 			
 		default:
 			print("unsupported indexpath")
