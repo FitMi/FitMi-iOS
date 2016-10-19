@@ -113,7 +113,7 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForAppearance(appearance: FMAppearance) {
-		if let action = appearance.actions.first {
+		if let action = appearance.actions.filter("name = %@", "Run Default").first {
 			self.setAnimationForAction(action: action)
 		}
 	}
