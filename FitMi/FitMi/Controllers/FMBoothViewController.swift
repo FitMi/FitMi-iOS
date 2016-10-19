@@ -26,8 +26,13 @@ class FMBoothViewController: FMViewController {
 	fileprivate var skills: List<FMSkill>!
 	fileprivate var actions: List<FMAction>!
 	
+	fileprivate var selectedIndexPath: IndexPath?
+	
     override func viewDidLoad() {
 		let manager = FMDatabaseManager.sharedManager
+		
+		manager.refreshMySkills()
+		
 		self.appearances = manager.appearances()
 		self.skills = manager.skills()
 		self.actions = manager.actions()
@@ -55,6 +60,12 @@ class FMBoothViewController: FMViewController {
 		self.registerCells()
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let appearance = FMSpriteStatusManager.sharedManager.spriteAppearance()
+		self.setAnimationForAppearance(appearance: appearance)
+	}
+	
 	private func registerCells() {
 		FMBoothItemCell.registerCell(tableView: self.tableView, reuseIdentifier: FMBoothItemCell.identifier)
 	}
@@ -62,6 +73,11 @@ class FMBoothViewController: FMViewController {
 	private func configureTableView() {
 		self.tableView.rowHeight = 50
 		self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
+		self.tableView.delaysContentTouches = false
+		
+		for case let x as UIScrollView in self.tableView.subviews {
+			x.delaysContentTouches = false
+		}
 	}
 	
 	private func configureImageView() {
@@ -83,6 +99,9 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForSkill(skill: FMSkill) {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		
 		let attackImages = skill.attackSprites()
 		self.primaryImageView.image = attackImages.last
 		self.primaryImageView.animationImages = attackImages
@@ -97,20 +116,21 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func setAnimationForAction(action: FMAction) {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		
 		let images = action.sprites()
 		self.primaryImageView.animationImages = images
 		self.primaryImageView.image = images.last
 		
 		self.secondaryImageView.image = nil
+		
+		self.primaryImageView.startAnimating()
 	}
 	
 	fileprivate func setAnimationForAppearance(appearance: FMAppearance) {
-//		if let action = appearance.actions.first {
-//			self.setAnimationForAction(action: action)
-//		}
-		
-		if let skill = appearance.skills.first {
-			self.setAnimationForSkill(skill: skill)
+		if let action = appearance.actions.filter("name = %@", "Run Default").first {
+			self.setAnimationForAction(action: action)
 		}
 	}
 	
@@ -121,6 +141,7 @@ class FMBoothViewController: FMViewController {
 	
 	@IBAction func segmentDidTap(_ sender: UIButton) {
 		self.selectSegment(at: sender.tag)
+		self.clearImageView()
 		self.tableView.reloadData()
 	}
     
@@ -134,6 +155,13 @@ class FMBoothViewController: FMViewController {
 
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+	
+	fileprivate func clearImageView() {
+		self.primaryImageView.stopAnimating()
+		self.secondaryImageView.stopAnimating()
+		self.primaryImageView.image = nil
+		self.secondaryImageView.image = nil
 	}
 }
 
@@ -160,19 +188,51 @@ extension FMBoothViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
+		cell.indicatorLabel.alpha = 0
+		cell.button.isHidden = false
+		cell.selectionStyle = .none
+		cell.contentView.alpha = 1
+		let sprite = FMSpriteStatusManager.sharedManager.sprite!
 		
 		switch self.currentSelectedSegmentIndex {
 		case 0:
 			let appearance = self.appearances[indexPath.row]
 			cell.titleLabel.text = appearance.name
+			let inUse = appearance.identifier == FMSpriteStatusManager.sharedManager.spriteAppearance().identifier
+			cell.indicatorLabel.alpha = inUse ? 1 : 0
+			cell.button.isHidden = inUse
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
-			cell.titleLabel.text = skill.name
+			if sprite.skills.contains(skill) {
+				cell.titleLabel.text = skill.name
+				let inUse = sprite.skillsInUse.contains(skill)
+				cell.indicatorLabel.alpha = inUse ? 1 : 0
+				cell.button.isHidden = inUse
+			} else {
+				cell.contentView.alpha = 0.3
+				cell.titleLabel.text = "\(skill.name)   ( require level \(skill.unlockLevel) )"
+				cell.button.isHidden = true
+			}
 			
 		case 2:
 			let action = self.actions[indexPath.row]
-			cell.titleLabel.text = action.name
+			if sprite.actions.contains(action) {
+				cell.titleLabel.text = action.name
+				let inUse = sprite.relaxAction.identifier == action.identifier ||
+							sprite.wakeAction.identifier == action.identifier ||
+							sprite.sleepAction.identifier == action.identifier ||
+							sprite.tiredAction.identifier == action.identifier ||
+							sprite.touchAction.identifier == action.identifier ||
+							sprite.runAction.identifier == action.identifier
+				cell.indicatorLabel.alpha = inUse ? 1 : 0
+				cell.button.isHidden = inUse
+				
+			} else {
+				cell.contentView.alpha = 0.3
+				cell.titleLabel.text = "\(action.name)   ( require level \(action.unlockLevel) )"
+				cell.button.isHidden = true
+			}
 			
 		default:
 			print("unsupported index")
@@ -194,11 +254,21 @@ extension FMBoothViewController: UITableViewDelegate {
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
-			self.setAnimationForSkill(skill: skill)
+			let sprite = FMSpriteStatusManager.sharedManager.sprite!
+			if sprite.skills.contains(skill) {
+				self.setAnimationForSkill(skill: skill)
+			} else {
+//				self.clearImageView()
+			}
 			
 		case 2:
 			let action = self.actions[indexPath.row]
-			self.setAnimationForAction(action: action)
+			let sprite = FMSpriteStatusManager.sharedManager.sprite!
+			if sprite.actions.contains(action) {
+				self.setAnimationForAction(action: action)
+			} else {
+//				self.clearImageView()
+			}
 			
 		default:
 			print("unsupported indexpath")

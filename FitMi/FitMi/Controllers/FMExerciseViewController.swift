@@ -145,10 +145,6 @@ class FMExerciseViewController: FMViewController {
 			databaseManager.realmUpdate {
 				databaseManager.getCurrentSprite().exercises.append(record)
 			}
-
-			// increaseExperience?
-			let spriteStatusManager = FMSpriteStatusManager.sharedManager
-            spriteStatusManager.increaseExperienceBySteps(steps: self.stepCount)
 		}
 
 		self.highlightPanel()

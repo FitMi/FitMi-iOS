@@ -5,6 +5,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Pixeled.ttf">
+            <string>Pixeled</string>
+        </array>
         <array key="Pokemon.ttf">
             <string>Pokemon-Pixel-Font</string>
         </array>
@@ -34,6 +37,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvf-jD-bQr">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Z7Y-mC-LC0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                <state key="normal" title="USE">
+                                    <color key="titleColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -45,7 +58,9 @@
                     <constraint firstAttribute="bottom" secondItem="x4N-9E-aNK" secondAttribute="bottom" constant="10" id="z7U-3x-oeo"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
             <connections>
+                <outlet property="button" destination="uvf-jD-bQr" id="Ube-sx-I4t"/>
                 <outlet property="indicatorLabel" destination="zcl-Q9-aQQ" id="7cn-me-Fbj"/>
                 <outlet property="titleLabel" destination="DH6-nI-jmh" id="Ioz-ZZ-HQV"/>
             </connections>

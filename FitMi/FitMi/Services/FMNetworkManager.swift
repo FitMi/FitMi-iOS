@@ -36,7 +36,9 @@ class FMNetworkManager: NSObject {
 							// Update required
 							Alamofire.request(json["url"].string!).responsePropertyList {
 								response in
-								if let xml = response.result.value {
+								if let error = response.result.error {
+									completion(error, false, nil)
+								} else if let xml = response.result.value {
 									completion(nil, true, xml as? NSDictionary)
 								} else {
 									let error = NSError(domain: "fitmi-config-fault", code: 1, userInfo: nil) as Error
