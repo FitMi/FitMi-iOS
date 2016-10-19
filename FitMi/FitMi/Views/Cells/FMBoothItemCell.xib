@@ -30,9 +30,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvf-jD-bQr">
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Z7Y-mC-LC0"/>
+                                    <constraint firstAttribute="width" constant="80" id="Z7Y-mC-LC0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                 <state key="normal" title="USE">

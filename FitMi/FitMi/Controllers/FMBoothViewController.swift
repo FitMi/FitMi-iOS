@@ -71,9 +71,14 @@ class FMBoothViewController: FMViewController {
 			if let skill = object as? FMSkill {
 				let isTitleUsing = notification.userInfo!["USING"] as! Bool
 				if isTitleUsing {
-					FMSpriteStatusManager.sharedManager.updateSkill(skill: nil, at: 0)
+					FMSpriteStatusManager.sharedManager.unuseSkill(skill: skill)
 				} else {
-					FMSpriteStatusManager.sharedManager.updateSkill(skill: skill, at: 0)
+					let sprite = FMSpriteStatusManager.sharedManager.sprite!
+					if sprite.skillSlotCount > sprite.skillsInUse.count {
+						FMSpriteStatusManager.sharedManager.useSkill(skill: skill)
+					} else {
+						print("Too many skills")
+					}
 				}
 			} else if let action = object as? FMAction {
 				FMSpriteStatusManager.sharedManager.updateAction(action: action)
@@ -209,6 +214,7 @@ extension FMBoothViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
 		cell.button.isHidden = false
+		cell.button.isEnabled = true
 		cell.selectionStyle = .none
 		cell.contentView.alpha = 1
 		let sprite = FMSpriteStatusManager.sharedManager.sprite!
@@ -228,6 +234,9 @@ extension FMBoothViewController: UITableViewDataSource {
 				cell.titleLabel.text = skill.name
 				let inUse = sprite.skillsInUse.contains(skill)
 				cell.setButtonState(inUse: inUse)
+				if !inUse && sprite.skillsInUse.count >= sprite.skillSlotCount {
+					cell.button.isEnabled = false
+				}
 			} else {
 				cell.contentView.alpha = 0.3
 				cell.titleLabel.text = "\(skill.name)   ( require level \(skill.unlockLevel) )"

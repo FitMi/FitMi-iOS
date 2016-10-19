@@ -20,9 +20,13 @@ class FMBoothItemCell: UITableViewCell {
         // Initialization code
 		let normalImage = UIImage.fromColor(color: UIColor.activeColor)
 		let highlightedImage = UIImage.fromColor(color: UIColor.gray)
+		let disabledImage = UIImage.fromColor(color: UIColor.activeColor.withAlphaComponent(0.2))
 		
 		self.button.setBackgroundImage(normalImage, for: .normal)
 		self.button.setBackgroundImage(highlightedImage, for: .highlighted)
+		self.button.setBackgroundImage(disabledImage, for: .disabled)
+		
+		self.button.setTitle("NO SLOT", for: .disabled)
     }
 	
 	@IBAction func buttonDidClick() {

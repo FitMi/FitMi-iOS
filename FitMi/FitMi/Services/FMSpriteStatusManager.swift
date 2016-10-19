@@ -340,15 +340,21 @@ class FMSpriteStatusManager: NSObject {
 		}
 	}
 	
-	func updateSkill(skill: FMSkill?, at index: Int) {
+	func useSkill(skill: FMSkill) {
+		if self.sprite.skillsInUse.contains(skill) {
+			return
+		} else if self.sprite.skillsInUse.count >= self.sprite.skillSlotCount {
+			return
+		}
+		
 		FMDatabaseManager.sharedManager.realmUpdate {
-			if let s = skill {
-				if self.sprite.skillsInUse.count > index {
-					self.sprite.skillsInUse.replace(index: index, object: s)
-				} else {
-					self.sprite.skillsInUse.append(s)
-				}
-			} else {
+			self.sprite.skillsInUse.append(skill)
+		}
+	}
+	
+	func unuseSkill(skill: FMSkill) {
+		FMDatabaseManager.sharedManager.realmUpdate {
+			if let index = self.sprite.skillsInUse.index(of: skill) {
 				self.sprite.skillsInUse.remove(objectAtIndex: index)
 			}
 		}
