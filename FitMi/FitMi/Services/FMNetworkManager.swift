@@ -67,16 +67,15 @@ class FMNetworkManager: NSObject {
 		})
 	}
     
-    func authenticateWithToken(urlString: String, token: String) {
+    func authenticateWithToken(urlString: String, token: String, completion: @escaping (_ error: Error?, _ jwt: String?) -> Void) {
         let parameters: Parameters = ["token": token]
         Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if let res = response.result.value {
-                    let prefs = UserDefaults.standard
-                    prefs.set(res, forKey: "jwt")
-                    print(res as! String)
+                    completion(nil, res as? String)
                 } else {
-                    print("fail")
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, nil)
                 }
         }
     }
