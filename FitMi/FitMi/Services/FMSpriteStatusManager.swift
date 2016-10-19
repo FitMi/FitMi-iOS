@@ -58,6 +58,7 @@ class FMSpriteStatusManager: NSObject {
 						state.stepCount = stepCount
 						state.distance = distance
 						state.flightsClimbed = flights
+						self.sprite.skillSlotCount = FMSpriteLevelManager.sharedManager.skillSlotCountForLevel(level: state.level)
 					}
 					
 					self.refreshHealthForState(state: state, stepCount: stepCount, distance: distance, flights: flights)
@@ -192,11 +193,10 @@ class FMSpriteStatusManager: NSObject {
 		exp += self.experienceForDistance(meters: distance)
 		exp += self.experienceForFlights(flights: flights)
 		exp += self.experienceForGoals(stepCount: stepCount, distance: distance, flights: flights)
-		
+		let level = FMSpriteLevelManager.sharedManager.levelForExp(exp: exp)
 		FMDatabaseManager.sharedManager.realmUpdate {
-			print(exp)
 			state.experience = exp
-			state.level = FMSpriteLevelManager.sharedManager.levelForExp(exp: exp)
+			state.level = level
 		}
 	}
 	
