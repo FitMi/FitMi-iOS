@@ -42,6 +42,7 @@ class FMDatabaseManager: NSObject {
 			let skills = appearance.skills.filter("unlockLevel <= %ld", level)
 			
 			try! realm.write {
+				sprite!.skills.removeAll()
 				sprite!.skills.append(objectsIn: skills)
 			}
 		}
@@ -106,6 +107,17 @@ class FMDatabaseManager: NSObject {
 		}
 		
 		return sprite!
+	}
+	
+	func refreshMySkills() {
+		let sprite = FMSpriteStatusManager.sharedManager.sprite
+		let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
+		let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
+		let skills = appearance.skills.filter("unlockLevel <= %ld", level)
+		try! realm.write {
+			sprite!.skills.removeAll()
+			sprite!.skills.append(objectsIn: skills)
+		}
 	}
 	
 	func realmUpdate(workBlock:@escaping (()-> Void)) {

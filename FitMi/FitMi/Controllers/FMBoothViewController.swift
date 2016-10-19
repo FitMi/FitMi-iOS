@@ -30,6 +30,9 @@ class FMBoothViewController: FMViewController {
 	
     override func viewDidLoad() {
 		let manager = FMDatabaseManager.sharedManager
+		
+		manager.refreshMySkills()
+		
 		self.appearances = manager.appearances()
 		self.skills = manager.skills()
 		self.actions = manager.actions()
