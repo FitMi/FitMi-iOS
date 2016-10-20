@@ -46,7 +46,7 @@ class FMChartTableViewCell: UITableViewCell {
 	func setCardViewStyle() {
 		let layer = self.cardView.layer
 		layer.borderWidth = 5
-		layer.borderColor = UIColor.primaryColor.cgColor
+		layer.borderColor = UIColor.black.cgColor
 	}
 	
 	func setChartData(states: [FMSpriteState?], type: StateDataType) {

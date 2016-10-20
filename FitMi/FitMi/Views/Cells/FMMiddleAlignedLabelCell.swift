@@ -24,7 +24,7 @@ class FMMiddleAlignedLabelCell: UITableViewCell {
 	func setCardViewStyle() {
 		let layer = self.cardView.layer
 		layer.borderWidth = 5
-		layer.borderColor = UIColor.primaryColor.cgColor
+		layer.borderColor = UIColor.black.cgColor
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
