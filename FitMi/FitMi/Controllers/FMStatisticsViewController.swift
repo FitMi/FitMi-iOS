@@ -47,7 +47,7 @@ class FMStatisticsViewController: FMViewController {
 		
 		let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
 		headerLabel.font = UIFont(name: "Pixeled", size: 20)
-		headerLabel.text = "Mi STATISTICS"
+		headerLabel.text = "STATISTICS"
 		headerLabel.textAlignment = .center
 		self.tableView.tableHeaderView = headerLabel
 	}

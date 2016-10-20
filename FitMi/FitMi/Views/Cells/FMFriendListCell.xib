@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pokemon.ttf">
+            <string>Pokemon-Pixel-Font</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="FMFriendListCell" customModule="FitMi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Gw-2l-xb6">
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1Gw-2l-xb6" secondAttribute="height" id="QQn-2u-Ynl"/>
+                            <constraint firstAttribute="height" constant="40" id="xQo-o5-KWp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uow-mf-AsA">
+                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="26"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="lv. 11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtc-zO-Kmg">
+                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="1Gw-2l-xb6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8e7-aY-jAk"/>
+                    <constraint firstItem="1Gw-2l-xb6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="CDF-Xs-WOP"/>
+                    <constraint firstItem="Uow-mf-AsA" firstAttribute="centerY" secondItem="1Gw-2l-xb6" secondAttribute="centerY" id="GUq-JT-Eev"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1Gw-2l-xb6" secondAttribute="bottom" constant="10" id="Wg2-GY-9Vf"/>
+                    <constraint firstAttribute="trailing" secondItem="Dtc-zO-Kmg" secondAttribute="trailing" constant="20" id="Wo7-Ya-OGr"/>
+                    <constraint firstItem="Uow-mf-AsA" firstAttribute="leading" secondItem="1Gw-2l-xb6" secondAttribute="trailing" constant="20" id="acq-Ad-TKo"/>
+                    <constraint firstItem="Dtc-zO-Kmg" firstAttribute="leading" secondItem="Uow-mf-AsA" secondAttribute="trailing" constant="10" id="feP-DN-1We"/>
+                    <constraint firstItem="Dtc-zO-Kmg" firstAttribute="baseline" secondItem="Uow-mf-AsA" secondAttribute="baseline" id="n8W-Jn-h3u"/>
+                    <constraint firstItem="1Gw-2l-xb6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xZK-fO-HQ9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.82068061992158048" alpha="1" colorSpace="deviceRGB"/>
+            <connections>
+                <outlet property="avatarImageView" destination="1Gw-2l-xb6" id="Rnp-H6-Yek"/>
+                <outlet property="levelLabel" destination="Dtc-zO-Kmg" id="Sa3-6h-zJ6"/>
+                <outlet property="nameLabel" destination="Uow-mf-AsA" id="g7E-bB-7ls"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="100"/>
+        </tableViewCell>
+    </objects>
+</document>
