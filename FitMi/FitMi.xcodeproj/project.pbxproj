@@ -33,7 +33,6 @@
 		0C7551291DB3D05C002146FE /* FMLocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */; };
 		0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */; };
 		0C75512D1DB3DDE0002146FE /* FMAtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */; };
-		0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75512E1DB4E5F9002146FE /* FMProgressView.swift */; };
 		0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551321DB4F503002146FE /* FMLoadingViewController.swift */; };
 		0C7551351DB55C5C002146FE /* FMExerciseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C7551341DB55C5C002146FE /* FMExerciseScene.sks */; };
 		0C7551371DB55CA4002146FE /* FMExerciseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551361DB55CA4002146FE /* FMExerciseScene.swift */; };
@@ -138,7 +137,6 @@
 		0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLocalStorageManager.swift; sourceTree = "<group>"; };
 		0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMNetworkManager.swift; sourceTree = "<group>"; };
 		0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAtomicCounter.swift; sourceTree = "<group>"; };
-		0C75512E1DB4E5F9002146FE /* FMProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMProgressView.swift; sourceTree = "<group>"; };
 		0C7551321DB4F503002146FE /* FMLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLoadingViewController.swift; sourceTree = "<group>"; };
 		0C7551341DB55C5C002146FE /* FMExerciseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FMExerciseScene.sks; sourceTree = "<group>"; };
 		0C7551361DB55CA4002146FE /* FMExerciseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseScene.swift; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */,
 				0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */,
 				0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */,
-				0C75512E1DB4E5F9002146FE /* FMProgressView.swift */,
 				0C7551341DB55C5C002146FE /* FMExerciseScene.sks */,
 				0C7551361DB55CA4002146FE /* FMExerciseScene.swift */,
 				0C070E911DB9210B0095B3A0 /* FMOutlinedLabel.swift */,
@@ -851,7 +848,6 @@
 				0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
 				0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */,
-				0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */,
 				0C070E981DB94CB50095B3A0 /* FMBattleDetailViewController.swift in Sources */,
 				0C070E901DB91DD20095B3A0 /* FMNotificationManager.swift in Sources */,
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
