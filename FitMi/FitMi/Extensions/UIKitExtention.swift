@@ -71,13 +71,13 @@ extension UIColor {
 	
 	static var darkRed: UIColor {
 		get {
-			return UIColor(red: 171/255.0, green: 60/255.0, blue: 64/255.0, alpha: 1)
+			return UIColor(red: 235/255.0, green: 100/255.0, blue: 119/255.0, alpha: 1)
 		}
 	}
 	
 	static var darkGreen: UIColor {
 		get {
-			return UIColor(red: 0/255.0, green: 89/255.0, blue: 82/255.0, alpha: 1)
+			return UIColor(red: 100/255.0, green: 235/255.0, blue: 147/255.0, alpha: 1)
 		}
 	}
     

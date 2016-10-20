@@ -624,7 +624,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-Dw-SUB">
-                                        <color key="backgroundColor" red="0.0" green="0.34901960780000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.39658269841681154" green="0.87251953125000004" blue="0.53226137609663504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="START EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,7 +634,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
-                                        <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90684443712234497" green="0.42472754559389997" blue="0.43619051902040112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="END EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
