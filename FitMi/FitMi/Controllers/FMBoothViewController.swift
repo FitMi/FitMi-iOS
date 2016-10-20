@@ -68,27 +68,37 @@ class FMBoothViewController: FMViewController {
 	
 	func didReceiveInUseNotification(notification: Notification) {
 		if let object = notification.object {
+			let isTitleUsing = notification.userInfo!["USING"] as! Bool
 			if let skill = object as? FMSkill {
-				let isTitleUsing = notification.userInfo!["USING"] as! Bool
+				self.setAnimationForSkill(skill: skill)
+				let sprite = FMSpriteStatusManager.sharedManager.sprite!
 				if isTitleUsing {
-					FMSpriteStatusManager.sharedManager.unuseSkill(skill: skill)
+					if sprite.skillsInUse.count > 1 {
+						FMSpriteStatusManager.sharedManager.unuseSkill(skill: skill)
+						self.tableView.reloadData()
+					} else {
+						print("At least one skill should be used")
+					}
 				} else {
-					let sprite = FMSpriteStatusManager.sharedManager.sprite!
 					if sprite.skillSlotCount > sprite.skillsInUse.count {
 						FMSpriteStatusManager.sharedManager.useSkill(skill: skill)
+						self.tableView.reloadData()
 					} else {
 						print("Too many skills")
 					}
 				}
 			} else if let action = object as? FMAction {
-				FMSpriteStatusManager.sharedManager.updateAction(action: action)
+				self.setAnimationForAction(action: action)
+				if !isTitleUsing {
+					FMSpriteStatusManager.sharedManager.updateAction(action: action)
+				}
 			} else if let appearance = object as? FMAppearance {
-				FMSpriteStatusManager.sharedManager.updateAppearance(appearance: appearance)
+				self.setAnimationForAppearance(appearance: appearance)
+				if !isTitleUsing {
+					FMSpriteStatusManager.sharedManager.updateAppearance(appearance: appearance)
+				}
 			}
 		}
-		
-		
-		self.tableView.reloadData()
 	}
 	
 	private func registerCells() {
