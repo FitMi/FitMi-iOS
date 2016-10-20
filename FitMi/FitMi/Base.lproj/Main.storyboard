@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -382,7 +382,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi1-io-tbE">
-                                        <color key="backgroundColor" red="1" green="0.80227263947220984" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.25882352941176467" green="0.84313725490196079" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="PXR-OG-zAL"/>
                                         </constraints>
@@ -393,7 +393,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="lFt-3K-Zbu" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" constant="8" id="0yY-zA-xPc"/>
                                     <constraint firstItem="hi1-io-tbE" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="CwJ-VZ-j5s"/>
@@ -563,7 +563,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.93725490196078431" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Nkv-r3-9Ty" secondAttribute="bottom" id="1pF-3h-eSy"/>
                             <constraint firstItem="uIR-OD-Eu6" firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="28P-Eq-9RI"/>
@@ -624,7 +624,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-Dw-SUB">
-                                        <color key="backgroundColor" red="0.0" green="0.34901960780000002" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.39658269841681154" green="0.87251953125000004" blue="0.53226137609663504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="START EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,7 +634,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
-                                        <color key="backgroundColor" red="0.6705882353" green="0.23529411759999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90684443712234497" green="0.42472754559389997" blue="0.43619051902040112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="END EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1089,7 +1089,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.9137254901960784" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="I5d-1Q-vYm" firstAttribute="height" secondItem="I5d-1Q-vYm" secondAttribute="width" multiplier="0.333" id="3cW-gu-Tyk"/>
                             <constraint firstAttribute="trailing" secondItem="aMk-tz-RSV" secondAttribute="trailing" id="9mZ-pm-nmv"/>

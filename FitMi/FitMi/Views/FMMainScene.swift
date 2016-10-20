@@ -123,6 +123,9 @@ class FMMainScene: SKScene {
     private func animateSleepSprite() {
         self.isSleeping = true
         self.character.run(SKAction.repeatForever(SKAction.animate(with: self.sleepSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
+       
+        let sleepSound = SKAction.playSoundFileNamed("sleep.mp3", waitForCompletion: false)
+        self.character.run(SKAction.repeatForever(SKAction.sequence([sleepSound, SKAction.wait(forDuration: 3.5)])))
     }
     
     private func animateWakeSprite() {
@@ -138,9 +141,14 @@ class FMMainScene: SKScene {
             self.character.texture = SKTexture(imageNamed: "touch1-1.png")
         }
         
+        let waitSound = SKAction.playSoundFileNamed("shocked.mp3", waitForCompletion: false)
+        let touchSound = SKAction.sequence([SKAction.playSoundFileNamed("sweat.mp3", waitForCompletion: false), SKAction.wait(forDuration: 0.1)])
+        let soundSequence = SKAction.sequence([waitSound, SKAction.wait(forDuration: 0.4), SKAction.repeatForever(touchSound)])
+        self.character.run(soundSequence)
+        
         self.character.setScale(0.95 * self.defaultScale)
         let wait = SKAction.wait(forDuration: 0.4)
-        let touchAction = SKAction.repeatForever(SKAction.animate(with: self.touchSpriteArray, timePerFrame: 0.2, resize: true, restore: true))
+        let touchAction = SKAction.repeatForever(SKAction.animate(with: self.touchSpriteArray, timePerFrame: 0.15, resize: true, restore: true))
         let sequence = SKAction.sequence([wait, touchAction])
         self.character.run(sequence)
     }
@@ -151,6 +159,7 @@ class FMMainScene: SKScene {
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.character.removeAllActions()
 		self.character.setScale(self.defaultScale)
 		if (self.isSleeping) {
 			self.animateWakeSprite()

@@ -265,7 +265,6 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
         }
         
         if (isMoving != self.wasMoving) {
-            print("satus changed!")
             if (isMoving) {
                 self.mainScene.removeAllActions()
                 self.mainScene.animateRunSprite()

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.9137254901960784" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="QuX-Fg-MDh" secondAttribute="bottom" constant="15" id="0nI-vr-OaK"/>
                 <constraint firstItem="QuX-Fg-MDh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="7cF-yM-648"/>
