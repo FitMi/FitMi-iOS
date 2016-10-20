@@ -69,13 +69,136 @@ class FMNetworkManager: NSObject {
 		})
 	}
     
-    func authenticateWithToken(urlString: String, token: String, completion: @escaping (_ error: Error?, _ jwt: String?) -> Void) {
+    func authenticateWithToken(token: String, completion: @escaping (_ error: Error?, _ jwt: String?) -> Void) {
         let parameters: Parameters = ["token": token]
-        Alamofire.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request(API_BASE_ENDPOINT + "/authenticate", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 if let res = response.result.value {
                     completion(nil, res as? String)
                 } else {
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, nil)
+                }
+        }
+    }
+    
+    func getUser(userFbId: String, completion: @escaping (_ error: Error?, _ user: JSON?) -> Void) {
+        let prefs = UserDefaults.standard
+        guard let jwt = prefs.string(forKey: "jwt") else {
+            // TODO: better handling
+            let error = NSError(domain: "fitmi-invalid-jwt-token", code: 2, userInfo: nil) as Error
+            completion(error, nil)
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(jwt)"
+        ]
+        Alamofire.request(API_BASE_ENDPOINT + "/users/\(userFbId)", method: .get, headers: headers)
+            .responseJSON { (response) in
+                if let res = response.result.value {
+                    completion(nil, JSON(res))
+                } else {
+                    // TODO: better handling
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, nil)
+                }
+        }
+    }
+    
+    func updateUser(newData: Parameters, completion: @escaping (_ error: Error?, _ success: Bool) -> Void) {
+        let prefs = UserDefaults.standard
+        guard let jwt = prefs.string(forKey: "jwt") else {
+            // TODO: better handling
+            let error = NSError(domain: "fitmi-invalid-jwt-token", code: 2, userInfo: nil) as Error
+            completion(error, false)
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(jwt)"
+        ]
+        Alamofire.request(API_BASE_ENDPOINT + "/users", method: .post, parameters: newData, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                if let error = response.result.error {
+                    completion(error, false)
+                } else if response.result.value != nil {
+                    completion(nil, true)
+                } else {
+                    // TODO: better handling
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, false)
+                }
+        }
+    }
+    
+    func getFriendList(completion: @escaping (_ error: Error?, _ friends: JSON?) -> Void) {
+        let prefs = UserDefaults.standard
+        guard let jwt = prefs.string(forKey: "jwt") else {
+            // TODO: better handling
+            let error = NSError(domain: "fitmi-invalid-jwt-token", code: 2, userInfo: nil) as Error
+            completion(error, false)
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(jwt)"
+        ]
+        Alamofire.request(API_BASE_ENDPOINT + "/users/friends", method: .get, headers: headers)
+            .responseJSON { (response) in
+                if let error = response.result.error {
+                    completion(error, nil)
+                } else if let res = response.result.value {
+                    completion(nil, JSON(res))
+                } else {
+                    // TODO: better handling
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, nil)
+                }
+        }
+    }
+    
+    func createCombat(combat: Parameters, completion: @escaping (_ error: Error?, _ combat: JSON?) -> Void) {
+        let prefs = UserDefaults.standard
+        guard let jwt = prefs.string(forKey: "jwt") else {
+            // TODO: better handling
+            let error = NSError(domain: "fitmi-invalid-jwt-token", code: 2, userInfo: nil) as Error
+            completion(error, false)
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(jwt)"
+        ]
+        Alamofire.request(API_BASE_ENDPOINT + "/combats/create", method: .post, parameters: combat, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                if let error = response.result.error {
+                    completion(error, nil)
+                } else if let combat = response.result.value {
+                    completion(nil, JSON(combat))
+                } else {
+                    // TODO: better handling
+                    let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
+                    completion(error, nil)
+                }
+        }
+    }
+    
+    func getCombat(combatId: String, completion: @escaping (_ error: Error?, _ combat: JSON?) -> Void) {
+        let prefs = UserDefaults.standard
+        guard let jwt = prefs.string(forKey: "jwt") else {
+            // TODO: better handling
+            let error = NSError(domain: "fitmi-invalid-jwt-token", code: 2, userInfo: nil) as Error
+            completion(error, false)
+            return
+        }
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(jwt)"
+        ]
+        Alamofire.request(API_BASE_ENDPOINT + "/combats/\(combatId)", method: .get, headers: headers)
+            .responseJSON { (response) in
+                if let error = response.result.error {
+                    completion(error, nil)
+                } else if let combat = response.result.value {
+                    completion(nil, JSON(combat))
+                } else {
+                    // TODO: better handling
                     let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
                     completion(error, nil)
                 }

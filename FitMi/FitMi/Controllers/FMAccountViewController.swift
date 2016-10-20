@@ -14,6 +14,7 @@ import JWTDecode
 class FMAccountViewController: FMViewController {
 
 	private static var defaultController: FMAccountViewController?
+    let networkManager = FMNetworkManager.sharedManager
 	
 	@IBOutlet var tableView: UITableView!
 	
@@ -77,6 +78,101 @@ class FMAccountViewController: FMViewController {
 	override func didMove(toParentViewController parent: UIViewController?) {
 		super.didMove(toParentViewController: parent)
 	}
+    
+    func updateSpriteStatus() {
+        // Update Sprite after login
+        let sprite = FMSpriteStatusManager.sharedManager.sprite!
+        let skillInUse = sprite.skillsInUse
+        var skills: [String] = []
+        for skill in skillInUse {
+            skills.append(skill.identifier)
+        }
+        let data = [
+            "newData": [
+                "spritename": sprite.name,
+                "strength": sprite.states.last?.strength as Int!,
+                "stamina": sprite.states.last?.stamina as Int!,
+                "agility": sprite.states.last?.agility as Int!,
+                "health" : sprite.states.last?.health as Int!,
+                "healthLimit" : sprite.states.last?.health as Int!,
+                "level": sprite.states.last?.level as Int!,
+                "skillInUse": skills
+            ]
+        ];
+        self.networkManager.updateUser(newData: data) { (error, success) in
+            if (error != nil) {
+                // Error
+            } else {
+                // TODO: login process finished
+            }
+        }
+    }
+    
+    // TODO: Example call for combat; remove after clean up
+    func createNewCombat() {
+        let sprite = FMSpriteStatusManager.sharedManager.sprite!
+        // Do the same for the toUser's skill in use
+        let skillInUse = sprite.skillsInUse
+        var skills: [String] = []
+        for skill in skillInUse {
+            skills.append(skill.identifier)
+        }
+
+        let prefs = UserDefaults.standard
+        do {
+            let jwt = try decode(jwt: prefs.string(forKey: "jwt")!)
+            let userId = jwt.claim(name: "_id").string!
+            let name = jwt.claim(name: "name").string!
+            
+            let data = [
+                "combat": [
+                    "toUserId": userId,
+                    "fromUserStatus": [
+                        "displayName": name,
+                        "strength": sprite.states.last?.strength as Int!,
+                        "stamina": sprite.states.last?.stamina as Int!,
+                        "health": sprite.states.last?.health as Int!,
+                        "health_limit": sprite.states.last?.health as Int!,
+                        "level": sprite.states.last?.level as Int!,
+                        "appearance": sprite.appearanceIdentifier,
+                        "skills": skills
+                    ],
+                    "toUserStatus": [
+                        "displayName": name,
+                        "strength": sprite.states.last?.strength as Int!,
+                        "stamina": sprite.states.last?.stamina as Int!,
+                        "health": sprite.states.last?.health as Int!,
+                        "health_limit": sprite.states.last?.health as Int!,
+                        "level": sprite.states.last?.level as Int!,
+                        "appearance": sprite.appearanceIdentifier,
+                        "skills": skills
+                    ],
+                    "winner": userId,
+                    "moves": [[
+                        "attackUser": userId,
+                        "skillId": "skill-D4D534EE-297B-42C3-B8CA-77906414B14B",
+                        "defenceUser": userId,
+                        "damage": 50,
+                        "healing": 0,
+                        "nextMoveResumeTime": 0
+                        ]]
+                ]
+            ]
+            
+            
+            self.networkManager.createCombat(combat: data) { (error, res) in
+                if (error != nil) {
+                    // Error
+                } else {
+                    // TODO: login process finished
+                    print(res)
+                }
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription) // error decode jwt
+            return
+        }
+    }
 	
 	class func getDefaultController() -> FMAccountViewController {
 		if FMAccountViewController.defaultController == nil {
@@ -284,8 +380,7 @@ extension FMAccountViewController: UITableViewDelegate {
                             // Should do nothing
                             print("User cancelled login.")
                         case .success(_, _, let accessToken):
-                            let networkManager = FMNetworkManager.sharedManager
-                            networkManager.authenticateWithToken(urlString: API_BASE_ENDPOINT + "/authenticate", token: accessToken.authenticationToken, completion: {
+                            self.networkManager.authenticateWithToken(token: accessToken.authenticationToken, completion: {
                                 error, token in
                                 if let apiToken = token {
                                     prefs.set(apiToken, forKey: "jwt")
@@ -299,6 +394,7 @@ extension FMAccountViewController: UITableViewDelegate {
 												FMSpriteStatusManager.sharedManager.sprite?.identifier = userId
 											}
                                         }
+                                        self.updateSpriteStatus()
                                     } catch let error as NSError {
                                         print(error.localizedDescription) // error decode jwt
                                     }
