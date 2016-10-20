@@ -382,7 +382,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi1-io-tbE">
-                                        <color key="backgroundColor" red="0.25882352941176467" green="0.84313725490196079" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372549019607" green="0.69019607843137254" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="PXR-OG-zAL"/>
                                         </constraints>
@@ -624,7 +624,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUO-Dw-SUB">
-                                        <color key="backgroundColor" red="0.39658269841681154" green="0.87251953125000004" blue="0.53226137609663504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.32941176470588235" green="0.74901960784313726" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="START EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,7 +634,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otp-E5-1l3">
-                                        <color key="backgroundColor" red="0.90684443712234497" green="0.42472754559389997" blue="0.43619051902040112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.76078431372549016" green="0.36470588235294116" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="END EXERCISE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
