@@ -77,7 +77,7 @@ class FMBoothViewController: FMViewController {
 						FMSpriteStatusManager.sharedManager.unuseSkill(skill: skill)
 						self.tableView.reloadData()
 					} else {
-						print("At least one skill should be used")
+						FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one skill should be used...")
 					}
 				} else {
 					if sprite.skillSlotCount > sprite.skillsInUse.count {
@@ -91,11 +91,15 @@ class FMBoothViewController: FMViewController {
 				self.setAnimationForAction(action: action)
 				if !isTitleUsing {
 					FMSpriteStatusManager.sharedManager.updateAction(action: action)
+				} else {
+					FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one action should be used...")
 				}
 			} else if let appearance = object as? FMAppearance {
 				self.setAnimationForAppearance(appearance: appearance)
 				if !isTitleUsing {
 					FMSpriteStatusManager.sharedManager.updateAppearance(appearance: appearance)
+				} else {
+					FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one appearance should be used...")
 				}
 			}
 		}
