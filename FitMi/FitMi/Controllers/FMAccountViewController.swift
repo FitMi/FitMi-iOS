@@ -295,11 +295,9 @@ extension FMAccountViewController: UITableViewDelegate {
                                         let jwt = try decode(jwt: apiToken)
                                         
                                         if let userId = jwt.claim(name: "_id").string {
-                                            DispatchQueue.main.async {
-                                                FMDatabaseManager.sharedManager.realmUpdate {
-                                                    FMSpriteStatusManager.sharedManager.sprite?.identifier = userId
-                                                }
-                                            }
+											FMDatabaseManager.sharedManager.realmUpdate {
+												FMSpriteStatusManager.sharedManager.sprite?.identifier = userId
+											}
                                         }
                                     } catch let error as NSError {
                                         print(error.localizedDescription) // error decode jwt
