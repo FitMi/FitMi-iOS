@@ -290,7 +290,6 @@
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
-                        <segue destination="o6c-Hh-TSi" kind="presentation" identifier="combatSegue" id="FM6-Qm-e1j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -324,7 +323,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="OuQ-FS-qKG" firstAttribute="leading" secondItem="unp-FO-h7i" secondAttribute="leading" constant="15" id="Gy8-or-RFT"/>
                                     <constraint firstItem="OuQ-FS-qKG" firstAttribute="centerY" secondItem="unp-FO-h7i" secondAttribute="centerY" id="Mjb-gZ-yXe"/>
@@ -383,7 +382,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi1-io-tbE">
-                                        <color key="backgroundColor" red="0.078431372549019607" green="0.69019607843137254" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="PXR-OG-zAL"/>
                                         </constraints>
@@ -1069,17 +1068,20 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="13"/>
                                 <state key="normal" title="ESCAPE">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="dismiss" destination="o6c-Hh-TSi" eventType="touchUpInside" id="qgm-Gn-yjh"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="E6n-Cw-sOh"/>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.91372549020000005" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.20784313725490194" green="0.55294117647058827" blue="0.58823529411764708" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="E6n-Cw-sOh" firstAttribute="centerY" secondItem="yLn-Pb-ARH" secondAttribute="centerY" id="0oF-CM-hV6"/>
                             <constraint firstAttribute="trailing" secondItem="lqe-oJ-Td2" secondAttribute="trailing" constant="20" id="5Y5-Rs-5mp"/>
                             <constraint firstItem="SxG-za-NSX" firstAttribute="top" secondItem="lqe-oJ-Td2" secondAttribute="bottom" constant="20" id="7bo-4A-sUw"/>
+                            <constraint firstItem="E6n-Cw-sOh" firstAttribute="centerX" secondItem="yLn-Pb-ARH" secondAttribute="centerX" id="wNj-z3-ZAJ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1136,6 +1138,7 @@
                     <connections>
                         <outlet property="tableView" destination="QeN-KB-ssg" id="DRF-u2-isa"/>
                         <outlet property="toolBar" destination="aMk-tz-RSV" id="OPm-v5-qhN"/>
+                        <segue destination="o6c-Hh-TSi" kind="presentation" identifier="combatSegue" id="odm-UI-gHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXb-um-DgR" userLabel="First Responder" sceneMemberID="firstResponder"/>

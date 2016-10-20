@@ -9,10 +9,14 @@
 import UIKit
 import RealmSwift
 import SwiftyJSON
+import BubbleTransition
 
 class FMBattleViewController: FMViewController {
 	
 	@IBOutlet var tableView: UITableView!
+	
+	let transition = BubbleTransition()
+	var segueStartCenter = CGPoint.zero
 	
 	fileprivate var data:JSON?
 	
@@ -64,15 +68,6 @@ class FMBattleViewController: FMViewController {
 		super.didMove(toParentViewController: parent)
 	}
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "combatSegue" {
-			let controller = segue.destination as! FMBattleDetailViewController
-			let indexPath = sender as! IndexPath
-			let id = "\(self.data![indexPath.row]["id"])"
-			controller.opponentID = id
-		}
-	}
-	
 	private static var defaultController: FMBattleViewController?
 	class func getDefaultController() -> FMBattleViewController {
 		if FMBattleViewController.defaultController == nil {
@@ -85,6 +80,38 @@ class FMBattleViewController: FMViewController {
 	}
 
 }
+
+extension FMBattleViewController: UIViewControllerTransitioningDelegate {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let controller = segue.destination
+		transition.duration = 0.2
+		controller.transitioningDelegate = self
+		controller.modalPresentationStyle = .custom
+		
+		if segue.identifier == "combatSegue" {
+			let controller = segue.destination as! FMBattleDetailViewController
+			let indexPath = sender as! IndexPath
+			let id = "\(self.data![indexPath.row]["id"])"
+			controller.opponentID = id
+		}
+	}
+	
+	// MARK: UIViewControllerTransitioningDelegate
+	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		transition.transitionMode = .present
+		transition.startingPoint = self.segueStartCenter
+		transition.bubbleColor = UIColor.primaryColor
+		return transition
+	}
+	
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		transition.transitionMode = .dismiss
+		transition.startingPoint = self.segueStartCenter
+		transition.bubbleColor = UIColor.primaryColor
+		return transition
+	}
+}
+
 
 extension FMBattleViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,7 +143,7 @@ extension FMBattleViewController: UITableViewDataSource {
 extension FMBattleViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		
-		FMRootViewController.defaultController.performSegue(withIdentifier: "combatSegue", sender: indexPath)
+		self.segueStartCenter = self.view.center
+		self.performSegue(withIdentifier: "combatSegue", sender: indexPath)
 	}
 }
