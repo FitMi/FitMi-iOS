@@ -290,6 +290,7 @@
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="c8Y-6U-Dhd" id="ltD-Ys-9Wd"/>
+                        <segue destination="o6c-Hh-TSi" kind="presentation" identifier="combatSegue" id="FM6-Qm-e1j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1048,6 +1049,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZN-Og-3BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1741.5999999999999" y="1478.4107946026988"/>
+        </scene>
+        <!--Battle Detail View Controller-->
+        <scene sceneID="IeV-mr-our">
+            <objects>
+                <viewController storyboardIdentifier="FMBattleDetailViewController" id="o6c-Hh-TSi" customClass="FMBattleDetailViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="imS-Uw-yoe"/>
+                        <viewControllerLayoutGuide type="bottom" id="SxG-za-NSX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yLn-Pb-ARH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-oJ-Td2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Chg-2Z-49G"/>
+                                    <constraint firstAttribute="height" constant="40" id="vFe-RH-x7z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="13"/>
+                                <state key="normal" title="ESCAPE">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss" destination="o6c-Hh-TSi" eventType="touchUpInside" id="qgm-Gn-yjh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.91372549020000005" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lqe-oJ-Td2" secondAttribute="trailing" constant="20" id="5Y5-Rs-5mp"/>
+                            <constraint firstItem="SxG-za-NSX" firstAttribute="top" secondItem="lqe-oJ-Td2" secondAttribute="bottom" constant="20" id="7bo-4A-sUw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2o3-Gg-Ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2656.8000000000002" y="1477.5112443778112"/>
         </scene>
         <!--Battle View Controller-->
         <scene sceneID="vaU-oJ-Fra">

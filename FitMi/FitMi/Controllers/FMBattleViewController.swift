@@ -64,6 +64,15 @@ class FMBattleViewController: FMViewController {
 		super.didMove(toParentViewController: parent)
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "combatSegue" {
+			let controller = segue.destination as! FMBattleDetailViewController
+			let indexPath = sender as! IndexPath
+			let id = "\(self.data![indexPath.row]["id"])"
+			controller.opponentID = id
+		}
+	}
+	
 	private static var defaultController: FMBattleViewController?
 	class func getDefaultController() -> FMBattleViewController {
 		if FMBattleViewController.defaultController == nil {
@@ -107,5 +116,7 @@ extension FMBattleViewController: UITableViewDataSource {
 extension FMBattleViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		FMRootViewController.defaultController.performSegue(withIdentifier: "combatSegue", sender: indexPath)
 	}
 }
