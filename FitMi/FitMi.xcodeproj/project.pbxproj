@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0C070E901DB91DD20095B3A0 /* FMNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E8F1DB91DD20095B3A0 /* FMNotificationManager.swift */; };
 		0C070E921DB9210B0095B3A0 /* FMOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E911DB9210B0095B3A0 /* FMOutlinedLabel.swift */; };
+		0C070E951DB9346E0095B3A0 /* FMFriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */; };
+		0C070E961DB9346E0095B3A0 /* FMFriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */; };
+		0C070E981DB94CB50095B3A0 /* FMBattleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */; };
 		0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */; };
 		0C2E95561DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */; };
 		0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */; };
@@ -111,6 +114,9 @@
 /* Begin PBXFileReference section */
 		0C070E8F1DB91DD20095B3A0 /* FMNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMNotificationManager.swift; sourceTree = "<group>"; };
 		0C070E911DB9210B0095B3A0 /* FMOutlinedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOutlinedLabel.swift; sourceTree = "<group>"; };
+		0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMFriendListCell.swift; sourceTree = "<group>"; };
+		0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMFriendListCell.xib; sourceTree = "<group>"; };
+		0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleDetailViewController.swift; sourceTree = "<group>"; };
 		0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMStatisticsDetailViewController.swift; sourceTree = "<group>"; };
 		0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMiddleAlignedLabelCell.swift; sourceTree = "<group>"; };
 		0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMMiddleAlignedLabelCell.xib; sourceTree = "<group>"; };
@@ -318,6 +324,7 @@
 				0CD2BA7A1DB0B54E00145AB2 /* FMExercisePopupViewController.swift */,
 				0C7551321DB4F503002146FE /* FMLoadingViewController.swift */,
 				0C7551381DB62D4C002146FE /* FMBoothViewController.swift */,
+				0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +442,8 @@
 				9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */,
 				0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */,
 				0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */,
+				0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */,
+				0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -644,6 +653,7 @@
 				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
+				0C070E961DB9346E0095B3A0 /* FMFriendListCell.xib in Resources */,
 				0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -815,6 +825,7 @@
 				0C7551391DB62D4C002146FE /* FMBoothViewController.swift in Sources */,
 				0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
+				0C070E951DB9346E0095B3A0 /* FMFriendListCell.swift in Sources */,
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
 				0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */,
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
@@ -841,6 +852,7 @@
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
 				0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */,
 				0C75512F1DB4E5F9002146FE /* FMProgressView.swift in Sources */,
+				0C070E981DB94CB50095B3A0 /* FMBattleDetailViewController.swift in Sources */,
 				0C070E901DB91DD20095B3A0 /* FMNotificationManager.swift in Sources */,
 				0CE74F601D9FB1D800CAB9CE /* FMSprite.swift in Sources */,
 				0CE74F5B1D9FAE6500CAB9CE /* FMStatisticsViewController.swift in Sources */,
