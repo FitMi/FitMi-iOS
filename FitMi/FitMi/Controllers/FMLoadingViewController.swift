@@ -25,7 +25,9 @@ class FMLoadingViewController: FMViewController {
 		super.viewDidAppear(animated)
 		FMConfigurationParser.delegate = self
 		FMConfigurationParser.refreshConfiguration()
-		
+		UIView.animate(withDuration: 0.2, animations: {
+			self.progressView.alpha = 1
+		})
 		self.timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(fakeProgress), userInfo: nil, repeats: true)
 	}
 
