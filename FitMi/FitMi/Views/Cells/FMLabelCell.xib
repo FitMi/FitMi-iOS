@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="APh-jo-mtt" firstAttribute="leading" secondItem="roS-RG-Jyd" secondAttribute="trailing" constant="15" id="17H-1o-5fb"/>
                     <constraint firstAttribute="trailing" secondItem="APh-jo-mtt" secondAttribute="trailing" constant="30" id="9fg-l2-KJl"/>
@@ -49,6 +49,7 @@
                     <constraint firstItem="roS-RG-Jyd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="jmh-fB-dU6"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="contentLabel" destination="APh-jo-mtt" id="616-e4-DoL"/>
                 <outlet property="titleLabel" destination="roS-RG-Jyd" id="q5d-y4-zI6"/>
