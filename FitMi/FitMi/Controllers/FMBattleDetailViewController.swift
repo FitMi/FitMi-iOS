@@ -49,7 +49,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func loadOpponentData(completion: @escaping ((_ data: JSON?) -> Void)) {
 		let data = self.loadFake()
 		
-		DispatchQueue(label: "any").asyncAfter(deadline: .now() + 2, execute: {
+		DispatchQueue(label: "any").asyncAfter(deadline: .now() + 0.5, execute: {
 			DispatchQueue.main.async {
 				completion(data)
 			}
