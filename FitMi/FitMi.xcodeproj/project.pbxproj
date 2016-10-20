@@ -71,7 +71,6 @@
 		9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */; };
 		9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1721DB0B37700227C89 /* sprite-wake.atlas */; };
 		9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1741DB0B88E00227C89 /* sprite-tired.atlas */; };
-		93A46F681DB8DD3600B4D77C /* sleep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F671DB8DD3600B4D77C /* sleep.mp3 */; };
 		93A46F6C1DB8DDA100B4D77C /* shocked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F691DB8DDA100B4D77C /* shocked.mp3 */; };
 		93A46F6D1DB8DDA100B4D77C /* sweat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */; };
 		93A46F6E1DB8DDA100B4D77C /* touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F6B1DB8DDA100B4D77C /* touch.mp3 */; };
@@ -185,7 +184,6 @@
 		9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-sleep.atlas"; sourceTree = "<group>"; };
 		9352E1721DB0B37700227C89 /* sprite-wake.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-wake.atlas"; sourceTree = "<group>"; };
 		9352E1741DB0B88E00227C89 /* sprite-tired.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-tired.atlas"; sourceTree = "<group>"; };
-		93A46F671DB8DD3600B4D77C /* sleep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sleep.mp3; sourceTree = "<group>"; };
 		93A46F691DB8DDA100B4D77C /* shocked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shocked.mp3; sourceTree = "<group>"; };
 		93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sweat.mp3; sourceTree = "<group>"; };
 		93A46F6B1DB8DDA100B4D77C /* touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = touch.mp3; sourceTree = "<group>"; };
@@ -470,7 +468,6 @@
 				93A46F691DB8DDA100B4D77C /* shocked.mp3 */,
 				93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */,
 				93A46F6B1DB8DDA100B4D77C /* touch.mp3 */,
-				93A46F671DB8DD3600B4D77C /* sleep.mp3 */,
 			);
 			path = sounds;
 			sourceTree = "<group>";
@@ -629,7 +626,6 @@
 				0CFC8B831DA97FC40084DD6F /* Pixeled.ttf in Resources */,
 				93A46F6E1DB8DDA100B4D77C /* touch.mp3 in Resources */,
 				0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */,
-				93A46F681DB8DD3600B4D77C /* sleep.mp3 in Resources */,
 				0CD3CCF41D9EF0FB00E47BF8 /* LaunchScreen.storyboard in Resources */,
 				0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */,
 				0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */,

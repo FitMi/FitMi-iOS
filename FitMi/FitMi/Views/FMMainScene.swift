@@ -123,9 +123,6 @@ class FMMainScene: SKScene {
     private func animateSleepSprite() {
         self.isSleeping = true
         self.character.run(SKAction.repeatForever(SKAction.animate(with: self.sleepSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
-       
-        let sleepSound = SKAction.playSoundFileNamed("sleep.mp3", waitForCompletion: false)
-        self.character.run(SKAction.repeatForever(SKAction.sequence([sleepSound, SKAction.wait(forDuration: 3.5)])))
     }
     
     private func animateWakeSprite() {

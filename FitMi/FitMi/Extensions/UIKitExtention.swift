@@ -53,7 +53,7 @@ extension UIView {
 extension UIColor {
 	static var primaryColor: UIColor {
 		get {
-			return UIColor(red: 66/255.0, green: 215/255.0, blue: 205/255.0, alpha: 1)
+			return UIColor(red: 53/255.0, green: 141/255.0, blue: 150/255.0, alpha: 1)
 		}
 	}
 	
