@@ -14,10 +14,29 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet var escapeButton: UIButton!
 	@IBOutlet var battleView: UIView!
+	
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
 	
+	
+	@IBOutlet var opponentAvatarImageView: UIImageView!
+	@IBOutlet var opponentNameLabel: UILabel!
+	@IBOutlet var opponentHealthBar: UIProgressView!
+	@IBOutlet var opponentTimeBar: UIProgressView!
+	fileprivate var opponentHealthMax: Int = 0
+	fileprivate var opponentHealth: Int = 0
+	
+	@IBOutlet var selfAvatarImageView: UIImageView!
+	@IBOutlet var selfNameLabel: UILabel!
+	@IBOutlet var selfHealthBar: UIProgressView!
+	@IBOutlet var selfTimeBar: UIProgressView!
+	fileprivate var selfHealthMax: Int = 0
+	fileprivate var selfHealth: Int = 0
+	
 	var opponentID = ""
+	var opponentSkills: [FMSkill]!
+	
+	fileprivate var opponenetData: JSON!
 	
 	
 	
@@ -27,8 +46,10 @@ class FMBattleDetailViewController: FMViewController {
 		self.configureImageView()
 		
 		self.loadOpponentData(completion: {
-			json in
-			if let _ = json {
+			data in
+			if let json = data {
+				self.opponenetData = json
+				self.refreshView()
 				self.activityIndicator.stopAnimating()
 				self.battleView.isUserInteractionEnabled = true
 				UIView.animate(withDuration: 0.5, animations: {
@@ -57,24 +78,92 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func loadFake() -> JSON {
-		let str = "{\"_id\": \"object ID\",\"username\": \"username\",\"spritename\": \"sprite name\",\"facebookToken\": \"Facebook access token\",\"facebookId\": \"Facebook ID\",\"__v\": 0,\"strength\": 200,\"stamina\": 132,\"agility\": 123,\"health\": 190,\"level\": 14,\"skillInUse\": [\"skill-D4D534EE-297B-42C3-B8CA-77906414B14B\", \"skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE\"],\"updatedAt\": \"2016-10-20T15:12:08.240Z\",\"lastCombatTime\": \"2016-10-20T15:12:08.240Z\",\"createdAt\": \"2016-10-20T15:12:08.240Z\"}"
+		let str = "{\"_id\": \"object ID\",\"username\": \"Jason\",\"spritename\": \"sprite name\",\"facebookToken\": \"Facebook access token\",\"facebookId\": \"100003031938297\",\"__v\": 0,\"strength\": 200,\"stamina\": 132,\"agility\": 123,\"health\": 190,\"level\": 14,\"skillInUse\": [\"skill-D4D534EE-297B-42C3-B8CA-77906414B14B\", \"skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE\"],\"updatedAt\": \"2016-10-20T15:12:08.240Z\",\"lastCombatTime\": \"2016-10-20T15:12:08.240Z\",\"createdAt\": \"2016-10-20T15:12:08.240Z\"}"
 		return JSON.parse(str)
 	}
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	fileprivate func refreshView() {
+		self.opponentNameLabel.text = self.getOpponentName()
+		self.opponentHealthMax = self.getOpponentHealth()
+		self.opponentHealth = self.getOpponentHealth()
+		self.opponentHealthBar.setProgress(1, animated: false)
+		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
+	}
+	
+	// Self accessors
+	fileprivate func getSelfName() -> String {
+		return "Me"
+	}
+	
+	fileprivate func getSelfHealth() -> Int {
+		return FMSpriteStatusManager.sharedManager.currentHP()
+	}
+	
+	fileprivate func getSelfStamina() -> Int {
+		return FMSpriteStatusManager.sharedManager.currentStamina()
+	}
+	
+	fileprivate func getSelfStrength() -> Int {
+		return FMSpriteStatusManager.sharedManager.currentStrength()
+	}
+	
+	fileprivate func getSelfAgility() -> Int {
+		return FMSpriteStatusManager.sharedManager.currentAgility()
+	}
+	
+	
+	// JSON accessors
+	
+	fileprivate func getOpponentName() -> String {
+		return self.opponenetData["username"].string!
+	}
+	
+	fileprivate func getOpponentHealth() -> Int {
+		return self.opponenetData["health"].int!
+	}
+	
+	fileprivate func getOpponentStamina() -> Int {
+		return self.opponenetData["stamina"].int!
+	}
+	
+	fileprivate func getOpponentStrength() -> Int {
+		return self.opponenetData["strength"].int!
+	}
+	
+	fileprivate func getOpponentAgility() -> Int {
+		return self.opponenetData["agility"].int!
+	}
+	
+	fileprivate func getOpponentFacebookId() -> String {
+		return self.opponenetData["facebookId"].string!
+	}
+	
+	fileprivate func getOpponentSkills() -> [FMSkill] {
+		if self.opponentSkills != nil {
+			return self.opponentSkills
+		}
+		
+		var array = [FMSkill]()
+		
+		for idJSON in self.opponenetData["skillInUse"].array! {
+			if let identifier = idJSON.string {
+				let skill = FMDatabaseManager.sharedManager.skill(identifier: identifier)
+				array.append(skill)
+			}
+		}
+		
+		return array
+	}
+	
+	fileprivate func getOpponentAppearance() -> FMAppearance {
+		let anySkill = self.getOpponentSkills().first!
+		return anySkill.appearance[0]
+	}
+	
+	fileprivate func getDefenceSpirtes(attackSkill: FMSkill, defenderAppearance: FMAppearance) -> [UIImage] {
+		let name = attackSkill.name
+		let appearanceID = defenderAppearance.identifier
+		let skill = FMDatabaseManager.sharedManager.skill(appearanceIdentifier: appearanceID, name: name)
+		return skill.defenceSprites()
+	}
 }

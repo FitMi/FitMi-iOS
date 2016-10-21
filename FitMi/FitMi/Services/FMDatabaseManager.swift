@@ -148,6 +148,11 @@ class FMDatabaseManager: NSObject {
 		return skill
 	}
 	
+	func skill(identifier: String) -> FMSkill {
+		let skill = self.realm.objects(FMSkill.self).filter("identifier = %@", identifier).first!
+		return skill
+	}
+	
 	func action(appearanceIdentifier: String, name: String) -> FMAction {
 		let appearance = self.appearances().filter("identifier = %@", appearanceIdentifier).first!
 		let action = appearance.actions.filter("name = %@", name).first!

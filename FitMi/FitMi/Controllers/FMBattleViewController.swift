@@ -135,9 +135,8 @@ extension FMBattleViewController: UITableViewDataSource {
 		cell.contentView.backgroundColor = row % 2 == 1 ? UIColor(white: 1, alpha: 0.3) : UIColor.clear
 		
 		let json = self.data![row]
-		let name = json["name"].string
 		
-		cell.nameLabel.text = name
+		cell.nameLabel.text = json["username"].string
 		cell.avatarImageView.image = UIImage(named: "page0Image0")
 		cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["facebookId"])/picture?type=large")!)
 		cell.levelLabel.text = "lv. \(json["level"])"

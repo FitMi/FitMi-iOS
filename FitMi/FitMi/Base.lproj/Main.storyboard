@@ -1285,8 +1285,16 @@
                         <outlet property="activityIndicator" destination="E6n-Cw-sOh" id="Jeb-2h-Fej"/>
                         <outlet property="battleView" destination="vev-ue-V7F" id="iqd-OU-Hoi"/>
                         <outlet property="escapeButton" destination="lqe-oJ-Td2" id="KEj-eu-aXS"/>
+                        <outlet property="opponentAvatarImageView" destination="aMW-ob-MP4" id="Vlk-8S-8jj"/>
+                        <outlet property="opponentHealthBar" destination="Z3D-7a-5Bg" id="nUx-vZ-WSU"/>
+                        <outlet property="opponentNameLabel" destination="fnL-9U-nib" id="mYI-lz-UQJ"/>
+                        <outlet property="opponentTimeBar" destination="3fF-wj-NSZ" id="h5q-fF-Vfx"/>
                         <outlet property="primaryImageView" destination="985-gA-uey" id="D5Y-m0-4jl"/>
                         <outlet property="secondaryImageView" destination="ZlF-Kb-pk2" id="TUU-SR-5Ph"/>
+                        <outlet property="selfAvatarImageView" destination="1Br-Lj-DaV" id="em6-SB-6ru"/>
+                        <outlet property="selfHealthBar" destination="YJG-Qz-LaR" id="cGc-zg-qoZ"/>
+                        <outlet property="selfNameLabel" destination="x50-Kh-R0C" id="0qn-sj-7rm"/>
+                        <outlet property="selfTimeBar" destination="a7S-I1-VEs" id="7mh-Jo-ssR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2o3-Gg-Ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>
