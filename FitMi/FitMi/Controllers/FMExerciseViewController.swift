@@ -21,7 +21,7 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var spriteView: SKView!
 	@IBOutlet var highlightBackground: UIButton!
     
-    @IBOutlet weak var buttonFacebookShare: FBSDKShareButton!
+	@IBOutlet weak var buttonFacebookShare: FBSDKShareButton!
     
 	@IBOutlet var buttonStartExercise: UIButton!
 	@IBOutlet var buttonEndExercise: UIButton!
