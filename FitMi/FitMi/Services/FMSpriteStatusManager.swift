@@ -372,4 +372,27 @@ class FMSpriteStatusManager: NSObject {
 		// TODO: check whether the mood is full
 		return false
 	}
+    
+    func pushSpriteStatusToRemote(completion: @escaping (_ error: Error?, _ success: Bool) -> Void) {
+        let sprite = self.sprite!
+        let skillInUse = sprite.skillsInUse
+        var skills: [String] = []
+        for skill in skillInUse {
+            skills.append(skill.identifier)
+        }
+        let data = [
+            "newData": [
+                "spritename": sprite.name,
+                "strength": sprite.states.last?.strength as Int!,
+                "stamina": sprite.states.last?.stamina as Int!,
+                "agility": sprite.states.last?.agility as Int!,
+                "health" : sprite.states.last?.health as Int!,
+                "healthLimit" : sprite.states.last?.health as Int!,
+                "level": sprite.states.last?.level as Int!,
+                "skillInUse": skills,
+                "appearance": sprite.appearanceIdentifier
+            ]
+        ];
+        FMNetworkManager.sharedManager.updateUser(newData: data, completion: completion)
+    }
 }

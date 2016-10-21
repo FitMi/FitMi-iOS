@@ -79,35 +79,6 @@ class FMAccountViewController: FMViewController {
 		super.didMove(toParentViewController: parent)
 	}
     
-    func updateSpriteStatus() {
-        // Update Sprite after login
-        let sprite = FMSpriteStatusManager.sharedManager.sprite!
-        let skillInUse = sprite.skillsInUse
-        var skills: [String] = []
-        for skill in skillInUse {
-            skills.append(skill.identifier)
-        }
-        let data = [
-            "newData": [
-                "spritename": sprite.name,
-                "strength": sprite.states.last?.strength as Int!,
-                "stamina": sprite.states.last?.stamina as Int!,
-                "agility": sprite.states.last?.agility as Int!,
-                "health" : sprite.states.last?.health as Int!,
-                "healthLimit" : sprite.states.last?.health as Int!,
-                "level": sprite.states.last?.level as Int!,
-                "skillInUse": skills
-            ]
-        ];
-        self.networkManager.updateUser(newData: data) { (error, success) in
-            if (error != nil) {
-                // Error
-            } else {
-                // TODO: login process finished
-            }
-        }
-    }
-    
     // TODO: Example call for combat; remove after clean up
     func createNewCombat() {
         let sprite = FMSpriteStatusManager.sharedManager.sprite!
@@ -407,7 +378,13 @@ extension FMAccountViewController: UITableViewDelegate {
 											}
 										}
 										
-                                        self.updateSpriteStatus()
+                                        FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote(completion: { (error, success) in
+                                            if (error != nil) {
+                                                print(error)
+                                            } else {
+                                                prefs.set(Date(), forKey: "lastSyncTime")
+                                            }
+                                        })
                                     } catch let error as NSError {
                                         print(error.localizedDescription) // error decode jwt
                                     }
