@@ -33,6 +33,8 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfHealthMax: Int = 0
 	fileprivate var selfHealth: Int = 0
 	
+	fileprivate var moves: [[String: String]]!
+	
 	var opponentID = ""
 	var opponentSkills: [FMSkill]!
 	
@@ -44,6 +46,10 @@ class FMBattleDetailViewController: FMViewController {
         super.viewDidLoad()
 		self.battleView.alpha = 0
 		self.configureImageView()
+    }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		
 		self.loadOpponentData(completion: {
 			data in
@@ -57,7 +63,7 @@ class FMBattleDetailViewController: FMViewController {
 				})
 			}
 		})
-    }
+	}
 	
 	private func configureImageView() {
 		self.primaryImageView.animationDuration = 1
@@ -69,10 +75,8 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func loadOpponentData(completion: @escaping ((_ data: JSON?) -> Void)) {
-		let data = self.loadFake()
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-
+		FMNetworkManager.sharedManager.getUser(userFbId: self.opponentID, completion: {
+			error, data in
 			completion(data)
 		})
 	}
@@ -83,6 +87,12 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func refreshView() {
+		self.selfNameLabel.text = self.getSelfName()
+		self.selfHealthMax = self.getSelfHealth()
+		self.selfHealth = self.getSelfHealth()
+		self.selfHealthBar.setProgress(1, animated: false)
+		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
+		
 		self.opponentNameLabel.text = self.getOpponentName()
 		self.opponentHealthMax = self.getOpponentHealth()
 		self.opponentHealth = self.getOpponentHealth()
@@ -90,9 +100,31 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
 	}
 	
+	// Move constructor
+	// nextResumeTime in ms
+	fileprivate func constructMove(attackUserIsSelf: Bool, damage: Int, healing: Int, nextResumeTime: Int) -> [String: String] {
+		var thisMove = [String: String]()
+		thisMove["damage"] = "\(damage)"
+		thisMove["healing"] = "\(healing)"
+		thisMove["damage"] = "\(damage)"
+		thisMove["nextResumeTime"] = "\(nextResumeTime)"
+		
+		if attackUserIsSelf {
+			thisMove["attackUser"] = self.getSelfFacebookId()
+			thisMove["defenceUser"] = self.getOpponentFacebookId()
+		} else {
+			thisMove["attackUser"] = self.getOpponentFacebookId()
+			thisMove["defenceUser"] = self.getSelfFacebookId()
+		}
+		
+		print(thisMove)
+		
+		return thisMove
+	}
+	
 	// Self accessors
 	fileprivate func getSelfName() -> String {
-		return "Me"
+		return FMSpriteStatusManager.sharedManager.sprite.userFacebookName
 	}
 	
 	fileprivate func getSelfHealth() -> Int {
@@ -109,6 +141,10 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate func getSelfAgility() -> Int {
 		return FMSpriteStatusManager.sharedManager.currentAgility()
+	}
+	
+	fileprivate func getSelfFacebookId() -> String {
+		return FMSpriteStatusManager.sharedManager.sprite.userFacebookID
 	}
 	
 	

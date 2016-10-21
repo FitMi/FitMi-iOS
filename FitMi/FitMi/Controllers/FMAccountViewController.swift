@@ -394,6 +394,19 @@ extension FMAccountViewController: UITableViewDelegate {
 												FMSpriteStatusManager.sharedManager.sprite?.identifier = userId
 											}
                                         }
+										
+										if let facebookID = jwt.claim(name: "fbId").string {
+											FMDatabaseManager.sharedManager.realmUpdate {
+												FMSpriteStatusManager.sharedManager.sprite?.userFacebookID = facebookID
+											}
+										}
+										
+										if let name = jwt.claim(name: "name").string {
+											FMDatabaseManager.sharedManager.realmUpdate {
+												FMSpriteStatusManager.sharedManager.sprite?.userFacebookName = name
+											}
+										}
+										
                                         self.updateSpriteStatus()
                                     } catch let error as NSError {
                                         print(error.localizedDescription) // error decode jwt

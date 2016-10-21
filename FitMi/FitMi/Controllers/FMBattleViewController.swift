@@ -27,14 +27,6 @@ class FMBattleViewController: FMViewController {
         self.configureTableView()
     }
 	
-	private func loadFake() {
-		let str = "[{\"name\": \"Bohan\", \"id\":\"1843175555914388\", \"level\":10}, {\"name\":\"Jinghan\", \"id\":\"100003031938297\", \"level\":14}]"
-		let data = str.data(using: .utf8)
-		self.data = JSON(data: data!)
-		
-		self.tableView.reloadData()
-	}
-	
 	private func registerCells() {
 		FMFriendListCell.registerCell(tableView: self.tableView, reuseIdentifier: FMFriendListCell.identifier)
 	}
@@ -97,7 +89,7 @@ extension FMBattleViewController: UIViewControllerTransitioningDelegate {
 		if segue.identifier == "combatSegue" {
 			let controller = segue.destination as! FMBattleDetailViewController
 			let indexPath = sender as! IndexPath
-			let id = "\(self.data![indexPath.row]["id"])"
+			let id = "\(self.data![indexPath.row]["facebookId"])"
 			controller.opponentID = id
 		}
 	}

@@ -1091,7 +1091,7 @@
                                                                     <constraint firstAttribute="width" constant="40" id="u2g-YI-htK"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x50-Kh-R0C">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x50-Kh-R0C">
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1114,8 +1114,6 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="YJG-Qz-LaR" firstAttribute="top" secondItem="1Br-Lj-DaV" secondAttribute="bottom" constant="10" id="Cf8-XG-3KJ"/>
-                                                            <constraint firstItem="x50-Kh-R0C" firstAttribute="top" secondItem="XSd-ZT-9h3" secondAttribute="top" constant="13" id="Do2-YR-kiO"/>
-                                                            <constraint firstItem="YJG-Qz-LaR" firstAttribute="width" secondItem="XSd-ZT-9h3" secondAttribute="width" multiplier="0.7" id="EWi-5d-3rS"/>
                                                             <constraint firstAttribute="trailing" secondItem="x50-Kh-R0C" secondAttribute="trailing" constant="10" id="J1V-S9-aJl"/>
                                                             <constraint firstItem="a7S-I1-VEs" firstAttribute="leading" secondItem="YJG-Qz-LaR" secondAttribute="leading" id="L3r-N6-hUb"/>
                                                             <constraint firstItem="a7S-I1-VEs" firstAttribute="top" secondItem="YJG-Qz-LaR" secondAttribute="bottom" constant="5" id="L6J-Pi-BAU"/>
@@ -1124,6 +1122,8 @@
                                                             <constraint firstAttribute="bottom" secondItem="a7S-I1-VEs" secondAttribute="bottom" constant="10" id="VAa-2i-fCY"/>
                                                             <constraint firstItem="1Br-Lj-DaV" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="leading" constant="10" id="hYM-F4-CxF"/>
                                                             <constraint firstItem="YJG-Qz-LaR" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="leading" constant="10" id="klP-Fy-TeD"/>
+                                                            <constraint firstItem="x50-Kh-R0C" firstAttribute="centerY" secondItem="1Br-Lj-DaV" secondAttribute="centerY" id="vEB-cs-SPj"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YJG-Qz-LaR" secondAttribute="trailing" constant="10" id="wNq-yy-Ymi"/>
                                                             <constraint firstItem="a7S-I1-VEs" firstAttribute="trailing" secondItem="YJG-Qz-LaR" secondAttribute="trailing" id="z5o-5w-lha"/>
                                                         </constraints>
                                                     </view>
@@ -1136,7 +1136,7 @@
                                                                     <constraint firstAttribute="width" secondItem="aMW-ob-MP4" secondAttribute="height" id="NFV-RN-SXi"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-9U-nib">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnL-9U-nib">
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1158,9 +1158,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="fnL-9U-nib" firstAttribute="centerY" secondItem="aMW-ob-MP4" secondAttribute="centerY" id="3ed-Yh-cvC"/>
                                                             <constraint firstAttribute="trailing" secondItem="aMW-ob-MP4" secondAttribute="trailing" constant="10" id="8Rs-fP-s2D"/>
                                                             <constraint firstItem="Z3D-7a-5Bg" firstAttribute="trailing" secondItem="aMW-ob-MP4" secondAttribute="trailing" id="9YC-XL-vMP"/>
-                                                            <constraint firstItem="fnL-9U-nib" firstAttribute="top" secondItem="e6e-Ca-SlP" secondAttribute="top" constant="13" id="Dhm-0H-a3J"/>
+                                                            <constraint firstItem="Z3D-7a-5Bg" firstAttribute="leading" secondItem="e6e-Ca-SlP" secondAttribute="leading" constant="10" id="DV4-gu-j3A"/>
                                                             <constraint firstItem="Z3D-7a-5Bg" firstAttribute="top" secondItem="aMW-ob-MP4" secondAttribute="bottom" constant="10" id="HCz-WD-cRA"/>
                                                             <constraint firstItem="3fF-wj-NSZ" firstAttribute="top" secondItem="Z3D-7a-5Bg" secondAttribute="bottom" constant="5" id="Qb9-7b-16i"/>
                                                             <constraint firstItem="3fF-wj-NSZ" firstAttribute="trailing" secondItem="Z3D-7a-5Bg" secondAttribute="trailing" id="SjK-9t-gam"/>
@@ -1168,14 +1169,13 @@
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="leading" secondItem="fnL-9U-nib" secondAttribute="trailing" constant="8" id="fzD-5i-DUq"/>
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="width" secondItem="aMW-ob-MP4" secondAttribute="height" id="iXR-Sg-eaD"/>
                                                             <constraint firstItem="fnL-9U-nib" firstAttribute="leading" secondItem="e6e-Ca-SlP" secondAttribute="leading" constant="10" id="olr-qT-O1A"/>
-                                                            <constraint firstItem="Z3D-7a-5Bg" firstAttribute="width" secondItem="e6e-Ca-SlP" secondAttribute="width" multiplier="0.7" id="v86-Pv-fWg"/>
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="top" secondItem="e6e-Ca-SlP" secondAttribute="top" constant="10" id="wUQ-Ag-OaK"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="e6e-Ca-SlP" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="trailing" id="2fU-XH-V2x"/>
+                                                    <constraint firstItem="e6e-Ca-SlP" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="trailing" constant="20" id="2fU-XH-V2x"/>
                                                     <constraint firstItem="e6e-Ca-SlP" firstAttribute="top" secondItem="4of-2A-jpt" secondAttribute="top" id="DMo-Eb-4ex"/>
                                                     <constraint firstItem="XSd-ZT-9h3" firstAttribute="top" secondItem="4of-2A-jpt" secondAttribute="top" id="GG0-YG-4Y9"/>
                                                     <constraint firstAttribute="bottom" secondItem="XSd-ZT-9h3" secondAttribute="bottom" id="Psh-5F-Uhu"/>

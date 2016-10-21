@@ -11,10 +11,12 @@ import RealmSwift
 
 class FMSprite: Object {
 	
-	dynamic var identifier: String = UUID().uuidString
+	dynamic var identifier: String = ""
 	dynamic var name: String = "Default"
 	dynamic var mood: Int = 100
 	dynamic var birthday:Date = Date()
+	dynamic var userFacebookID: String = ""
+	dynamic var userFacebookName: String = ""
 	
 	dynamic var skillSlotCount: Int = 1
 	let skillsInUse = List<FMSkill>()
