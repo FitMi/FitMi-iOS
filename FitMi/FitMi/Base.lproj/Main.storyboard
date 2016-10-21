@@ -1235,12 +1235,21 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-RZ-nUY">
                                                                 <state key="normal" image="health_icon"/>
+                                                                <connections>
+                                                                    <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="lLR-66-4Z6"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-0s-GsX">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-0s-GsX">
                                                                 <state key="normal" image="health_icon"/>
+                                                                <connections>
+                                                                    <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="918-QT-8Uf"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-kl-kXt">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-kl-kXt">
                                                                 <state key="normal" image="health_icon"/>
+                                                                <connections>
+                                                                    <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="6ZM-Qc-wNn"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1295,6 +1304,9 @@
                         <outlet property="selfHealthBar" destination="YJG-Qz-LaR" id="cGc-zg-qoZ"/>
                         <outlet property="selfNameLabel" destination="x50-Kh-R0C" id="0qn-sj-7rm"/>
                         <outlet property="selfTimeBar" destination="a7S-I1-VEs" id="7mh-Jo-ssR"/>
+                        <outlet property="skillButton0" destination="Sd5-RZ-nUY" id="vrg-GK-NjS"/>
+                        <outlet property="skillButton1" destination="Rfm-0s-GsX" id="4ns-C5-akK"/>
+                        <outlet property="skillButton2" destination="NZ0-kl-kXt" id="1xM-fQ-wmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2o3-Gg-Ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>

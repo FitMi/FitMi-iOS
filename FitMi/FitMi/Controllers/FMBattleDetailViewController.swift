@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class FMBattleDetailViewController: FMViewController {
 
@@ -33,12 +34,17 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfHealthMax: Int = 0
 	fileprivate var selfHealth: Int = 0
 	
+	@IBOutlet var skillButton0: UIButton!
+	@IBOutlet var skillButton1: UIButton!
+	@IBOutlet var skillButton2: UIButton!
+	
 	fileprivate var moves: [[String: String]]!
 	
 	var opponentID = ""
 	var opponentSkills: [FMSkill]!
+	var selfSkills: [FMSkill]!
 	
-	fileprivate var opponenetData: JSON!
+	fileprivate var opponentData: JSON!
 	
 	
 	
@@ -50,16 +56,19 @@ class FMBattleDetailViewController: FMViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		
 		self.loadOpponentData(completion: {
 			data in
 			if let json = data {
-				self.opponenetData = json
+				self.opponentData = json
 				self.refreshView()
 				self.activityIndicator.stopAnimating()
 				self.battleView.isUserInteractionEnabled = true
 				UIView.animate(withDuration: 0.5, animations: {
 					self.battleView.alpha = 1
+				})
+				
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+					self.strikeWithSkill(skill: self.getOpponentSkills().first!, fromSelf: true)
 				})
 			}
 		})
@@ -74,6 +83,11 @@ class FMBattleDetailViewController: FMViewController {
 		self.secondaryImageView.animationRepeatCount = 3
 	}
 	
+	@IBAction func skillButtonDidClick(sender: UIButton) {
+		let skill = self.selfSkills[sender.tag]
+		self.strikeWithSkill(skill: skill, fromSelf: true)
+	}
+	
 	fileprivate func loadOpponentData(completion: @escaping ((_ data: JSON?) -> Void)) {
 		FMNetworkManager.sharedManager.getUser(userFbId: self.opponentID, completion: {
 			error, data in
@@ -81,12 +95,9 @@ class FMBattleDetailViewController: FMViewController {
 		})
 	}
 	
-	fileprivate func loadFake() -> JSON {
-		let str = "{\"_id\": \"object ID\",\"username\": \"Jason\",\"spritename\": \"sprite name\",\"facebookToken\": \"Facebook access token\",\"facebookId\": \"100003031938297\",\"__v\": 0,\"strength\": 200,\"stamina\": 132,\"agility\": 123,\"health\": 190,\"level\": 14,\"skillInUse\": [\"skill-D4D534EE-297B-42C3-B8CA-77906414B14B\", \"skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE\"],\"updatedAt\": \"2016-10-20T15:12:08.240Z\",\"lastCombatTime\": \"2016-10-20T15:12:08.240Z\",\"createdAt\": \"2016-10-20T15:12:08.240Z\"}"
-		return JSON.parse(str)
-	}
-	
 	fileprivate func refreshView() {
+		self.selfSkills = self.getSelfSkills()
+		
 		self.selfNameLabel.text = self.getSelfName()
 		self.selfHealthMax = self.getSelfHealth()
 		self.selfHealth = self.getSelfHealth()
@@ -98,6 +109,12 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentHealth = self.getOpponentHealth()
 		self.opponentHealthBar.setProgress(1, animated: false)
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
+		
+		
+		let array = [self.skillButton0, self.skillButton1, self.skillButton2]
+		for i in 0..<3 {
+			array[i]?.isHidden = !(i < self.selfSkills.count)
+		}
 	}
 	
 	// Move constructor
@@ -116,10 +133,53 @@ class FMBattleDetailViewController: FMViewController {
 			thisMove["attackUser"] = self.getOpponentFacebookId()
 			thisMove["defenceUser"] = self.getSelfFacebookId()
 		}
+		return thisMove
+	}
+	
+	fileprivate func strikeWithSkill(skill: FMSkill, fromSelf: Bool) {
+		let strength = fromSelf ? self.getSelfStrength() : self.getOpponentStrength()
+		let stamina = fromSelf ? self.getSelfStamina() : self.getOpponentStamina()
+		let agility = fromSelf ? self.getSelfAgility() : self.getOpponentAgility()
+		
+		let damage = self.getDamage(strength: strength, skill: skill)
+		let healing = self.getHealing(stamina: stamina, skill: skill)
+		let timeToResume = self.getTimeResume(agility: agility, skill: skill)
+		
+		let thisMove = self.constructMove(attackUserIsSelf: fromSelf, damage: damage, healing: healing, nextResumeTime: timeToResume)
+		
+		if fromSelf {
+			let newHealth = self.selfHealth + healing
+			self.selfHealth = min(newHealth, self.selfHealthMax)
+			let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
+			self.selfHealthBar.setProgress(selfProgress, animated: true)
+			
+			
+			let newOpponentHealth = self.opponentHealth - damage
+			self.opponentHealth = max(newOpponentHealth, 0)
+			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
+			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+		}
 		
 		print(thisMove)
-		
-		return thisMove
+	}
+	
+	// Damage, Healing, RandomTime Calculator
+	fileprivate func getDamage(strength: Int, skill: FMSkill) -> Int {
+		let rand = Double(arc4random() % 100) / 100
+		let damage = Double(strength) * (1 + 0.1 * rand) * skill.strengthFactor / 10
+		return Int(damage)
+	}
+	
+	fileprivate func getHealing(stamina: Int, skill: FMSkill) -> Int {
+		let rand = Double(arc4random() % 100) / 100
+		let healing = Double(stamina) * (1 + 0.1 * rand) * skill.staminaFactor / 10
+		return Int(healing)
+	}
+	
+	fileprivate func getTimeResume(agility: Int, skill: FMSkill) -> Int {
+		let rand = Double(arc4random() % 100) / 100
+		let time = Double(agility) * (1 + 0.1 * rand) * skill.agilityFactor / 10
+		return Int(time)
 	}
 	
 	// Self accessors
@@ -147,31 +207,40 @@ class FMBattleDetailViewController: FMViewController {
 		return FMSpriteStatusManager.sharedManager.sprite.userFacebookID
 	}
 	
+	fileprivate func getSelfSkills() -> [FMSkill] {
+		let skills = FMSpriteStatusManager.sharedManager.sprite.skills
+		var skillArray = [FMSkill]()
+		for skill in skills {
+			skillArray.append(skill)
+		}
+		return skillArray
+	}
+	
 	
 	// JSON accessors
 	
 	fileprivate func getOpponentName() -> String {
-		return self.opponenetData["username"].string!
+		return self.opponentData["username"].string!
 	}
 	
 	fileprivate func getOpponentHealth() -> Int {
-		return self.opponenetData["health"].int!
+		return self.opponentData["health"].int!
 	}
 	
 	fileprivate func getOpponentStamina() -> Int {
-		return self.opponenetData["stamina"].int!
+		return self.opponentData["stamina"].int!
 	}
 	
 	fileprivate func getOpponentStrength() -> Int {
-		return self.opponenetData["strength"].int!
+		return self.opponentData["strength"].int!
 	}
 	
 	fileprivate func getOpponentAgility() -> Int {
-		return self.opponenetData["agility"].int!
+		return self.opponentData["agility"].int!
 	}
 	
 	fileprivate func getOpponentFacebookId() -> String {
-		return self.opponenetData["facebookId"].string!
+		return self.opponentData["facebookId"].string!
 	}
 	
 	fileprivate func getOpponentSkills() -> [FMSkill] {
@@ -181,7 +250,7 @@ class FMBattleDetailViewController: FMViewController {
 		
 		var array = [FMSkill]()
 		
-		for idJSON in self.opponenetData["skillInUse"].array! {
+		for idJSON in self.opponentData["skillInUse"].array! {
 			if let identifier = idJSON.string {
 				let skill = FMDatabaseManager.sharedManager.skill(identifier: identifier)
 				array.append(skill)
