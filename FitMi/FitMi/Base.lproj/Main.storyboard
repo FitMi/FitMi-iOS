@@ -1187,8 +1187,8 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jg-C0-nYE">
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-7.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-Kb-pk2"/>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skill2-brown-7.png" translatesAutoresizingMaskIntoConstraints="NO" id="985-gA-uey"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-Kb-pk2"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="985-gA-uey"/>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1233,19 +1233,19 @@
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cLc-1u-R5q">
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-RZ-nUY">
+                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-RZ-nUY">
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="lLR-66-4Z6"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-0s-GsX">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-0s-GsX">
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="918-QT-8Uf"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-kl-kXt">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-kl-kXt">
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="6ZM-Qc-wNn"/>
@@ -1504,10 +1504,9 @@
     </scenes>
     <resources>
         <image name="bar_border" width="272" height="32"/>
-        <image name="battle-defend-brown-7.png" width="1000" height="333"/>
+        <image name="battle-defend-brown-1" width="1000" height="333"/>
         <image name="health_icon" width="44" height="44"/>
         <image name="ic_explore_48pt" width="48" height="48"/>
         <image name="icon" width="512" height="512"/>
-        <image name="skill2-brown-7.png" width="1000" height="333"/>
     </resources>
 </document>

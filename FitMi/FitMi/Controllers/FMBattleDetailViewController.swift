@@ -19,20 +19,26 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
 	
+	var opponentID = ""
+	fileprivate var opponentData: JSON!
 	
 	@IBOutlet var opponentAvatarImageView: UIImageView!
 	@IBOutlet var opponentNameLabel: UILabel!
 	@IBOutlet var opponentHealthBar: UIProgressView!
 	@IBOutlet var opponentTimeBar: UIProgressView!
+	fileprivate var opponentSkills: [FMSkill]!
 	fileprivate var opponentHealthMax: Int = 0
 	fileprivate var opponentHealth: Int = 0
+	fileprivate var opponentCoolDownPerTimeUnit: Float = 2
 	
 	@IBOutlet var selfAvatarImageView: UIImageView!
 	@IBOutlet var selfNameLabel: UILabel!
 	@IBOutlet var selfHealthBar: UIProgressView!
 	@IBOutlet var selfTimeBar: UIProgressView!
+	fileprivate var selfSkills: [FMSkill]!
 	fileprivate var selfHealthMax: Int = 0
 	fileprivate var selfHealth: Int = 0
+	fileprivate var selfCoolDownPerTimeUnit: Float = 2
 	
 	@IBOutlet var skillButton0: UIButton!
 	@IBOutlet var skillButton1: UIButton!
@@ -40,17 +46,18 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate var moves = [[String: String]]()
 	
-	var opponentID = ""
-	var opponentSkills: [FMSkill]!
-	var selfSkills: [FMSkill]!
+	fileprivate var gameLoopTimer: Timer!
 	
-	fileprivate var opponentData: JSON!
-	
+	fileprivate let coolDownTotal: Float = 100
+	fileprivate var opponentCoolDown: Float = 0
+	fileprivate var selfCoolDown: Float = 0
+	fileprivate var skillButtonArray = [UIButton]()
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.battleView.alpha = 0
+		self.skillButtonArray = [self.skillButton0, self.skillButton1, self.skillButton2]
 		self.configureImageView()
     }
 	
@@ -65,29 +72,85 @@ class FMBattleDetailViewController: FMViewController {
 				self.battleView.isUserInteractionEnabled = true
 				UIView.animate(withDuration: 0.5, animations: {
 					self.battleView.alpha = 1
+				}, completion: {
+					_ in
+					self.startGameLoopTimer()
 				})
-				
-				DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-					self.strikeWithSkill(skill: self.getOpponentSkills().first!, fromSelf: true)
-				})
-				
-				Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.friendAttack), userInfo: nil, repeats: true)
 			}
 		})
 	}
 	
 	private func configureImageView() {
-		self.primaryImageView.animationDuration = 1
 		self.primaryImageView.animationRepeatCount = 1
-		
-		self.secondaryImageView.animationDuration = 1
 		self.secondaryImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
 		self.secondaryImageView.animationRepeatCount = 1
 	}
 	
+	fileprivate func startGameLoopTimer() {
+		if let timer = self.gameLoopTimer {
+			timer.invalidate()
+		}
+		
+		self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateStatePerTimeFrame), userInfo: nil, repeats: true)
+	}
+	
+	func updateStatePerTimeFrame() {
+		//self
+		
+		if self.selfCoolDown != self.coolDownTotal {
+			self.selfCoolDown += self.selfCoolDownPerTimeUnit
+			self.selfCoolDown = min(self.coolDownTotal, self.selfCoolDown)
+			DispatchQueue.main.async {
+				self.selfTimeBar.setProgress(self.selfCoolDown / self.coolDownTotal, animated: false)
+			}
+		} else if !self.skillButton0.isEnabled {
+			DispatchQueue.main.async {
+				for button in self.skillButtonArray {
+					button.isEnabled = true
+				}
+			}
+		}
+		
+		//opponent
+		if self.opponentCoolDown != self.coolDownTotal {
+			self.opponentCoolDown += self.opponentCoolDownPerTimeUnit
+			self.opponentCoolDown = min(self.coolDownTotal, self.opponentCoolDown)
+			DispatchQueue.main.async {
+				self.opponentTimeBar.setProgress(self.opponentCoolDown / self.coolDownTotal, animated: false)
+			}
+		} else {
+			let time = Double(1)
+			self.primaryImageView.animationDuration = time
+			self.secondaryImageView.animationDuration = time
+			self.gameLoopTimer.invalidate()
+			self.friendAttack()
+			DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+				self.opponentCoolDown = 0
+				self.opponentTimeBar.setProgress(0, animated: false)
+				self.startGameLoopTimer()
+			})
+		}
+	}
+	
 	@IBAction func skillButtonDidClick(sender: UIButton) {
+		
+		for button in self.skillButtonArray {
+			button.isEnabled = false
+		}
+		
+		let time = Double(1)
+		self.primaryImageView.animationDuration = time
+		self.secondaryImageView.animationDuration = time
+		self.gameLoopTimer.invalidate()
+		
 		let skill = self.selfSkills[sender.tag]
 		self.strikeWithSkill(skill: skill, fromSelf: true)
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+			self.selfCoolDown = 0
+			self.selfTimeBar.setProgress(0, animated: false)
+			self.startGameLoopTimer()
+		})
 	}
 	
 	func friendAttack() {
@@ -121,9 +184,9 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
 		
 		
-		let array = [self.skillButton0, self.skillButton1, self.skillButton2]
+		
 		for i in 0..<3 {
-			array[i]?.isHidden = !(i < self.selfSkills.count)
+			self.skillButtonArray[i].isHidden = !(i < self.selfSkills.count)
 		}
 	}
 	
