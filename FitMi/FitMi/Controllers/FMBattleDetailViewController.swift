@@ -38,7 +38,7 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var skillButton1: UIButton!
 	@IBOutlet var skillButton2: UIButton!
 	
-	fileprivate var moves: [[String: String]]!
+	fileprivate var moves = [[String: String]]()
 	
 	var opponentID = ""
 	var opponentSkills: [FMSkill]!
@@ -78,11 +78,11 @@ class FMBattleDetailViewController: FMViewController {
 	
 	private func configureImageView() {
 		self.primaryImageView.animationDuration = 1
-		self.primaryImageView.animationRepeatCount = 3
+		self.primaryImageView.animationRepeatCount = 1
 		
 		self.secondaryImageView.animationDuration = 1
 		self.secondaryImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
-		self.secondaryImageView.animationRepeatCount = 3
+		self.secondaryImageView.animationRepeatCount = 1
 	}
 	
 	@IBAction func skillButtonDidClick(sender: UIButton) {
@@ -156,6 +156,7 @@ class FMBattleDetailViewController: FMViewController {
 		let timeToResume = self.getTimeResume(agility: agility, skill: skill)
 		
 		let thisMove = self.constructMove(attackUserIsSelf: fromSelf, damage: damage, healing: healing, nextResumeTime: timeToResume)
+		self.moves.append(thisMove)
 		
 		if fromSelf {
 			let newHealth = self.selfHealth + healing
@@ -168,6 +169,13 @@ class FMBattleDetailViewController: FMViewController {
 			self.opponentHealth = max(newOpponentHealth, 0)
 			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
 			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+			
+			let attackImages = skill.attackSprites()
+			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getOpponentAppearance())
+			
+			self.primaryImageView.animationImages = attackImages
+			self.secondaryImageView.animationImages = defenceImages
+			self.primaryImageView.superview?.bringSubview(toFront: self.primaryImageView)
 		} else {
 			let newOpponentHealth = self.opponentHealth + healing
 			self.opponentHealth = min(newOpponentHealth, self.opponentHealthMax)
@@ -179,9 +187,17 @@ class FMBattleDetailViewController: FMViewController {
 			self.selfHealth = max(newHealth, 0)
 			let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
 			self.selfHealthBar.setProgress(selfProgress, animated: true)
+			
+			let attackImages = skill.attackSprites()
+			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getSelfAppearance())
+			
+			self.primaryImageView.animationImages = defenceImages
+			self.secondaryImageView.animationImages = attackImages
+			self.secondaryImageView.superview?.bringSubview(toFront: self.secondaryImageView)
 		}
 		
-		print(thisMove)
+		self.primaryImageView.startAnimating()
+		self.secondaryImageView.startAnimating()
 	}
 	
 	// Damage, Healing, RandomTime Calculator
@@ -226,6 +242,10 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate func getSelfFacebookId() -> String {
 		return FMSpriteStatusManager.sharedManager.sprite.userFacebookID
+	}
+	
+	fileprivate func getSelfAppearance() -> FMAppearance {
+		return FMSpriteStatusManager.sharedManager.spriteAppearance()
 	}
 	
 	fileprivate func getSelfSkills() -> [FMSkill] {
