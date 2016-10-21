@@ -61,7 +61,13 @@ class FMBattleViewController: FMViewController {
 	override func willMove(toParentViewController parent: UIViewController?) {
 		super.willMove(toParentViewController: parent)
 		
-		self.loadFake()
+		FMNetworkManager.sharedManager.getFriendList(completion: {
+			error, friendList in
+			if error == nil && friendList != nil {
+				self.data = friendList!
+				self.tableView.reloadData()
+			}
+		})
 	}
 	
 	override func didMove(toParentViewController parent: UIViewController?) {
@@ -133,7 +139,7 @@ extension FMBattleViewController: UITableViewDataSource {
 		
 		cell.nameLabel.text = name
 		cell.avatarImageView.image = UIImage(named: "page0Image0")
-		cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["id"])/picture?type=large")!)
+		cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["facebookId"])/picture?type=large")!)
 		cell.levelLabel.text = "lv. \(json["level"])"
 		
 		return cell
