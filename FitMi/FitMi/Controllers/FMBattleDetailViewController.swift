@@ -70,6 +70,8 @@ class FMBattleDetailViewController: FMViewController {
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
 					self.strikeWithSkill(skill: self.getOpponentSkills().first!, fromSelf: true)
 				})
+				
+				Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.friendAttack), userInfo: nil, repeats: true)
 			}
 		})
 	}
@@ -88,6 +90,14 @@ class FMBattleDetailViewController: FMViewController {
 		self.strikeWithSkill(skill: skill, fromSelf: true)
 	}
 	
+	func friendAttack() {
+		if self.opponentSkills != nil {
+			let rand = Int(arc4random()) % self.opponentSkills.count
+			let skill = self.opponentSkills[rand]
+			self.strikeWithSkill(skill: skill, fromSelf: false)
+		}
+	}
+	
 	fileprivate func loadOpponentData(completion: @escaping ((_ data: JSON?) -> Void)) {
 		FMNetworkManager.sharedManager.getUser(userFbId: self.opponentID, completion: {
 			error, data in
@@ -97,13 +107,13 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate func refreshView() {
 		self.selfSkills = self.getSelfSkills()
-		
 		self.selfNameLabel.text = self.getSelfName()
 		self.selfHealthMax = self.getSelfHealth()
 		self.selfHealth = self.getSelfHealth()
 		self.selfHealthBar.setProgress(1, animated: false)
 		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
 		
+		self.opponentSkills = self.getOpponentSkills()
 		self.opponentNameLabel.text = self.getOpponentName()
 		self.opponentHealthMax = self.getOpponentHealth()
 		self.opponentHealth = self.getOpponentHealth()
@@ -158,6 +168,17 @@ class FMBattleDetailViewController: FMViewController {
 			self.opponentHealth = max(newOpponentHealth, 0)
 			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
 			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+		} else {
+			let newOpponentHealth = self.opponentHealth + healing
+			self.opponentHealth = min(newOpponentHealth, self.opponentHealthMax)
+			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
+			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+			
+			
+			let newHealth = self.selfHealth - damage
+			self.selfHealth = max(newHealth, 0)
+			let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
+			self.selfHealthBar.setProgress(selfProgress, animated: true)
 		}
 		
 		print(thisMove)
