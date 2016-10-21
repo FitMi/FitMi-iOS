@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import FBSDKShareKit
 
 class FMExerciseViewController: FMViewController {
 
@@ -161,6 +162,16 @@ class FMExerciseViewController: FMViewController {
 			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
 				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 160
 				self.view.layoutIfNeeded()
+
+                // Initialise share content
+                let shareContent = FBSDKShareLinkContent.init()
+                shareContent.contentURL = URL(string: "https://m.facebook.com/fitmi.health")
+                // Initialise Facebook share button
+                let buttonFacebookShare = FBSDKShareButton.init()
+                buttonFacebookShare.shareContent = shareContent
+                buttonFacebookShare.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 105)
+                self.view.addSubview(buttonFacebookShare)
+                
 			}, completion: nil)
 		})
 	}
@@ -303,5 +314,15 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
             
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage!)!)
     }
 }
