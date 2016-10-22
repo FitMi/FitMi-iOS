@@ -53,10 +53,37 @@ class FMBattleViewController: FMViewController {
 	override func willMove(toParentViewController parent: UIViewController?) {
 		super.willMove(toParentViewController: parent)
 		
+		if self.data == nil || self.data?.count == 0 {
+			let indicatorView = UILabel()
+			indicatorView.text = "Loading Friends..."
+			indicatorView.font = UIFont(name: "Pokemon Pixel Font", size: 20)
+			indicatorView.textAlignment = .center
+			
+			self.tableView.backgroundView = indicatorView
+		}
+		
+		let prefs = UserDefaults.standard
+		if prefs.string(forKey: "jwt") == nil {
+			let indicatorView = self.tableView.backgroundView as! UILabel
+			self.data = nil
+			indicatorView.isHidden = false
+			indicatorView.text = "Please login to Facebook in Settings page."
+			self.tableView.reloadData()
+			return
+		}
+		
+		
 		FMNetworkManager.sharedManager.getFriendList(completion: {
 			error, friendList in
 			if error == nil && friendList != nil {
 				self.data = friendList!
+				if let indicator = self.tableView.backgroundView as? UILabel {
+					if self.data?.count == 0 {
+						indicator.text = "None of your Facebook friends is on FitMi"
+					} else {
+						indicator.isHidden = true
+					}
+				}
 				self.tableView.reloadData()
 			}
 		})

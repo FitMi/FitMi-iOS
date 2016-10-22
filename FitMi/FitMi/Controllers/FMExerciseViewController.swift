@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import FBSDKShareKit
 
 class FMExerciseViewController: FMViewController {
 
@@ -19,7 +20,9 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var statusPanelTitleLabel: UILabel!
 	@IBOutlet var spriteView: SKView!
 	@IBOutlet var highlightBackground: UIButton!
-	
+    
+	@IBOutlet weak var buttonFacebookShare: FBSDKShareButton!
+    
 	@IBOutlet var buttonStartExercise: UIButton!
 	@IBOutlet var buttonEndExercise: UIButton!
 	
@@ -88,6 +91,8 @@ class FMExerciseViewController: FMViewController {
 		self.buttonStartExercise.isEnabled = true
 		self.buttonEndExercise.alpha = buttonAlphaDisabled
 		self.buttonEndExercise.isEnabled = false
+        self.buttonFacebookShare.isHidden = true
+        self.buttonFacebookShare.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -161,7 +166,17 @@ class FMExerciseViewController: FMViewController {
 			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
 				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 160
 				self.view.layoutIfNeeded()
-			}, completion: nil)
+
+                // Initialise share content
+                let shareContent = FBSDKShareLinkContent.init()
+                shareContent.contentURL = URL(string: "https://m.facebook.com/fitmi.health")
+                // Initialise Facebook share button
+                self.buttonFacebookShare.isHidden = false
+                self.buttonFacebookShare.isEnabled = true
+                self.buttonFacebookShare.shareContent = shareContent
+                self.buttonFacebookShare.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 105)
+                
+            }, completion: nil)
 		})
 	}
 	
@@ -169,6 +184,8 @@ class FMExerciseViewController: FMViewController {
 		UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
 			self.spriteView.alpha = 1
 			self.highlightBackground.alpha = 0
+            self.buttonFacebookShare.isHidden = true
+            self.buttonFacebookShare.isEnabled = false
 		}, completion: {
 			_ in
 			self.highlightBackground.isHidden = true
@@ -180,7 +197,7 @@ class FMExerciseViewController: FMViewController {
 		UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
 			self.statusPanelViewTopConstraint.constant = 40
 			self.view.layoutIfNeeded()
-			}, completion: nil)
+        }, completion: nil)
 	}
 	
 	
@@ -303,5 +320,15 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
             
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage!)!)
     }
 }
