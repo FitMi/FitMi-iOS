@@ -268,7 +268,7 @@ class FMSpriteStatusManager: NSObject {
 	}
 	
 	func currentHP() -> Int {
-		let lastState = self.sprite.states.first
+		let lastState = self.sprite.states.last
 		return lastState == nil ? 0 : lastState!.health
 	}
 	
