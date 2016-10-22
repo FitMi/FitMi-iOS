@@ -238,28 +238,28 @@ class FMSpriteStatusManager: NSObject {
 	// -------------- current data getter ---------------
 	
 	func currentStrength() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.strength
+		let lastState = self.sprite.states.last
+		return lastState == nil ? 0 : lastState!.strength
 	}
 	
 	func currentStamina() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.stamina
+		let lastState = self.sprite.states.last
+		return lastState == nil ? 0 : lastState!.stamina
 	}
 	
 	func currentAgility() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.agility
+		let lastState = self.sprite.states.last
+		return lastState == nil ? 0 : lastState!.agility
 	}
 	
 	func currentExperience() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.experience
+		let lastState = self.sprite.states.last
+		return lastState == nil ? 0 : lastState!.experience
 	}
 	
 	func currentLevel() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.level
+		let lastState = self.sprite.states.last
+		return lastState == nil ? 0 : lastState!.level
 	}
 	
 	func currentMood() -> Int {
@@ -268,8 +268,8 @@ class FMSpriteStatusManager: NSObject {
 	}
 	
 	func currentHP() -> Int {
-		let firstState = self.sprite.states.first
-		return firstState == nil ? 0 : firstState!.health
+		let lastState = self.sprite.states.first
+		return lastState == nil ? 0 : lastState!.health
 	}
 	
 	// -------------- data setter ---------------

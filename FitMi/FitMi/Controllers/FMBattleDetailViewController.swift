@@ -31,7 +31,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var opponentSkills: [FMSkill]!
 	fileprivate var opponentHealthMax: Int = 0
 	fileprivate var opponentHealth: Int = 0
-	fileprivate var opponentCoolDownPerTimeUnit: Float = 0.5
+	fileprivate var opponentCoolDownPerTimeUnit: Float = 1
 	
 	@IBOutlet var selfAvatarImageView: UIImageView!
 	@IBOutlet var selfNameLabel: UILabel!
@@ -221,6 +221,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.selfHealth = self.getSelfHealth()
 		self.selfHealthBar.setProgress(1, animated: false)
 		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
+		self.selfCoolDownPerTimeUnit = self.getTimeResume(agility: self.getSelfAgility(), skill: self.selfSkills.first!)
 		
 		self.opponentSkills = self.getOpponentSkills()
 		self.opponentNameLabel.text = self.getOpponentName()
@@ -228,7 +229,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentHealth = self.getOpponentHealth()
 		self.opponentHealthBar.setProgress(1, animated: false)
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
-		
+		self.opponentCoolDownPerTimeUnit = self.getTimeResume(agility: self.getOpponentAgility(), skill: self.opponentSkills.first!)
 		
 		
 		for i in 0..<3 {
@@ -244,7 +245,7 @@ class FMBattleDetailViewController: FMViewController {
 	
 	// Move constructor
 	// nextResumeTime in ms
-	fileprivate func constructMove(attackUserIsSelf: Bool, damage: Int, healing: Int, nextResumeTime: Int) -> [String: String] {
+	fileprivate func constructMove(attackUserIsSelf: Bool, damage: Int, healing: Int, nextResumeTime: Float) -> [String: String] {
 		var thisMove = [String: String]()
 		thisMove["damage"] = "\(damage)"
 		thisMove["healing"] = "\(healing)"
@@ -286,6 +287,8 @@ class FMBattleDetailViewController: FMViewController {
 			let attackImages = skill.attackSprites()
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getOpponentAppearance())
 			
+			self.selfCoolDownPerTimeUnit = timeToResume
+			
 			self.primaryImageView.animationImages = attackImages
 			self.secondaryImageView.animationImages = defenceImages
 			self.primaryImageView.superview?.bringSubview(toFront: self.primaryImageView)
@@ -297,13 +300,13 @@ class FMBattleDetailViewController: FMViewController {
 			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
 			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
 			
-			
 			let newHealth = self.selfHealth - damage
 			self.selfHealth = max(newHealth, 0)
 			
-			
 			let attackImages = skill.attackSprites()
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getSelfAppearance())
+			
+			self.opponentCoolDownPerTimeUnit = timeToResume
 			
 			self.primaryImageView.animationImages = defenceImages
 			self.secondaryImageView.animationImages = attackImages
@@ -337,10 +340,10 @@ class FMBattleDetailViewController: FMViewController {
 		return Int(healing)
 	}
 	
-	fileprivate func getTimeResume(agility: Int, skill: FMSkill) -> Int {
-		let rand = Double(arc4random() % 100) / 100
-		let time = Double(agility) * (1 + 0.1 * rand) * skill.agilityFactor / 10
-		return Int(time)
+	fileprivate func getTimeResume(agility: Int, skill: FMSkill) -> Float {
+		let rand = Float(arc4random() % 100) / 100
+		let time = Float(agility) * (1 + 0.1 * rand) * Float(skill.agilityFactor) / 200
+		return time
 	}
 	
 	// Self accessors
