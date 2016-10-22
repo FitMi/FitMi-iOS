@@ -16,6 +16,9 @@ class FMExerciseViewController: FMViewController {
 	private static var defaultController: FMExerciseViewController?
 	
 	@IBOutlet var statusPanelViewTopConstraint: NSLayoutConstraint!
+	@IBOutlet var stackViewButtonHeightConstraint: NSLayoutConstraint!
+	@IBOutlet var stackViewButtonBottomConstraint: NSLayoutConstraint!
+	
 	@IBOutlet var statusPanelView: UIView!
 	@IBOutlet var statusPanelTitleContainer: UIView!
 	@IBOutlet var statusPanelTitleLabel: UILabel!
@@ -30,8 +33,6 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelStepCount: UILabel!
 	@IBOutlet var labelDistance: UILabel!
 	@IBOutlet var labelFlights: UILabel!
-	
-	@IBOutlet var tap: UITapGestureRecognizer!
     
     var mainScene = FMExerciseScene()
     
@@ -77,8 +78,6 @@ class FMExerciseViewController: FMViewController {
 			
 			self.spriteView.ignoresSiblingOrder = true
 		}
-		
-		self.view.isUserInteractionEnabled = true
 	}
 	
     override func viewDidLoad() {
@@ -91,8 +90,6 @@ class FMExerciseViewController: FMViewController {
 		self.buttonStartExercise.isEnabled = true
 		self.buttonEndExercise.alpha = buttonAlphaDisabled
 		self.buttonEndExercise.isEnabled = false
-        self.buttonFacebookShare.isHidden = true
-        self.buttonFacebookShare.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -164,18 +161,15 @@ class FMExerciseViewController: FMViewController {
 			_ in
 			self.view.setNeedsLayout()
 			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
-				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 160
+				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 200
+				self.stackViewButtonHeightConstraint.constant = 50
+				self.stackViewButtonBottomConstraint.constant = 15
 				self.view.layoutIfNeeded()
-                
-                self.buttonFacebookShare.isHidden = false
-                self.buttonFacebookShare.isEnabled = true
-                self.buttonFacebookShare.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 105)
-                self.buttonFacebookShare.addTarget(self, action: #selector(self.facebookShare), for: .touchUpInside)
             }, completion: nil)
 		})
 	}
     
-    func facebookShare() {
+    @IBAction func facebookShare() {
         let graphProperties = ["og:type": "fitness.course",
                                "og:title": "Congratulation!",
                                "fitness:distance:value": "1000",
@@ -201,8 +195,6 @@ class FMExerciseViewController: FMViewController {
 		UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
 			self.spriteView.alpha = 1
 			self.highlightBackground.alpha = 0
-            self.buttonFacebookShare.isHidden = true
-            self.buttonFacebookShare.isEnabled = false
 		}, completion: {
 			_ in
 			self.highlightBackground.isHidden = true
@@ -212,6 +204,8 @@ class FMExerciseViewController: FMViewController {
 		
 		self.view.setNeedsLayout()
 		UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
+			self.stackViewButtonHeightConstraint.constant = 0
+			self.stackViewButtonBottomConstraint.constant = 5
 			self.statusPanelViewTopConstraint.constant = 40
 			self.view.layoutIfNeeded()
         }, completion: nil)
@@ -229,7 +223,6 @@ class FMExerciseViewController: FMViewController {
 	}
 
     @IBAction func startExercise(_ sender: AnyObject) {
-		self.tap.isEnabled = false
 		self.buttonStartExercise.isEnabled = false
 		self.buttonStartExercise.alpha = buttonAlphaDisabled
 		self.buttonEndExercise.isEnabled = true
@@ -242,7 +235,6 @@ class FMExerciseViewController: FMViewController {
     @IBAction func endExercise(_ sender: AnyObject) {
         self.mainScene.animateNormalSprite()
         motionStatusManager.stopMotionUpdates()
-		self.tap.isEnabled = true
 		self.buttonStartExercise.isEnabled = true
 		self.buttonStartExercise.alpha = 1
 		self.buttonEndExercise.isEnabled = false
@@ -320,7 +312,6 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: {
                 (_) in
                 // Stop Exercise
-                self.tap.isEnabled = true
                 self.buttonStartExercise.isEnabled = true
                 self.buttonStartExercise.alpha = 1
                 self.buttonEndExercise.isEnabled = false

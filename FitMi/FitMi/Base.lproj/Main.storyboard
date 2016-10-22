@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -721,21 +721,48 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-jE-4J6">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkQ-B1-JKI">
+                                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPN-BN-xbY">
+                                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El6-DN-8UR">
+                                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="IS9-wP-1jG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
+                                        <state key="normal" title="SHARE TO FACEBOOK">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookShare" destination="Ywc-kV-1iz" eventType="touchUpInside" id="vdd-Wc-6xP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="8YC-Pa-oA1"/>
+                                    <constraint firstAttribute="trailing" secondItem="El6-DN-8UR" secondAttribute="trailing" constant="15" id="196-az-cEt"/>
+                                    <constraint firstAttribute="height" constant="320" id="8YC-Pa-oA1"/>
+                                    <constraint firstItem="El6-DN-8UR" firstAttribute="top" secondItem="d7V-Vh-eZU" secondAttribute="bottom" constant="15" id="Anj-hY-YCN"/>
+                                    <constraint firstItem="El6-DN-8UR" firstAttribute="leading" secondItem="jk7-0T-r2c" secondAttribute="leading" constant="15" id="LiT-zr-0te"/>
                                     <constraint firstItem="d7V-Vh-eZU" firstAttribute="leading" secondItem="jk7-0T-r2c" secondAttribute="leading" constant="20" id="OCl-XQ-Y4e"/>
                                     <constraint firstItem="d7V-Vh-eZU" firstAttribute="top" secondItem="jk7-0T-r2c" secondAttribute="top" constant="40" id="T1R-yl-rRN"/>
+                                    <constraint firstAttribute="bottom" secondItem="El6-DN-8UR" secondAttribute="bottom" constant="5" id="Vnn-ed-ITe"/>
                                     <constraint firstAttribute="trailing" secondItem="d7V-Vh-eZU" secondAttribute="trailing" constant="20" id="vRH-yc-iI6"/>
-                                    <constraint firstAttribute="bottom" secondItem="d7V-Vh-eZU" secondAttribute="bottom" constant="15" id="vZn-46-e4U"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="dJM-q9-MrG" appends="YES" id="SXL-NU-fPc"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
                                 <subviews>
@@ -753,11 +780,6 @@
                                     <constraint firstItem="hmX-4b-wH4" firstAttribute="leading" secondItem="DVp-27-Lbr" secondAttribute="leading" constant="10" id="k23-jU-kUG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-0e-kSA">
-                                <frame key="frameInset" minX="149" minY="368" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -781,7 +803,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonEndExercise" destination="Otp-E5-1l3" id="ysN-8o-W8t"/>
-                        <outlet property="buttonFacebookShare" destination="TPb-0e-kSA" id="w2z-7o-aNg"/>
+                        <outlet property="buttonFacebookShare" destination="El6-DN-8UR" id="wBA-3m-ngk"/>
                         <outlet property="buttonStartExercise" destination="FUO-Dw-SUB" id="xug-s0-ZQ7"/>
                         <outlet property="highlightBackground" destination="RYI-FL-HNI" id="4qb-HI-LUK"/>
                         <outlet property="labelDistance" destination="9Bw-Xi-jRf" id="ksQ-NY-ud4"/>
@@ -789,19 +811,15 @@
                         <outlet property="labelFlights" destination="4eN-uC-pak" id="4Ze-hv-r68"/>
                         <outlet property="labelStepCount" destination="F9K-tP-w9S" id="Hi5-Pp-D7J"/>
                         <outlet property="spriteView" destination="HUT-dN-j7h" id="uRG-gS-Akt"/>
+                        <outlet property="stackViewButtonBottomConstraint" destination="Vnn-ed-ITe" id="MHB-nG-xFS"/>
+                        <outlet property="stackViewButtonHeightConstraint" destination="IS9-wP-1jG" id="b7T-aZ-hAC"/>
                         <outlet property="statusPanelTitleContainer" destination="DVp-27-Lbr" id="vGL-DR-XV6"/>
                         <outlet property="statusPanelTitleLabel" destination="hmX-4b-wH4" id="BB3-D4-GBO"/>
                         <outlet property="statusPanelView" destination="jk7-0T-r2c" id="Wia-62-uQn"/>
                         <outlet property="statusPanelViewTopConstraint" destination="9Cv-bW-kvP" id="aG0-Lk-gkg"/>
-                        <outlet property="tap" destination="dJM-q9-MrG" id="hYE-6f-A9n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-Md-Ogw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dJM-q9-MrG">
-                    <connections>
-                        <action selector="reset:" destination="Ywc-kV-1iz" id="LDw-wW-UdS"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="762.36881559220399"/>
         </scene>
