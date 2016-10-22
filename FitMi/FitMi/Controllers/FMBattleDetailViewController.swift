@@ -387,7 +387,7 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func getSelfSkills() -> [FMSkill] {
-		let skills = FMSpriteStatusManager.sharedManager.sprite.skills
+		let skills = FMSpriteStatusManager.sharedManager.sprite.skillsInUse
 		var skillArray = [FMSkill]()
 		for skill in skills {
 			skillArray.append(skill)
