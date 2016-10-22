@@ -29,7 +29,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var opponentSkills: [FMSkill]!
 	fileprivate var opponentHealthMax: Int = 0
 	fileprivate var opponentHealth: Int = 0
-	fileprivate var opponentCoolDownPerTimeUnit: Float = 2
+	fileprivate var opponentCoolDownPerTimeUnit: Float = 0.5
 	
 	@IBOutlet var selfAvatarImageView: UIImageView!
 	@IBOutlet var selfNameLabel: UILabel!
@@ -38,7 +38,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfSkills: [FMSkill]!
 	fileprivate var selfHealthMax: Int = 0
 	fileprivate var selfHealth: Int = 0
-	fileprivate var selfCoolDownPerTimeUnit: Float = 2
+	fileprivate var selfCoolDownPerTimeUnit: Float = 0.5
 	
 	@IBOutlet var skillButton0: UIButton!
 	@IBOutlet var skillButton1: UIButton!
@@ -105,9 +105,7 @@ class FMBattleDetailViewController: FMViewController {
 			}
 		} else if !self.skillButton0.isEnabled {
 			DispatchQueue.main.async {
-				for button in self.skillButtonArray {
-					button.isEnabled = true
-				}
+				self.setSkillButtonsEnabled(enabled: true)
 			}
 		}
 		
@@ -123,8 +121,13 @@ class FMBattleDetailViewController: FMViewController {
 			self.primaryImageView.animationDuration = time
 			self.secondaryImageView.animationDuration = time
 			self.gameLoopTimer.invalidate()
+			DispatchQueue.main.async {
+				self.setSkillButtonsEnabled(enabled: false)
+			}
 			self.friendAttack()
 			DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+				self.updateHealth()
+				self.setSkillButtonsEnabled(enabled: self.selfTimeBar.progress == 1)
 				self.opponentCoolDown = 0
 				self.opponentTimeBar.setProgress(0, animated: false)
 				self.startGameLoopTimer()
@@ -134,9 +137,7 @@ class FMBattleDetailViewController: FMViewController {
 	
 	@IBAction func skillButtonDidClick(sender: UIButton) {
 		
-		for button in self.skillButtonArray {
-			button.isEnabled = false
-		}
+		self.setSkillButtonsEnabled(enabled: false)
 		
 		let time = Double(1)
 		self.primaryImageView.animationDuration = time
@@ -145,8 +146,8 @@ class FMBattleDetailViewController: FMViewController {
 		
 		let skill = self.selfSkills[sender.tag]
 		self.strikeWithSkill(skill: skill, fromSelf: true)
-		
 		DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+			self.updateHealth()
 			self.selfCoolDown = 0
 			self.selfTimeBar.setProgress(0, animated: false)
 			self.startGameLoopTimer()
@@ -190,6 +191,12 @@ class FMBattleDetailViewController: FMViewController {
 		}
 	}
 	
+	fileprivate func setSkillButtonsEnabled(enabled: Bool) {
+		for button in self.skillButtonArray {
+			button.isEnabled = enabled
+		}
+	}
+	
 	// Move constructor
 	// nextResumeTime in ms
 	fileprivate func constructMove(attackUserIsSelf: Bool, damage: Int, healing: Int, nextResumeTime: Int) -> [String: String] {
@@ -230,8 +237,6 @@ class FMBattleDetailViewController: FMViewController {
 			
 			let newOpponentHealth = self.opponentHealth - damage
 			self.opponentHealth = max(newOpponentHealth, 0)
-			let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
-			self.opponentHealthBar.setProgress(opponentProgress, animated: true)
 			
 			let attackImages = skill.attackSprites()
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getOpponentAppearance())
@@ -248,8 +253,7 @@ class FMBattleDetailViewController: FMViewController {
 			
 			let newHealth = self.selfHealth - damage
 			self.selfHealth = max(newHealth, 0)
-			let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
-			self.selfHealthBar.setProgress(selfProgress, animated: true)
+			
 			
 			let attackImages = skill.attackSprites()
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getSelfAppearance())
@@ -261,6 +265,14 @@ class FMBattleDetailViewController: FMViewController {
 		
 		self.primaryImageView.startAnimating()
 		self.secondaryImageView.startAnimating()
+	}
+	
+	fileprivate func updateHealth() {
+		let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
+		self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+		
+		let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
+		self.selfHealthBar.setProgress(selfProgress, animated: true)
 	}
 	
 	// Damage, Healing, RandomTime Calculator
