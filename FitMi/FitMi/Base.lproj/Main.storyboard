@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -1282,15 +1282,44 @@
                                     <constraint firstItem="d4T-Uv-455" firstAttribute="centerX" secondItem="vev-ue-V7F" secondAttribute="centerX" id="nGN-DJ-KKz"/>
                                 </constraints>
                             </view>
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="773-bC-U6m">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU LOSE !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-s6-CnY">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA2-Wj-yHz">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
+                                        <state key="normal" title="LEAVE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="o6c-Hh-TSi" eventType="touchUpInside" id="Oxt-eh-bpn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4ZN-s6-CnY" firstAttribute="centerY" secondItem="773-bC-U6m" secondAttribute="centerY" priority="1" constant="-80" id="DrR-86-qq7"/>
+                                    <constraint firstItem="4ZN-s6-CnY" firstAttribute="centerX" secondItem="773-bC-U6m" secondAttribute="centerX" id="QfP-lN-1P4"/>
+                                    <constraint firstItem="uA2-Wj-yHz" firstAttribute="centerX" secondItem="4ZN-s6-CnY" secondAttribute="centerX" id="iiA-FL-7t1"/>
+                                    <constraint firstItem="uA2-Wj-yHz" firstAttribute="top" secondItem="4ZN-s6-CnY" secondAttribute="bottom" constant="160" id="yXD-xf-uua"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20784313725490194" green="0.55294117647058827" blue="0.58823529411764708" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="E6n-Cw-sOh" firstAttribute="centerY" secondItem="yLn-Pb-ARH" secondAttribute="centerY" id="0oF-CM-hV6"/>
+                            <constraint firstItem="SxG-za-NSX" firstAttribute="top" secondItem="773-bC-U6m" secondAttribute="bottom" id="11V-LK-JMk"/>
                             <constraint firstItem="SxG-za-NSX" firstAttribute="top" secondItem="lqe-oJ-Td2" secondAttribute="bottom" constant="20" id="7bo-4A-sUw"/>
                             <constraint firstAttribute="trailing" secondItem="vev-ue-V7F" secondAttribute="trailing" id="7kg-TJ-Pq5"/>
+                            <constraint firstAttribute="trailing" secondItem="773-bC-U6m" secondAttribute="trailing" id="EOS-Se-e6j"/>
                             <constraint firstItem="SxG-za-NSX" firstAttribute="top" secondItem="vev-ue-V7F" secondAttribute="bottom" id="Gf1-su-b0x"/>
                             <constraint firstItem="vev-ue-V7F" firstAttribute="leading" secondItem="yLn-Pb-ARH" secondAttribute="leading" id="Gnw-J2-gHI"/>
                             <constraint firstItem="lqe-oJ-Td2" firstAttribute="centerX" secondItem="yLn-Pb-ARH" secondAttribute="centerX" id="I7D-r6-9dj"/>
+                            <constraint firstItem="773-bC-U6m" firstAttribute="top" secondItem="imS-Uw-yoe" secondAttribute="bottom" id="YlK-RI-nRV"/>
+                            <constraint firstItem="773-bC-U6m" firstAttribute="leading" secondItem="yLn-Pb-ARH" secondAttribute="leading" id="gjJ-z5-dM6"/>
                             <constraint firstItem="vev-ue-V7F" firstAttribute="top" secondItem="yLn-Pb-ARH" secondAttribute="top" id="hts-0h-3pf"/>
                             <constraint firstItem="E6n-Cw-sOh" firstAttribute="centerX" secondItem="yLn-Pb-ARH" secondAttribute="centerX" id="wNj-z3-ZAJ"/>
                         </constraints>
@@ -1305,6 +1334,8 @@
                         <outlet property="opponentNameLabel" destination="fnL-9U-nib" id="mYI-lz-UQJ"/>
                         <outlet property="opponentTimeBar" destination="3fF-wj-NSZ" id="h5q-fF-Vfx"/>
                         <outlet property="primaryImageView" destination="985-gA-uey" id="D5Y-m0-4jl"/>
+                        <outlet property="resultLabel" destination="4ZN-s6-CnY" id="wYV-cP-O6H"/>
+                        <outlet property="resultView" destination="773-bC-U6m" id="dnq-Hz-6vo"/>
                         <outlet property="secondaryImageView" destination="ZlF-Kb-pk2" id="TUU-SR-5Ph"/>
                         <outlet property="selfAvatarImageView" destination="1Br-Lj-DaV" id="em6-SB-6ru"/>
                         <outlet property="selfHealthBar" destination="YJG-Qz-LaR" id="cGc-zg-qoZ"/>

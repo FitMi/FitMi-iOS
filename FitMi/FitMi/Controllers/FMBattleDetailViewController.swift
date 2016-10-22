@@ -15,6 +15,8 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet var escapeButton: UIButton!
 	@IBOutlet var battleView: UIView!
+	@IBOutlet var resultView: UIView!
+	@IBOutlet var resultLabel: UILabel!
 	
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
@@ -38,7 +40,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfSkills: [FMSkill]!
 	fileprivate var selfHealthMax: Int = 0
 	fileprivate var selfHealth: Int = 0
-	fileprivate var selfCoolDownPerTimeUnit: Float = 0.5
+	fileprivate var selfCoolDownPerTimeUnit: Float = 1
 	
 	@IBOutlet var skillButton0: UIButton!
 	@IBOutlet var skillButton1: UIButton!
@@ -125,13 +127,49 @@ class FMBattleDetailViewController: FMViewController {
 				self.setSkillButtonsEnabled(enabled: false)
 			}
 			self.friendAttack()
+			
+			
 			DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
 				self.updateHealth()
-				self.setSkillButtonsEnabled(enabled: self.selfTimeBar.progress == 1)
 				self.opponentCoolDown = 0
 				self.opponentTimeBar.setProgress(0, animated: false)
+				
+				let result = self.isGameOver()
+				if result != 0 {
+					self.showResultScreen(isSelfWin: result == 1)
+					return
+				}
+				
+				self.setSkillButtonsEnabled(enabled: self.selfTimeBar.progress == 1)
 				self.startGameLoopTimer()
 			})
+		}
+	}
+	
+	fileprivate func showResultScreen(isSelfWin: Bool) {
+		self.resultView.isUserInteractionEnabled = true
+		
+		if isSelfWin {
+			self.resultLabel.text = "YOU WIN !"
+		} else {
+			self.resultLabel.text = "YOU LOSE !"
+		}
+		
+		UIView.animate(withDuration: 0.3, delay: 0.2, options: [], animations: {
+			self.resultView.alpha = 0.95
+		}, completion: nil)
+	}
+	
+	// 0 means not over
+	// -1 means I win
+	// 1 means opponent wins
+	fileprivate func isGameOver() -> Int {
+		if self.selfHealth == 0 {
+			return -1
+		} else if self.opponentHealth == 0 {
+			return 1
+		} else {
+			return 0
 		}
 	}
 	
@@ -150,6 +188,13 @@ class FMBattleDetailViewController: FMViewController {
 			self.updateHealth()
 			self.selfCoolDown = 0
 			self.selfTimeBar.setProgress(0, animated: false)
+			
+			let result = self.isGameOver()
+			if result != 0 {
+				self.showResultScreen(isSelfWin: result == 1)
+				return
+			}
+			
 			self.startGameLoopTimer()
 		})
 	}
