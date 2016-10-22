@@ -10,6 +10,7 @@ import UIKit
 import CoreMotion
 import FBSDKShareKit
 import FacebookShare
+import AVFoundation
 
 class FMExerciseViewController: FMViewController {
 
@@ -51,6 +52,8 @@ class FMExerciseViewController: FMViewController {
 	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
     private let statusManager = FMSpriteStatusManager.sharedManager
+    private let finishedSound = URL(fileURLWithPath: Bundle.main.path(forResource: "exercise_finished", ofType: "mp3")!)
+    private var audioPlayer = AVAudioPlayer()
 
 	override func loadView() {
 		super.loadView()
@@ -81,6 +84,13 @@ class FMExerciseViewController: FMViewController {
 			
 			self.spriteView.ignoresSiblingOrder = true
 		}
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: finishedSound)
+            audioPlayer.prepareToPlay()
+        } catch {
+            print("Audio playing error")
+        }
 	}
 	
     override func viewDidLoad() {
@@ -156,7 +166,7 @@ class FMExerciseViewController: FMViewController {
 				databaseManager.getCurrentSprite().exercises.append(record)
 			}
 		}
-
+        audioPlayer.play()
 		self.highlightPanel()
 	}
 	

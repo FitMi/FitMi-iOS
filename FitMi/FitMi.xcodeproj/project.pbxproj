@@ -86,6 +86,9 @@
 		9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */; };
 		9861CEFB1DB0221900D659E4 /* FMWorkoutHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */; };
 		9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */; };
+		98B5343F1DBC006E00CB80B5 /* exercise_finished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98B5343E1DBC006E00CB80B5 /* exercise_finished.mp3 */; };
+		98B534411DBC01B300CB80B5 /* battle_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98B534401DBC01B300CB80B5 /* battle_lose.mp3 */; };
+		98B534431DBC01C100CB80B5 /* battle_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98B534421DBC01C100CB80B5 /* battle_win.mp3 */; };
 		98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */; };
 		98F1A92B1DAFD6560025FC1B /* FMOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1A92A1DAFD6560025FC1B /* FMOnboardViewController.swift */; };
 		98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98F1A92C1DAFE1420025FC1B /* VT323.ttf */; };
@@ -201,6 +204,9 @@
 		9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryViewController.swift; sourceTree = "<group>"; };
 		9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryCell.swift; sourceTree = "<group>"; };
 		9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMWorkoutHistoryCell.xib; sourceTree = "<group>"; };
+		98B5343E1DBC006E00CB80B5 /* exercise_finished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exercise_finished.mp3; sourceTree = "<group>"; };
+		98B534401DBC01B300CB80B5 /* battle_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_lose.mp3; sourceTree = "<group>"; };
+		98B534421DBC01C100CB80B5 /* battle_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_win.mp3; sourceTree = "<group>"; };
 		98BE8B541DABF62100B9CBBA /* FMMotionStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMotionStatusManager.swift; sourceTree = "<group>"; };
 		98F1A92A1DAFD6560025FC1B /* FMOnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardViewController.swift; sourceTree = "<group>"; };
 		98F1A92C1DAFE1420025FC1B /* VT323.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VT323.ttf; sourceTree = "<group>"; };
@@ -471,6 +477,9 @@
 		93A46F5C1DB8CA9B00B4D77C /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				98B534421DBC01C100CB80B5 /* battle_win.mp3 */,
+				98B534401DBC01B300CB80B5 /* battle_lose.mp3 */,
+				98B5343E1DBC006E00CB80B5 /* exercise_finished.mp3 */,
 				93A46F691DB8DDA100B4D77C /* shocked.mp3 */,
 				93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */,
 				93A46F6B1DB8DDA100B4D77C /* touch.mp3 */,
@@ -622,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B534431DBC01C100CB80B5 /* battle_win.mp3 in Resources */,
 				0C75513B1DB6B27E002146FE /* Pokemon.ttf in Resources */,
 				9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */,
 				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
@@ -645,9 +655,11 @@
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
 				93B34DFA1DB409D7005D530E /* defend.atlas in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
+				98B5343F1DBC006E00CB80B5 /* exercise_finished.mp3 in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
 				0C7551351DB55C5C002146FE /* FMExerciseScene.sks in Resources */,
 				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
+				98B534411DBC01B300CB80B5 /* battle_lose.mp3 in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
 				0C070E961DB9346E0095B3A0 /* FMFriendListCell.xib in Resources */,
