@@ -17,7 +17,8 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var battleView: UIView!
 	@IBOutlet var resultView: UIView!
 	@IBOutlet var resultLabel: UILabel!
-	
+    @IBOutlet var expLabel: UILabel!
+
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
 	
@@ -171,8 +172,10 @@ class FMBattleDetailViewController: FMViewController {
         let statusManager = FMSpriteStatusManager.sharedManager
         if isSelfWin {
             statusManager.increaseExperience(exp: 50)
+            expLabel.text = "GET 50 EXP"
         } else {
             statusManager.increaseExperience(exp: 10)
+            expLabel.text = "GET 10 EXP"
         }
     }
 	
