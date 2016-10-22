@@ -289,6 +289,8 @@ class FMBattleDetailViewController: FMViewController {
 			self.primaryImageView.animationImages = attackImages
 			self.secondaryImageView.animationImages = defenceImages
 			self.primaryImageView.superview?.bringSubview(toFront: self.primaryImageView)
+			
+			FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Damage: \(damage), Healing: \(healing)")
 		} else {
 			let newOpponentHealth = self.opponentHealth + healing
 			self.opponentHealth = min(newOpponentHealth, self.opponentHealthMax)
@@ -306,6 +308,8 @@ class FMBattleDetailViewController: FMViewController {
 			self.primaryImageView.animationImages = defenceImages
 			self.secondaryImageView.animationImages = attackImages
 			self.secondaryImageView.superview?.bringSubview(toFront: self.secondaryImageView)
+			
+			FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Damage: \(damage), Healing: \(healing)")
 		}
 		
 		self.primaryImageView.startAnimating()
