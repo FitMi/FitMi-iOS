@@ -55,7 +55,47 @@ class FMHomeViewController: FMViewController {
                 }
             }
         }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
 	}
+    
+    func appMovedToBackground() {
+        // If no token, reject the update
+        if !FMNetworkManager.sharedManager.isTokenAvailable() {
+            return
+        }
+        let prefs = UserDefaults.standard
+        if let lastSyncTime = prefs.object(forKey: "lastSyncTime") as? Date {
+            let interval = Calendar.current.dateComponents([.minute], from: lastSyncTime, to: Date()).minute ?? 0
+            print("Last sync since \(interval)")
+            if interval >= 60 {
+                FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote { (error, success) in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        if success {
+                            print("updated")
+                            prefs.set(Date(), forKey: "lastSyncTime")
+                        }
+                    }
+                }
+            } else {
+                print("Not old enough to sync data.")
+            }
+        } else {
+            FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote { (error, success) in
+                if error != nil {
+                    print(error)
+                } else {
+                    if success {
+                        print("updated")
+                        prefs.set(Date(), forKey: "lastSyncTime")
+                    }
+                }
+            }
+        }
+    }
     
     private func refreshSprite() {
         FMSpriteStatusManager.sharedManager.refreshSprite {success in

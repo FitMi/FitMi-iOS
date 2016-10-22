@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import RealmSwift
+import FacebookCore
 
 class FMNetworkManager: NSObject {
 	static var sharedManager = FMNetworkManager()
@@ -68,6 +69,11 @@ class FMNetworkManager: NSObject {
 			}
 		})
 	}
+    
+    func isTokenAvailable() -> Bool {
+        let prefs = UserDefaults.standard
+        return (prefs.string(forKey: "jwt") != nil) && (AccessToken.current != nil)
+    }
     
     func authenticateWithToken(token: String, completion: @escaping (_ error: Error?, _ jwt: String?) -> Void) {
         let parameters: Parameters = ["token": token]
