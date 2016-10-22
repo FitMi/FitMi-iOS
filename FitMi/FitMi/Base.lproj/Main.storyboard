@@ -607,7 +607,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-FL-HNI">
+                                        <frame key="frameInset" minX="-8" minY="-356" width="375" height="667"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49692307692307691" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="deHighlightPanel" destination="Ywc-kV-1iz" eventType="touchUpInside" id="QUq-cq-RU3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RYI-FL-HNI" secondAttribute="trailing" constant="-8" id="6jZ-ci-dno"/>
+                                    <constraint firstItem="RYI-FL-HNI" firstAttribute="top" secondItem="HUT-dN-j7h" secondAttribute="top" constant="-356" id="9fK-lh-cTk"/>
+                                    <constraint firstItem="RYI-FL-HNI" firstAttribute="leading" secondItem="HUT-dN-j7h" secondAttribute="leading" constant="8" id="QeH-A0-n7m"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
                                 <subviews>
@@ -655,12 +669,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-FL-HNI">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49692307692307691" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="deHighlightPanel" destination="Ywc-kV-1iz" eventType="touchUpInside" id="QUq-cq-RU3"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
@@ -753,28 +761,28 @@
                                     <constraint firstItem="hmX-4b-wH4" firstAttribute="leading" secondItem="DVp-27-Lbr" secondAttribute="leading" constant="10" id="k23-jU-kUG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-0e-kSA">
-                                <frame key="frameInset" minX="149" minY="368" width="81" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-0e-kSA" colorLabel="IBBuiltInLabel-Blue">
+                                <frame key="frameInset" minX="121" minY="368" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.040261444599258116" green="0.070979569987542096" blue="0.97862694300518138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                <state key="normal" title="FACEBOOK SHARE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RYI-FL-HNI" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="3Vy-tE-q9B"/>
                             <constraint firstItem="DVp-27-Lbr" firstAttribute="top" secondItem="U2L-BY-CPQ" secondAttribute="bottom" constant="40" id="9Cv-bW-kvP"/>
                             <constraint firstAttribute="trailing" secondItem="HUT-dN-j7h" secondAttribute="trailing" id="MhQ-XW-fi4"/>
                             <constraint firstItem="NBu-KQ-46g" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="OWm-7Y-q0R"/>
-                            <constraint firstItem="RYI-FL-HNI" firstAttribute="top" secondItem="pnF-eo-036" secondAttribute="top" id="PmG-CZ-9lY"/>
                             <constraint firstAttribute="trailing" secondItem="jk7-0T-r2c" secondAttribute="trailing" constant="30" id="Qnc-wi-Uft"/>
-                            <constraint firstAttribute="trailing" secondItem="RYI-FL-HNI" secondAttribute="trailing" id="R7m-mE-bBg"/>
                             <constraint firstItem="NBu-KQ-46g" firstAttribute="top" secondItem="HUT-dN-j7h" secondAttribute="bottom" id="SZM-MH-mcA"/>
                             <constraint firstAttribute="trailing" secondItem="NBu-KQ-46g" secondAttribute="trailing" id="XHt-OD-r7R"/>
                             <constraint firstItem="DVp-27-Lbr" firstAttribute="centerX" secondItem="jk7-0T-r2c" secondAttribute="centerX" id="e8v-eb-A1j"/>
                             <constraint firstItem="jk7-0T-r2c" firstAttribute="top" secondItem="DVp-27-Lbr" secondAttribute="centerY" id="eoQ-w0-opl"/>
                             <constraint firstItem="HUT-dN-j7h" firstAttribute="top" secondItem="jk7-0T-r2c" secondAttribute="bottom" constant="30" id="h5b-yn-Eb1"/>
                             <constraint firstItem="jk7-0T-r2c" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" constant="30" id="hQl-Vr-wph"/>
-                            <constraint firstItem="0Vj-hy-d9D" firstAttribute="top" secondItem="RYI-FL-HNI" secondAttribute="bottom" id="vDo-QE-lwB"/>
                             <constraint firstItem="HUT-dN-j7h" firstAttribute="leading" secondItem="pnF-eo-036" secondAttribute="leading" id="w2R-iT-Nai"/>
                             <constraint firstItem="0Vj-hy-d9D" firstAttribute="top" secondItem="NBu-KQ-46g" secondAttribute="bottom" id="xj6-kh-eFA"/>
                         </constraints>
