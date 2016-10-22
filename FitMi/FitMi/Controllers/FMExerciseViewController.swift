@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import FBSDKShareKit
+import FacebookShare
 
 class FMExerciseViewController: FMViewController {
 
@@ -21,8 +22,7 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var spriteView: SKView!
 	@IBOutlet var highlightBackground: UIButton!
     
-	@IBOutlet weak var buttonFacebookShare: FBSDKShareButton!
-    
+	@IBOutlet var buttonFacebookShare: UIButton!
 	@IBOutlet var buttonStartExercise: UIButton!
 	@IBOutlet var buttonEndExercise: UIButton!
 	
@@ -166,19 +166,36 @@ class FMExerciseViewController: FMViewController {
 			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
 				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 160
 				self.view.layoutIfNeeded()
-
-                // Initialise share content
-                let shareContent = FBSDKShareLinkContent.init()
-                shareContent.contentURL = URL(string: "https://m.facebook.com/fitmi.health")
-                // Initialise Facebook share button
+                
                 self.buttonFacebookShare.isHidden = false
                 self.buttonFacebookShare.isEnabled = true
-                self.buttonFacebookShare.shareContent = shareContent
                 self.buttonFacebookShare.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 105)
-                
+                self.buttonFacebookShare.addTarget(self, action: #selector(self.facebookShare), for: .touchUpInside)
             }, completion: nil)
 		})
 	}
+    
+    func facebookShare() {
+        let graphProperties = ["og:type": "fitness.course",
+                               "og:title": "Congratulation!",
+                               "fitness:distance:value": "1000",
+                               "fitness:distance:units": "mi",
+                               "fitness:duration:value": "5",
+                               "fitness:duration:units": "s"]
+        let graphObject = FBSDKShareOpenGraphObject(properties: graphProperties)
+        
+        let action = FBSDKShareOpenGraphAction()
+        action.actionType = "fitness.runs"
+        action.setObject(graphObject, forKey: "fitness:course")
+        
+        let content = FBSDKShareOpenGraphContent()
+        content.action = action;
+        content.previewPropertyName = "fitness:course";
+        
+        FMRootViewController.defaultController.addChildViewController(self)
+        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+        self.removeFromParentViewController()
+    }
 	
 	@IBAction func deHighlightPanel() {
 		UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
