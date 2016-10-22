@@ -27,6 +27,7 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var opponentAvatarImageView: UIImageView!
 	@IBOutlet var opponentNameLabel: UILabel!
 	@IBOutlet var opponentHealthBar: UIProgressView!
+	@IBOutlet var opponentHealthLabel: UILabel!
 	@IBOutlet var opponentTimeBar: UIProgressView!
 	fileprivate var opponentSkills: [FMSkill]!
 	fileprivate var opponentHealthMax: Int = 0
@@ -36,6 +37,7 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var selfAvatarImageView: UIImageView!
 	@IBOutlet var selfNameLabel: UILabel!
 	@IBOutlet var selfHealthBar: UIProgressView!
+	@IBOutlet var selfHealthLabel: UILabel!
 	@IBOutlet var selfTimeBar: UIProgressView!
 	fileprivate var selfSkills: [FMSkill]!
 	fileprivate var selfHealthMax: Int = 0
@@ -76,14 +78,15 @@ class FMBattleDetailViewController: FMViewController {
 					self.battleView.alpha = 1
 				}, completion: {
 					_ in
-					self.startGameLoopTimer()
+					self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
 				})
 			}
 		})
 	}
 	
 	override func dismiss() {
-		self.gameLoopTimer?.invalidate()
+		self.gameLoopTimer.invalidate()
+		self.gameLoopTimer = nil
 		super.dismiss()
 	}
 	
@@ -96,9 +99,8 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func startGameLoopTimer() {
 		if let timer = self.gameLoopTimer {
 			timer.invalidate()
+			self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateStatePerTimeFrame), userInfo: nil, repeats: true)
 		}
-		
-		self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateStatePerTimeFrame), userInfo: nil, repeats: true)
 	}
 	
 	func updateStatePerTimeFrame() {
@@ -227,6 +229,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.selfHealthBar.setProgress(1, animated: false)
 		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
 		self.selfCoolDownPerTimeUnit = self.getTimeResume(agility: self.getSelfAgility(), skill: self.selfSkills.first!)
+		self.selfHealthLabel.text = "\(self.selfHealthMax) / \(self.selfHealthMax)"
 		
 		self.opponentSkills = self.getOpponentSkills()
 		self.opponentNameLabel.text = self.getOpponentName()
@@ -235,6 +238,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentHealthBar.setProgress(1, animated: false)
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
 		self.opponentCoolDownPerTimeUnit = self.getTimeResume(agility: self.getOpponentAgility(), skill: self.opponentSkills.first!)
+		self.opponentHealthLabel.text = "\(self.opponentHealthMax) / \(self.opponentHealthMax)"
 		
 		
 		for i in 0..<3 {
@@ -327,9 +331,11 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func updateHealth() {
 		let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
 		self.opponentHealthBar.setProgress(opponentProgress, animated: true)
+		self.opponentHealthLabel.text = "\(self.opponentHealth) / \(self.opponentHealthMax)"
 		
 		let selfProgress = Float(self.selfHealth) / Float(self.selfHealthMax)
 		self.selfHealthBar.setProgress(selfProgress, animated: true)
+		self.selfHealthLabel.text = "\(self.selfHealth) / \(self.selfHealthMax)"
 	}
 	
 	// Damage, Healing, RandomTime Calculator

@@ -1107,18 +1107,24 @@
                                                                     <constraint firstAttribute="height" constant="8" id="r8J-wy-jFc"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="a7S-I1-VEs">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278 / 300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP6-Cf-KHH">
+                                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="a7S-I1-VEs">
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="8" id="age-KZ-aHk"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="oP6-Cf-KHH" firstAttribute="centerY" secondItem="YJG-Qz-LaR" secondAttribute="centerY" constant="0.5" id="1Sq-yz-tsP"/>
                                                             <constraint firstItem="YJG-Qz-LaR" firstAttribute="top" secondItem="1Br-Lj-DaV" secondAttribute="bottom" constant="10" id="Cf8-XG-3KJ"/>
                                                             <constraint firstAttribute="trailing" secondItem="x50-Kh-R0C" secondAttribute="trailing" constant="10" id="J1V-S9-aJl"/>
                                                             <constraint firstItem="a7S-I1-VEs" firstAttribute="leading" secondItem="YJG-Qz-LaR" secondAttribute="leading" id="L3r-N6-hUb"/>
@@ -1128,6 +1134,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="a7S-I1-VEs" secondAttribute="bottom" constant="10" id="VAa-2i-fCY"/>
                                                             <constraint firstItem="1Br-Lj-DaV" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="leading" constant="10" id="hYM-F4-CxF"/>
                                                             <constraint firstItem="YJG-Qz-LaR" firstAttribute="leading" secondItem="XSd-ZT-9h3" secondAttribute="leading" constant="10" id="klP-Fy-TeD"/>
+                                                            <constraint firstItem="oP6-Cf-KHH" firstAttribute="centerX" secondItem="YJG-Qz-LaR" secondAttribute="centerX" id="lFW-gc-rCm"/>
                                                             <constraint firstItem="x50-Kh-R0C" firstAttribute="centerY" secondItem="1Br-Lj-DaV" secondAttribute="centerY" id="vEB-cs-SPj"/>
                                                             <constraint firstAttribute="trailing" secondItem="YJG-Qz-LaR" secondAttribute="trailing" constant="10" id="wNq-yy-Ymi"/>
                                                             <constraint firstItem="a7S-I1-VEs" firstAttribute="trailing" secondItem="YJG-Qz-LaR" secondAttribute="trailing" id="z5o-5w-lha"/>
@@ -1152,14 +1159,19 @@
                                                                     <constraint firstAttribute="height" constant="8" id="zqv-cj-3K9"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="3fF-wj-NSZ">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278 / 300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wi-2Y-ZKz">
+                                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3fF-wj-NSZ">
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="8" id="qeI-mx-2Sv"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1173,7 +1185,9 @@
                                                             <constraint firstItem="3fF-wj-NSZ" firstAttribute="trailing" secondItem="Z3D-7a-5Bg" secondAttribute="trailing" id="SjK-9t-gam"/>
                                                             <constraint firstItem="3fF-wj-NSZ" firstAttribute="leading" secondItem="Z3D-7a-5Bg" secondAttribute="leading" id="YBX-Xq-oEy"/>
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="leading" secondItem="fnL-9U-nib" secondAttribute="trailing" constant="8" id="fzD-5i-DUq"/>
+                                                            <constraint firstItem="5wi-2Y-ZKz" firstAttribute="centerX" secondItem="Z3D-7a-5Bg" secondAttribute="centerX" id="hSd-TB-di2"/>
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="width" secondItem="aMW-ob-MP4" secondAttribute="height" id="iXR-Sg-eaD"/>
+                                                            <constraint firstItem="5wi-2Y-ZKz" firstAttribute="centerY" secondItem="Z3D-7a-5Bg" secondAttribute="centerY" constant="0.5" id="iwx-aP-nss"/>
                                                             <constraint firstItem="fnL-9U-nib" firstAttribute="leading" secondItem="e6e-Ca-SlP" secondAttribute="leading" constant="10" id="olr-qT-O1A"/>
                                                             <constraint firstItem="aMW-ob-MP4" firstAttribute="top" secondItem="e6e-Ca-SlP" secondAttribute="top" constant="10" id="wUQ-Ag-OaK"/>
                                                         </constraints>
@@ -1331,6 +1345,7 @@
                         <outlet property="escapeButton" destination="lqe-oJ-Td2" id="KEj-eu-aXS"/>
                         <outlet property="opponentAvatarImageView" destination="aMW-ob-MP4" id="Vlk-8S-8jj"/>
                         <outlet property="opponentHealthBar" destination="Z3D-7a-5Bg" id="nUx-vZ-WSU"/>
+                        <outlet property="opponentHealthLabel" destination="5wi-2Y-ZKz" id="9Rg-Xr-j4D"/>
                         <outlet property="opponentNameLabel" destination="fnL-9U-nib" id="mYI-lz-UQJ"/>
                         <outlet property="opponentTimeBar" destination="3fF-wj-NSZ" id="h5q-fF-Vfx"/>
                         <outlet property="primaryImageView" destination="985-gA-uey" id="D5Y-m0-4jl"/>
@@ -1339,6 +1354,7 @@
                         <outlet property="secondaryImageView" destination="ZlF-Kb-pk2" id="TUU-SR-5Ph"/>
                         <outlet property="selfAvatarImageView" destination="1Br-Lj-DaV" id="em6-SB-6ru"/>
                         <outlet property="selfHealthBar" destination="YJG-Qz-LaR" id="cGc-zg-qoZ"/>
+                        <outlet property="selfHealthLabel" destination="oP6-Cf-KHH" id="lVI-I2-LJg"/>
                         <outlet property="selfNameLabel" destination="x50-Kh-R0C" id="0qn-sj-7rm"/>
                         <outlet property="selfTimeBar" destination="a7S-I1-VEs" id="7mh-Jo-ssR"/>
                         <outlet property="skillButton0" destination="Sd5-RZ-nUY" id="vrg-GK-NjS"/>

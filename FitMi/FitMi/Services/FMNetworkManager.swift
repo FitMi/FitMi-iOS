@@ -146,7 +146,10 @@ class FMNetworkManager: NSObject {
                 if let error = response.result.error {
                     completion(error, nil)
                 } else if let res = response.result.value {
-                    completion(nil, JSON(res))
+					let json = JSON(res)
+					let sorted = json.arrayValue.sorted(by: { $0["level"].intValue > $1["level"].intValue })
+					let sortedJSON = JSON(sorted)
+                    completion(nil, sortedJSON)
                 } else {
                     // TODO: better handling
                     let error = NSError(domain: "fitmi-server-error-response", code: 2, userInfo: nil) as Error
