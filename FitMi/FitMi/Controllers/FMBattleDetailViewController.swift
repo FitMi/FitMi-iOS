@@ -82,6 +82,11 @@ class FMBattleDetailViewController: FMViewController {
 		})
 	}
 	
+	override func dismiss() {
+		self.gameLoopTimer?.invalidate()
+		super.dismiss()
+	}
+	
 	private func configureImageView() {
 		self.primaryImageView.animationRepeatCount = 1
 		self.secondaryImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
