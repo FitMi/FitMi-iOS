@@ -182,14 +182,25 @@ class FMExerciseViewController: FMViewController {
 	}
     
     @IBAction func facebookShare() {
-        let graphProperties = ["og:type": "fitness.course",
-                               "og:title": "Congratulation!",
-                               "fitness:distance:value": "1000",
-                               "fitness:distance:units": "mi",
-                               "fitness:duration:value": "5",
-                               "fitness:duration:units": "s"]
-        let graphObject = FBSDKShareOpenGraphObject(properties: graphProperties)
+        let duration = Int(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))
+        let distance = Double(self.distance)/1000.0
+        var speed = 0
+        if (duration != 0) {
+            speed = self.distance/duration
+        }
         
+        let graphProperties = [ "og:type": "fitness.course",
+                                "og:title": "Congratulation!",
+                                "fitness:steps" : self.stepCount,
+                                "fitness:distance:value": distance,
+                                "fitness:distance:units": "km",
+                                "fitness:duration:value": duration,
+                                "fitness:duration:units": "s",
+                                "fitness:speed:value": speed,
+                                "fitness:speed:units": "m/s",
+                                ] as [String : Any]
+        let graphObject = FBSDKShareOpenGraphObject(properties: graphProperties)
+    
         let action = FBSDKShareOpenGraphAction()
         action.actionType = "fitness.runs"
         action.setObject(graphObject, forKey: "fitness:course")
