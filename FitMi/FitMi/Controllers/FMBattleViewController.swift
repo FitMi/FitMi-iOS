@@ -54,7 +54,7 @@ class FMBattleViewController: FMViewController {
 		super.willMove(toParentViewController: parent)
 		
 		if self.data == nil || self.data?.count == 0 {
-			var indicatorView = UILabel()
+			let indicatorView = UILabel()
 			indicatorView.text = "Loading Friends..."
 			indicatorView.font = UIFont(name: "Pokemon Pixel Font", size: 20)
 			indicatorView.textAlignment = .center
