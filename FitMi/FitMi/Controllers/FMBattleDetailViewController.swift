@@ -57,6 +57,7 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfCoolDown: Float = 0
 	fileprivate var skillButtonArray = [UIButton]()
 	
+	fileprivate let spriteAnimationTime: TimeInterval = 1
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,9 +127,8 @@ class FMBattleDetailViewController: FMViewController {
 				self.opponentTimeBar.setProgress(self.opponentCoolDown / self.coolDownTotal, animated: false)
 			}
 		} else {
-			let time = Double(1)
-			self.primaryImageView.animationDuration = time
-			self.secondaryImageView.animationDuration = time
+			self.primaryImageView.animationDuration = spriteAnimationTime
+			self.secondaryImageView.animationDuration = spriteAnimationTime
 			self.gameLoopTimer.invalidate()
 			DispatchQueue.main.async {
 				self.setSkillButtonsEnabled(enabled: false)
@@ -136,7 +136,7 @@ class FMBattleDetailViewController: FMViewController {
 			self.friendAttack()
 			
 			
-			DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
 				self.updateHealth()
 				self.opponentCoolDown = 0
 				self.opponentTimeBar.setProgress(0, animated: false)
@@ -184,14 +184,13 @@ class FMBattleDetailViewController: FMViewController {
 		
 		self.setSkillButtonsEnabled(enabled: false)
 		
-		let time = Double(1)
-		self.primaryImageView.animationDuration = time
-		self.secondaryImageView.animationDuration = time
+		self.primaryImageView.animationDuration = spriteAnimationTime
+		self.secondaryImageView.animationDuration = spriteAnimationTime
 		self.gameLoopTimer.invalidate()
 		
 		let skill = self.selfSkills[sender.tag]
 		self.strikeWithSkill(skill: skill, fromSelf: true)
-		DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+		DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
 			self.updateHealth()
 			self.selfCoolDown = 0
 			self.selfTimeBar.setProgress(0, animated: false)
@@ -283,6 +282,9 @@ class FMBattleDetailViewController: FMViewController {
 		let thisMove = self.constructMove(attackUserIsSelf: fromSelf, damage: damage, healing: healing, nextResumeTime: timeToResume)
 		self.moves.append(thisMove)
 		
+		let damageColor = UIColor(red:0.75686, green:0.22353, blue:0.16863, alpha:1.00000)
+		let healingColor = UIColor(red:0.13725, green:0.62353, blue:0.52157, alpha:1.00000)
+		
 		if fromSelf {
 			let newHealth = self.selfHealth + healing
 			self.selfHealth = min(newHealth, self.selfHealthMax)
@@ -302,7 +304,28 @@ class FMBattleDetailViewController: FMViewController {
 			self.secondaryImageView.animationImages = defenceImages
 			self.primaryImageView.superview?.bringSubview(toFront: self.primaryImageView)
 			
-			FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Damage: \(damage), Healing: \(healing)")
+			
+			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
+				if healing > 0 {
+					FMNotificationManager.sharedManager.showFeedbackMessage(
+						text: "+ \(healing)",
+						in: self.view,
+						offset: CGPoint(x: -self.view.bounds.width/4,
+						                y: -self.view.bounds.height/2 + 170),
+						borderColor: UIColor.white,
+						textColor: healingColor)
+				}
+				
+				FMNotificationManager.sharedManager.showFeedbackMessage(
+					text: "- \(damage)",
+					in: self.view,
+					offset: CGPoint(x: self.view.bounds.width/4,
+					                y: -self.view.bounds.height/2 + 170),
+					borderColor: UIColor.white,
+					textColor: damageColor
+				)
+				
+			})
 		} else {
 			let newOpponentHealth = self.opponentHealth + healing
 			self.opponentHealth = min(newOpponentHealth, self.opponentHealthMax)
@@ -321,7 +344,27 @@ class FMBattleDetailViewController: FMViewController {
 			self.secondaryImageView.animationImages = attackImages
 			self.secondaryImageView.superview?.bringSubview(toFront: self.secondaryImageView)
 			
-			FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Damage: \(damage), Healing: \(healing)")
+			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
+				if healing > 0 {
+					FMNotificationManager.sharedManager.showFeedbackMessage(
+						text: "+ \(healing)",
+						in: self.view,
+						offset: CGPoint(x: self.view.bounds.width/4,
+						                y: -self.view.bounds.height/2 + 170),
+						borderColor: UIColor.white,
+						textColor: healingColor)
+				}
+				
+				FMNotificationManager.sharedManager.showFeedbackMessage(
+					text: "- \(damage)",
+					in: self.view,
+					offset: CGPoint(x: -self.view.bounds.width/4,
+					                y: -self.view.bounds.height/2 + 170),
+					borderColor: UIColor.white,
+					textColor: damageColor
+				)
+				
+			})
 		}
 		
 		self.primaryImageView.startAnimating()
@@ -387,7 +430,7 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func getSelfSkills() -> [FMSkill] {
-		let skills = FMSpriteStatusManager.sharedManager.sprite.skills
+		let skills = FMSpriteStatusManager.sharedManager.sprite.skillsInUse
 		var skillArray = [FMSkill]()
 		for skill in skills {
 			skillArray.append(skill)
