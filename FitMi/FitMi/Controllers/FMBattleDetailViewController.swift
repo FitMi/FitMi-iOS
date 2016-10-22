@@ -76,14 +76,15 @@ class FMBattleDetailViewController: FMViewController {
 					self.battleView.alpha = 1
 				}, completion: {
 					_ in
-					self.startGameLoopTimer()
+					self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
 				})
 			}
 		})
 	}
 	
 	override func dismiss() {
-		self.gameLoopTimer?.invalidate()
+		self.gameLoopTimer.invalidate()
+		self.gameLoopTimer = nil
 		super.dismiss()
 	}
 	
@@ -96,9 +97,8 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func startGameLoopTimer() {
 		if let timer = self.gameLoopTimer {
 			timer.invalidate()
+			self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateStatePerTimeFrame), userInfo: nil, repeats: true)
 		}
-		
-		self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(updateStatePerTimeFrame), userInfo: nil, repeats: true)
 	}
 	
 	func updateStatePerTimeFrame() {

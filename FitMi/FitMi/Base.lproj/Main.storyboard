@@ -1107,14 +1107,14 @@
                                                                     <constraint firstAttribute="height" constant="8" id="r8J-wy-jFc"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="a7S-I1-VEs">
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="a7S-I1-VEs">
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="8" id="age-KZ-aHk"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1152,14 +1152,14 @@
                                                                     <constraint firstAttribute="height" constant="8" id="zqv-cj-3K9"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
-                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="3fF-wj-NSZ">
+                                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3fF-wj-NSZ">
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="8" id="qeI-mx-2Sv"/>
                                                                 </constraints>
                                                                 <color key="progressTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
-                                                                <color key="trackTintColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
+                                                                <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
