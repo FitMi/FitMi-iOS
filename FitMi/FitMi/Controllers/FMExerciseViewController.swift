@@ -139,6 +139,18 @@ class FMExerciseViewController: FMViewController {
 		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
 		
 		if !(self.stepCount == 0 && self.distance == 0 && self.flights == 0) {
+            let statusManager = FMSpriteStatusManager.sharedManager
+            // Prepare experience
+            var exp = 0
+            let duration = Int(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))
+            // effective exercise: 10 minutes
+            exp += statusManager.experienceForDuration(duration: duration)
+            exp += statusManager.experienceForSteps(steps: stepCount)
+            exp += statusManager.experienceForDistance(meters: distance)
+            exp += statusManager.experienceForFlights(flights: flights)
+            statusManager.increaseExperience(exp: exp)
+            print("Experience: \(exp)")
+
 			let record = FMExerciseRecord()
 			record.steps = self.stepCount
 			record.distance = self.distance

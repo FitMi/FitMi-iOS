@@ -229,7 +229,16 @@ class FMSpriteStatusManager: NSObject {
 	func experienceForFlights(flights: Int) -> Int{
 		return flights * 20
 	}
-	
+    
+    func experienceForDuration(duration: Int) -> Int {
+        // Less than 15 minute, no reward
+        if (duration < 900) {
+            return 0
+        }
+        // More than 15 minutes, 2 exp per 5 min (capped at 200)
+        return max(200, (duration / 300) * 2)
+    }
+    
 	func experienceForGoals(stepCount: Int, distance: Int, flights: Int) -> Int{
 		let healthStatusManager = FMHealthStatusManager.sharedManager
 		let stepGoal = healthStatusManager.goalForSteps()

@@ -161,11 +161,20 @@ class FMBattleDetailViewController: FMViewController {
 		} else {
 			self.resultLabel.text = "YOU LOSE !"
 		}
-		
+		self.handleBattleExp(isSelfWin: isSelfWin)
 		UIView.animate(withDuration: 0.3, delay: 0.2, options: [], animations: {
 			self.resultView.alpha = 0.95
 		}, completion: nil)
 	}
+    
+    fileprivate func handleBattleExp(isSelfWin: Bool) {
+        let statusManager = FMSpriteStatusManager.sharedManager
+        if isSelfWin {
+            statusManager.increaseExperience(exp: 50)
+        } else {
+            statusManager.increaseExperience(exp: 10)
+        }
+    }
 	
 	// 0 means not over
 	// -1 means I win
