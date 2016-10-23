@@ -1252,6 +1252,10 @@
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKw-et-Y8I">
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="o6c-Hh-TSi" id="R5u-pQ-uVF"/>
+                                                            <outlet property="delegate" destination="o6c-Hh-TSi" id="69R-lG-9IP"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1322,8 +1326,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GET 50 EXP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-DF-3Hl">
-                                        <frame key="frameInset" minX="86" minY="309" width="202" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET 50 EXP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-DF-3Hl">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="8MD-Y3-M0U"/>
                                         </constraints>
@@ -1391,6 +1394,7 @@
                         <outlet property="skillButton0" destination="Sd5-RZ-nUY" id="vrg-GK-NjS"/>
                         <outlet property="skillButton1" destination="Rfm-0s-GsX" id="4ns-C5-akK"/>
                         <outlet property="skillButton2" destination="NZ0-kl-kXt" id="1xM-fQ-wmg"/>
+                        <outlet property="tableView" destination="dKw-et-Y8I" id="b0g-cV-xI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2o3-Gg-Ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>

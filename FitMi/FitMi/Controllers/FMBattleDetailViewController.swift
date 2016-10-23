@@ -19,6 +19,7 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var resultView: UIView!
 	@IBOutlet var resultLabel: UILabel!
     @IBOutlet var expLabel: UILabel!
+	@IBOutlet var tableView: UITableView!
 
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
@@ -66,12 +67,26 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate let attackSound = URL(fileURLWithPath: Bundle.main.path(forResource: "shocked", ofType: "mp3")!)
     fileprivate var audioPlayer = AVAudioPlayer()
 	
+	fileprivate var texts = [String]()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.battleView.alpha = 0
 		self.skillButtonArray = [self.skillButton0, self.skillButton1, self.skillButton2]
 		self.configureImageView()
+		self.configureTableView()
     }
+	
+	fileprivate func configureTableView() {
+		self.registerCells()
+		
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 40
+	}
+	
+	fileprivate func registerCells() {
+		FMBattleTextCell.registerCell(tableView: self.tableView, reuseIdentifier: FMBattleTextCell.identifier)
+	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -450,10 +465,30 @@ class FMBattleDetailViewController: FMViewController {
 			})
 		}
 		
+		var description = skill.descriptionTemplate
+		let attackerName = fromSelf ? self.getSelfName() : self.getOpponentName()
+		let defenderName = fromSelf ? self.getOpponentName() : self.getSelfName()
+		description = description.replacingOccurrences(of: "@ATTACKER@", with: attackerName.uppercased())
+		description = description.replacingOccurrences(of: "@DEFENDER@", with: defenderName.uppercased())
+		
+		self.texts.append(description)
+		self.updateText()
+		
 		self.primaryImageView.startAnimating()
 		self.secondaryImageView.startAnimating()
 		
 		return hitDuration
+	}
+	
+	fileprivate func updateText() {
+		let newIndexPath = IndexPath(row: self.texts.count - 1, section: 0)
+		DispatchQueue.main.async {
+			self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+		}
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+			self.tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
+		})
 	}
 	
 	fileprivate func updateHealth() {
@@ -587,5 +622,22 @@ class FMBattleDetailViewController: FMViewController {
 		let appearanceID = defenderAppearance.identifier
 		let skill = FMDatabaseManager.sharedManager.skill(appearanceIdentifier: appearanceID, name: name)
 		return skill.defenceSprites()
+	}
+}
+
+extension FMBattleDetailViewController: UITableViewDataSource {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return self.texts.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: FMBattleTextCell.identifier, for: indexPath) as! FMBattleTextCell
+		cell.selectionStyle = .none
+		cell.setText(text: self.texts[indexPath.row])
+		return cell
 	}
 }
