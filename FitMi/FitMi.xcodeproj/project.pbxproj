@@ -22,6 +22,8 @@
 		0C51F74A1DB300D600A5231E /* FMLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51F7481DB300D600A5231E /* FMLabelCell.swift */; };
 		0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C51F7491DB300D600A5231E /* FMLabelCell.xib */; };
 		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
+		0C6844271DBC9E7D0036C4E3 /* FMApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6844261DBC9E7D0036C4E3 /* FMApplication.swift */; };
+		0C6844291DBCA0220036C4E3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6844281DBCA0220036C4E3 /* main.swift */; };
 		0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551181DB3273F002146FE /* FMBattleViewController.swift */; };
 		0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */; };
 		0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */; };
@@ -129,6 +131,8 @@
 		0C51F7481DB300D600A5231E /* FMLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLabelCell.swift; sourceTree = "<group>"; };
 		0C51F7491DB300D600A5231E /* FMLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMLabelCell.xib; sourceTree = "<group>"; };
 		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
+		0C6844261DBC9E7D0036C4E3 /* FMApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMApplication.swift; sourceTree = "<group>"; };
+		0C6844281DBCA0220036C4E3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0C7551181DB3273F002146FE /* FMBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleViewController.swift; sourceTree = "<group>"; };
 		0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMSectionHeaderView.xib; sourceTree = "<group>"; };
 		0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				0CD3CCF21D9EF0FB00E47BF8 /* LaunchScreen.storyboard */,
 				0CD3CCF51D9EF0FB00E47BF8 /* Info.plist */,
 				0C7551241DB3A7B5002146FE /* Fitconfig.plist */,
+				0C6844281DBCA0220036C4E3 /* main.swift */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				0C81DC1F1DA26DEE00E8856E /* Constants.swift */,
 				0CFC8B7D1DA9199B0084DD6F /* FoundationExtension.swift */,
 				0C75512C1DB3DDE0002146FE /* FMAtomicCounter.swift */,
+				0C6844261DBC9E7D0036C4E3 /* FMApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -840,7 +846,9 @@
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
 				0CFC8B7C1DA9040E0084DD6F /* FMSpriteState.swift in Sources */,
 				98F1A92B1DAFD6560025FC1B /* FMOnboardViewController.swift in Sources */,
+				0C6844271DBC9E7D0036C4E3 /* FMApplication.swift in Sources */,
 				0C3B1A371DA9992E009DB425 /* FMPixelBubbleTransition.swift in Sources */,
+				0C6844291DBCA0220036C4E3 /* main.swift in Sources */,
 				0C2E95561DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift in Sources */,
 				0C7551211DB3822C002146FE /* FMAction.swift in Sources */,
 				0CFC8B7E1DA9199B0084DD6F /* FoundationExtension.swift in Sources */,

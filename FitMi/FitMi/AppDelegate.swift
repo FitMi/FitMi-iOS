@@ -12,7 +12,7 @@ import FacebookCore
 import FBSDKCoreKit
 import RealmSwift
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
