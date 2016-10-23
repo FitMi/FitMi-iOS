@@ -43,7 +43,7 @@
 					<key>Identifier</key>
 					<string>skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE</string>
 					<key>DescriptionTemplate</key>
-					<string>@ATTACKER@ throws an apple towards @DEFENDER@. </string>
+					<string>@ATTACKER@ throws an apple towards @DEFENDER@.</string>
 					<key>UnlockLevel</key>
 					<integer>5</integer>
 					<key>StrengthFactor</key>
