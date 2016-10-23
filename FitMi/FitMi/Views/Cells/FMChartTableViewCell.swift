@@ -113,7 +113,7 @@ class FMChartTableViewCell: UITableViewCell {
 		chartView.leftAxis.drawGridLinesEnabled = false
 		chartView.leftAxis.drawLabelsEnabled = false
 		chartView.leftAxis.drawAxisLineEnabled = false
-		chartView.rightAxis.drawGridLinesEnabled = false
+//		chartView.rightAxis.drawGridLinesEnabled = false
 		chartView.rightAxis.drawLabelsEnabled = false
 		chartView.rightAxis.drawAxisLineEnabled = false
 		chartView.drawMarkers = false

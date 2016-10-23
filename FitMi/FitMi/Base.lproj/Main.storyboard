@@ -1646,12 +1646,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0Image0" translatesAutoresizingMaskIntoConstraints="NO" id="TEw-jr-IUs"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0Image0" translatesAutoresizingMaskIntoConstraints="NO" id="TEw-jr-IUs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="NkY-bf-0l1"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAH-Uk-J0F" customClass="RadarChartView" customModule="Charts">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="UAH-Uk-J0F" secondAttribute="height" id="D63-E4-I8W"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-i2-yU4">
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
@@ -1671,8 +1672,8 @@
                             <constraint firstAttribute="trailing" secondItem="TEw-jr-IUs" secondAttribute="trailing" id="KHN-sE-yOA"/>
                             <constraint firstItem="NcE-i2-yU4" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" constant="20" id="Okf-UJ-ajA"/>
                             <constraint firstItem="UAH-Uk-J0F" firstAttribute="top" secondItem="TEw-jr-IUs" secondAttribute="bottom" constant="20" id="SDj-Mc-YG7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UAH-Uk-J0F" secondAttribute="trailing" constant="20" id="UzS-DH-R2F"/>
-                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leadingMargin" constant="20" id="bMS-D7-P41"/>
+                            <constraint firstAttribute="right" secondItem="UAH-Uk-J0F" secondAttribute="right" id="UzS-DH-R2F"/>
+                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="bMS-D7-P41"/>
                             <constraint firstItem="hFn-Il-6Gl" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="cK8-E1-mDd"/>
                             <constraint firstItem="3bD-Qa-k9v" firstAttribute="top" secondItem="NcE-i2-yU4" secondAttribute="bottom" constant="20" id="fFK-88-mOA"/>
                             <constraint firstItem="NcE-i2-yU4" firstAttribute="top" secondItem="UAH-Uk-J0F" secondAttribute="bottom" constant="20" id="lpI-BQ-hyf"/>
