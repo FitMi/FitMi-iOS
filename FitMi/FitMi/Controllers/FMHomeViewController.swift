@@ -140,6 +140,11 @@ class FMHomeViewController: FMViewController {
 		let controller = FMBoothViewController.controllerFromStoryboard()
 		FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
 	}
+	
+	@IBAction func presentSpriteStatsController() {
+		let controller = FMSpriteStatsViewController.controllerFromStoryboard()
+		FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
+	}
 
 	class func getDefaultController() -> FMHomeViewController {
 		if FMHomeViewController.defaultController == nil {

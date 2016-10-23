@@ -310,9 +310,20 @@
                                             <action selector="presentBoothViewController" destination="vEV-4V-qZQ" eventType="touchUpInside" id="ddZ-Mg-nCM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIL-oq-WGl">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        <state key="normal" title="SPRITE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="presentSpriteStatsController" destination="vEV-4V-qZQ" eventType="touchUpInside" id="k2o-qT-zoM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qIL-oq-WGl" secondAttribute="trailing" constant="15" id="39L-WB-gIs"/>
+                                    <constraint firstItem="qIL-oq-WGl" firstAttribute="centerY" secondItem="OuQ-FS-qKG" secondAttribute="centerY" id="FPU-g1-nya"/>
                                     <constraint firstItem="OuQ-FS-qKG" firstAttribute="leading" secondItem="unp-FO-h7i" secondAttribute="leading" constant="15" id="Gy8-or-RFT"/>
                                     <constraint firstItem="OuQ-FS-qKG" firstAttribute="centerY" secondItem="unp-FO-h7i" secondAttribute="centerY" id="Mjb-gZ-yXe"/>
                                     <constraint firstAttribute="height" constant="44" id="Qdf-X0-iUM"/>
@@ -453,7 +464,6 @@
                                         </state>
                                         <connections>
                                             <action selector="dismiss" destination="blh-bE-EnS" eventType="touchUpInside" id="gq3-fK-Z8S"/>
-                                            <action selector="dismiss" destination="NAM-e2-GKt" eventType="touchUpInside" id="py0-Wu-dJ7"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="BOOTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdL-rV-GHF">
@@ -462,7 +472,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="god-so-eRf" firstAttribute="centerY" secondItem="6E7-DN-ndP" secondAttribute="centerY" id="BSg-HI-FaZ"/>
                                     <constraint firstItem="god-so-eRf" firstAttribute="leading" secondItem="mdL-rV-GHF" secondAttribute="trailing" constant="15" id="KLg-YE-4dX"/>
@@ -1589,6 +1599,100 @@
             </objects>
             <point key="canvasLocation" x="1742" y="2170"/>
         </scene>
+        <!--Sprite Stats View Controller-->
+        <scene sceneID="Urd-Jd-cAd">
+            <objects>
+                <viewController storyboardIdentifier="FMSpriteStatsViewController" id="aEv-ZS-Brd" customClass="FMSpriteStatsViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vwN-JQ-lkM"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bD-Qa-k9v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uAd-N6-x01">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFn-Il-6Gl">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0i0-JX-mcQ">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                        <state key="normal" title="DISMISS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="aEv-ZS-Brd" eventType="touchUpInside" id="FEA-ZJ-VeO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="MY SPRITE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-S2-cpN">
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="0i0-JX-mcQ" firstAttribute="leading" secondItem="ebx-S2-cpN" secondAttribute="trailing" constant="15" id="4IX-bl-uQF"/>
+                                    <constraint firstAttribute="trailing" secondItem="0i0-JX-mcQ" secondAttribute="trailing" constant="15" id="Ftb-Zn-k4A"/>
+                                    <constraint firstItem="ebx-S2-cpN" firstAttribute="leading" secondItem="hFn-Il-6Gl" secondAttribute="leading" constant="15" id="oMG-Ii-hNF"/>
+                                    <constraint firstItem="0i0-JX-mcQ" firstAttribute="centerY" secondItem="hFn-Il-6Gl" secondAttribute="centerY" id="uaA-Wp-0i7"/>
+                                    <constraint firstItem="ebx-S2-cpN" firstAttribute="centerY" secondItem="hFn-Il-6Gl" secondAttribute="centerY" id="w26-po-ccr"/>
+                                    <constraint firstAttribute="height" constant="60" id="xFm-iu-htj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0Image0" translatesAutoresizingMaskIntoConstraints="NO" id="TEw-jr-IUs"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAH-Uk-J0F" customClass="RadarChartView" customModule="Charts">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UAH-Uk-J0F" secondAttribute="height" id="D63-E4-I8W"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-i2-yU4">
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gJg-nr-Xmq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
+                                <state key="normal" title="SKILLS IN USE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="TEw-jr-IUs" firstAttribute="top" secondItem="hFn-Il-6Gl" secondAttribute="bottom" constant="30" id="8XA-XW-cEn"/>
+                            <constraint firstItem="hFn-Il-6Gl" firstAttribute="top" secondItem="vwN-JQ-lkM" secondAttribute="bottom" id="9vX-MN-2ju"/>
+                            <constraint firstAttribute="trailing" secondItem="TEw-jr-IUs" secondAttribute="trailing" id="KHN-sE-yOA"/>
+                            <constraint firstItem="NcE-i2-yU4" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" constant="20" id="Okf-UJ-ajA"/>
+                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="top" secondItem="TEw-jr-IUs" secondAttribute="bottom" constant="20" id="SDj-Mc-YG7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UAH-Uk-J0F" secondAttribute="trailing" constant="20" id="UzS-DH-R2F"/>
+                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leadingMargin" constant="20" id="bMS-D7-P41"/>
+                            <constraint firstItem="hFn-Il-6Gl" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="cK8-E1-mDd"/>
+                            <constraint firstItem="3bD-Qa-k9v" firstAttribute="top" secondItem="NcE-i2-yU4" secondAttribute="bottom" constant="20" id="fFK-88-mOA"/>
+                            <constraint firstItem="NcE-i2-yU4" firstAttribute="top" secondItem="UAH-Uk-J0F" secondAttribute="bottom" constant="20" id="lpI-BQ-hyf"/>
+                            <constraint firstAttribute="trailing" secondItem="hFn-Il-6Gl" secondAttribute="trailing" id="nd1-qA-gjX"/>
+                            <constraint firstItem="TEw-jr-IUs" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="qH6-Ox-I9C"/>
+                            <constraint firstAttribute="trailing" secondItem="NcE-i2-yU4" secondAttribute="trailing" constant="20" id="zqA-9M-qeK"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="radarChartView" destination="UAH-Uk-J0F" id="Z0x-fn-HpM"/>
+                        <outlet property="skillInUseButton" destination="NcE-i2-yU4" id="DeE-mg-6gI"/>
+                        <outlet property="spriteImageView" destination="TEw-jr-IUs" id="ccZ-pD-nOB"/>
+                        <outlet property="topBar" destination="hFn-Il-6Gl" id="bes-hN-hcP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sT8-gr-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="2260"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bar_border" width="272" height="32"/>
@@ -1596,5 +1700,6 @@
         <image name="health_icon" width="44" height="44"/>
         <image name="ic_explore_48pt" width="48" height="48"/>
         <image name="icon" width="512" height="512"/>
+        <image name="page0Image0" width="200" height="200"/>
     </resources>
 </document>

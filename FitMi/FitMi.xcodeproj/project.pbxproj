@@ -26,6 +26,7 @@
 		0C6844291DBCA0220036C4E3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6844281DBCA0220036C4E3 /* main.swift */; };
 		0C68442C1DBD12530036C4E3 /* FMBattleTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */; };
 		0C68442D1DBD12530036C4E3 /* FMBattleTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */; };
+		0C68442F1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68442E1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift */; };
 		0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551181DB3273F002146FE /* FMBattleViewController.swift */; };
 		0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */; };
 		0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */; };
@@ -137,6 +138,7 @@
 		0C6844281DBCA0220036C4E3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleTextCell.swift; sourceTree = "<group>"; };
 		0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBattleTextCell.xib; sourceTree = "<group>"; };
+		0C68442E1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteStatsViewController.swift; sourceTree = "<group>"; };
 		0C7551181DB3273F002146FE /* FMBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleViewController.swift; sourceTree = "<group>"; };
 		0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMSectionHeaderView.xib; sourceTree = "<group>"; };
 		0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				0C7551321DB4F503002146FE /* FMLoadingViewController.swift */,
 				0C7551381DB62D4C002146FE /* FMBoothViewController.swift */,
 				0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */,
+				0C68442E1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C68442F1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift in Sources */,
 				0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */,
 				0C75511F1DB38107002146FE /* FMSkill.swift in Sources */,
 				9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */,
