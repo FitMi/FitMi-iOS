@@ -311,7 +311,13 @@ class FMBattleDetailViewController: FMViewController {
 		
 		
 		for i in 0..<3 {
-			self.skillButtonArray[i].isHidden = !(i < self.selfSkills.count)
+			if i < self.selfSkills.count {
+				self.skillButtonArray[i].isHidden = false
+				self.skillButtonArray[i].setImage(self.selfSkills[i].icon(), for: .normal)
+			} else {
+				self.skillButtonArray[i].isHidden = true
+			}
+			
 		}
 	}
 	

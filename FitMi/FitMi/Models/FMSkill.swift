@@ -40,6 +40,11 @@ class FMSkill: Object {
 		return "\(SPRITE_IMAGE_BASE_URL)icon-\(self.identifier).png"
 	}
 	
+	func icon() -> UIImage {
+		let name = "icon-\(self.identifier).png"
+		return FMLocalStorageManager.sharedManager.getImage(imageName: name)!
+	}
+	
 	func attackSpriteUrls() -> [String] {
 		var urls = [String]()
 		for i in 0..<self.attackSpriteAtlasCount {
