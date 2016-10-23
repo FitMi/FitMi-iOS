@@ -10,16 +10,11 @@ import UIKit
 
 class FMHomeViewController: FMViewController {
 
-    @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var expLabel: UILabel!
-    @IBOutlet weak var healthBar: UIView!
-    @IBOutlet weak var expBar: UIView!
+    @IBOutlet weak var experienceIndicatorLabel: UILabel!
+    @IBOutlet weak var experienceProgressView: UIProgressView!
 	@IBOutlet weak var spriteView: SKView!
     var mainScene = FMMainScene()
     var state = FMSpriteState()
-	
-    @IBOutlet weak var healthBarWidth: NSLayoutConstraint!
-    @IBOutlet weak var expBarWidth: NSLayoutConstraint!
 	
     private static var defaultController: FMHomeViewController?
     
@@ -116,24 +111,14 @@ class FMHomeViewController: FMViewController {
     }
     
     private func displaySpriteData() {
-        self.maxBarLength = self.healthBar.frame.width
-        let health = min(self.state.health, self.maxHealth)
-        self.healthBarWidth.constant = self.getPercentageBarConstant(currentValue: health, maxValue: self.maxHealth, maxLength: self.maxBarLength)
-        
-        self.maxExpBarLength = self.expBar.frame.width
         let experience = self.state.experience
         let level = self.state.level
         let maxExp = FMSpriteLevelManager.sharedManager.experienceLimitForLevel(level: level)
-        self.expBarWidth.constant = self.getPercentageBarConstant(currentValue: experience, maxValue: maxExp, maxLength: self.maxExpBarLength)
-        
-        self.levelLabel.text = "Lv. \(level)"
-        self.expLabel.text = "Exp: \(experience) / \(maxExp)"
-    }
-    
-    private func getPercentageBarConstant(currentValue: Int, maxValue: Int, maxLength: CGFloat) -> CGFloat {
-        let percentage = Float(currentValue) / Float(maxValue)
-        let constant = -CGFloat(1 - percentage) * CGFloat(maxLength)
-        return constant
+		let maxExpLastLevel = level > 0 ? FMSpriteLevelManager.sharedManager.experienceLimitForLevel(level: level - 1) : 0
+		let progress = Float(experience - maxExpLastLevel) / Float(maxExp - maxExpLastLevel)
+		self.experienceProgressView.setProgress(progress, animated: true)
+		
+        self.experienceIndicatorLabel.text = "Lv. \(level):    \(experience) / \(maxExp)"
     }
 
 	@IBAction func presentBoothViewController() {
