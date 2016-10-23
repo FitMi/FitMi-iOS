@@ -212,7 +212,7 @@ class FMBattleDetailViewController: FMViewController {
                 expLabel.text = "+ \(exp) EXP"
             } else {
                 // 扳倒列强
-                let exp = min(10 * levelDiff, 50)
+                let exp = 50 + 10 * levelDiff
                 statusManager.increaseExperience(exp: exp)
                 expLabel.text = "+ \(exp) EXP"
             }
