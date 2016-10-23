@@ -156,7 +156,7 @@ extension FMBattleViewController: UITableViewDataSource {
 		let json = self.data![row]
 		
 		cell.nameLabel.text = json["username"].string
-		cell.avatarImageView.image = UIImage(named: "page0Image0")
+		cell.avatarImageView.image = UIImage(named: "placeholder")
 		cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["facebookId"])/picture?type=large")!)
 		cell.levelLabel.text = "lv. \(json["level"])"
 		

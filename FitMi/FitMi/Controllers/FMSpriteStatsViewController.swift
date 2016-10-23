@@ -14,6 +14,7 @@ class FMSpriteStatsViewController: FMViewController {
 	@IBOutlet var radarChartView: RadarChartView!
 	@IBOutlet var spriteImageView: UIImageView!
 	@IBOutlet var skillInUseButton: UIButton!
+	@IBOutlet var radarChartCaption: UILabel!
 	
 	
     override func viewDidLoad() {
@@ -21,7 +22,23 @@ class FMSpriteStatsViewController: FMViewController {
 
         self.configureChart()
 		self.setChartData()
+		
+		self.configureViewAppearance()
     }
+	
+	fileprivate func configureViewAppearance() {
+		do {
+			let layer = radarChartCaption.superview!.layer
+			layer.borderWidth = 5
+			layer.borderColor = UIColor.primaryColor.cgColor
+		}
+		
+		do {
+			let layer = radarChartView.superview!.layer
+			layer.borderWidth = 5
+			layer.borderColor = UIColor.primaryColor.cgColor
+		}
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,23 +48,26 @@ class FMSpriteStatsViewController: FMViewController {
 	fileprivate func setChartData() {
 		var dataEntries = [RadarChartDataEntry]()
 		
-		let levelEntry = RadarChartDataEntry(value: 280)
+		let manager = FMSpriteStatusManager.sharedManager
+		
+		
+		let levelEntry = RadarChartDataEntry(value: Double(manager.currentLevel() * 25))
 		levelEntry.data = "LEVEL" as AnyObject?
 		dataEntries.append(levelEntry)
 		
-		let healthEntry = RadarChartDataEntry(value: 312)
+		let healthEntry = RadarChartDataEntry(value: Double(manager.currentHP()))
 		healthEntry.data = "HEALTH" as AnyObject?
 		dataEntries.append(healthEntry)
 		
-		let strengthEntry = RadarChartDataEntry(value: 245)
+		let strengthEntry = RadarChartDataEntry(value: Double(manager.currentStrength()))
 		strengthEntry.data = "STRENGTH" as AnyObject?
 		dataEntries.append(strengthEntry)
 		
-		let staminaEntry = RadarChartDataEntry(value: 232)
+		let staminaEntry = RadarChartDataEntry(value: Double(manager.currentStamina()))
 		staminaEntry.data = "STAMINA" as AnyObject?
 		dataEntries.append(staminaEntry)
 		
-		let agilityEntry = RadarChartDataEntry(value: 322)
+		let agilityEntry = RadarChartDataEntry(value: Double(manager.currentAgility()))
 		agilityEntry.data = "AGILITY" as AnyObject?
 		dataEntries.append(agilityEntry)
 		
@@ -97,6 +117,8 @@ class FMSpriteStatsViewController: FMViewController {
 		chart.rotationAngle = 190
 		chart.innerWebLineWidth = 0.2
 		chart.webLineWidth = 0.2
+		
+		chart.delegate = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -132,7 +154,7 @@ extension FMSpriteStatsViewController: IValueFormatter, IAxisValueFormatter {
 	                    viewPortHandler: ViewPortHandler?) -> String {
 		let key = entry.data as! String
 		if key == "LEVEL" {
-			return "\(Int(value/20))"
+			return "\(Int(value/25))"
 		}
 		return "\(Int(value))"
 	}
@@ -152,6 +174,31 @@ extension FMSpriteStatsViewController: IValueFormatter, IAxisValueFormatter {
 			return "AGILITY"
 		default:
 			return ""
+		}
+	}
+}
+
+extension FMSpriteStatsViewController: ChartViewDelegate {
+	func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+		let key = entry.data as! String
+		switch key {
+		case "LEVEL":
+			self.radarChartCaption.text = "Higher levels give you higher health limits and more skill slots during battles. \n\nYou can level up when getting enough experience from exercises."
+			
+		case "HEALTH":
+			self.radarChartCaption.text = "Higher health makes you less easier to lose a battle. \n\nHealth depends on how much you accomplish your exercise goals in the past 7 days."
+			
+		case "STRENGTH":
+			self.radarChartCaption.text = "Strength determines the damage of your moves to your opponent during battles. \n\nStrength is calculated from the accumulated steps you have walked."
+			
+		case "STAMINA":
+			self.radarChartCaption.text = "Stamina determines how much you can recover your health when using certain skills in a battle. \n\nStamina is calculated from the accumulated distance you have walked."
+			
+		case "AGILITY":
+			self.radarChartCaption.text = "Agility determines how fast you can cool down after using a skill. \n\nAgility is calculated from the accumulated floors you have climbed."
+			
+		default:
+			self.radarChartCaption.text = "Click any of the value above to view an explanation."
 		}
 	}
 }

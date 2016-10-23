@@ -262,7 +262,13 @@ class FMBattleDetailViewController: FMViewController {
 		}
 	}
 	
+	var buttonJustClicked = false
 	@IBAction func skillButtonDidClick(sender: UIButton) {
+		if buttonJustClicked {
+			return
+		}
+		
+		buttonJustClicked = true
 		
 		self.setSkillButtonsEnabled(enabled: false)
 		
@@ -285,6 +291,7 @@ class FMBattleDetailViewController: FMViewController {
 				return
 			}
 			self.startGameLoopTimer()
+			self.buttonJustClicked = false
 		})
 	}
 	
@@ -468,8 +475,8 @@ class FMBattleDetailViewController: FMViewController {
 		var description = skill.descriptionTemplate
 		let attackerName = fromSelf ? self.getSelfName() : self.getOpponentName()
 		let defenderName = fromSelf ? self.getOpponentName() : self.getSelfName()
-		description = description.replacingOccurrences(of: "@ATTACKER@", with: attackerName.uppercased())
-		description = description.replacingOccurrences(of: "@DEFENDER@", with: defenderName.uppercased())
+		description = description.replacingOccurrences(of: "@ATTACKER@", with: "  \(attackerName.uppercased())  ")
+		description = description.replacingOccurrences(of: "@DEFENDER@", with: "  \(defenderName.uppercased())  ")
 		
 		self.texts.append(description)
 		self.updateText()

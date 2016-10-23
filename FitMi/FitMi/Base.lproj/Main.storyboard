@@ -1119,7 +1119,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSd-ZT-9h3">
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Br-Lj-DaV">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1Br-Lj-DaV">
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="1Br-Lj-DaV" secondAttribute="height" id="DdH-36-eZc"/>
@@ -1171,7 +1171,7 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-Ca-SlP">
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMW-ob-MP4">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="aMW-ob-MP4">
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="5xQ-sp-lYk"/>
@@ -1646,53 +1646,64 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0Image0" translatesAutoresizingMaskIntoConstraints="NO" id="TEw-jr-IUs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAH-Uk-J0F">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbR-tA-WEw" customClass="RadarChartView" customModule="Charts">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vbR-tA-WEw" secondAttribute="height" id="KC5-gV-eYj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.91372549020000005" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="NkY-bf-0l1"/>
+                                    <constraint firstAttribute="bottom" secondItem="vbR-tA-WEw" secondAttribute="bottom" constant="20" id="DSF-Nz-D1F"/>
+                                    <constraint firstAttribute="trailing" secondItem="vbR-tA-WEw" secondAttribute="trailing" constant="20" id="IKB-Xj-PjT"/>
+                                    <constraint firstItem="vbR-tA-WEw" firstAttribute="leading" secondItem="UAH-Uk-J0F" secondAttribute="leading" constant="20" id="Vb1-wY-63q"/>
+                                    <constraint firstItem="vbR-tA-WEw" firstAttribute="top" secondItem="UAH-Uk-J0F" secondAttribute="top" constant="20" id="nox-pG-E3c"/>
                                 </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAH-Uk-J0F" customClass="RadarChartView" customModule="Charts">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-i2-yU4">
-                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-Ce-fco">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click any of the value above to view an explanation." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMu-Lk-8kh">
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.91372549020000005" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="gJg-nr-Xmq"/>
+                                    <constraint firstAttribute="bottom" secondItem="hMu-Lk-8kh" secondAttribute="bottom" constant="20" id="agw-p1-SCa"/>
+                                    <constraint firstAttribute="trailing" secondItem="hMu-Lk-8kh" secondAttribute="trailing" constant="20" id="ppB-Lj-JH6"/>
+                                    <constraint firstItem="hMu-Lk-8kh" firstAttribute="top" secondItem="CD5-Ce-fco" secondAttribute="top" constant="20" id="unK-1x-zid"/>
+                                    <constraint firstItem="hMu-Lk-8kh" firstAttribute="leading" secondItem="CD5-Ce-fco" secondAttribute="leading" constant="20" id="xZT-eR-GeM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
-                                <state key="normal" title="SKILLS IN USE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.82068061989999996" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="TEw-jr-IUs" firstAttribute="top" secondItem="hFn-Il-6Gl" secondAttribute="bottom" constant="30" id="8XA-XW-cEn"/>
+                            <constraint firstItem="3bD-Qa-k9v" firstAttribute="top" secondItem="CD5-Ce-fco" secondAttribute="bottom" constant="20" id="7Ud-By-SoT"/>
                             <constraint firstItem="hFn-Il-6Gl" firstAttribute="top" secondItem="vwN-JQ-lkM" secondAttribute="bottom" id="9vX-MN-2ju"/>
-                            <constraint firstAttribute="trailing" secondItem="TEw-jr-IUs" secondAttribute="trailing" id="KHN-sE-yOA"/>
-                            <constraint firstItem="NcE-i2-yU4" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" constant="20" id="Okf-UJ-ajA"/>
-                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="top" secondItem="TEw-jr-IUs" secondAttribute="bottom" constant="20" id="SDj-Mc-YG7"/>
-                            <constraint firstAttribute="right" secondItem="UAH-Uk-J0F" secondAttribute="right" id="UzS-DH-R2F"/>
-                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="bMS-D7-P41"/>
+                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="top" secondItem="hFn-Il-6Gl" secondAttribute="bottom" constant="20" id="Kir-DP-mk7"/>
+                            <constraint firstAttribute="trailing" secondItem="UAH-Uk-J0F" secondAttribute="trailing" constant="20" id="UzS-DH-R2F"/>
+                            <constraint firstItem="CD5-Ce-fco" firstAttribute="trailing" secondItem="UAH-Uk-J0F" secondAttribute="trailing" id="aNc-aA-g43"/>
+                            <constraint firstItem="UAH-Uk-J0F" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" constant="20" id="bMS-D7-P41"/>
                             <constraint firstItem="hFn-Il-6Gl" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="cK8-E1-mDd"/>
-                            <constraint firstItem="3bD-Qa-k9v" firstAttribute="top" secondItem="NcE-i2-yU4" secondAttribute="bottom" constant="20" id="fFK-88-mOA"/>
-                            <constraint firstItem="NcE-i2-yU4" firstAttribute="top" secondItem="UAH-Uk-J0F" secondAttribute="bottom" constant="20" id="lpI-BQ-hyf"/>
+                            <constraint firstItem="CD5-Ce-fco" firstAttribute="leading" secondItem="UAH-Uk-J0F" secondAttribute="leading" id="daS-Ho-W3B"/>
+                            <constraint firstItem="CD5-Ce-fco" firstAttribute="top" secondItem="UAH-Uk-J0F" secondAttribute="bottom" constant="20" id="eeD-xc-8ON"/>
                             <constraint firstAttribute="trailing" secondItem="hFn-Il-6Gl" secondAttribute="trailing" id="nd1-qA-gjX"/>
-                            <constraint firstItem="TEw-jr-IUs" firstAttribute="leading" secondItem="uAd-N6-x01" secondAttribute="leading" id="qH6-Ox-I9C"/>
-                            <constraint firstAttribute="trailing" secondItem="NcE-i2-yU4" secondAttribute="trailing" constant="20" id="zqA-9M-qeK"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="radarChartView" destination="UAH-Uk-J0F" id="Z0x-fn-HpM"/>
-                        <outlet property="skillInUseButton" destination="NcE-i2-yU4" id="DeE-mg-6gI"/>
-                        <outlet property="spriteImageView" destination="TEw-jr-IUs" id="ccZ-pD-nOB"/>
+                        <outlet property="radarChartCaption" destination="hMu-Lk-8kh" id="9V5-hp-HYA"/>
+                        <outlet property="radarChartView" destination="vbR-tA-WEw" id="VFZ-st-zdJ"/>
                         <outlet property="topBar" destination="hFn-Il-6Gl" id="bes-hN-hcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sT8-gr-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="2260"/>
+            <point key="canvasLocation" x="24.800000000000001" y="2259.2203898050975"/>
         </scene>
     </scenes>
     <resources>
@@ -1701,6 +1712,6 @@
         <image name="health_icon" width="44" height="44"/>
         <image name="ic_explore_48pt" width="48" height="48"/>
         <image name="icon" width="512" height="512"/>
-        <image name="page0Image0" width="200" height="200"/>
+        <image name="placeholder" width="400" height="400"/>
     </resources>
 </document>
