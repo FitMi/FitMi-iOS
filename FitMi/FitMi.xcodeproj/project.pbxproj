@@ -24,6 +24,8 @@
 		0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */; };
 		0C6844271DBC9E7D0036C4E3 /* FMApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6844261DBC9E7D0036C4E3 /* FMApplication.swift */; };
 		0C6844291DBCA0220036C4E3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6844281DBCA0220036C4E3 /* main.swift */; };
+		0C68442C1DBD12530036C4E3 /* FMBattleTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */; };
+		0C68442D1DBD12530036C4E3 /* FMBattleTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */; };
 		0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551181DB3273F002146FE /* FMBattleViewController.swift */; };
 		0C75511B1DB32F0B002146FE /* FMSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */; };
 		0C75511D1DB32F31002146FE /* FMSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */; };
@@ -133,6 +135,8 @@
 		0C60C1A01D9F3A5200F4F965 /* FMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMHomeViewController.swift; sourceTree = "<group>"; };
 		0C6844261DBC9E7D0036C4E3 /* FMApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMApplication.swift; sourceTree = "<group>"; };
 		0C6844281DBCA0220036C4E3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleTextCell.swift; sourceTree = "<group>"; };
+		0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBattleTextCell.xib; sourceTree = "<group>"; };
 		0C7551181DB3273F002146FE /* FMBattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleViewController.swift; sourceTree = "<group>"; };
 		0C75511A1DB32F0B002146FE /* FMSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMSectionHeaderView.xib; sourceTree = "<group>"; };
 		0C75511C1DB32F31002146FE /* FMSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 				0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */,
 				0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */,
 				0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */,
+				0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */,
+				0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -664,6 +670,7 @@
 				98B5343F1DBC006E00CB80B5 /* exercise_finished.mp3 in Resources */,
 				93B223511DAD2D7C0067F43A /* sprite-run.atlas in Resources */,
 				0C7551351DB55C5C002146FE /* FMExerciseScene.sks in Resources */,
+				0C68442D1DBD12530036C4E3 /* FMBattleTextCell.xib in Resources */,
 				98F1A92D1DAFE15B0025FC1B /* VT323.ttf in Resources */,
 				98B534411DBC01B300CB80B5 /* battle_lose.mp3 in Resources */,
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
@@ -864,6 +871,7 @@
 				0CE74F5D1D9FAFA000CAB9CE /* FMAccountViewController.swift in Sources */,
 				0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */,
 				0CD2BA7B1DB0B54E00145AB2 /* FMExercisePopupViewController.swift in Sources */,
+				0C68442C1DBD12530036C4E3 /* FMBattleTextCell.swift in Sources */,
 				0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */,
 				0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,

@@ -69,20 +69,21 @@ class FMBoothViewController: FMViewController {
 	func didReceiveInUseNotification(notification: Notification) {
 		if let object = notification.object {
 			let isTitleUsing = notification.userInfo!["USING"] as! Bool
+			let button = notification.userInfo!["BUTTON"] as! UIButton
 			if let skill = object as? FMSkill {
 				self.setAnimationForSkill(skill: skill)
 				let sprite = FMSpriteStatusManager.sharedManager.sprite!
 				if isTitleUsing {
 					if sprite.skillsInUse.count > 1 {
 						FMSpriteStatusManager.sharedManager.unuseSkill(skill: skill)
-						self.tableView.reloadData()
+						self.reloadTableView(sender: button)
 					} else {
 						FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one skill should be used...")
 					}
 				} else {
 					if sprite.skillSlotCount > sprite.skillsInUse.count {
 						FMSpriteStatusManager.sharedManager.useSkill(skill: skill)
-						self.tableView.reloadData()
+						self.reloadTableView(sender: button)
 					} else {
 						print("Too many skills")
 					}
@@ -183,7 +184,14 @@ class FMBoothViewController: FMViewController {
 		self.clearImageView()
 		self.tableView.reloadData()
 	}
-    
+	
+	func reloadTableView(sender: UIButton) {
+		sender.setTitle("WAIT", for: .disabled)
+		sender.isEnabled = false
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+			self.tableView.reloadData()
+		})
+	}
 
 	class func controllerFromStoryboard() -> FMBoothViewController {
 		let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

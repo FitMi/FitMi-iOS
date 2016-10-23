@@ -32,7 +32,7 @@ class FMBoothItemCell: UITableViewCell {
 	
 	@IBAction func buttonDidClick() {
 		let title = self.button.title(for: .normal)
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BOOTH_BUTTON_DID_CLICK_NOTIFICATION"), object: self.object, userInfo:["USING": title == "USING"])
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "BOOTH_BUTTON_DID_CLICK_NOTIFICATION"), object: self.object, userInfo:["USING": title == "USING", "BUTTON": self.button])
 	}
 	
 	func setButtonState(inUse: Bool) {
