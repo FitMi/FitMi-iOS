@@ -60,6 +60,10 @@ class FMHomeViewController: FMViewController {
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
 	}
     
+    override func willMove(toParentViewController parent: UIViewController?) {
+        self.refreshSprite() // refresh when it will appear
+    }
+    
     func appMovedToBackground() {
         // If no token, reject the update
         if !FMNetworkManager.sharedManager.isTokenAvailable() {

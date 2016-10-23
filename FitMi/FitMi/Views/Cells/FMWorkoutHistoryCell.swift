@@ -36,7 +36,7 @@ class FMWorkoutHistoryCell: UITableViewCell {
         let hours = total / 3600
         let minutes = total / 60
         let seconds = total % 60
-        self.timeLabel.text = "\(hours)h\(minutes)m\(seconds)m"
+        self.timeLabel.text = "\(hours)h\(minutes)m\(seconds)s"
         self.setNeedsUpdateConstraints()
     }
     

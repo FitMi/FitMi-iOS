@@ -10,6 +10,7 @@ import UIKit
 import CoreMotion
 import FBSDKShareKit
 import FacebookShare
+import AVFoundation
 
 class FMExerciseViewController: FMViewController {
 
@@ -33,7 +34,8 @@ class FMExerciseViewController: FMViewController {
 	@IBOutlet var labelStepCount: UILabel!
 	@IBOutlet var labelDistance: UILabel!
 	@IBOutlet var labelFlights: UILabel!
-    
+    @IBOutlet var labelExperience: UILabel!
+
     var mainScene = FMExerciseScene()
     
 	let buttonAlphaDisabled: CGFloat = 0.3
@@ -43,11 +45,15 @@ class FMExerciseViewController: FMViewController {
 	var stepCount: Int = 0
 	var distance: Int = 0
 	var flights: Int = 0
+    var exp: Int = 0
 	var durationUpdateTimer: Timer!
     
     var wasMoving = false
 	
     private let motionStatusManager = FMMotionStatusManager.sharedManager
+    private let statusManager = FMSpriteStatusManager.sharedManager
+    private let finishedSound = URL(fileURLWithPath: Bundle.main.path(forResource: "exercise_finished", ofType: "mp3")!)
+    private var audioPlayer = AVAudioPlayer()
 
 	override func loadView() {
 		super.loadView()
@@ -78,6 +84,13 @@ class FMExerciseViewController: FMViewController {
 			
 			self.spriteView.ignoresSiblingOrder = true
 		}
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: finishedSound)
+            audioPlayer.prepareToPlay()
+        } catch {
+            print("Audio playing error")
+        }
 	}
 	
     override func viewDidLoad() {
@@ -133,9 +146,14 @@ class FMExerciseViewController: FMViewController {
 		print("Flights: \(self.flights)")
 		print("Start: \(self.exerciseStartDate)")
 		print("End: \(self.exerciseEndDate)")
-		print("Duration: \(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))")
-		
+        let duration = Int(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))
+		print("Duration: \(duration)")
+        self.exp += statusManager.experienceForDuration(duration: duration)
+		print("Experience: \(self.exp)")
+        self.updateLabels()
+
 		if !(self.stepCount == 0 && self.distance == 0 && self.flights == 0) {
+            statusManager.increaseExperience(exp: self.exp)
 			let record = FMExerciseRecord()
 			record.steps = self.stepCount
 			record.distance = self.distance
@@ -148,7 +166,7 @@ class FMExerciseViewController: FMViewController {
 				databaseManager.getCurrentSprite().exercises.append(record)
 			}
 		}
-
+        audioPlayer.play()
 		self.highlightPanel()
 	}
 	
@@ -173,21 +191,25 @@ class FMExerciseViewController: FMViewController {
 	}
     
     @IBAction func facebookShare() {
+        let duration = Int(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))
         let graphProperties = ["og:type": "fitness.course",
-                               "og:title": "Congratulation!",
-                               "fitness:distance:value": "1000",
-                               "fitness:distance:units": "mi",
-                               "fitness:duration:value": "5",
-                               "fitness:duration:units": "s"]
+                               "og:title": "WOW, I ran with FitMi today!",
+                               "fitness:distance:value": "\(Double(self.distance)/1000.0)",
+                               "fitness:distance:units": "km",
+                               "fitness:duration:value": "\(duration)",
+                               "fitness:duration:units": "s",
+                               "fitness:speed:value": "\(duration == 0 ? 0 : self.distance / duration)",
+                               "fitness:speed:units": "m/s",
+                               "og:image": "https://s3-ap-southeast-1.amazonaws.com/fitmi.static/runningMi.png"]
         let graphObject = FBSDKShareOpenGraphObject(properties: graphProperties)
-        
+
         let action = FBSDKShareOpenGraphAction()
         action.actionType = "fitness.runs"
         action.setObject(graphObject, forKey: "fitness:course")
         
         let content = FBSDKShareOpenGraphContent()
-        content.action = action;
-        content.previewPropertyName = "fitness:course";
+        content.action = action
+        content.previewPropertyName = "fitness:course"
         
         FMRootViewController.defaultController.addChildViewController(self)
         FBSDKShareDialog.show(from: self, with: content, delegate: nil)
@@ -224,6 +246,7 @@ class FMExerciseViewController: FMViewController {
 		self.stepCount = 0
 		self.distance = 0
 		self.flights = 0
+        self.exp = 0
 		self.updateLabels()
 	}
 
@@ -249,6 +272,14 @@ class FMExerciseViewController: FMViewController {
 		
 		self.generateExerciseReport()
     }
+    
+    func calcExperience() {
+        var exp = 0
+        exp += statusManager.experienceForSteps(steps: stepCount)
+        exp += statusManager.experienceForDistance(meters: distance)
+        exp += statusManager.experienceForFlights(flights: flights)
+        self.exp = exp
+    }
 	
 	func updateLabels() {
 		if self.exerciseStartDate == nil {
@@ -257,6 +288,7 @@ class FMExerciseViewController: FMViewController {
 		self.labelStepCount.text = "\(self.stepCount)"
 		self.labelDistance.text = "\(self.distance) m"
 		self.labelFlights.text = "\(self.flights)"
+        self.labelExperience.text = "\(self.exp)"
 	}
 }
 
@@ -273,6 +305,7 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
 		}
 		
 		DispatchQueue.main.async {
+            self.calcExperience()
 			self.updateLabels()
 		}
     }
@@ -328,6 +361,7 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
                 self.stepCount = 0
                 self.distance = 0
                 self.flights = 0
+                self.exp = 0
                 self.updateLabels()
             }))
             

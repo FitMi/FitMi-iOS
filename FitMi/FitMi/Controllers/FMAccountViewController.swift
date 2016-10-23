@@ -341,6 +341,7 @@ extension FMAccountViewController: UITableViewDelegate {
                 } else {
                     FMRootViewController.defaultController.addChildViewController(self)
                     let loginManager = LoginManager()
+                    loginManager.logOut()
                     loginManager.logIn([ .publicProfile, .userFriends ], viewController: self) { loginResult in
                         self.removeFromParentViewController()
                         switch loginResult {

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import RealmSwift
+import AVFoundation
 
 class FMBattleDetailViewController: FMViewController {
 
@@ -17,7 +18,8 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var battleView: UIView!
 	@IBOutlet var resultView: UIView!
 	@IBOutlet var resultLabel: UILabel!
-	
+    @IBOutlet var expLabel: UILabel!
+
 	@IBOutlet var primaryImageView: UIImageView!
 	@IBOutlet var secondaryImageView: UIImageView!
 	
@@ -58,6 +60,10 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var skillButtonArray = [UIButton]()
 	
 	fileprivate let spriteAnimationTime: TimeInterval = 1
+    
+    fileprivate let winSound = URL(fileURLWithPath: Bundle.main.path(forResource: "battle_win", ofType: "mp3")!)
+    fileprivate let loseSound = URL(fileURLWithPath: Bundle.main.path(forResource: "battle_lose", ofType: "mp3")!)
+    fileprivate var audioPlayer = AVAudioPlayer()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,11 +167,37 @@ class FMBattleDetailViewController: FMViewController {
 		} else {
 			self.resultLabel.text = "YOU LOSE !"
 		}
-		
+		self.handleBattleExp(isSelfWin: isSelfWin)
+        self.playResultSound(isSelfWin: isSelfWin)
 		UIView.animate(withDuration: 0.3, delay: 0.2, options: [], animations: {
 			self.resultView.alpha = 0.95
 		}, completion: nil)
 	}
+    
+    fileprivate func playResultSound(isSelfWin: Bool) {
+        do {
+            if isSelfWin {
+                try audioPlayer = AVAudioPlayer(contentsOf: winSound)
+            } else {
+                try audioPlayer = AVAudioPlayer(contentsOf: loseSound)
+            }
+            audioPlayer.play()
+        } catch {
+            print("Audio play failed")
+        }
+        
+    }
+    
+    fileprivate func handleBattleExp(isSelfWin: Bool) {
+        let statusManager = FMSpriteStatusManager.sharedManager
+        if isSelfWin {
+            statusManager.increaseExperience(exp: 50)
+            expLabel.text = "GET 50 EXP"
+        } else {
+            statusManager.increaseExperience(exp: 10)
+            expLabel.text = "GET 10 EXP"
+        }
+    }
 	
 	// 0 means not over
 	// -1 means I win

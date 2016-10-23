@@ -808,6 +808,7 @@
                         <outlet property="highlightBackground" destination="RYI-FL-HNI" id="4qb-HI-LUK"/>
                         <outlet property="labelDistance" destination="9Bw-Xi-jRf" id="ksQ-NY-ud4"/>
                         <outlet property="labelDuration" destination="7lY-YO-dTj" id="qOv-ZQ-Nap"/>
+                        <outlet property="labelExperience" destination="yPN-BN-xbY" id="UiF-MT-QYG"/>
                         <outlet property="labelFlights" destination="4eN-uC-pak" id="4Ze-hv-r68"/>
                         <outlet property="labelStepCount" destination="F9K-tP-w9S" id="Hi5-Pp-D7J"/>
                         <outlet property="spriteView" destination="HUT-dN-j7h" id="uRG-gS-Akt"/>
@@ -1321,6 +1322,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="GET 50 EXP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-DF-3Hl">
+                                        <frame key="frameInset" minX="86" minY="309" width="202" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="8MD-Y3-M0U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA2-Wj-yHz">
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="15"/>
                                         <state key="normal" title="LEAVE">
@@ -1333,10 +1343,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
+                                    <constraint firstItem="cFM-DF-3Hl" firstAttribute="top" secondItem="4ZN-s6-CnY" secondAttribute="bottom" constant="31" id="BHy-4e-nb4"/>
                                     <constraint firstItem="4ZN-s6-CnY" firstAttribute="centerY" secondItem="773-bC-U6m" secondAttribute="centerY" priority="1" constant="-80" id="DrR-86-qq7"/>
                                     <constraint firstItem="4ZN-s6-CnY" firstAttribute="centerX" secondItem="773-bC-U6m" secondAttribute="centerX" id="QfP-lN-1P4"/>
+                                    <constraint firstItem="cFM-DF-3Hl" firstAttribute="centerX" secondItem="773-bC-U6m" secondAttribute="centerX" id="U1h-O7-Im7"/>
                                     <constraint firstItem="uA2-Wj-yHz" firstAttribute="centerX" secondItem="4ZN-s6-CnY" secondAttribute="centerX" id="iiA-FL-7t1"/>
-                                    <constraint firstItem="uA2-Wj-yHz" firstAttribute="top" secondItem="4ZN-s6-CnY" secondAttribute="bottom" constant="160" id="yXD-xf-uua"/>
+                                    <constraint firstItem="uA2-Wj-yHz" firstAttribute="top" secondItem="cFM-DF-3Hl" secondAttribute="bottom" constant="81" id="vt6-yd-Qat"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1361,6 +1373,7 @@
                         <outlet property="activityIndicator" destination="E6n-Cw-sOh" id="Jeb-2h-Fej"/>
                         <outlet property="battleView" destination="vev-ue-V7F" id="iqd-OU-Hoi"/>
                         <outlet property="escapeButton" destination="lqe-oJ-Td2" id="KEj-eu-aXS"/>
+                        <outlet property="expLabel" destination="cFM-DF-3Hl" id="qBE-Ri-rWR"/>
                         <outlet property="opponentAvatarImageView" destination="aMW-ob-MP4" id="Vlk-8S-8jj"/>
                         <outlet property="opponentHealthBar" destination="Z3D-7a-5Bg" id="nUx-vZ-WSU"/>
                         <outlet property="opponentHealthLabel" destination="5wi-2Y-ZKz" id="9Rg-Xr-j4D"/>
