@@ -59,10 +59,11 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var selfCoolDown: Float = 0
 	fileprivate var skillButtonArray = [UIButton]()
 	
-	fileprivate let spriteAnimationTime: TimeInterval = 1
+	fileprivate var spriteAnimationTime: TimeInterval = 1
     
     fileprivate let winSound = URL(fileURLWithPath: Bundle.main.path(forResource: "battle_win", ofType: "mp3")!)
     fileprivate let loseSound = URL(fileURLWithPath: Bundle.main.path(forResource: "battle_lose", ofType: "mp3")!)
+	fileprivate let attackSound = URL(fileURLWithPath: Bundle.main.path(forResource: "shocked", ofType: "mp3")!)
     fileprivate var audioPlayer = AVAudioPlayer()
 	
     override func viewDidLoad() {
@@ -139,11 +140,13 @@ class FMBattleDetailViewController: FMViewController {
 			DispatchQueue.main.async {
 				self.setSkillButtonsEnabled(enabled: false)
 			}
-			self.friendAttack()
+			let hitDuration = self.friendAttack()
 			
+			DispatchQueue.main.asyncAfter(deadline: .now() + hitDuration, execute: {
+				self.updateHealth()
+			})
 			
 			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
-				self.updateHealth()
 				self.opponentCoolDown = 0
 				self.opponentTimeBar.setProgress(0, animated: false)
 				
@@ -185,9 +188,18 @@ class FMBattleDetailViewController: FMViewController {
         } catch {
             print("Audio play failed")
         }
-        
     }
-    
+	
+	fileprivate func playAttackSound() {
+		do {
+			try audioPlayer = AVAudioPlayer(contentsOf: attackSound)
+			audioPlayer.play()
+		} catch {
+			print("Audio play failed")
+		}
+
+	}
+	
     fileprivate func handleBattleExp(isSelfWin: Bool) {
         let statusManager = FMSpriteStatusManager.sharedManager
         let isSelfLevelHigher = getSelfLevel() > getOpponentLevel()
@@ -197,26 +209,26 @@ class FMBattleDetailViewController: FMViewController {
                 // 欺负弱小
                 let exp = max(-10 * levelDiff + 50, 0)
                 statusManager.increaseExperience(exp: exp)
-                expLabel.text = "GET \(exp) EXP"
+                expLabel.text = "+ \(exp) EXP"
             } else {
                 // 扳倒列强
                 let exp = min(10 * levelDiff, 50)
                 statusManager.increaseExperience(exp: exp)
-                expLabel.text = "GET \(exp) EXP"
+                expLabel.text = "+ \(exp) EXP"
             }
         } else {
             // 挑衅小弟还被虐
             if isSelfLevelHigher {
-                expLabel.text = "GET 0 EXP"
+                expLabel.text = "+ 0 EXP"
             } else {
                 // 自不量力的垃圾
                 if levelDiff < 5 {
                     // 旗鼓相当的对手
                     statusManager.increaseExperience(exp: 10)
-                    expLabel.text = "GET 10 EXP"
+                    expLabel.text = "+ 10 EXP"
                 } else {
                     // 找虐的意义在于浪费时间
-                    expLabel.text = "GET 0 EXP"
+                    expLabel.text = "+ 0 EXP"
                 }
             }
         }
@@ -244,27 +256,30 @@ class FMBattleDetailViewController: FMViewController {
 		self.gameLoopTimer.invalidate()
 		
 		let skill = self.selfSkills[sender.tag]
-		self.strikeWithSkill(skill: skill, fromSelf: true)
-		DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
+		let hitDuration = self.strikeWithSkill(skill: skill, fromSelf: true)
+		DispatchQueue.main.asyncAfter(deadline: .now() + hitDuration, execute: {
 			self.updateHealth()
+		})
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
 			self.selfCoolDown = 0
 			self.selfTimeBar.setProgress(0, animated: false)
-			
 			let result = self.isGameOver()
 			if result != 0 {
 				self.showResultScreen(isSelfWin: result == 1)
 				return
 			}
-			
 			self.startGameLoopTimer()
 		})
 	}
 	
-	func friendAttack() {
+	func friendAttack() -> Double {
 		if self.opponentSkills != nil {
 			let rand = Int(arc4random()) % self.opponentSkills.count
 			let skill = self.opponentSkills[rand]
-			self.strikeWithSkill(skill: skill, fromSelf: false)
+			return self.strikeWithSkill(skill: skill, fromSelf: false)
+		} else {
+			return 0
 		}
 	}
 	
@@ -325,7 +340,7 @@ class FMBattleDetailViewController: FMViewController {
 		return thisMove
 	}
 	
-	fileprivate func strikeWithSkill(skill: FMSkill, fromSelf: Bool) {
+	fileprivate func strikeWithSkill(skill: FMSkill, fromSelf: Bool) -> Double {
 		let strength = fromSelf ? self.getSelfStrength() : self.getOpponentStrength()
 		let stamina = fromSelf ? self.getSelfStamina() : self.getOpponentStamina()
 		let agility = fromSelf ? self.getSelfAgility() : self.getOpponentAgility()
@@ -340,6 +355,14 @@ class FMBattleDetailViewController: FMViewController {
 		let damageColor = UIColor(red:0.75686, green:0.22353, blue:0.16863, alpha:1.00000)
 		let healingColor = UIColor(red:0.13725, green:0.62353, blue:0.52157, alpha:1.00000)
 		
+		let attackImages = skill.attackSprites()
+		let spriteSpeed = 0.1
+		let duration = Double(attackImages.count) * spriteSpeed
+		self.primaryImageView.animationDuration = duration
+		self.secondaryImageView.animationDuration = duration
+		spriteAnimationTime = duration
+		let hitDuration = Double(skill.hitSpriteIndex) * spriteSpeed
+		
 		if fromSelf {
 			let newHealth = self.selfHealth + healing
 			self.selfHealth = min(newHealth, self.selfHealthMax)
@@ -350,7 +373,7 @@ class FMBattleDetailViewController: FMViewController {
 			let newOpponentHealth = self.opponentHealth - damage
 			self.opponentHealth = max(newOpponentHealth, 0)
 			
-			let attackImages = skill.attackSprites()
+			
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getOpponentAppearance())
 			
 			self.selfCoolDownPerTimeUnit = timeToResume
@@ -360,7 +383,7 @@ class FMBattleDetailViewController: FMViewController {
 			self.primaryImageView.superview?.bringSubview(toFront: self.primaryImageView)
 			
 			
-			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
+			DispatchQueue.main.asyncAfter(deadline: .now() + hitDuration, execute: {
 				if healing > 0 {
 					FMNotificationManager.sharedManager.showFeedbackMessage(
 						text: "+ \(healing)",
@@ -390,7 +413,6 @@ class FMBattleDetailViewController: FMViewController {
 			let newHealth = self.selfHealth - damage
 			self.selfHealth = max(newHealth, 0)
 			
-			let attackImages = skill.attackSprites()
 			let defenceImages = getDefenceSpirtes(attackSkill: skill, defenderAppearance: self.getSelfAppearance())
 			
 			self.opponentCoolDownPerTimeUnit = timeToResume
@@ -399,7 +421,7 @@ class FMBattleDetailViewController: FMViewController {
 			self.secondaryImageView.animationImages = attackImages
 			self.secondaryImageView.superview?.bringSubview(toFront: self.secondaryImageView)
 			
-			DispatchQueue.main.asyncAfter(deadline: .now() + spriteAnimationTime, execute: {
+			DispatchQueue.main.asyncAfter(deadline: .now() + hitDuration, execute: {
 				if healing > 0 {
 					FMNotificationManager.sharedManager.showFeedbackMessage(
 						text: "+ \(healing)",
@@ -424,9 +446,13 @@ class FMBattleDetailViewController: FMViewController {
 		
 		self.primaryImageView.startAnimating()
 		self.secondaryImageView.startAnimating()
+		
+		return hitDuration
 	}
 	
 	fileprivate func updateHealth() {
+		self.playAttackSound()
+		
 		let opponentProgress = Float(self.opponentHealth) / Float(self.opponentHealthMax)
 		self.opponentHealthBar.setProgress(opponentProgress, animated: true)
 		self.opponentHealthLabel.text = "\(self.opponentHealth) / \(self.opponentHealthMax)"

@@ -21,6 +21,11 @@ class FMConfigurationParser: NSObject {
 	static var delegate: FMConfigurationParserDelegate?
 	
 	class func refreshConfiguration() {
+		
+//		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
+//		let dictionary = NSDictionary(contentsOfFile: filePath)!
+//		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
+		
 		FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {
 			error, required, dict in
 			if error == nil && required && dict != nil {
@@ -83,6 +88,8 @@ class FMConfigurationParser: NSObject {
 					skill.agilityFactor = Double(skillDict["AgilityFactor"] as! NSNumber)
 					skill.attackSpriteAtlasCount = Int(skillDict["AttackSpriteAtlasCount"] as! NSNumber)
 					skill.defenceSpriteAtlasCount = Int(skillDict["DefenceSpriteAtlasCount"] as! NSNumber)
+					skill.hitSpriteIndex = Int(skillDict["HitSpriteIndex"] as! NSNumber)
+					skill.descriptionTemplate = skillDict["DescriptionTemplate"] as! String
 					
 					total += skill.attackSpriteAtlasCount
 					total += skill.defenceSpriteAtlasCount
