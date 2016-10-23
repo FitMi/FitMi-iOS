@@ -229,6 +229,7 @@ extension FMBoothViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: FMBoothItemCell.identifier, for: indexPath) as! FMBoothItemCell
 		cell.button.isHidden = false
 		cell.button.isEnabled = true
+		cell.iconImageView.isHidden = true
 		cell.selectionStyle = .none
 		cell.contentView.alpha = 1
 		let sprite = FMSpriteStatusManager.sharedManager.sprite!
@@ -243,6 +244,8 @@ extension FMBoothViewController: UITableViewDataSource {
 			
 		case 1:
 			let skill = self.skills[indexPath.row]
+			cell.iconImageView.isHidden = false
+			cell.iconImageView.image = skill.icon()
 			cell.object = skill
 			if sprite.skills.contains(skill) {
 				cell.titleLabel.text = skill.name

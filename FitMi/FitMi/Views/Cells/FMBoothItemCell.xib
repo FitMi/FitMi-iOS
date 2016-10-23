@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -15,15 +16,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="149" id="KGk-i7-Jjw" customClass="FMBoothItemCell" customModule="FitMi" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="FMBoothItemCell" customModule="FitMi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="148"/>
+                <frame key="frameInset" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="x4N-9E-aNK">
                         <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="luV-SE-8VY">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="luV-SE-8VY" secondAttribute="height" id="nTP-d9-Mp4"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH6-nI-jmh">
                                 <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -56,9 +62,10 @@
             <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="button" destination="uvf-jD-bQr" id="Ube-sx-I4t"/>
+                <outlet property="iconImageView" destination="luV-SE-8VY" id="yFw-fW-DWt"/>
                 <outlet property="titleLabel" destination="DH6-nI-jmh" id="Ioz-ZZ-HQV"/>
             </connections>
-            <point key="canvasLocation" x="25" y="104.5"/>
+            <point key="canvasLocation" x="25" y="67.5"/>
         </tableViewCell>
     </objects>
 </document>

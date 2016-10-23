@@ -12,6 +12,7 @@ class FMBoothItemCell: UITableViewCell {
 
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var button: UIButton!
+	@IBOutlet var iconImageView: UIImageView!
 	
 	var object: Any?
 	
