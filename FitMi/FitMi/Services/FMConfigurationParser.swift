@@ -91,6 +91,7 @@ class FMConfigurationParser: NSObject {
 					skill.hitSpriteIndex = Int(skillDict["HitSpriteIndex"] as! NSNumber)
 					skill.descriptionTemplate = skillDict["DescriptionTemplate"] as! String
 					
+					total += 1
 					total += skill.attackSpriteAtlasCount
 					total += skill.defenceSpriteAtlasCount
 					
@@ -142,6 +143,21 @@ class FMConfigurationParser: NSObject {
 		print("Downloading sprites for skill: \(skill.name)")
 		let networkManager = FMNetworkManager.sharedManager
 		let localStorageManager = FMLocalStorageManager.sharedManager
+		
+		let url = skill.iconUrl()
+		networkManager.downloadImageFromUrl(urlString: url, completion: {
+			error, optionalImage in
+			
+			if let image = optionalImage {
+				let name = url.lastPathComponent()!
+				let data = UIImagePNGRepresentation(image)!
+				if localStorageManager.saveImage(imageData: data, imageName: name) {
+					self.updateProgress(self.counter.incrementAndGet())
+				}
+			} else {
+				print(error)
+			}
+		})
 		
 		for url in skill.attackSpriteUrls() {
 			networkManager.downloadImageFromUrl(urlString: url, completion: {
