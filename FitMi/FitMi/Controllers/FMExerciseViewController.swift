@@ -154,6 +154,7 @@ class FMExerciseViewController: FMViewController {
 	
 	func highlightPanel() {
 		self.highlightBackground.isHidden = false
+		let loggedIn = UserDefaults.standard.string(forKey: "jwt") != nil
 		UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
 			self.spriteView.alpha = 0
 			self.highlightBackground.alpha = 1
@@ -162,8 +163,10 @@ class FMExerciseViewController: FMViewController {
 			self.view.setNeedsLayout()
 			UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
 				self.statusPanelViewTopConstraint.constant = UIScreen.main.bounds.height / 2 - 200
-				self.stackViewButtonHeightConstraint.constant = 50
-				self.stackViewButtonBottomConstraint.constant = 15
+				if loggedIn {
+					self.stackViewButtonHeightConstraint.constant = 50
+					self.stackViewButtonBottomConstraint.constant = 15
+				}
 				self.view.layoutIfNeeded()
             }, completion: nil)
 		})
@@ -201,11 +204,13 @@ class FMExerciseViewController: FMViewController {
 		})
 		
 		self.reset(nil)
-		
+		let loggedIn = UserDefaults.standard.string(forKey: "jwt") != nil
 		self.view.setNeedsLayout()
 		UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
-			self.stackViewButtonHeightConstraint.constant = 0
-			self.stackViewButtonBottomConstraint.constant = 5
+			if loggedIn {
+				self.stackViewButtonHeightConstraint.constant = 0
+				self.stackViewButtonBottomConstraint.constant = 5
+			}
 			self.statusPanelViewTopConstraint.constant = 40
 			self.view.layoutIfNeeded()
         }, completion: nil)
