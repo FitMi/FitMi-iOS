@@ -10,7 +10,7 @@
 			<key>Identifier</key>
 			<string>appearance-29d2d064-93a8-11e6-ae22-56b6b6499611</string>
 			<key>LastUpdate</key>
-			<string>1476876766</string>
+			<string>1477076066</string>
 			<key>UnlockLevel</key>
 			<integer>0</integer>
 			<key>Skills</key>
@@ -20,14 +20,18 @@
 					<string>Punch</string>
 					<key>Identifier</key>
 					<string>skill-D4D534EE-297B-42C3-B8CA-77906414B14B</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ punches @DEFENDER@ in the face.</string>
 					<key>UnlockLevel</key>
 					<integer>0</integer>
 					<key>StrengthFactor</key>
-					<integer>1</integer>
+					<real>1.5</real>
 					<key>StaminaFactor</key>
-					<integer>1</integer>
+					<integer>0</integer>
 					<key>AgilityFactor</key>
 					<integer>1</integer>
+					<key>HitSpriteIndex</key>
+					<integer>6</integer>
 					<key>AttackSpriteAtlasCount</key>
 					<integer>7</integer>
 					<key>DefenceSpriteAtlasCount</key>
@@ -38,6 +42,8 @@
 					<string>Apple Throw</string>
 					<key>Identifier</key>
 					<string>skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ throws an apple towards @DEFENDER@. </string>
 					<key>UnlockLevel</key>
 					<integer>5</integer>
 					<key>StrengthFactor</key>
@@ -46,6 +52,8 @@
 					<real>0.2</real>
 					<key>AgilityFactor</key>
 					<real>1.5</real>
+					<key>HitSpriteIndex</key>
+					<integer>6</integer>
 					<key>AttackSpriteAtlasCount</key>
 					<integer>7</integer>
 					<key>DefenceSpriteAtlasCount</key>

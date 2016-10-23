@@ -13,6 +13,7 @@ class FMSkill: Object {
 	
 	dynamic var name: String = ""
 	dynamic var identifier: String = ""
+	dynamic var descriptionTemplate: String = "@ATTACKER@ attacks @DEFENDER@."
 	dynamic var strengthFactor: Double = 1
 	dynamic var staminaFactor: Double = 1
 	dynamic var agilityFactor: Double = 1
@@ -20,6 +21,7 @@ class FMSkill: Object {
 	
 	dynamic var attackSpriteAtlasCount: Int = 0
 	dynamic var defenceSpriteAtlasCount: Int = 0
+	dynamic var hitSpriteIndex = 0
 	
 	let appearance = LinkingObjects(fromType: FMAppearance.self, property: "skills")
 	
