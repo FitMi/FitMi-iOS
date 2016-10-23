@@ -190,12 +190,35 @@ class FMBattleDetailViewController: FMViewController {
     
     fileprivate func handleBattleExp(isSelfWin: Bool) {
         let statusManager = FMSpriteStatusManager.sharedManager
+        let isSelfLevelHigher = getSelfLevel() > getOpponentLevel()
+        let levelDiff = abs(getSelfLevel() - getOpponentLevel())
         if isSelfWin {
-            statusManager.increaseExperience(exp: 50)
-            expLabel.text = "GET 50 EXP"
+            if isSelfLevelHigher {
+                // 欺负弱小
+                let exp = max(-10 * levelDiff + 50, 0)
+                statusManager.increaseExperience(exp: exp)
+                expLabel.text = "GET \(exp) EXP"
+            } else {
+                // 扳倒列强
+                let exp = min(10 * levelDiff, 50)
+                statusManager.increaseExperience(exp: exp)
+                expLabel.text = "GET \(exp) EXP"
+            }
         } else {
-            statusManager.increaseExperience(exp: 10)
-            expLabel.text = "GET 10 EXP"
+            // 挑衅小弟还被虐
+            if isSelfLevelHigher {
+                expLabel.text = "GET 0 EXP"
+            } else {
+                // 自不量力的垃圾
+                if levelDiff < 5 {
+                    // 旗鼓相当的对手
+                    statusManager.increaseExperience(exp: 10)
+                    expLabel.text = "GET 10 EXP"
+                } else {
+                    // 找虐的意义在于浪费时间
+                    expLabel.text = "GET 0 EXP"
+                }
+            }
         }
     }
 	
@@ -440,6 +463,10 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func getSelfHealth() -> Int {
 		return FMSpriteStatusManager.sharedManager.currentHP()
 	}
+    
+    fileprivate func getSelfLevel() -> Int {
+        return FMSpriteStatusManager.sharedManager.currentLevel()
+    }
 	
 	fileprivate func getSelfStamina() -> Int {
 		return FMSpriteStatusManager.sharedManager.currentStamina()
@@ -476,6 +503,10 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate func getOpponentName() -> String {
 		return self.opponentData["username"].string!
 	}
+    
+    fileprivate func getOpponentLevel() -> Int {
+        return self.opponentData["level"].int!
+    }
 	
 	fileprivate func getOpponentHealth() -> Int {
 		return self.opponentData["health"].int!
