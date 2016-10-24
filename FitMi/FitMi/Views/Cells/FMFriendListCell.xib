@@ -20,7 +20,7 @@
                 <frame key="frameInset" width="320" height="139"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Gw-2l-xb6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1Gw-2l-xb6">
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="1Gw-2l-xb6" secondAttribute="height" id="QQn-2u-Ynl"/>
@@ -60,4 +60,7 @@
             <point key="canvasLocation" x="25" y="100"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placeholder" width="400" height="400"/>
+    </resources>
 </document>
