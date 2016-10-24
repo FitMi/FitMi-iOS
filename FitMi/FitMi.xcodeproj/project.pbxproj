@@ -88,6 +88,7 @@
 		93B34DFA1DB409D7005D530E /* defend.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF71DB409D7005D530E /* defend.atlas */; };
 		93B34DFB1DB409D7005D530E /* skill-1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF81DB409D7005D530E /* skill-1.atlas */; };
 		93B34DFC1DB409D7005D530E /* skill-2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF91DB409D7005D530E /* skill-2.atlas */; };
+		981ACCF81DBE5C12003072C6 /* FMGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */; };
 		9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */; };
 		9861CEFB1DB0221900D659E4 /* FMWorkoutHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */; };
 		9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */; };
@@ -211,6 +212,7 @@
 		93B34DF71DB409D7005D530E /* defend.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = defend.atlas; sourceTree = "<group>"; };
 		93B34DF81DB409D7005D530E /* skill-1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "skill-1.atlas"; sourceTree = "<group>"; };
 		93B34DF91DB409D7005D530E /* skill-2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "skill-2.atlas"; sourceTree = "<group>"; };
+		981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMGoalViewController.swift; sourceTree = "<group>"; };
 		9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryViewController.swift; sourceTree = "<group>"; };
 		9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryCell.swift; sourceTree = "<group>"; };
 		9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMWorkoutHistoryCell.xib; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				0C7551381DB62D4C002146FE /* FMBoothViewController.swift */,
 				0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */,
 				0C68442E1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift */,
+				981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C68442F1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift in Sources */,
+				981ACCF81DBE5C12003072C6 /* FMGoalViewController.swift in Sources */,
 				0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */,
 				0C75511F1DB38107002146FE /* FMSkill.swift in Sources */,
 				9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */,

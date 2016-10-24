@@ -132,7 +132,8 @@ class FMHomeViewController: FMViewController {
 	}
 	
 	@IBAction func goalButtonDidClick(sender: UIButton) {
-		print("Goal button is clicked")
+        let controller = FMGoalViewController.controllerFromStoryboard()
+        FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
 	}
 
 	class func getDefaultController() -> FMHomeViewController {

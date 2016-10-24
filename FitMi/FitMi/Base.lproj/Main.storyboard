@@ -399,6 +399,66 @@
             </objects>
             <point key="canvasLocation" x="23.199999999999999" y="762.36881559220399"/>
         </scene>
+        <!--Goal View Controller-->
+        <scene sceneID="kjS-Zs-wMk">
+            <objects>
+                <viewController storyboardIdentifier="FMGoalViewController" id="gUd-rc-q19" customClass="FMGoalViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ohj-FZ-L72"/>
+                        <viewControllerLayoutGuide type="bottom" id="cah-02-HhM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V1p-CO-ubK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-eK-EV5" userLabel="Top Bar">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMR-72-E4i">
+                                        <frame key="frameInset" minX="306" minY="15" width="54" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                        <state key="normal" title="DISMISS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="gUd-rc-q19" eventType="touchUpInside" id="g9d-2M-Ocf"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="TODAY'S GOAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euY-mf-hHX">
+                                        <frame key="frameInset" minX="15" minY="18" width="276" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jQC-Ok-lij"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.98823529409999999" blue="0.81960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="TB3-eK-EV5" firstAttribute="top" secondItem="ohj-FZ-L72" secondAttribute="bottom" id="TZ8-5x-4mf"/>
+                            <constraint firstAttribute="trailing" secondItem="TB3-eK-EV5" secondAttribute="trailing" id="n4h-ZN-VZW"/>
+                            <constraint firstItem="TB3-eK-EV5" firstAttribute="leading" secondItem="V1p-CO-ubK" secondAttribute="leading" id="nTe-iS-ndf"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9M-qc-a3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-751.20000000000005" y="1553.9730134932536"/>
+        </scene>
         <!--Booth View Controller-->
         <scene sceneID="1Cr-8Q-LPz">
             <objects>
@@ -1639,7 +1699,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.82068061989999996" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.9882352941176471" blue="0.81960784313725488" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="3bD-Qa-k9v" firstAttribute="top" secondItem="CD5-Ce-fco" secondAttribute="bottom" constant="20" id="7Ud-By-SoT"/>
                             <constraint firstItem="hFn-Il-6Gl" firstAttribute="top" secondItem="vwN-JQ-lkM" secondAttribute="bottom" id="9vX-MN-2ju"/>
@@ -1663,6 +1723,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sT8-gr-3f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="2259.2203898050975"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Sdp-BZ-rBr">
+            <objects>
+                <viewControllerPlaceholder id="jbB-pm-l8T" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uga-Cd-MUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
