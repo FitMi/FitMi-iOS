@@ -111,7 +111,8 @@ class FMBoothViewController: FMViewController {
 	}
 
 	private func configureTableView() {
-		self.tableView.rowHeight = 50
+		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.estimatedRowHeight = 60
 		self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
 		self.tableView.delaysContentTouches = false
 		

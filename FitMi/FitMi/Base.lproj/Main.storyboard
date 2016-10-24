@@ -544,8 +544,8 @@
                             <constraint firstAttribute="trailing" secondItem="uIR-OD-Eu6" secondAttribute="trailing" id="bAn-IT-cKr"/>
                             <constraint firstItem="HFC-PT-ZoM" firstAttribute="top" secondItem="6E7-DN-ndP" secondAttribute="bottom" id="g0d-LA-4QK"/>
                             <constraint firstAttribute="trailing" secondItem="Nkv-r3-9Ty" secondAttribute="trailing" id="kSQ-47-cGz"/>
+                            <constraint firstItem="XIv-LK-sQc" firstAttribute="top" secondItem="6pE-Xs-Ro7" secondAttribute="bottom" id="rZy-cv-Mga"/>
                             <constraint firstItem="uIR-OD-Eu6" firstAttribute="top" secondItem="XIv-LK-sQc" secondAttribute="bottom" constant="20" id="vrj-Xg-glU"/>
-                            <constraint firstItem="XIv-LK-sQc" firstAttribute="top" secondItem="6pE-Xs-Ro7" secondAttribute="bottom" id="y4H-H2-4nr"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
