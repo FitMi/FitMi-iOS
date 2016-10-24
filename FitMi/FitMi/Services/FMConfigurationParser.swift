@@ -90,6 +90,7 @@ class FMConfigurationParser: NSObject {
 					skill.defenceSpriteAtlasCount = Int(skillDict["DefenceSpriteAtlasCount"] as! NSNumber)
 					skill.hitSpriteIndex = Int(skillDict["HitSpriteIndex"] as! NSNumber)
 					skill.descriptionTemplate = skillDict["DescriptionTemplate"] as! String
+					skill.descriptionText = skillDict["Description"] as! String
 					
 					total += 1
 					total += skill.attackSpriteAtlasCount

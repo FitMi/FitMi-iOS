@@ -527,8 +527,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOp-tJ-ycz">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4s-iq-Cdl">
-                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4s-iq-Cdl">
+                                        <string key="text">Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -536,25 +537,22 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-rx-cmh">
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="22"/>
-                                                <state key="normal" title="DAMAGE 1.0">
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="DAMAGE: 1.0">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwb-10-l8Y">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="22"/>
-                                                <state key="normal" title="DAMAGE 1.0">
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="HEALING: 1.0">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om6-2U-NIu">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="qWH-ym-8cH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="22"/>
-                                                <state key="normal" title="DAMAGE 1.0">
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="SPEED: 1.0">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -569,7 +567,7 @@
                                     <constraint firstAttribute="bottom" secondItem="umy-bA-nGh" secondAttribute="bottom" constant="10" id="RUm-6j-Dge"/>
                                     <constraint firstItem="umy-bA-nGh" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="10" id="Yxu-dF-xpg"/>
                                     <constraint firstAttribute="trailing" secondItem="umy-bA-nGh" secondAttribute="trailing" constant="10" id="aQf-W8-AU8"/>
-                                    <constraint firstItem="umy-bA-nGh" firstAttribute="top" secondItem="A4s-iq-Cdl" secondAttribute="bottom" constant="10" id="umY-iG-HAh"/>
+                                    <constraint firstItem="umy-bA-nGh" firstAttribute="top" secondItem="A4s-iq-Cdl" secondAttribute="bottom" constant="15" id="umY-iG-HAh"/>
                                 </constraints>
                             </view>
                         </subviews>

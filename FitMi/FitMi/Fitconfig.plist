@@ -22,6 +22,8 @@
 					<string>skill-D4D534EE-297B-42C3-B8CA-77906414B14B</string>
 					<key>DescriptionTemplate</key>
 					<string>@ATTACKER@ punches @DEFENDER@ in the face.</string>
+					<key>Description</key>
+					<string>Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
 					<key>UnlockLevel</key>
 					<integer>0</integer>
 					<key>StrengthFactor</key>
@@ -44,6 +46,8 @@
 					<string>skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE</string>
 					<key>DescriptionTemplate</key>
 					<string>@ATTACKER@ throws an apple towards @DEFENDER@.</string>
+					<key>Description</key>
+					<string>Throwing an apple toward your enemy. Steady and fast, strike twice or thrice before your enemy makes any movements. The most perfect primary skill.</string>
 					<key>UnlockLevel</key>
 					<integer>5</integer>
 					<key>StrengthFactor</key>
@@ -66,6 +70,8 @@
 					<string>skill-57F4575F-0832-430D-B918-BC36638C8993</string>
 					<key>DescriptionTemplate</key>
 					<string>@ATTACKER@ sends an airflow to @DEFENDER@.</string>
+					<key>Description</key>
+					<string>Break wind? Grab the amazing self healing while making the most heavy attack. But be careful, you will need a long time to recover before next movement.</string>
 					<key>UnlockLevel</key>
 					<integer>10</integer>
 					<key>StrengthFactor</key>
@@ -88,6 +94,8 @@
 					<string>skill-4F1CCC5F-7FDE-4809-830B-B0C9323EA3B2</string>
 					<key>DescriptionTemplate</key>
 					<string>@ATTACKER@ throws the honey to @DEFENDER@, and bee starts their attack.</string>
+					<key>Description</key>
+					<string>Who dislikes honey? Maybe your enemy will know the answer soon. Use honey to drive the bees. It&apos;s fast, heavy, but your bees may hurt you as well.</string>
 					<key>UnlockLevel</key>
 					<integer>15</integer>
 					<key>StrengthFactor</key>
