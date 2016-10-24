@@ -10,14 +10,43 @@ import UIKit
 
 class FMGoalViewController: FMViewController {
 
+    @IBOutlet var stepProgressView: UIProgressView!
+    @IBOutlet var stepProgressLabel: UILabel!
+    @IBOutlet var distanceProgressView: UIProgressView!
+    @IBOutlet var distanceProgressLabel: UILabel!
+    @IBOutlet var flightProgressView: UIProgressView!
+    @IBOutlet var flightProgressLabel: UILabel!
+
+    var currentState = FMSpriteState()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        displayGoalDisplay()
+    }
+    
+    func displayGoalDisplay() {
+        let distance = self.currentState.distance
+        let distanceGoal = self.currentState.distanceGoal
+        let step = self.currentState.stepCount
+        let stepGoal = self.currentState.stepGoal
+        let flight = self.currentState.flightsClimbed
+        let flightGoal = self.currentState.flightsGoal
+        
+        let distanceProgress = Float(distance) / Float(distanceGoal)
+        self.distanceProgressView.setProgress(distanceProgress, animated: true)
+        self.distanceProgressLabel.text = "\(distance) / \(distanceGoal)"
+        
+        let stepProgress = Float(step) / Float(stepGoal)
+        self.stepProgressView.setProgress(stepProgress, animated: true)
+        self.stepProgressLabel.text = "\(step) / \(stepGoal)"
+        
+        let flightProgress = Float(flight) / Float(flightGoal)
+        self.flightProgressView.setProgress(flightProgress, animated: true)
+        self.flightProgressLabel.text = "\(flight) / \(flightGoal)"
     }
     
     class func controllerFromStoryboard() -> FMGoalViewController {
