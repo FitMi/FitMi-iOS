@@ -22,6 +22,11 @@ class FMBoothViewController: FMViewController {
 	@IBOutlet var segmentButton2: UIButton!
 	fileprivate var currentSelectedSegmentIndex = 0
 	
+	@IBOutlet var damageButton: UIButton!
+	@IBOutlet var healingButton: UIButton!
+	@IBOutlet var speedButton: UIButton!
+	@IBOutlet var descriptionLabel: UILabel!
+	
 	fileprivate var appearances: Results<FMAppearance>!
 	fileprivate var skills: List<FMSkill>!
 	fileprivate var actions: List<FMAction>!
@@ -130,6 +135,9 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func selectSegment(at index: Int) {
+		
+		self.damageButton.superview!.isHidden = index != 1
+		
 		for button in segmentButtons {
 			button.isSelected = false
 		}

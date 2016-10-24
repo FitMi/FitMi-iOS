@@ -587,47 +587,66 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOp-tJ-ycz">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4s-iq-Cdl">
-                                        <string key="text">Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
-                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="umy-bA-nGh">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xac-si-lw6">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-rx-cmh">
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
-                                                <state key="normal" title="DAMAGE: 1.0">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
-                                                <state key="normal" title="HEALING: 1.0">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
-                                                <state key="normal" title="SPEED: 1.0">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yYQ-xG-Dxm">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5H-hq-CFf">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="9k4-Ny-Vin"/>
+                                                            <constraint firstAttribute="width" id="QYg-33-MRQ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUv-oM-pFC">
+                                                        <string key="text">Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
+                                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjP-dM-b14">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" id="Sgc-Ti-9mf"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="in0-lf-3Ki"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="umy-bA-nGh">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-rx-cmh">
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                        <state key="normal" title="DAMAGE: 1.0">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                        <state key="normal" title="HEALING: 1.0">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                        <state key="normal" title="SPEED: 1.0">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="A4s-iq-Cdl" secondAttribute="trailing" constant="12" id="1lz-y6-ZP8"/>
-                                    <constraint firstItem="A4s-iq-Cdl" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="12" id="DDQ-z4-eu9"/>
-                                    <constraint firstItem="A4s-iq-Cdl" firstAttribute="top" secondItem="ZOp-tJ-ycz" secondAttribute="top" constant="10" id="NOn-Ua-R1d"/>
-                                    <constraint firstAttribute="bottom" secondItem="umy-bA-nGh" secondAttribute="bottom" constant="10" id="RUm-6j-Dge"/>
-                                    <constraint firstItem="umy-bA-nGh" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="10" id="Yxu-dF-xpg"/>
-                                    <constraint firstAttribute="trailing" secondItem="umy-bA-nGh" secondAttribute="trailing" constant="10" id="aQf-W8-AU8"/>
-                                    <constraint firstItem="umy-bA-nGh" firstAttribute="top" secondItem="A4s-iq-Cdl" secondAttribute="bottom" constant="15" id="umY-iG-HAh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xac-si-lw6" secondAttribute="bottom" constant="10" id="QHC-TX-8iI"/>
+                                    <constraint firstItem="Xac-si-lw6" firstAttribute="top" secondItem="ZOp-tJ-ycz" secondAttribute="top" constant="10" id="ddF-2I-Enk"/>
+                                    <constraint firstItem="Xac-si-lw6" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="10" id="ked-jh-u19"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xac-si-lw6" secondAttribute="trailing" constant="10" id="zVU-m9-sCk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -667,11 +686,14 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="damageButton" destination="uuM-rx-cmh" id="WXL-84-NkU"/>
+                        <outlet property="healingButton" destination="e1R-So-gSa" id="88l-bS-hER"/>
                         <outlet property="primaryImageView" destination="uIR-OD-Eu6" id="p03-yd-bfC"/>
                         <outlet property="secondaryImageView" destination="oW8-Mb-p1B" id="Rm1-58-zva"/>
                         <outlet property="segmentButton0" destination="bBF-gT-Kpg" id="0TD-Wv-4qw"/>
                         <outlet property="segmentButton1" destination="iGe-bX-qPT" id="6H3-FL-L9T"/>
                         <outlet property="segmentButton2" destination="wPF-Ad-JEv" id="Rlt-bv-myA"/>
+                        <outlet property="speedButton" destination="u4y-Fw-Rue" id="stt-kw-VBc"/>
                         <outlet property="tableView" destination="6pE-Xs-Ro7" id="4yz-Kk-3qn"/>
                         <outlet property="topBar" destination="6E7-DN-ndP" id="67F-sL-Tvu"/>
                     </connections>

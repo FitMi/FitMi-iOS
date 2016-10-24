@@ -72,37 +72,37 @@ class FMDatabaseManager: NSObject {
 		
 		if sprite!.touchAction == nil {
 			try! realm.write {
-				sprite!.touchAction = sprite!.actions.filter("name = %@", "Touch Default").first!
+				sprite!.touchAction = sprite!.actions.filter("name = %@", "Basic Touch").first!
 			}
 		}
 		
 		if sprite!.sleepAction == nil {
 			try! realm.write {
-				sprite!.sleepAction = sprite!.actions.filter("name = %@", "Sleep Default").first!
+				sprite!.sleepAction = sprite!.actions.filter("name = %@", "Basic Sleep").first!
 			}
 		}
 		
 		if sprite!.relaxAction == nil {
 			try! realm.write {
-				sprite!.relaxAction = sprite!.actions.filter("name = %@", "Relax Default").first!
+				sprite!.relaxAction = sprite!.actions.filter("name = %@", "Basic Relax").first!
 			}
 		}
 		
 		if sprite!.wakeAction == nil {
 			try! realm.write {
-				sprite!.wakeAction = sprite!.actions.filter("name = %@", "Wake Default").first!
+				sprite!.wakeAction = sprite!.actions.filter("name = %@", "Basic Wake").first!
 			}
 		}
 		
 		if sprite!.runAction == nil {
 			try! realm.write {
-				sprite!.runAction = sprite!.actions.filter("name = %@", "Run Default").first!
+				sprite!.runAction = sprite!.actions.filter("name = %@", "Basic Run").first!
 			}
 		}
 		
 		if sprite!.tiredAction == nil {
 			try! realm.write {
-				sprite!.tiredAction = sprite!.actions.filter("name = %@", "Tired Default").first!
+				sprite!.tiredAction = sprite!.actions.filter("name = %@", "Basic Tired").first!
 			}
 		}
 		
