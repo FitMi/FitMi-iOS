@@ -579,17 +579,70 @@
                                     <constraint firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="c6b-hc-0Ac"/>
                                 </constraints>
                             </imageView>
+                            <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDX-xh-Qsl">
+                                <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="jnC-0X-Tvw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOp-tJ-ycz">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4s-iq-Cdl">
+                                        <string key="text">Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="umy-bA-nGh">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuM-rx-cmh">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="DAMAGE: 1.0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="HEALING: 1.0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                                <state key="normal" title="SPEED: 1.0">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="A4s-iq-Cdl" secondAttribute="trailing" constant="12" id="1lz-y6-ZP8"/>
+                                    <constraint firstItem="A4s-iq-Cdl" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="12" id="DDQ-z4-eu9"/>
+                                    <constraint firstItem="A4s-iq-Cdl" firstAttribute="top" secondItem="ZOp-tJ-ycz" secondAttribute="top" constant="10" id="NOn-Ua-R1d"/>
+                                    <constraint firstAttribute="bottom" secondItem="umy-bA-nGh" secondAttribute="bottom" constant="10" id="RUm-6j-Dge"/>
+                                    <constraint firstItem="umy-bA-nGh" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="10" id="Yxu-dF-xpg"/>
+                                    <constraint firstAttribute="trailing" secondItem="umy-bA-nGh" secondAttribute="trailing" constant="10" id="aQf-W8-AU8"/>
+                                    <constraint firstItem="umy-bA-nGh" firstAttribute="top" secondItem="A4s-iq-Cdl" secondAttribute="bottom" constant="15" id="umY-iG-HAh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.93725490196078431" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Nkv-r3-9Ty" secondAttribute="bottom" id="1pF-3h-eSy"/>
                             <constraint firstItem="uIR-OD-Eu6" firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="28P-Eq-9RI"/>
                             <constraint firstItem="XIv-LK-sQc" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="5wb-9W-Hri"/>
+                            <constraint firstItem="fDX-xh-Qsl" firstAttribute="top" secondItem="uIR-OD-Eu6" secondAttribute="bottom" constant="20" id="638-78-om4"/>
                             <constraint firstItem="oW8-Mb-p1B" firstAttribute="trailing" secondItem="uIR-OD-Eu6" secondAttribute="trailing" id="8uQ-dp-YXr"/>
+                            <constraint firstItem="ZOp-tJ-ycz" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="9OB-eL-RzI"/>
                             <constraint firstAttribute="trailing" secondItem="6E7-DN-ndP" secondAttribute="trailing" id="9nF-KQ-6Oh"/>
                             <constraint firstItem="oW8-Mb-p1B" firstAttribute="top" secondItem="uIR-OD-Eu6" secondAttribute="top" id="APB-es-web"/>
-                            <constraint firstItem="Nkv-r3-9Ty" firstAttribute="top" secondItem="uIR-OD-Eu6" secondAttribute="bottom" constant="20" id="Cik-DP-61q"/>
                             <constraint firstAttribute="trailing" secondItem="XIv-LK-sQc" secondAttribute="trailing" id="Csm-Wg-pMG"/>
+                            <constraint firstItem="ZOp-tJ-ycz" firstAttribute="top" secondItem="fDX-xh-Qsl" secondAttribute="bottom" id="GJc-fs-wYp"/>
                             <constraint firstItem="6pE-Xs-Ro7" firstAttribute="top" secondItem="HFC-PT-ZoM" secondAttribute="bottom" id="Gqf-Cq-3eO"/>
                             <constraint firstItem="6E7-DN-ndP" firstAttribute="top" secondItem="Jfr-b6-OzU" secondAttribute="bottom" id="JzK-oa-D2J"/>
                             <constraint firstAttribute="trailing" secondItem="HFC-PT-ZoM" secondAttribute="trailing" id="K26-Aw-04z"/>
@@ -601,10 +654,14 @@
                             <constraint firstItem="oW8-Mb-p1B" firstAttribute="leading" secondItem="uIR-OD-Eu6" secondAttribute="leading" id="VNv-zC-wYB"/>
                             <constraint firstItem="oW8-Mb-p1B" firstAttribute="bottom" secondItem="uIR-OD-Eu6" secondAttribute="bottom" id="W9V-hv-6qY"/>
                             <constraint firstAttribute="trailing" secondItem="6pE-Xs-Ro7" secondAttribute="trailing" id="WHj-xt-8LB"/>
+                            <constraint firstItem="fDX-xh-Qsl" firstAttribute="leading" secondItem="3Uy-o9-TL6" secondAttribute="leading" id="Zoh-9W-6RK"/>
                             <constraint firstAttribute="trailing" secondItem="uIR-OD-Eu6" secondAttribute="trailing" id="bAn-IT-cKr"/>
+                            <constraint firstAttribute="trailing" secondItem="fDX-xh-Qsl" secondAttribute="trailing" id="dL3-Ro-ByI"/>
                             <constraint firstItem="HFC-PT-ZoM" firstAttribute="top" secondItem="6E7-DN-ndP" secondAttribute="bottom" id="g0d-LA-4QK"/>
+                            <constraint firstAttribute="bottom" secondItem="ZOp-tJ-ycz" secondAttribute="bottom" id="h67-vA-YWQ"/>
                             <constraint firstAttribute="trailing" secondItem="Nkv-r3-9Ty" secondAttribute="trailing" id="kSQ-47-cGz"/>
                             <constraint firstItem="uIR-OD-Eu6" firstAttribute="top" secondItem="XIv-LK-sQc" secondAttribute="bottom" constant="20" id="vrj-Xg-glU"/>
+                            <constraint firstAttribute="trailing" secondItem="ZOp-tJ-ycz" secondAttribute="trailing" id="wcM-oD-Sii"/>
                             <constraint firstItem="XIv-LK-sQc" firstAttribute="top" secondItem="6pE-Xs-Ro7" secondAttribute="bottom" id="y4H-H2-4nr"/>
                         </constraints>
                     </view>

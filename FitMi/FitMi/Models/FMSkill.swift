@@ -14,6 +14,7 @@ class FMSkill: Object {
 	dynamic var name: String = ""
 	dynamic var identifier: String = ""
 	dynamic var descriptionTemplate: String = "@ATTACKER@ attacks @DEFENDER@."
+	dynamic var descriptionText: String = ""
 	dynamic var strengthFactor: Double = 1
 	dynamic var staminaFactor: Double = 1
 	dynamic var agilityFactor: Double = 1
