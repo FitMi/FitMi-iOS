@@ -318,6 +318,10 @@ extension FMBoothViewController: UITableViewDelegate {
 			let sprite = FMSpriteStatusManager.sharedManager.sprite!
 			if sprite.skills.contains(skill) {
 				self.setAnimationForSkill(skill: skill)
+				self.descriptionLabel.text = skill.descriptionText
+				self.damageButton.setTitle("DAMAGE: \(skill.strengthFactor)", for: .normal)
+				self.healingButton.setTitle("HEALING: \(skill.staminaFactor)", for: .normal)
+				self.speedButton.setTitle("SPEED: \(skill.agilityFactor)", for: .normal)
 			} else {
 //				self.clearImageView()
 			}

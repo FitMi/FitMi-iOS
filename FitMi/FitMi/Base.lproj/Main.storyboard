@@ -585,7 +585,7 @@
                                     <constraint firstAttribute="height" constant="4" id="jnC-0X-Tvw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOp-tJ-ycz">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ZOp-tJ-ycz">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xac-si-lw6">
                                         <subviews>
@@ -687,6 +687,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="damageButton" destination="uuM-rx-cmh" id="WXL-84-NkU"/>
+                        <outlet property="descriptionLabel" destination="QUv-oM-pFC" id="4zq-Wq-Yhj"/>
                         <outlet property="healingButton" destination="e1R-So-gSa" id="88l-bS-hER"/>
                         <outlet property="primaryImageView" destination="uIR-OD-Eu6" id="p03-yd-bfC"/>
                         <outlet property="secondaryImageView" destination="oW8-Mb-p1B" id="Rm1-58-zva"/>
