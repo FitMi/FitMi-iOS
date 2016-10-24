@@ -1803,13 +1803,6 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="2259.2203898050975"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Sdp-BZ-rBr">
-            <objects>
-                <viewControllerPlaceholder id="jbB-pm-l8T" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uga-Cd-MUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="battle-defend-brown-1" width="1000" height="333"/>
