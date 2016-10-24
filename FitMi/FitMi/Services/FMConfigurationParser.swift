@@ -74,6 +74,7 @@ class FMConfigurationParser: NSObject {
 				appearance.identifier = identifier
 				appearance.name = displayName
 				appearance.unlockLevel = Int(unlockLevel)
+				appearance.descriptionText = this["Description"] as! String
 				
 				let skills = this["Skills"] as! NSArray
 				for s in skills {
@@ -111,6 +112,7 @@ class FMConfigurationParser: NSObject {
 					action.unlockLevel = Int(actionDict["UnlockLevel"] as! NSNumber)
 					action.type = actionDict["Type"] as! String
 					action.spriteAtlasCount = Int(actionDict["SpriteAtlasCount"] as! NSNumber)
+					action.descriptionText = actionDict["Description"] as! String
 					
 					total += action.spriteAtlasCount
 					

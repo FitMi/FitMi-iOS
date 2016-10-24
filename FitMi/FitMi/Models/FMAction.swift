@@ -12,6 +12,7 @@ import RealmSwift
 class FMAction: Object {
 	
 	dynamic var name: String = ""
+	dynamic var descriptionText: String = ""
 	dynamic var identifier: String = ""
 	dynamic var	type: String = ""
 	dynamic var	unlockLevel: Int = 0

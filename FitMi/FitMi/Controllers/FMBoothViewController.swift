@@ -60,7 +60,7 @@ class FMBoothViewController: FMViewController {
 			button.tag = index
 		}
 		
-        self.selectSegment(at: 0)
+        self.segmentDidTap(self.segmentButton0)
 		
 		self.configureImageView()
 		self.configureTableView()
@@ -191,6 +191,12 @@ class FMBoothViewController: FMViewController {
 		self.selectSegment(at: sender.tag)
 		self.clearImageView()
 		self.tableView.reloadData()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
+			let indexPath = IndexPath(row:0, section: 0)
+			self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+			self.tableView(self.tableView, didSelectRowAt: indexPath)
+		})
 	}
 	
 	func reloadTableView(sender: UIButton) {
@@ -305,14 +311,12 @@ extension FMBoothViewController: UITableViewDataSource {
 
 extension FMBoothViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		
 		switch self.currentSelectedSegmentIndex {
 			
 		case 0:
 			let appearance = self.appearances[indexPath.row]
 			self.setAnimationForAppearance(appearance: appearance)
-			
+			self.descriptionLabel.text = appearance.descriptionText
 		case 1:
 			let skill = self.skills[indexPath.row]
 			let sprite = FMSpriteStatusManager.sharedManager.sprite!
@@ -330,6 +334,7 @@ extension FMBoothViewController: UITableViewDelegate {
 			let action = self.actions[indexPath.row]
 			let sprite = FMSpriteStatusManager.sharedManager.sprite!
 			if sprite.actions.contains(action) {
+				self.descriptionLabel.text = action.descriptionText
 				self.setAnimationForAction(action: action)
 			} else {
 //				self.clearImageView()
