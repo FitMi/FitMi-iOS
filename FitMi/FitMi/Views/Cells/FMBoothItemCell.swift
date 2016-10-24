@@ -48,9 +48,20 @@ class FMBoothItemCell: UITableViewCell {
 	}
 	
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+		if self.contentView.alpha != 1 {
+			return
+		}
+		
+		let animationDuration: TimeInterval = selected ? 0.0 : 0.1
+		
+		UIView.animate(withDuration: animationDuration, animations: {
+			if selected {
+				self.contentView.backgroundColor = UIColor.activeColor.withAlphaComponent(0.2)
+			} else {
+				self.contentView.backgroundColor = self.backgroundColor
+			}
+		})
     }
 	
 	override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -64,7 +75,7 @@ class FMBoothItemCell: UITableViewCell {
 		
 		UIView.animate(withDuration: animationDuration, animations: {
 			if highlighted {
-				self.contentView.backgroundColor = UIColor.secondaryColor
+				self.contentView.backgroundColor = UIColor.activeColor.withAlphaComponent(0.2)
 			} else {
 				self.contentView.backgroundColor = self.backgroundColor
 			}

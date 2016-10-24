@@ -12,6 +12,7 @@ import RealmSwift
 class FMAppearance: Object {
 	
 	dynamic var name: String = ""
+	dynamic var descriptionText: String = ""
 	dynamic var identifier: String = ""
 	dynamic var lastUpdateTime: Date = Date()
 	dynamic var unlockLevel: Int = 0
