@@ -193,7 +193,9 @@ class FMSpriteStatusManager: NSObject {
 		exp += self.experienceForDistance(meters: distance)
 		exp += self.experienceForFlights(flights: flights)
 		exp += self.experienceForGoals(stepCount: stepCount, distance: distance, flights: flights)
+        // Handle extra experience
         let prefs = UserDefaults.standard
+        exp += prefs.integer(forKey: KEY_DAILY_EXTRA_EXP) // Add today's extra exp
         if let extraDate = prefs.object(forKey: KEY_DAILY_EXTRA_EXP_DATE) as? Date {
             let isSameDay = Calendar.current.isDate(extraDate, inSameDayAs: Date())
             // If not in the same day, rest to zero
@@ -202,7 +204,6 @@ class FMSpriteStatusManager: NSObject {
                 prefs.set(Date(), forKey: KEY_DAILY_EXTRA_EXP_DATE)
             }
         }
-        exp += prefs.integer(forKey: KEY_DAILY_EXTRA_EXP) // Add today's extra exp
 
 		let level = FMSpriteLevelManager.sharedManager.levelForExp(exp: exp)
 		FMDatabaseManager.sharedManager.realmUpdate {
