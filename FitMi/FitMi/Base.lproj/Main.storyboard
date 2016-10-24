@@ -298,6 +298,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ST-1L-IBL" customClass="SKView">
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.84313725490000002" blue="0.80392156859999997" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLt-yD-dHz">
+                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
+                                <state key="normal" title="GOALS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goalButtonDidClickWithSender:" destination="vEV-4V-qZQ" eventType="touchUpInside" id="7xl-G1-bjN"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unp-FO-h7i">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuQ-FS-qKG">
@@ -372,6 +381,8 @@
                             <constraint firstAttribute="trailing" secondItem="8Kd-MS-NZX" secondAttribute="trailing" id="eXK-FZ-rho"/>
                             <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="fXp-mC-W9c"/>
                             <constraint firstItem="unp-FO-h7i" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="h3O-Bg-0sb"/>
+                            <constraint firstItem="unp-FO-h7i" firstAttribute="top" secondItem="gLt-yD-dHz" secondAttribute="bottom" constant="20" id="noT-Ox-RaC"/>
+                            <constraint firstItem="gLt-yD-dHz" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" constant="20" id="oRu-8q-YgR"/>
                             <constraint firstItem="0ST-1L-IBL" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="ye7-eA-Ezb"/>
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="yoZ-tL-dc0"/>
                         </constraints>

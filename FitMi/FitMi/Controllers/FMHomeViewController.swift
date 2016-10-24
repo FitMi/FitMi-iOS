@@ -130,6 +130,10 @@ class FMHomeViewController: FMViewController {
 		let controller = FMSpriteStatsViewController.controllerFromStoryboard()
 		FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
 	}
+	
+	@IBAction func goalButtonDidClick(sender: UIButton) {
+		print("Goal button is clicked")
+	}
 
 	class func getDefaultController() -> FMHomeViewController {
 		if FMHomeViewController.defaultController == nil {
