@@ -1,193 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>Appearances</key>
-        <array>
-            <dict>
-                <key>DisplayName</key>
-                <string>Brown Bear</string>
-                <key>Identifier</key>
-                <string>appearance-29d2d064-93a8-11e6-ae22-56b6b6499611</string>
-                <key>LastUpdate</key>
-                <string>1477326666</string>
-                <key>UnlockLevel</key>
-                <integer>0</integer>
-                <key>Skills</key>
-                <array>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Punch</string>
-                        <key>Identifier</key>
-                        <string>skill-D4D534EE-297B-42C3-B8CA-77906414B14B</string>
-                        <key>DescriptionTemplate</key>
-                        <string>@ATTACKER@ punches @DEFENDER@ in the face.</string>
-                        <key>Description</key>
-                        <string>Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>StrengthFactor</key>
-                        <real>1.5</real>
-                        <key>StaminaFactor</key>
-                        <real>0</real>
-                        <key>AgilityFactor</key>
-                        <real>1</real>
-                        <key>HitSpriteIndex</key>
-                        <integer>6</integer>
-                        <key>AttackSpriteAtlasCount</key>
-                        <integer>7</integer>
-                        <key>DefenceSpriteAtlasCount</key>
-                        <integer>7</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Apple Throw</string>
-                        <key>Identifier</key>
-                        <string>skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE</string>
-                        <key>DescriptionTemplate</key>
-                        <string>@ATTACKER@ throws an apple towards @DEFENDER@.</string>
-                        <key>Description</key>
-                        <string>Throwing an apple toward your enemy. Steady and fast, strike twice or thrice before your enemy makes any movements. The most perfect primary skill.</string>
-                        <key>UnlockLevel</key>
-                        <integer>5</integer>
-                        <key>StrengthFactor</key>
-                        <real>1</real>
-                        <key>StaminaFactor</key>
-                        <real>0.2</real>
-                        <key>AgilityFactor</key>
-                        <real>1.5</real>
-                        <key>HitSpriteIndex</key>
-                        <integer>6</integer>
-                        <key>AttackSpriteAtlasCount</key>
-                        <integer>7</integer>
-                        <key>DefenceSpriteAtlasCount</key>
-                        <integer>7</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Break Wind</string>
-                        <key>Identifier</key>
-                        <string>skill-57F4575F-0832-430D-B918-BC36638C8993</string>
-                        <key>DescriptionTemplate</key>
-                        <string>@ATTACKER@ sends an airflow to @DEFENDER@.</string>
-                        <key>Description</key>
-                        <string>Break wind? Grab the amazing self healing while making the most heavy attack. But be careful, you will need a long time to recover before next movement.</string>
-                        <key>UnlockLevel</key>
-                        <integer>10</integer>
-                        <key>StrengthFactor</key>
-                        <real>3</real>
-                        <key>StaminaFactor</key>
-                        <real>1</real>
-                        <key>AgilityFactor</key>
-                        <real>0.3</real>
-                        <key>HitSpriteIndex</key>
-                        <integer>7</integer>
-                        <key>AttackSpriteAtlasCount</key>
-                        <integer>8</integer>
-                        <key>DefenceSpriteAtlasCount</key>
-                        <integer>8</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Honey Bee</string>
-                        <key>Identifier</key>
-                        <string>skill-4F1CCC5F-7FDE-4809-830B-B0C9323EA3B2</string>
-                        <key>DescriptionTemplate</key>
-                        <string>@ATTACKER@ throws the honey to @DEFENDER@, and bee starts their attack.</string>
-                        <key>Description</key>
-                        <string>Who dislikes honey? Maybe your enemy will know the answer soon. Use honey to drive the bees. It&apos;s fast, heavy, but your bees may hurt you as well.</string>
-                        <key>UnlockLevel</key>
-                        <integer>15</integer>
-                        <key>StrengthFactor</key>
-                        <real>2.5</real>
-                        <key>StaminaFactor</key>
-                        <real>-0.3</real>
-                        <key>AgilityFactor</key>
-                        <real>0.6</real>
-                        <key>HitSpriteIndex</key>
-                        <integer>8</integer>
-                        <key>AttackSpriteAtlasCount</key>
-                        <integer>12</integer>
-                        <key>DefenceSpriteAtlasCount</key>
-                        <integer>12</integer>
-                    </dict>
-                </array>
-                <key>Actions</key>
-                <array>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Sleep</string>
-                        <key>Identifier</key>
-                        <string>action-232E8E80-7F35-468D-BFD8-FC44C44796CB</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Sleep</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>6</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Tired</string>
-                        <key>Identifier</key>
-                        <string>action-33969BC3-4215-4D99-B3FE-3B92964F4C22</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Tired</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>2</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Relax</string>
-                        <key>Identifier</key>
-                        <string>action-E79B117A-031C-4B51-9EB9-3CFA64018173</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Relax</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>2</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Touch</string>
-                        <key>Identifier</key>
-                        <string>action-803477B3-F0D1-4EE7-8655-0158746F4936</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Touch</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>3</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Wake</string>
-                        <key>Identifier</key>
-                        <string>action-66ED72A8-68E6-45C3-948E-971A1713C466</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Wake</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>3</integer>
-                    </dict>
-                    <dict>
-                        <key>DisplayName</key>
-                        <string>Basic Run</string>
-                        <key>Identifier</key>
-                        <string>action-981ABFDF-EFE5-442C-BA10-CAA26AFAA279</string>
-                        <key>UnlockLevel</key>
-                        <integer>0</integer>
-                        <key>Type</key>
-                        <string>Run</string>
-                        <key>SpriteAtlasCount</key>
-                        <integer>6</integer>
-                    </dict>
-                </array>
-            </dict>
-        </array>
-    </dict>
+<dict>
+	<key>Appearances</key>
+	<array>
+		<dict>
+			<key>DisplayName</key>
+			<string>Brown Bear</string>
+			<key>Identifier</key>
+			<string>appearance-29d2d064-93a8-11e6-ae22-56b6b6499611</string>
+			<key>Description</key>
+			<string>Brown Bear is the first cutie coming to this community.</string>
+			<key>LastUpdate</key>
+			<string>1477326666</string>
+			<key>UnlockLevel</key>
+			<integer>0</integer>
+			<key>Skills</key>
+			<array>
+				<dict>
+					<key>DisplayName</key>
+					<string>Punch</string>
+					<key>Identifier</key>
+					<string>skill-D4D534EE-297B-42C3-B8CA-77906414B14B</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ punches @DEFENDER@ in the face.</string>
+					<key>Description</key>
+					<string>Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>StrengthFactor</key>
+					<real>1.5</real>
+					<key>StaminaFactor</key>
+					<real>0</real>
+					<key>AgilityFactor</key>
+					<real>1</real>
+					<key>HitSpriteIndex</key>
+					<integer>6</integer>
+					<key>AttackSpriteAtlasCount</key>
+					<integer>7</integer>
+					<key>DefenceSpriteAtlasCount</key>
+					<integer>7</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Apple Throw</string>
+					<key>Identifier</key>
+					<string>skill-56AC9D4A-BAF2-46EA-A5DD-785799D51FDE</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ throws an apple towards @DEFENDER@.</string>
+					<key>Description</key>
+					<string>Throwing an apple toward your enemy. Steady and fast, strike twice or thrice before your enemy makes any movements. The most perfect primary skill.</string>
+					<key>UnlockLevel</key>
+					<integer>5</integer>
+					<key>StrengthFactor</key>
+					<real>1</real>
+					<key>StaminaFactor</key>
+					<real>0.2</real>
+					<key>AgilityFactor</key>
+					<real>1.5</real>
+					<key>HitSpriteIndex</key>
+					<integer>6</integer>
+					<key>AttackSpriteAtlasCount</key>
+					<integer>7</integer>
+					<key>DefenceSpriteAtlasCount</key>
+					<integer>7</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Break Wind</string>
+					<key>Identifier</key>
+					<string>skill-57F4575F-0832-430D-B918-BC36638C8993</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ sends an airflow to @DEFENDER@.</string>
+					<key>Description</key>
+					<string>Break wind? Grab the amazing self healing while making the most heavy attack. But be careful, you will need a long time to recover before next movement.</string>
+					<key>UnlockLevel</key>
+					<integer>10</integer>
+					<key>StrengthFactor</key>
+					<real>3</real>
+					<key>StaminaFactor</key>
+					<real>1</real>
+					<key>AgilityFactor</key>
+					<real>0.3</real>
+					<key>HitSpriteIndex</key>
+					<integer>7</integer>
+					<key>AttackSpriteAtlasCount</key>
+					<integer>8</integer>
+					<key>DefenceSpriteAtlasCount</key>
+					<integer>8</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Honey Bee</string>
+					<key>Identifier</key>
+					<string>skill-4F1CCC5F-7FDE-4809-830B-B0C9323EA3B2</string>
+					<key>DescriptionTemplate</key>
+					<string>@ATTACKER@ throws the honey to @DEFENDER@, and bee starts their attack.</string>
+					<key>Description</key>
+					<string>Who dislikes honey? Maybe your enemy will know the answer soon. Use honey to drive the bees. It&apos;s fast, heavy, but your bees may hurt you as well.</string>
+					<key>UnlockLevel</key>
+					<integer>15</integer>
+					<key>StrengthFactor</key>
+					<real>2.5</real>
+					<key>StaminaFactor</key>
+					<real>-0.3</real>
+					<key>AgilityFactor</key>
+					<real>0.6</real>
+					<key>HitSpriteIndex</key>
+					<integer>8</integer>
+					<key>AttackSpriteAtlasCount</key>
+					<integer>12</integer>
+					<key>DefenceSpriteAtlasCount</key>
+					<integer>12</integer>
+				</dict>
+			</array>
+			<key>Actions</key>
+			<array>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Sleep</string>
+					<key>Description</key>
+					<string>The basic sleep animation.</string>
+					<key>Identifier</key>
+					<string>action-232E8E80-7F35-468D-BFD8-FC44C44796CB</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Sleep</string>
+					<key>SpriteAtlasCount</key>
+					<integer>6</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Tired</string>
+					<key>Description</key>
+					<string>The basic tired animation.</string>
+					<key>Identifier</key>
+					<string>action-33969BC3-4215-4D99-B3FE-3B92964F4C22</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Tired</string>
+					<key>SpriteAtlasCount</key>
+					<integer>2</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Relax</string>
+					<key>Description</key>
+					<string>The basic relax animation.</string>
+					<key>Identifier</key>
+					<string>action-E79B117A-031C-4B51-9EB9-3CFA64018173</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Relax</string>
+					<key>SpriteAtlasCount</key>
+					<integer>2</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Touch</string>
+					<key>Description</key>
+					<string>The basic touch animation.</string>
+					<key>Identifier</key>
+					<string>action-803477B3-F0D1-4EE7-8655-0158746F4936</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Touch</string>
+					<key>SpriteAtlasCount</key>
+					<integer>3</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Wake</string>
+					<key>Description</key>
+					<string>The basic wake animation.</string>
+					<key>Identifier</key>
+					<string>action-66ED72A8-68E6-45C3-948E-971A1713C466</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Wake</string>
+					<key>SpriteAtlasCount</key>
+					<integer>3</integer>
+				</dict>
+				<dict>
+					<key>DisplayName</key>
+					<string>Basic Run</string>
+					<key>Description</key>
+					<string>The basic run animation.</string>
+					<key>Identifier</key>
+					<string>action-981ABFDF-EFE5-442C-BA10-CAA26AFAA279</string>
+					<key>UnlockLevel</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>Run</string>
+					<key>SpriteAtlasCount</key>
+					<integer>6</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
 </plist>

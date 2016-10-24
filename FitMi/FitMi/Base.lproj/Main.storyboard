@@ -629,7 +629,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                         <state key="normal" title="SPEED: 1.0">
@@ -647,6 +647,7 @@
                                     <constraint firstItem="Xac-si-lw6" firstAttribute="top" secondItem="ZOp-tJ-ycz" secondAttribute="top" constant="10" id="ddF-2I-Enk"/>
                                     <constraint firstItem="Xac-si-lw6" firstAttribute="leading" secondItem="ZOp-tJ-ycz" secondAttribute="leading" constant="10" id="ked-jh-u19"/>
                                     <constraint firstAttribute="trailing" secondItem="Xac-si-lw6" secondAttribute="trailing" constant="10" id="zVU-m9-sCk"/>
+                                    <constraint firstAttribute="height" constant="135" id="zk3-KJ-nw9"/>
                                 </constraints>
                             </view>
                         </subviews>
