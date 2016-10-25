@@ -136,7 +136,7 @@ class FMAccountViewController: FMViewController {
                     // Error
                 } else {
                     // TODO: login process finished
-                    print(res)
+                    print(res ?? "Empty Response")
                 }
             }
         } catch let error as NSError {
@@ -381,7 +381,7 @@ extension FMAccountViewController: UITableViewDelegate {
 										
                                         FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote(completion: { (error, success) in
                                             if (error != nil) {
-                                                print(error)
+                                                print(error!)
                                             } else {
                                                 prefs.set(Date(), forKey: "lastSyncTime")
                                             }

@@ -71,7 +71,7 @@ class FMHomeViewController: FMViewController {
             if interval >= 60 {
                 FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote { (error, success) in
                     if error != nil {
-                        print(error)
+                        print(error!)
                     } else {
                         if success {
                             print("updated")
@@ -85,7 +85,7 @@ class FMHomeViewController: FMViewController {
         } else {
             FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote { (error, success) in
                 if error != nil {
-                    print(error)
+                    print(error!)
                 } else {
                     if success {
                         print("updated")

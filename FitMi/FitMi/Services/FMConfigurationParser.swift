@@ -32,7 +32,7 @@ class FMConfigurationParser: NSObject {
 				self.total = self.constructDatabaseContent(fromDictionary: dict!)
 			} else {
 				print("Assets up to date")
-				print(error)
+				print(error ?? "No error.")
 				self.delegate?.parserDidCompleteWork()
 			}
 		})
@@ -158,7 +158,7 @@ class FMConfigurationParser: NSObject {
 					self.updateProgress(self.counter.incrementAndGet())
 				}
 			} else {
-				print(error)
+				print(error ?? "No error")
 			}
 		})
 		
@@ -173,7 +173,7 @@ class FMConfigurationParser: NSObject {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
 				} else {
-					print(error)
+					print(error ?? "No error")
 				}
 			})
 		}
@@ -189,7 +189,7 @@ class FMConfigurationParser: NSObject {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
 				} else {
-					print(error)
+					print(error ?? "No error")
 				}
 			})
 		}
@@ -211,7 +211,7 @@ class FMConfigurationParser: NSObject {
 						self.updateProgress(self.counter.incrementAndGet())
 					}
 				} else {
-					print(error)
+					print(error ?? "No error")
 				}
 			})
 		}
