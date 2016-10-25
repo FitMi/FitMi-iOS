@@ -330,6 +330,11 @@ extension FMAccountViewController: UITableViewDelegate {
 			default:
 				print("indexPath not supported")
 			}
+		case 1:
+			print("goal")
+			let controller = FMGoalSettingViewController.controllerFromStoryboard()
+			FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
+			
         case 2:
             switch indexPath.row {
             case 0:
