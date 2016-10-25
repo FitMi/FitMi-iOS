@@ -127,6 +127,7 @@ class FMExerciseViewController: FMViewController {
 	}
 	
 	override func willMoveAway(fromParentViewController parent: UIViewController?) {
+        self.deHighlightPanel()
 	}
 	
 	func updateDurationLabel() {
