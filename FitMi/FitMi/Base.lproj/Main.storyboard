@@ -80,7 +80,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-ZI-PRp">
-                                                                <rect key="frame" x="48.5" y="11" width="114.5" height="18"/>
+                                                                <rect key="frame" x="48" y="11" width="115" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,7 +148,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-4L-o7M">
-                                                                <rect key="frame" x="44.5" y="11" width="121.5" height="18"/>
+                                                                <rect key="frame" x="44" y="11" width="122" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -439,7 +439,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlH-lV-aZB">
-                                                <rect key="frame" x="25.5" y="10" width="50" height="50"/>
+                                                <rect key="frame" x="26" y="10" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xlH-lV-aZB" secondAttribute="height" multiplier="1:1" id="jwH-nw-omE"/>
                                                 </constraints>
@@ -477,7 +477,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTN-Qp-R7Q">
-                                                <rect key="frame" x="25.5" y="10" width="50" height="50"/>
+                                                <rect key="frame" x="26" y="10" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WTN-Qp-R7Q" secondAttribute="height" multiplier="1:1" id="qki-zB-bwO"/>
                                                 </constraints>
@@ -528,7 +528,7 @@
                                         <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 14:   16646 / 17500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-po-oBa">
-                                        <rect key="frame" x="104" y="13.5" width="112.5" height="13"/>
+                                        <rect key="frame" x="73" y="9" width="175" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -589,14 +589,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW8-Mb-p1B">
-                                <rect key="frame" x="0.0" y="302.5" width="320" height="106.5"/>
+                                <rect key="frame" x="0.0" y="303" width="320" height="106"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6E7-DN-ndP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="god-so-eRf">
-                                        <rect key="frame" x="268" y="18.5" width="37" height="23"/>
+                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                         <state key="normal" title="DISMISS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -606,7 +606,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="BOOTH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdL-rV-GHF">
-                                        <rect key="frame" x="15" y="23" width="238" height="14"/>
+                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -672,7 +672,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-Xs-Ro7">
-                                <rect key="frame" x="0.0" y="100" width="320" height="178.5"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="179"/>
                                 <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.94834019439999995" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="blh-bE-EnS" id="XvY-MU-10Q"/>
@@ -695,14 +695,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIv-LK-sQc">
-                                <rect key="frame" x="0.0" y="278.5" width="320" height="4"/>
+                                <rect key="frame" x="0.0" y="279" width="320" height="4"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="GPo-Lp-ddD"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uIR-OD-Eu6">
-                                <rect key="frame" x="0.0" y="302.5" width="320" height="106.5"/>
+                                <rect key="frame" x="0.0" y="303" width="320" height="106"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="uIR-OD-Eu6" secondAttribute="width" multiplier="0.333" id="c6b-hc-0Ac"/>
@@ -759,22 +759,31 @@
                                                         <state key="normal" title="DAMAGE: 1.0">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="postCaptionWithSender:" destination="blh-bE-EnS" eventType="touchUpInside" id="xSI-O6-Mij"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1R-So-gSa">
                                                         <rect key="frame" x="103.5" y="0.0" width="93" height="0.0"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                         <state key="normal" title="HEALING: 1.0">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="postCaptionWithSender:" destination="blh-bE-EnS" eventType="touchUpInside" id="KD7-FP-XM1"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4y-Fw-Rue">
                                                         <rect key="frame" x="206.5" y="0.0" width="93.5" height="0.0"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                         <state key="normal" title="SPEED: 1.0">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="postCaptionWithSender:" destination="blh-bE-EnS" eventType="touchUpInside" id="wyk-S7-nLS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -857,7 +866,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
-                                <rect key="frame" x="0.0" y="425" width="320" height="99"/>
+                                <rect key="frame" x="0.0" y="375" width="320" height="149"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
@@ -917,10 +926,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
-                                <rect key="frame" x="30" y="85" width="260" height="310"/>
+                                <rect key="frame" x="30" y="85" width="260" height="260"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
-                                        <rect key="frame" x="20" y="40" width="220" height="250"/>
+                                        <rect key="frame" x="20" y="40" width="220" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MxB-Wd-IqA">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
@@ -994,16 +1003,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-jE-4J6">
-                                                <rect key="frame" x="0.0" y="200" width="220" height="50"/>
+                                                <rect key="frame" x="0.0" y="200" width="220" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkQ-B1-JKI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPN-BN-xbY">
-                                                        <rect key="frame" x="209" y="0.0" width="11" height="50"/>
+                                                        <rect key="frame" x="209" y="0.0" width="11" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1013,7 +1022,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El6-DN-8UR">
-                                        <rect key="frame" x="101.5" y="305" width="143.5" height="0.0"/>
+                                        <rect key="frame" x="102" y="255" width="143" height="0.0"/>
                                         <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="IS9-wP-1jG"/>
@@ -1027,7 +1036,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-IT-0Yd">
-                                        <rect key="frame" x="15" y="305" width="71.5" height="0.0"/>
+                                        <rect key="frame" x="15" y="255" width="72" height="0.0"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="DISMISS">
@@ -1055,7 +1064,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
-                                <rect key="frame" x="93.5" y="60" width="134" height="50"/>
+                                <rect key="frame" x="94" y="60" width="134" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
                                         <rect key="frame" x="10" y="10" width="114" height="30"/>
@@ -1311,7 +1320,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYr-rI-kLe">
-                                        <rect key="frame" x="268" y="18.5" width="37" height="23"/>
+                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                         <state key="normal" title="DISMISS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1321,7 +1330,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="HISTORICAL DATA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDW-ef-QyT">
-                                        <rect key="frame" x="15" y="23" width="238" height="14"/>
+                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1400,7 +1409,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4T-Uv-455">
-                                        <rect key="frame" x="110.5" y="508" width="100" height="40"/>
+                                        <rect key="frame" x="111" y="508" width="100" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="2Gt-9h-xBK"/>
                                             <constraint firstAttribute="height" constant="40" id="gNG-Lv-YxU"/>
@@ -1459,7 +1468,7 @@
                                                                 <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278 / 300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP6-Cf-KHH">
-                                                                <rect key="frame" x="49" y="58.5" width="42.5" height="12"/>
+                                                                <rect key="frame" x="49" y="59" width="43" height="12"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -1517,7 +1526,7 @@
                                                                 <color key="trackTintColor" white="0.66666666669999997" alpha="0.5" colorSpace="calibratedWhite"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="278 / 300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wi-2Y-ZKz">
-                                                                <rect key="frame" x="49" y="58.5" width="42.5" height="12"/>
+                                                                <rect key="frame" x="49" y="59" width="43" height="12"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -1568,13 +1577,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jg-C0-nYE">
-                                                <rect key="frame" x="0.0" y="91" width="320" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="91" width="320" height="187"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-Kb-pk2">
-                                                        <rect key="frame" x="0.0" y="40" width="320" height="106.5"/>
+                                                        <rect key="frame" x="0.0" y="40" width="320" height="107"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="985-gA-uey">
-                                                        <rect key="frame" x="0.0" y="40" width="320" height="106.5"/>
+                                                        <rect key="frame" x="0.0" y="40" width="320" height="107"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1591,17 +1600,17 @@
                                                 </constraints>
                                             </view>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjV-DZ-kud">
-                                                <rect key="frame" x="0.0" y="277.5" width="320" height="5"/>
+                                                <rect key="frame" x="0.0" y="278" width="320" height="5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="CMU-lZ-hXx"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWG-wl-lwL">
-                                                <rect key="frame" x="0.0" y="282.5" width="320" height="110.5"/>
+                                                <rect key="frame" x="0.0" y="283" width="320" height="110"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKw-et-Y8I">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="o6c-Hh-TSi" id="R5u-pQ-uVF"/>
@@ -1631,21 +1640,21 @@
                                                         <rect key="frame" x="0.0" y="15" width="320" height="65"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-RZ-nUY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="65"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="65"/>
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="lLR-66-4Z6"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-0s-GsX">
-                                                                <rect key="frame" x="106.5" y="0.0" width="107" height="65"/>
+                                                                <rect key="frame" x="107" y="0.0" width="106" height="65"/>
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="918-QT-8Uf"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ0-kl-kXt">
-                                                                <rect key="frame" x="213.5" y="0.0" width="106.5" height="65"/>
+                                                                <rect key="frame" x="213" y="0.0" width="107" height="65"/>
                                                                 <state key="normal" image="health_icon"/>
                                                                 <connections>
                                                                     <action selector="skillButtonDidClickWithSender:" destination="o6c-Hh-TSi" eventType="touchUpInside" id="6ZM-Qc-wNn"/>
@@ -1680,7 +1689,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vo5-LM-HaN">
-                                        <rect key="frame" x="32" y="45.5" width="256" height="477"/>
+                                        <rect key="frame" x="32" y="46" width="256" height="477"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZN-s6-CnY">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="48"/>
@@ -2003,7 +2012,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0i0-JX-mcQ">
-                                        <rect key="frame" x="268" y="18.5" width="37" height="23"/>
+                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                         <state key="normal" title="DISMISS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2013,7 +2022,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Mi STATS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-S2-cpN">
-                                        <rect key="frame" x="15" y="23" width="238" height="14"/>
+                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2116,7 +2125,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtA-Cl-Mlg">
-                                        <rect key="frame" x="268" y="18.5" width="37" height="23"/>
+                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                         <state key="normal" title="DISMISS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2126,7 +2135,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="GOAL EDITING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDx-vu-xRp">
-                                        <rect key="frame" x="15" y="23" width="238" height="14"/>
+                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2151,7 +2160,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtU-tR-BZw">
-                                <rect key="frame" x="20" y="80" width="280" height="119"/>
+                                <rect key="frame" x="20" y="80" width="280" height="54"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Completing higher goals gives you more experience. But be careful, failing to complete your daily goal may result in health decreasing of your Mi.</string>
@@ -2164,25 +2173,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rML-AQ-hXR">
-                                <rect key="frame" x="20" y="259" width="280" height="289"/>
+                                <rect key="frame" x="20" y="169" width="280" height="379"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhh-AJ-YG5">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="96.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="126"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psn-U0-wl9">
-                                                <rect key="frame" x="0.0" y="15" width="280" height="13"/>
+                                                <rect key="frame" x="0.0" y="15" width="280" height="22"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogx-gE-It2">
-                                                <rect key="frame" x="0.0" y="38" width="280" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="47" width="280" height="69"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WoR-nK-pb8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu8-BM-cmQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="5000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2194,7 +2203,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMf-Om-RvK">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="10000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2206,7 +2215,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-xa-ub0">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="15000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2220,10 +2229,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-tk-ue7">
-                                                        <rect key="frame" x="0.0" y="29" width="280" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="40" width="280" height="29"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-x6-FrM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="20000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2235,7 +2244,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foL-ut-nmM">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19.5"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="25000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2247,7 +2256,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="35" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-5I-taW">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19.5"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="30000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2275,22 +2284,22 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PR-9T-Cmu">
-                                        <rect key="frame" x="0.0" y="96.5" width="280" height="96"/>
+                                        <rect key="frame" x="0.0" y="126" width="280" height="127"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="METERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LH-wK-B1R">
-                                                <rect key="frame" x="0.0" y="15" width="280" height="13"/>
+                                                <rect key="frame" x="0.0" y="15" width="280" height="22"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wY8-xN-V4s">
-                                                <rect key="frame" x="0.0" y="38" width="280" height="48"/>
+                                                <rect key="frame" x="0.0" y="47" width="280" height="70"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3gU-Rr-8Hw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-Ei-AsR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="2500" backgroundImage="gray"/>
                                                                 <state key="selected" backgroundImage="tiffany"/>
@@ -2300,7 +2309,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWd-5v-YbB">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="5000" backgroundImage="gray"/>
                                                                 <state key="selected" backgroundImage="tiffany"/>
@@ -2310,7 +2319,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-h3-nVH">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="7500" backgroundImage="gray"/>
                                                                 <state key="selected" backgroundImage="tiffany"/>
@@ -2322,10 +2331,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vy1-pI-ioH">
-                                                        <rect key="frame" x="0.0" y="29" width="280" height="19"/>
+                                                        <rect key="frame" x="0.0" y="40" width="280" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fom-DJ-dWy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="10000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2337,7 +2346,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5W-ky-bR0">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="12500" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2349,7 +2358,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUt-en-1sP">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="15000" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2377,22 +2386,22 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmC-Hh-IW8">
-                                        <rect key="frame" x="0.0" y="192.5" width="280" height="96.5"/>
+                                        <rect key="frame" x="0.0" y="253" width="280" height="126"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOORS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia7-oH-FCV">
-                                                <rect key="frame" x="0.0" y="15" width="280" height="13"/>
+                                                <rect key="frame" x="0.0" y="15" width="280" height="22"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lBS-K5-74r">
-                                                <rect key="frame" x="0.0" y="38" width="280" height="48.5"/>
+                                                <rect key="frame" x="0.0" y="47" width="280" height="69"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uio-p1-9jT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="29"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-jk-Kkb">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="5" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2404,7 +2413,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6s-zj-rDc">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19.5"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="10" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2416,7 +2425,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaY-U2-ixy">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19.5"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="29"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="15" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2430,10 +2439,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5yj-fD-b7a">
-                                                        <rect key="frame" x="0.0" y="29.5" width="280" height="19"/>
+                                                        <rect key="frame" x="0.0" y="39" width="280" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leC-n8-FW8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="20" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2445,7 +2454,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwd-f9-YYm">
-                                                                <rect key="frame" x="96.5" y="0.0" width="87" height="19"/>
+                                                                <rect key="frame" x="97" y="0.0" width="86" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="25" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2457,7 +2466,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aG-Xb-vPZ">
-                                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="19"/>
+                                                                <rect key="frame" x="193" y="0.0" width="87" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                                 <state key="normal" title="30" backgroundImage="gray">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2487,7 +2496,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New goals will only be effective from the next day." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g62-bB-yeM">
-                                <rect key="frame" x="20" y="214" width="280" height="40"/>
+                                <rect key="frame" x="20" y="149" width="280" height="15"/>
                                 <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

@@ -218,6 +218,32 @@ class FMBoothViewController: FMViewController {
 		return true
 	}
 	
+	@IBAction func postCaption(sender: UIButton) {
+		var text = ""
+		var title = ""
+		
+		switch sender.tag {
+		case 0:
+			title = "Skill Damage"
+			text = "[skill damage] * [strength] determines the final damage"
+			
+		case 1:
+			title = "Skill Healing"
+			text = "[skill healing] * [stamina] determines the final healing. A negative value means the skill hurts both the enemy and yourself at the same time."
+			
+		case 2:
+			title = "Skill Speed"
+			text = "[skill speed] * [agility] determines the cool down for next move"
+			
+		default:
+			print("N.A.")
+		}
+		
+		let controller = UIAlertController(title: title, message: text, preferredStyle: .actionSheet)
+		controller.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+		self.present(controller, animated: true, completion: nil)
+	}
+	
 	fileprivate func clearImageView() {
 		self.primaryImageView.stopAnimating()
 		self.secondaryImageView.stopAnimating()
