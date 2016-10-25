@@ -103,6 +103,8 @@ class FMHomeViewController: FMViewController {
                     let sprite = FMSpriteStatusManager.sharedManager.sprite!
                     self.state = sprite.states.last!
                     self.displaySpriteData()
+					self.mainScene.loadCharacterSprites()
+					self.mainScene.animateNormalSprite()
                 } else {
                     print("sprite not updated")
                 }
