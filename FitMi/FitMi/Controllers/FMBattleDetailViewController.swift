@@ -18,6 +18,7 @@ class FMBattleDetailViewController: FMViewController {
 	@IBOutlet var battleView: UIView!
 	@IBOutlet var resultView: UIView!
 	@IBOutlet var resultLabel: UILabel!
+	@IBOutlet var resultImageView: UIImageView!
     @IBOutlet var expLabel: UILabel!
 	@IBOutlet var tableView: UITableView!
 
@@ -181,14 +182,16 @@ class FMBattleDetailViewController: FMViewController {
 		self.resultView.isUserInteractionEnabled = true
 		
 		if isSelfWin {
-			self.resultLabel.text = "YOU WIN !"
+			self.resultLabel.text = "VICTORY"
+			self.resultImageView.image = UIImage(named: "win")
 		} else {
-			self.resultLabel.text = "YOU LOSE !"
+			self.resultLabel.text = "YOU LOSE"
+			self.resultImageView.image = UIImage(named: "lose")
 		}
 		self.handleBattleExp(isSelfWin: isSelfWin)
         self.playResultSound(isSelfWin: isSelfWin)
-		UIView.animate(withDuration: 0.3, delay: 0.2, options: [], animations: {
-			self.resultView.alpha = 0.95
+		UIView.animate(withDuration: 0.3, delay: 1, options: [], animations: {
+			self.resultView.alpha = 1
 		}, completion: nil)
 	}
     
