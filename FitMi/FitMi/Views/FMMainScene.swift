@@ -31,7 +31,7 @@ class FMMainScene: SKScene {
 	private var defaultScale: CGFloat = 1.0
     private var isSleeping = false
 	
-	var character = SKSpriteNode()
+	var character: SKSpriteNode!
     var background = SKSpriteNode()
 	
 	private var firstWakeTexture: SKTexture?
@@ -43,7 +43,6 @@ class FMMainScene: SKScene {
 		self.displayBackground()
 		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil, queue: nil, using: {
 			_ in
-			self.displayCharacter()
 			self.loadCharacterSprites()
 			self.displayCharacter()
 		})
@@ -82,14 +81,16 @@ class FMMainScene: SKScene {
     }
     
     private func displayCharacter() {
-		self.character = SKSpriteNode(texture: normalSpriteArray.first)
-        self.character.size = CGSize(width: 400, height: 400)
-		self.character.position = CGPoint(x: -20, y: -180)
-        self.character.setScale(self.defaultScale)
-        
-        self.addChild(self.character)
+		if self.character == nil {
+			self.character = SKSpriteNode(texture: normalSpriteArray.first)
+			self.character.size = CGSize(width: 400, height: 400)
+			self.character.position = CGPoint(x: -20, y: -180)
+			self.character.setScale(self.defaultScale)
+			
+			self.addChild(self.character)
+		}
     }
-    
+	
     func animateNormalSprite() {
         self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 3), completion: {() -> Void in
                 self.animateTiredSprite()

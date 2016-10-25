@@ -29,7 +29,7 @@ class FMExerciseScene: SKScene {
 	private var defaultScale: CGFloat = 0.8
 	private var isSleeping = false
 	
-	var character = SKSpriteNode()
+	var character: SKSpriteNode!
 	var background = SKSpriteNode()
 	
 	
@@ -53,14 +53,16 @@ class FMExerciseScene: SKScene {
 	}
 	
 	private func displayCharacter() {
-		self.character = SKSpriteNode(texture: normalSpriteArray.first)
-		self.character.size = CGSize(width: 400, height: 400)
-		self.character.position = CGPoint(x: -20, y: 40)
-		self.character.setScale(self.defaultScale)
-		
-		self.addChild(self.character)
-		
-		self.animateNormalSprite()
+		if self.character == nil {
+			self.character = SKSpriteNode(texture: normalSpriteArray.first)
+			self.character.size = CGSize(width: 400, height: 400)
+			self.character.position = CGPoint(x: -20, y: 40)
+			self.character.setScale(self.defaultScale)
+			
+			self.addChild(self.character)
+			
+			self.animateNormalSprite()
+		}
 	}
 	
 	public func animateNormalSprite() {

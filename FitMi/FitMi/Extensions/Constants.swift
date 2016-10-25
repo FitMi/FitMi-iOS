@@ -32,5 +32,17 @@ let USER_DEFAULT_KEY_ONBOARD = "APP_ONBOARD_STATUS"
 let KEY_DAILY_EXTRA_EXP = "DailyExExp"
 let KEY_DAILY_EXTRA_EXP_DATE = "DailyExExp-Date"
 
+let GOAL_SET_DATE_STEPS = "GoalSetDateSteps"
+let GOAL_SET_DATE_DISTANCE = "GoalSetDateDistance"
+let GOAL_SET_DATE_FLIGHTS = "GoalSetDateFlights"
+
+let GOAL_NEXT_STEPS = "GoalNextSteps"
+let GOAL_NEXT_DISTANCE = "GoalNextDistance"
+let GOAL_NEXT_FLIGHTS = "GoalNextFlights"
+
+let GOAL_STEPS = "GoalSteps"
+let GOAL_DISTANCE = "GoalDistance"
+let GOAL_FLIGHTS = "GoalFlights"
+
 let SPRITE_IMAGE_BASE_URL = "https://s3-ap-southeast-1.amazonaws.com/fitmi.sprites/"
 let API_BASE_ENDPOINT = "https://fitmi.club/api"

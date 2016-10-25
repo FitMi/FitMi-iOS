@@ -166,14 +166,68 @@ class FMHealthStatusManager: NSObject {
 	}
 	
 	func goalForSteps() -> Int {
-		return WORKOUT_GOAL_DEFAULT_STEPS
+		let prefs = UserDefaults.standard
+		
+		if let timeStamp = prefs.string(forKey: GOAL_SET_DATE_STEPS) {
+			let date = Date(timeIntervalSince1970: TimeInterval(timeStamp)!)
+			if !Calendar.current.isDateInToday(date) {
+				let goal = prefs.integer(forKey: GOAL_NEXT_STEPS)
+				prefs.set(goal, forKey: GOAL_STEPS)
+				prefs.removeObject(forKey: GOAL_NEXT_STEPS)
+				return goal
+			}
+		}
+		
+		let goal = prefs.integer(forKey: GOAL_STEPS)
+		if goal != 0 {
+			return goal
+		} else {
+			prefs.set(WORKOUT_GOAL_DEFAULT_STEPS, forKey: GOAL_STEPS)
+			return WORKOUT_GOAL_DEFAULT_STEPS
+		}
 	}
 	
 	func goalForDistance() -> Int {
-		return WORKOUT_GOAL_DEFAULT_DISTANCE
+		let prefs = UserDefaults.standard
+		
+		if let timeStamp = prefs.string(forKey: GOAL_SET_DATE_DISTANCE) {
+			let date = Date(timeIntervalSince1970: TimeInterval(timeStamp)!)
+			if !Calendar.current.isDateInToday(date) {
+				let goal = prefs.integer(forKey: GOAL_NEXT_DISTANCE)
+				prefs.set(goal, forKey: GOAL_DISTANCE)
+				prefs.removeObject(forKey: GOAL_NEXT_DISTANCE)
+				return goal
+			}
+		}
+		
+		let goal = prefs.integer(forKey: GOAL_DISTANCE)
+		if goal != 0 {
+			return goal
+		} else {
+			prefs.set(WORKOUT_GOAL_DEFAULT_DISTANCE, forKey: GOAL_DISTANCE)
+			return WORKOUT_GOAL_DEFAULT_DISTANCE
+		}
 	}
 	
 	func goalForFlights() -> Int {
-		return WORKOUT_GOAL_DEFAULT_FLIGHTS
+		let prefs = UserDefaults.standard
+		
+		if let timeStamp = prefs.string(forKey: GOAL_SET_DATE_FLIGHTS) {
+			let date = Date(timeIntervalSince1970: TimeInterval(timeStamp)!)
+			if !Calendar.current.isDateInToday(date) {
+				let goal = prefs.integer(forKey: GOAL_NEXT_FLIGHTS)
+				prefs.set(goal, forKey: GOAL_FLIGHTS)
+				prefs.removeObject(forKey: GOAL_NEXT_FLIGHTS)
+				return goal
+			}
+		}
+		
+		let goal = prefs.integer(forKey: GOAL_FLIGHTS)
+		if goal != 0 {
+			return goal
+		} else {
+			prefs.set(WORKOUT_GOAL_DEFAULT_FLIGHTS, forKey: GOAL_FLIGHTS)
+			return WORKOUT_GOAL_DEFAULT_FLIGHTS
+		}
 	}
 }
