@@ -41,7 +41,12 @@ class FMMainScene: SKScene {
     override func didMove(to view: SKView) {
         self.loadBackgroundSprites()
 		self.displayBackground()
-        self.displayCharacter()
+		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil, queue: nil, using: {
+			_ in
+			self.displayCharacter()
+			self.loadCharacterSprites()
+			self.displayCharacter()
+		})
 	}
     
     private func loadBackgroundSprites() {
@@ -77,7 +82,7 @@ class FMMainScene: SKScene {
     }
     
     private func displayCharacter() {
-        self.character = SKSpriteNode()
+		self.character = SKSpriteNode(texture: normalSpriteArray.first)
         self.character.size = CGSize(width: 400, height: 400)
 		self.character.position = CGPoint(x: -20, y: -180)
         self.character.setScale(self.defaultScale)
