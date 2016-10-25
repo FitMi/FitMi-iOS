@@ -14,9 +14,56 @@ class FMGoalSettingViewController: FMViewController {
 	fileprivate var meters = 0
 	fileprivate var floors = 0
 	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		let healthManager = FMHealthStatusManager.sharedManager
+		
+		let highlightImage = UIImage.fromColor(color: UIColor.activeColor)
+		
+		let prefs = UserDefaults.standard
+		
+		let steps = healthManager.goalForSteps()
+		let selectedStepGoal = prefs.integer(forKey: GOAL_NEXT_STEPS)
+		if let button = self.view.viewWithTag(steps / 5000 - 1 + 30) as? UIButton {
+			if selectedStepGoal != 0 {
+				if let tmrGoalButton = self.view.viewWithTag(selectedStepGoal / 5000 - 1 + 30) as? UIButton {
+					tmrGoalButton.isSelected = true
+				}
+			} else {
+				button.isSelected = true
+			}
+			button.setBackgroundImage(highlightImage, for: .normal)
+		}
+		
+		let meters = healthManager.goalForDistance()
+		let selectedMeterGoal = prefs.integer(forKey: GOAL_NEXT_DISTANCE)
+		if let button = self.view.viewWithTag(meters / 2500 - 1 + 10) as? UIButton {
+			if selectedMeterGoal != 0 {
+				if let tmrGoalButton = self.view.viewWithTag(selectedMeterGoal / 2500 - 1 + 10) as? UIButton {
+					tmrGoalButton.isSelected = true
+				}
+			} else {
+				button.isSelected = true
+			}
+			button.setBackgroundImage(highlightImage, for: .normal)
+		}
+		
+		let floors = healthManager.goalForFlights()
+		let selectedFloorGoal = prefs.integer(forKey: GOAL_NEXT_FLIGHTS)
+		if let button = self.view.viewWithTag(floors / 5 - 1 + 20) as? UIButton {
+			if selectedMeterGoal != 0 {
+				if let tmrGoalButton = self.view.viewWithTag(selectedFloorGoal / 5 - 1 + 20) as? UIButton {
+					tmrGoalButton.isSelected = true
+				}
+			} else {
+				button.isSelected = true
+			}
+			button.setBackgroundImage(highlightImage, for: .normal)
+		}
+		
         // Do any additional setup after loading the view.
     }
 
@@ -45,6 +92,8 @@ class FMGoalSettingViewController: FMViewController {
 		}
 		
 		sender.isSelected = true
+		UserDefaults.standard.set(steps, forKey: GOAL_NEXT_STEPS)
+		UserDefaults.standard.set("\(Date().timeIntervalSince1970)", forKey: GOAL_SET_DATE_STEPS)
 	}
 	
 	@IBAction func metersButtonDidClick(sender: UIButton) {
@@ -57,6 +106,8 @@ class FMGoalSettingViewController: FMViewController {
 		}
 		
 		sender.isSelected = true
+		UserDefaults.standard.set(meters, forKey: GOAL_NEXT_DISTANCE)
+		UserDefaults.standard.set("\(Date().timeIntervalSince1970)", forKey: GOAL_SET_DATE_DISTANCE)
 	}
 	
 	@IBAction func floorsButtonDidClick(sender: UIButton) {
@@ -69,6 +120,8 @@ class FMGoalSettingViewController: FMViewController {
 		}
 		
 		sender.isSelected = true
+		UserDefaults.standard.set(floors, forKey: GOAL_NEXT_FLIGHTS)
+		UserDefaults.standard.set("\(Date().timeIntervalSince1970)", forKey: GOAL_SET_DATE_FLIGHTS)
 	}
 
 	class func controllerFromStoryboard() -> FMGoalSettingViewController {
