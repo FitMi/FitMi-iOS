@@ -57,7 +57,7 @@ class FMBoothItemCell: UITableViewCell {
 		
 		UIView.animate(withDuration: animationDuration, animations: {
 			if selected {
-				self.contentView.backgroundColor = UIColor.activeColor.withAlphaComponent(0.2)
+				self.contentView.backgroundColor = UIColor.activeColor.withAlphaComponent(0.1)
 			} else {
 				self.contentView.backgroundColor = self.backgroundColor
 			}

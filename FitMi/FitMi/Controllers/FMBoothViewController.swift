@@ -135,8 +135,8 @@ class FMBoothViewController: FMViewController {
 	}
 	
 	fileprivate func selectSegment(at index: Int) {
-		
 		self.damageButton.superview!.isHidden = index != 1
+		self.descriptionLabel.text = ""
 		
 		for button in segmentButtons {
 			button.isSelected = false
@@ -192,7 +192,7 @@ class FMBoothViewController: FMViewController {
 		self.clearImageView()
 		self.tableView.reloadData()
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.005, execute: {
 			let indexPath = IndexPath(row:0, section: 0)
 			self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
 			self.tableView(self.tableView, didSelectRowAt: indexPath)
@@ -310,7 +310,17 @@ extension FMBoothViewController: UITableViewDataSource {
 }
 
 extension FMBoothViewController: UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		if indexPath == self.selectedIndexPath {
+			cell.setSelected(true, animated: false)
+		}
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		self.selectedIndexPath = indexPath
+		
 		switch self.currentSelectedSegmentIndex {
 			
 		case 0:
