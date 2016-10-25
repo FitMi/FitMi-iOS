@@ -196,15 +196,19 @@ class FMExerciseViewController: FMViewController {
 		}
 		
         let duration = Int(self.exerciseEndDate.timeIntervalSince(self.exerciseStartDate))
-        let graphProperties = ["og:type": "fitness.course",
-                               "og:title": "WOW, I ran with FitMi today!",
-                               "fitness:distance:value": "\(Double(self.distance)/1000.0)",
-                               "fitness:distance:units": "km",
-                               "fitness:duration:value": "\(duration)",
-                               "fitness:duration:units": "s",
-                               "fitness:speed:value": "\(duration == 0 ? 0 : self.distance / duration)",
-                               "fitness:speed:units": "m/s",
-                               "og:image": "https://s3-ap-southeast-1.amazonaws.com/fitmi.static/runningMi.png"]
+        let graphProperties = [
+            "fb:app_id": "1768015020120341",
+            "og:type": "fitness.course",
+            "og:title": "WOW, I ran with FitMi today!",
+            "og:url": "https://www.facebook.com/fitmi.health/",
+            "fitness:distance:value": "\(Double(self.distance)/1000.0)",
+            "fitness:distance:units": "km",
+            "fitness:duration:value": "\(duration)",
+            "fitness:duration:units": "s",
+            "fitness:speed:value": "\(duration == 0 ? 0 : self.distance / duration)",
+            "fitness:speed:units": "m/s",
+            "og:image": "https://s3-ap-southeast-1.amazonaws.com/fitmi.static/runningMi.png"
+        ]
         let graphObject = FBSDKShareOpenGraphObject(properties: graphProperties)
 
         let action = FBSDKShareOpenGraphAction()
