@@ -68,16 +68,21 @@ class FMGoalViewController: FMViewController {
         let flightGoal = self.currentState.flightsGoal
         
         let distanceProgress = Float(distance) / Float(distanceGoal)
-        self.distanceProgressView.setProgress(min(distanceProgress, 1), animated: true)
         self.distanceProgressLabel.text = "\(distance) / \(distanceGoal)   METERS"
+		self.distanceProgressView.setProgress(min(distanceProgress, 1), animated: true)
         
         let stepProgress = Float(step) / Float(stepGoal)
-        self.stepProgressView.setProgress(min(stepProgress, 1), animated: true)
         self.stepProgressLabel.text = "\(step) / \(stepGoal)   STEPS"
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.05, execute: {
+			self.stepProgressView.setProgress(min(stepProgress, 1), animated: true)
+		})
         
         let flightProgress = Float(flight) / Float(flightGoal)
-        self.flightProgressView.setProgress(min(flightProgress, 1), animated: true)
         self.flightProgressLabel.text = "\(flight) / \(flightGoal)   FLOORS"
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+			self.flightProgressView.setProgress(min(flightProgress, 1), animated: true)
+		})
+		
     }
 	
 	func setCardViewStyle() {
