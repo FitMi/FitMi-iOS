@@ -103,6 +103,7 @@ class FMHomeViewController: FMViewController {
                     let sprite = FMSpriteStatusManager.sharedManager.sprite!
                     self.state = sprite.states.last!
                     self.displaySpriteData()
+					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil)
                 } else {
                     print("sprite not updated")
                 }

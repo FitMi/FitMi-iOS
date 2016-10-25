@@ -34,50 +34,26 @@ class FMExerciseScene: SKScene {
 	
 	
 	override func didMove(to view: SKView) {
-		self.loadCharacterSprites()
-		self.displayCharacter()
+		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil, queue: nil, using: {
+			_ in
+			self.loadCharacterSprites()
+			self.displayCharacter()
+		})
 	}
 	
 	private func loadCharacterSprites() {
-		self.normalSpriteAtlas = SKTextureAtlas(named: "sprite-relax")
-		for i in 1...self.normalSpriteAtlas.textureNames.count {
-			let name = "relax1-\(i).png"
-			normalSpriteArray.append(SKTexture(imageNamed: name))
-		}
+		let sprite = FMSpriteStatusManager.sharedManager.sprite!
 		
-		self.tiredSpriteAtlas = SKTextureAtlas(named: "sprite-tired")
-		for i in 1...self.tiredSpriteAtlas.textureNames.count {
-			let name = "tired1-\(i).png"
-			tiredSpriteArray.append(SKTexture(imageNamed: name))
-		}
-		
-		self.sleepSpriteAtlas = SKTextureAtlas(named: "sprite-sleep")
-		for i in 1...self.sleepSpriteAtlas.textureNames.count {
-			let name = "sleep1-\(i).png"
-			sleepSpriteArray.append(SKTexture(imageNamed: name))
-		}
-		
-		self.wakeSpriteAtlas = SKTextureAtlas(named: "sprite-wake")
-		for i in 2...self.wakeSpriteAtlas.textureNames.count {
-			let name = "wake1-\(i).png"
-			wakeSpriteArray.append(SKTexture(imageNamed: name))
-		}
-		
-		self.touchSpriteAtlas = SKTextureAtlas(named: "sprite-touch")
-		for i in 2...self.touchSpriteAtlas.textureNames.count {
-			let name = "touch1-\(i).png"
-			touchSpriteArray.append(SKTexture(imageNamed: name))
-		}
-		
-		self.runSpriteAtlas = SKTextureAtlas(named: "sprite-run")
-		for i in 1...self.runSpriteAtlas.textureNames.count {
-			let name = "run1-\(i).png"
-			runSpriteArray.append(SKTexture(imageNamed: name))
-		}
+		normalSpriteArray = sprite.relaxAction.sprites().map { return SKTexture(image: $0) }
+		tiredSpriteArray = sprite.tiredAction.sprites().map { return SKTexture(image: $0) }
+		sleepSpriteArray = sprite.sleepAction.sprites().map { return SKTexture(image: $0) }
+		wakeSpriteArray = sprite.wakeAction.sprites().map { return SKTexture(image: $0) }
+		runSpriteArray = sprite.runAction.sprites().map { return SKTexture(image: $0) }
+		touchSpriteArray = sprite.touchAction.sprites().map { return SKTexture(image: $0) }
 	}
 	
 	private func displayCharacter() {
-		self.character = SKSpriteNode(imageNamed: "relax1-1.png")
+		self.character = SKSpriteNode(texture: normalSpriteArray.first)
 		self.character.size = CGSize(width: 400, height: 400)
 		self.character.position = CGPoint(x: -20, y: 40)
 		self.character.setScale(self.defaultScale)
@@ -88,30 +64,30 @@ class FMExerciseScene: SKScene {
 	}
 	
 	public func animateNormalSprite() {
-		self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: true, restore: true), count: 3), completion: {() -> Void in
+		self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 3), completion: {() -> Void in
 			self.animateTiredSprite()
 		})
 	}
 	
 	private func animateTiredSprite() {
-		self.character.run(SKAction.animate(with: self.tiredSpriteArray, timePerFrame: 0.4, resize: true, restore: true), completion: {() -> Void in
+		self.character.run(SKAction.animate(with: self.tiredSpriteArray, timePerFrame: 0.4, resize: false, restore: true), completion: {() -> Void in
 			self.animateSleepSprite()
 		})
 	}
 	
 	private func animateSleepSprite() {
 		self.isSleeping = true
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.sleepSpriteArray, timePerFrame: 0.5, resize: true, restore: true)))
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.sleepSpriteArray, timePerFrame: 0.5, resize: false, restore: true)))
 	}
 	
 	private func animateWakeSprite() {
-		self.character.run(SKAction.animate(with: self.wakeSpriteArray, timePerFrame: 0.5, resize: true, restore: true), completion: {() -> Void in
+		self.character.run(SKAction.animate(with: self.wakeSpriteArray, timePerFrame: 0.5, resize: false, restore: true), completion: {() -> Void in
 			self.animateNormalSprite()
 		})
 	}
 	
 	public func animateRunSprite() {
-		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.runSpriteArray, timePerFrame: 0.4, resize: true, restore: true)))
+		self.character.run(SKAction.repeatForever(SKAction.animate(with: self.runSpriteArray, timePerFrame: 0.4, resize: false, restore: true)))
 	}
 	
 	public func removeSpriteAnimation() {
