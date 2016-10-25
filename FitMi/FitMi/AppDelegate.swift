@@ -11,6 +11,7 @@ import FontBlaster
 import FacebookCore
 import FBSDKCoreKit
 import RealmSwift
+import UserNotifications
 
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,7 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Tell Realm to use this new configuration object for the default Realm
 		Realm.Configuration.defaultConfiguration = config
 		
-		
+        // Override point for customization after application launch.
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
+                (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+        } else {
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+        }
 		
         let hasOnboard = application.hasOnboard
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -60,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
-
+    
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -82,6 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Override point for customization after application launch.
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        } else {
+            application.cancelAllLocalNotifications()
+        }
 	}
 
 

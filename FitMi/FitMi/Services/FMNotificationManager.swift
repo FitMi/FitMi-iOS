@@ -75,4 +75,12 @@ class FMNotificationManager: NSObject {
 				messageView.removeFromSuperview()
 		})
 	}
+    
+    func scheduleNotification(message: String, fireDate: Date, interval: NSCalendar.Unit) {
+        let notification:UILocalNotification = UILocalNotification()
+        notification.alertBody = message
+        notification.fireDate = fireDate
+        notification.repeatInterval = interval
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
 }
