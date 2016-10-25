@@ -31,5 +31,19 @@ class FMOutlinedLabel: UILabel {
 		
 		self.shadowOffset = shadowOffset
 	}
+	
+	var outlineStyle: Int {
+		get {
+			return 0
+		}
+		
+		set(newValue) {
+			switch newValue {
+			default:
+				self.textColor = UIColor.white
+				self.outlineColor = UIColor.black.withAlphaComponent(0.8)
+			}
+		}
+	}
 
 }
