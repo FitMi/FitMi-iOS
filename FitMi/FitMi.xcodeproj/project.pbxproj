@@ -78,6 +78,13 @@
 		9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */; };
 		9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1721DB0B37700227C89 /* sprite-wake.atlas */; };
 		9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 9352E1741DB0B88E00227C89 /* sprite-tired.atlas */; };
+		935FF1F81DBF879C00A1A7E0 /* home-booth.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF1F51DBF879C00A1A7E0 /* home-booth.png */; };
+		935FF1F91DBF879C00A1A7E0 /* home-goal.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF1F61DBF879C00A1A7E0 /* home-goal.png */; };
+		935FF1FA1DBF879C00A1A7E0 /* home-mi.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF1F71DBF879C00A1A7E0 /* home-mi.png */; };
+		935FF1FE1DBF87AB00A1A7E0 /* battel-hp.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF1FC1DBF87AB00A1A7E0 /* battel-hp.png */; };
+		935FF1FF1DBF87AB00A1A7E0 /* battel-time.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF1FD1DBF87AB00A1A7E0 /* battel-time.png */; };
+		935FF2031DBF87E200A1A7E0 /* lose.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF2011DBF87E200A1A7E0 /* lose.png */; };
+		935FF2041DBF87E200A1A7E0 /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 935FF2021DBF87E200A1A7E0 /* win.png */; };
 		93A46F6C1DB8DDA100B4D77C /* shocked.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F691DB8DDA100B4D77C /* shocked.mp3 */; };
 		93A46F6D1DB8DDA100B4D77C /* sweat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */; };
 		93A46F6E1DB8DDA100B4D77C /* touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93A46F6B1DB8DDA100B4D77C /* touch.mp3 */; };
@@ -202,6 +209,13 @@
 		9352E1701DB0B36D00227C89 /* sprite-sleep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-sleep.atlas"; sourceTree = "<group>"; };
 		9352E1721DB0B37700227C89 /* sprite-wake.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-wake.atlas"; sourceTree = "<group>"; };
 		9352E1741DB0B88E00227C89 /* sprite-tired.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "sprite-tired.atlas"; sourceTree = "<group>"; };
+		935FF1F51DBF879C00A1A7E0 /* home-booth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-booth.png"; sourceTree = "<group>"; };
+		935FF1F61DBF879C00A1A7E0 /* home-goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-goal.png"; sourceTree = "<group>"; };
+		935FF1F71DBF879C00A1A7E0 /* home-mi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-mi.png"; sourceTree = "<group>"; };
+		935FF1FC1DBF87AB00A1A7E0 /* battel-hp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battel-hp.png"; sourceTree = "<group>"; };
+		935FF1FD1DBF87AB00A1A7E0 /* battel-time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battel-time.png"; sourceTree = "<group>"; };
+		935FF2011DBF87E200A1A7E0 /* lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose.png; sourceTree = "<group>"; };
+		935FF2021DBF87E200A1A7E0 /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
 		93A46F691DB8DDA100B4D77C /* shocked.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shocked.mp3; sourceTree = "<group>"; };
 		93A46F6A1DB8DDA100B4D77C /* sweat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sweat.mp3; sourceTree = "<group>"; };
 		93A46F6B1DB8DDA100B4D77C /* touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = touch.mp3; sourceTree = "<group>"; };
@@ -412,6 +426,8 @@
 		0CD3CD761D9F168D00E47BF8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				935FF1FB1DBF87AB00A1A7E0 /* icons */,
+				935FF1F41DBF879C00A1A7E0 /* buttons */,
 				93A46F5C1DB8CA9B00B4D77C /* sounds */,
 				93B34DF61DB409D7005D530E /* battle */,
 				93A5D36D1DAF82DF00439264 /* backgrounds */,
@@ -492,6 +508,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		935FF1F41DBF879C00A1A7E0 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				935FF1F51DBF879C00A1A7E0 /* home-booth.png */,
+				935FF1F61DBF879C00A1A7E0 /* home-goal.png */,
+				935FF1F71DBF879C00A1A7E0 /* home-mi.png */,
+			);
+			path = buttons;
+			sourceTree = "<group>";
+		};
+		935FF1FB1DBF87AB00A1A7E0 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				935FF1FC1DBF87AB00A1A7E0 /* battel-hp.png */,
+				935FF1FD1DBF87AB00A1A7E0 /* battel-time.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		935FF2001DBF87E200A1A7E0 /* battel-result */ = {
+			isa = PBXGroup;
+			children = (
+				935FF2011DBF87E200A1A7E0 /* lose.png */,
+				935FF2021DBF87E200A1A7E0 /* win.png */,
+			);
+			path = "battel-result";
+			sourceTree = "<group>";
+		};
 		93A46F5C1DB8CA9B00B4D77C /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +560,7 @@
 		93B34DF61DB409D7005D530E /* battle */ = {
 			isa = PBXGroup;
 			children = (
+				935FF2001DBF87E200A1A7E0 /* battel-result */,
 				93B34DF71DB409D7005D530E /* defend.atlas */,
 				93B34DF81DB409D7005D530E /* skill-1.atlas */,
 				93B34DF91DB409D7005D530E /* skill-2.atlas */,
@@ -649,10 +694,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935FF1F81DBF879C00A1A7E0 /* home-booth.png in Resources */,
 				98B534431DBC01C100CB80B5 /* battle_win.mp3 in Resources */,
 				0C75513B1DB6B27E002146FE /* Pokemon.ttf in Resources */,
 				9352E1731DB0B37700227C89 /* sprite-wake.atlas in Resources */,
 				93A5D3721DAF87D200439264 /* background-01.atlas in Resources */,
+				935FF1FF1DBF87AB00A1A7E0 /* battel-time.png in Resources */,
+				935FF2041DBF87E200A1A7E0 /* win.png in Resources */,
+				935FF2031DBF87E200A1A7E0 /* lose.png in Resources */,
+				935FF1F91DBF879C00A1A7E0 /* home-goal.png in Resources */,
 				0C7551251DB3A7B5002146FE /* Fitconfig.plist in Resources */,
 				9352E1751DB0B88E00227C89 /* sprite-tired.atlas in Resources */,
 				0C51F74B1DB300D600A5231E /* FMLabelCell.xib in Resources */,
@@ -682,7 +732,9 @@
 				93B2234F1DAD2CFC0067F43A /* sprite-relax.atlas in Resources */,
 				0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */,
 				0C070E961DB9346E0095B3A0 /* FMFriendListCell.xib in Resources */,
+				935FF1FA1DBF879C00A1A7E0 /* home-mi.png in Resources */,
 				0CFC8B7A1DA8227D0084DD6F /* FMChartTableViewCell.xib in Resources */,
+				935FF1FE1DBF87AB00A1A7E0 /* battel-hp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
