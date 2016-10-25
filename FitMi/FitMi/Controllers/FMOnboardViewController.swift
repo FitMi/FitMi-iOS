@@ -46,6 +46,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		self.configureViews()
 		self.configureAnimations()
+		self.setNotification()
     }
 	
 	private func configureViews() {
@@ -437,7 +438,19 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		self.keepView(self.page3Button1, onPages: [4, 3], atTimes:[2.875, 3])
 	}
 	
-
+    private func setNotification() {
+        let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        let now = NSDate()
+        var components = gregorian.components([.year, .month, .day, .hour, .minute, .second], from: now as Date)
+        // Change the time to 9:30:00 in your locale
+        components.hour = 19
+        components.minute = 0
+        components.second = 0
+        
+        let date = gregorian.date(from: components)!
+        FMNotificationManager.sharedManager.scheduleNotification(message: "Let's go exercise (O^~^O)", fireDate: date, interval: NSCalendar.Unit.minute)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
