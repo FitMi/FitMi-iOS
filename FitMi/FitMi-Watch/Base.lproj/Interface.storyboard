@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11137" systemVersion="15E58" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ddD-rA-Iaz">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11109"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11056"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pixeled.ttf">
+            <string>Pixeled</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Interface Controller-->
+        <!--Animation Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="FMAnimationInterfaceController" customModule="FitMi_Watch_Extension">
                     <items>
                         <spriteKitScene alignment="left" id="eh2-bW-rMT"/>
                     </items>
@@ -17,7 +26,82 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="488" y="223"/>
+        </scene>
+        <!--Main Interface Controller-->
+        <scene sceneID="1qA-De-rpc">
+            <objects>
+                <controller id="ddD-rA-Iaz" customClass="FMMainInterfaceController" customModule="FitMi_Watch_Extension">
+                    <items>
+                        <group width="1" alignment="left" contentMode="scaleAspectFit" id="qtx-Ae-MK2">
+                            <items>
+                                <imageView alignment="left" image="win" id="OM7-9A-N6s"/>
+                            </items>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <edgeInsets key="margins" left="30" right="30" top="40" bottom="40"/>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" spacing="10" id="4Om-2w-JcC">
+                            <items>
+                                <group width="1" height="20" alignment="left" id="oFz-II-oWj">
+                                    <items>
+                                        <label alignment="left" text="TIMER" id="oLT-gp-2Nt">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                        <timer alignment="right" id="6co-92-nfx">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                            <calendarUnit key="units" minute="YES" second="YES"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="YZA-1d-c9a">
+                                    <items>
+                                        <label alignment="left" text="STEPS" id="Nvm-vy-tzp">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                        <label alignment="right" text="0" textAlignment="left" id="ngt-uh-6qz">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="mIi-3r-QIv">
+                                    <items>
+                                        <label alignment="left" text="METERS" id="aqK-TI-XmX">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                        <label alignment="right" text="0" id="xa4-G0-Ngz">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="9Ir-1j-9zm">
+                                    <items>
+                                        <label alignment="left" text="FLOORS" id="L6c-eD-pWE">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                        <label alignment="right" text="0" id="rHT-cx-LAo">
+                                            <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
+                        </group>
+                        <button alignment="left" id="lgT-xs-CWd">
+                            <group key="contentGroup" width="1" alignment="left" id="SBT-ap-hVJ">
+                                <items>
+                                    <label alignment="center" verticalAlignment="center" text="START EXERCISE" id="bkR-nr-61s">
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                    </label>
+                                </items>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <edgeInsets key="margins" left="0.0" right="0.0" top="20" bottom="20"/>
+                            </group>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="146" y="224"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -38,7 +122,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="FitMi_Watch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>

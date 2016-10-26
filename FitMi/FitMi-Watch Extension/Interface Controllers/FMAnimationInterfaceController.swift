@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  FMAnimationInterfaceController.swift
 //  FitMi-Watch Extension
 //
 //  Created by Jinghan Wang on 27/10/16.
@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class FMAnimationInterfaceController: WKInterfaceController {
 
     @IBOutlet var skInterface: WKInterfaceSKScene!
     
