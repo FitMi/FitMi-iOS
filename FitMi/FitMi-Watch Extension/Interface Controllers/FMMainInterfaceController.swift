@@ -38,8 +38,11 @@ class FMMainInterfaceController: WKInterfaceController {
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
-		
 		animateRelax()
+		
+		let records = FMPersistentDataManager.shared.cachedRecords()
+		print("Exercise Records")
+		print(records)
 	}
 	
 	fileprivate func animateRun() {
@@ -65,8 +68,7 @@ class FMMainInterfaceController: WKInterfaceController {
 	@IBAction func toggleExercise(sender: WKInterfaceButton) {
 		if !exerciseStarted {
 			WKInterfaceDevice.current().play(.start)
-			startDate = Date()
-			durationTimer.setDate(startDate)
+			resetExerciseData()
 			durationTimer.start()
 			buttonTitleLabel.setText("END EXERCISE")
 			
@@ -77,10 +79,21 @@ class FMMainInterfaceController: WKInterfaceController {
 			durationTimer.stop()
 			buttonTitleLabel.setText("START EXERCISE")
 			
-			self.endMotionUpdates()
-			self.generateExerciseReport()
+			endMotionUpdates()
+			animateRelax()
+			generateExerciseReport()
 		}
 		exerciseStarted = !exerciseStarted
+	}
+	
+	fileprivate func resetExerciseData() {
+		startDate = Date()
+		endDate = nil
+		durationTimer.setDate(startDate)
+		stepCount = 0
+		meterCount = 0
+		floorCount = 0
+		self.updateView()
 	}
 	
 	func generateExerciseReport() {
@@ -90,6 +103,11 @@ class FMMainInterfaceController: WKInterfaceController {
 		print("Meters: \(meterCount)")
 		print("Floors: \(floorCount)")
 		print("Duration: \(endDate.timeIntervalSince(startDate))")
+		
+		if stepCount != 0 || meterCount != 0 || floorCount != 0 {
+			FMPersistentDataManager.shared.persistExerciseRecord(startTime: startDate, endTime: endDate, steps: stepCount, meters: meterCount, floors: floorCount)
+			self.pushController(withName: "FMExerciseReportInterfaceController", context: nil)
+		}
 	}
 	
 	func updateView(from pedometerData: CMPedometerData) {

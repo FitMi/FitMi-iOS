@@ -46,6 +46,8 @@
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CAA61FB1DC1353C00BC86A0 /* Pixeled.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B821DA97FC40084DD6F /* Pixeled.ttf */; };
 		0CAA61FC1DC1353F00BC86A0 /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C75513A1DB6B0F1002146FE /* Pokemon.ttf */; };
+		0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */; };
+		0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
 		0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */; };
@@ -60,7 +62,6 @@
 		0CCB75AB1DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75AA1DC124590053E774 /* Assets.xcassets */; };
 		0CCB75AF1DC124590053E774 /* FitMi-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0CCB758B1DC124590053E774 /* FitMi-Watch.app */; };
 		0CCB75C21DC12DEF0053E774 /* FMMainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */; };
-		0CCB75C31DC12DEF0053E774 /* FMExerciseRecordRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75C01DC12DEF0053E774 /* FMExerciseRecordRowController.swift */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
 		0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */; };
@@ -218,6 +219,8 @@
 		0C7551381DB62D4C002146FE /* FMBoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothViewController.swift; sourceTree = "<group>"; };
 		0C75513A1DB6B0F1002146FE /* Pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pokemon.ttf; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPersistentDataManager.swift; sourceTree = "<group>"; };
+		0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseReportInterfaceController.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
 		0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothItemCell.swift; sourceTree = "<group>"; };
@@ -235,7 +238,6 @@
 		0CCB75AA1DC124590053E774 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCB75AC1DC124590053E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainInterfaceController.swift; sourceTree = "<group>"; };
-		0CCB75C01DC12DEF0053E774 /* FMExerciseRecordRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecordRowController.swift; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CD3CCEE1D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -360,6 +362,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0CAA61FF1DC1530100BC86A0 /* Watch Services */ = {
+			isa = PBXGroup;
+			children = (
+				0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */,
+			);
+			path = "Watch Services";
+			sourceTree = "<group>";
+		};
 		0CCB758C1DC124590053E774 /* FitMi-Watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,8 +383,8 @@
 		0CCB759B1DC124590053E774 /* FitMi-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0CAA61FF1DC1530100BC86A0 /* Watch Services */,
 				0CCB75BC1DC12DEF0053E774 /* Interface Controllers */,
-				0CCB75BF1DC12DEF0053E774 /* Rows */,
 				0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */,
 				0CCB75A61DC124590053E774 /* NotificationController.swift */,
 				0CCB75A81DC124590053E774 /* ComplicationController.swift */,
@@ -397,16 +407,9 @@
 			isa = PBXGroup;
 			children = (
 				0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */,
+				0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */,
 			);
 			path = "Interface Controllers";
-			sourceTree = "<group>";
-		};
-		0CCB75BF1DC12DEF0053E774 /* Rows */ = {
-			isa = PBXGroup;
-			children = (
-				0CCB75C01DC12DEF0053E774 /* FMExerciseRecordRowController.swift */,
-			);
-			path = Rows;
 			sourceTree = "<group>";
 		};
 		0CD3CCDD1D9EF0FA00E47BF8 = {
@@ -1100,10 +1103,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CCB75C31DC12DEF0053E774 /* FMExerciseRecordRowController.swift in Sources */,
 				0CCB75C21DC12DEF0053E774 /* FMMainInterfaceController.swift in Sources */,
 				0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */,
 				0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */,
+				0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */,
+				0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */,
 				0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
