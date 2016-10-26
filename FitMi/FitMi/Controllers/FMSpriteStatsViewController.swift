@@ -16,6 +16,7 @@ class FMSpriteStatsViewController: FMViewController {
 	@IBOutlet var skillInUseButton: UIButton!
 	@IBOutlet var radarChartCaption: UILabel!
 	
+	fileprivate var originalAttributedText: NSAttributedString?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +181,10 @@ extension FMSpriteStatsViewController: IValueFormatter, IAxisValueFormatter {
 
 extension FMSpriteStatsViewController: ChartViewDelegate {
 	func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+		if self.originalAttributedText == nil {
+			self.originalAttributedText = self.radarChartCaption.attributedText
+		}
+		
 		let key = entry.data as! String
 		switch key {
 		case "LEVEL":
@@ -199,6 +204,12 @@ extension FMSpriteStatsViewController: ChartViewDelegate {
 			
 		default:
 			self.radarChartCaption.text = "Click any of the value above to view an explanation."
+		}
+	}
+	
+	func chartValueNothingSelected(_ chartView: ChartViewBase) {
+		if self.originalAttributedText != nil {
+			self.radarChartCaption.attributedText = self.originalAttributedText
 		}
 	}
 }
