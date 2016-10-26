@@ -18,29 +18,27 @@ class FMExerciseReportInterfaceController: WKInterfaceController {
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: nil)
-		self.loadData()
+		self.loadData(record: context as! [String: String])
 	}
 	
-	fileprivate func loadData() {
-		if let record = FMPersistentDataManager.shared.cachedRecords().last {
-			stepLabel.setText(record[PersistentDataKey.steps.rawValue])
-			meterLabel.setText(record[PersistentDataKey.meters.rawValue])
-			floorLabel.setText(record[PersistentDataKey.floors.rawValue])
-			
-			let dateFormatter = DateFormatter()
-			dateFormatter.dateFormat = "M-d, hh:mm"
-			let startTimeStamp = record[PersistentDataKey.startTime.rawValue]!
-			let startDate = Date(timeIntervalSince1970: TimeInterval(startTimeStamp)!)
-			startDateLabel.setText(dateFormatter.string(from: startDate))
-			
-			let endTimeStamp = record[PersistentDataKey.endTime.rawValue]!
-			let endDate = Date(timeIntervalSince1970: TimeInterval(endTimeStamp)!)
-			endDateLabel.setText(dateFormatter.string(from: endDate))
-			
-			var seconds = Int(endDate.timeIntervalSince(startDate))
-			let minutes = seconds / 60
-			seconds = seconds % 60
-			durationLabel.setText("\(minutes):\(seconds)")
-		}
+	fileprivate func loadData(record: [String: String]) {
+		stepLabel.setText(record[PersistentDataKey.steps.rawValue])
+		meterLabel.setText(record[PersistentDataKey.meters.rawValue])
+		floorLabel.setText(record[PersistentDataKey.floors.rawValue])
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "M-d, hh:mm"
+		let startTimeStamp = record[PersistentDataKey.startTime.rawValue]!
+		let startDate = Date(timeIntervalSince1970: TimeInterval(startTimeStamp)!)
+		startDateLabel.setText(dateFormatter.string(from: startDate))
+		
+		let endTimeStamp = record[PersistentDataKey.endTime.rawValue]!
+		let endDate = Date(timeIntervalSince1970: TimeInterval(endTimeStamp)!)
+		endDateLabel.setText(dateFormatter.string(from: endDate))
+		
+		var seconds = Int(endDate.timeIntervalSince(startDate))
+		let minutes = seconds / 60
+		seconds = seconds % 60
+		durationLabel.setText("\(minutes):\(seconds)")
 	}
 }

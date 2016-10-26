@@ -106,7 +106,9 @@ class FMMainInterfaceController: WKInterfaceController {
 		
 		if stepCount != 0 || meterCount != 0 || floorCount != 0 {
 			FMPersistentDataManager.shared.persistExerciseRecord(startTime: startDate, endTime: endDate, steps: stepCount, meters: meterCount, floors: floorCount)
-			self.pushController(withName: "FMExerciseReportInterfaceController", context: nil)
+			if let record = FMPersistentDataManager.shared.cachedRecords().last {
+				self.pushController(withName: "FMExerciseReportInterfaceController", context: record)
+			}
 		}
 	}
 	
