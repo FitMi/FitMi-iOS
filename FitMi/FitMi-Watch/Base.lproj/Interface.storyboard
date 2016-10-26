@@ -14,20 +14,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Animation Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller id="AgC-eL-Hgc" customClass="FMAnimationInterfaceController" customModule="FitMi_Watch_Extension">
-                    <items>
-                        <spriteKitScene alignment="left" id="eh2-bW-rMT"/>
-                    </items>
-                    <connections>
-                        <outlet property="skInterface" destination="eh2-bW-rMT" id="Wme-JX-I9n"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="488" y="223"/>
-        </scene>
         <!--Main Interface Controller-->
         <scene sceneID="1qA-De-rpc">
             <objects>
@@ -38,7 +24,7 @@
                                 <imageView alignment="left" image="win" id="OM7-9A-N6s"/>
                             </items>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <edgeInsets key="margins" left="30" right="30" top="40" bottom="40"/>
+                            <edgeInsets key="margins" left="30" right="30" top="38" bottom="38"/>
                         </group>
                         <group width="1" alignment="left" layout="vertical" spacing="10" id="4Om-2w-JcC">
                             <items>
@@ -84,7 +70,7 @@
                                     </items>
                                 </group>
                             </items>
-                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
+                            <edgeInsets key="margins" left="5" right="5" top="15" bottom="5"/>
                         </group>
                         <button alignment="left" id="lgT-xs-CWd">
                             <group key="contentGroup" width="1" alignment="left" id="SBT-ap-hVJ">
@@ -95,7 +81,7 @@
                                     </label>
                                 </items>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <edgeInsets key="margins" left="0.0" right="0.0" top="20" bottom="20"/>
+                                <edgeInsets key="margins" left="0.0" right="0.0" top="15" bottom="15"/>
                             </group>
                         </button>
                     </items>
