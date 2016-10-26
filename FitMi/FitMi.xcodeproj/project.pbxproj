@@ -54,14 +54,11 @@
 		0CCB758F1DC124590053E774 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB758D1DC124590053E774 /* Interface.storyboard */; };
 		0CCB75911DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75901DC124590053E774 /* Assets.xcassets */; };
 		0CCB75981DC124590053E774 /* FitMi-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0CCB75A11DC124590053E774 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75A01DC124590053E774 /* GameScene.sks */; };
-		0CCB75A31DC124590053E774 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A21DC124590053E774 /* GameScene.swift */; };
 		0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */; };
 		0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A61DC124590053E774 /* NotificationController.swift */; };
 		0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A81DC124590053E774 /* ComplicationController.swift */; };
 		0CCB75AB1DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75AA1DC124590053E774 /* Assets.xcassets */; };
 		0CCB75AF1DC124590053E774 /* FitMi-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0CCB758B1DC124590053E774 /* FitMi-Watch.app */; };
-		0CCB75C11DC12DEF0053E774 /* FMAnimationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75BD1DC12DEF0053E774 /* FMAnimationInterfaceController.swift */; };
 		0CCB75C21DC12DEF0053E774 /* FMMainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */; };
 		0CCB75C31DC12DEF0053E774 /* FMExerciseRecordRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75C01DC12DEF0053E774 /* FMExerciseRecordRowController.swift */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
@@ -232,14 +229,11 @@
 		0CCB75921DC124590053E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitMi-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCB759D1DC124590053E774 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		0CCB75A01DC124590053E774 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		0CCB75A21DC124590053E774 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		0CCB75A61DC124590053E774 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		0CCB75A81DC124590053E774 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		0CCB75AA1DC124590053E774 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCB75AC1DC124590053E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CCB75BD1DC12DEF0053E774 /* FMAnimationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMAnimationInterfaceController.swift; sourceTree = "<group>"; };
 		0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMainInterfaceController.swift; sourceTree = "<group>"; };
 		0CCB75C01DC12DEF0053E774 /* FMExerciseRecordRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecordRowController.swift; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,8 +375,6 @@
 			children = (
 				0CCB75BC1DC12DEF0053E774 /* Interface Controllers */,
 				0CCB75BF1DC12DEF0053E774 /* Rows */,
-				0CCB75A01DC124590053E774 /* GameScene.sks */,
-				0CCB75A21DC124590053E774 /* GameScene.swift */,
 				0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */,
 				0CCB75A61DC124590053E774 /* NotificationController.swift */,
 				0CCB75A81DC124590053E774 /* ComplicationController.swift */,
@@ -404,7 +396,6 @@
 		0CCB75BC1DC12DEF0053E774 /* Interface Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0CCB75BD1DC12DEF0053E774 /* FMAnimationInterfaceController.swift */,
 				0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */,
 			);
 			path = "Interface Controllers";
@@ -896,7 +887,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCB75AB1DC124590053E774 /* Assets.xcassets in Resources */,
-				0CCB75A11DC124590053E774 /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,12 +1101,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCB75C31DC12DEF0053E774 /* FMExerciseRecordRowController.swift in Sources */,
-				0CCB75A31DC124590053E774 /* GameScene.swift in Sources */,
 				0CCB75C21DC12DEF0053E774 /* FMMainInterfaceController.swift in Sources */,
 				0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */,
 				0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */,
 				0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */,
-				0CCB75C11DC12DEF0053E774 /* FMAnimationInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

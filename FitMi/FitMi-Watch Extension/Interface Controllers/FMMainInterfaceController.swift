@@ -53,6 +53,14 @@ class FMMainInterfaceController: WKInterfaceController {
 		self.spriteImage.setImageNamed("relax")
 		self.spriteImage.startAnimatingWithImages(in: NSRange(location: 0, length: 2), duration: 0.5, repeatCount: 0)
 	}
+
+	@IBAction func showGoalView() {
+		
+	}
+	
+	@IBAction func showStatsView() {
+		
+	}
 	
 	@IBAction func toggleExercise(sender: WKInterfaceButton) {
 		if !exerciseStarted {
