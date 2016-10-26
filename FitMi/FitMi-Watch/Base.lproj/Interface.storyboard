@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ddD-rA-Iaz">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -83,8 +83,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="margins" left="0.0" right="0.0" top="15" bottom="15"/>
                             </group>
+                            <connections>
+                                <action selector="toggleExerciseWithSender:" destination="ddD-rA-Iaz" id="lFU-n5-PBM"/>
+                            </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="buttonTitleLabel" destination="bkR-nr-61s" id="EkG-bJ-f9i"/>
+                        <outlet property="durationTimer" destination="6co-92-nfx" id="DwS-vT-N5f"/>
+                        <outlet property="floorValueLabel" destination="rHT-cx-LAo" id="rfa-Qn-SnW"/>
+                        <outlet property="meterValueLabel" destination="xa4-G0-Ngz" id="aZX-8i-p5T"/>
+                        <outlet property="stepValueLabel" destination="ngt-uh-6qz" id="vAv-Lt-d2p"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="146" y="224"/>
