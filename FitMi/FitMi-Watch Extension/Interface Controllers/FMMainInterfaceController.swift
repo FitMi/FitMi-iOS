@@ -55,8 +55,12 @@ class FMMainInterfaceController: WKInterfaceController {
 	}
 	
 	func generateExerciseReport() {
-		print(startDate)
-		print(endDate)
+		print("Start: \(startDate)")
+		print("End: \(endDate)")
+		print("Steps: \(stepCount)")
+		print("Meters: \(meterCount)")
+		print("Floors: \(floorCount)")
+		print("Duration: \(endDate.timeIntervalSince(startDate))")
 	}
 	
 	func updateView(from pedometerData: CMPedometerData) {
