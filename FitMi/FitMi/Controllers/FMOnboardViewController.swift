@@ -46,7 +46,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		self.configureViews()
 		self.configureAnimations()
-		self.setNotification()
+		//self.setNotification()
     }
 	
 	private func configureViews() {
