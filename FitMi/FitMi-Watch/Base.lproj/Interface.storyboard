@@ -90,14 +90,9 @@
                     </items>
                     <menu key="menu" id="AiW-XW-QQi">
                         <items>
-                            <menuItem title="GOAL" icon="accept" id="E1t-Cc-hQV">
+                            <menuItem title="RECORDS" icon="accept" id="E1t-Cc-hQV">
                                 <connections>
-                                    <action selector="showGoalView" destination="ddD-rA-Iaz" id="m4T-XQ-WVz"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Mi STATS" icon="shuffle" id="YrF-x9-m79">
-                                <connections>
-                                    <action selector="showStatsView" destination="ddD-rA-Iaz" id="hbQ-gk-6lj"/>
+                                    <action selector="showRecordsView" destination="ddD-rA-Iaz" id="I8S-q1-bda"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -203,6 +198,35 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="425.43589743589746" y="223.61538461538464"/>
+        </scene>
+        <!--FMRecordListInterfaceController-->
+        <scene sceneID="HNA-3O-9tx">
+            <objects>
+                <controller identifier="FMRecordListInterfaceController" id="bGZ-6j-faB" customClass="FMRecordListInterfaceController" customModule="FitMi_Watch_Extension">
+                    <items>
+                        <table alignment="left" id="823-Xs-7rm">
+                            <items>
+                                <tableRow identifier="FMExerciseRecordRowController" id="6k8-OV-P2s" customClass="FMExerciseRecordRowController" customModule="FitMi_Watch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="2pY-wA-2Ij">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="9-10, 21:01" id="ehS-5P-Cet">
+                                                <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="ehS-5P-Cet" id="jY4-Zt-R15"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="823-Xs-7rm" id="U63-0z-qzq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="657" y="221"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -12,6 +12,8 @@
 		0C070E951DB9346E0095B3A0 /* FMFriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */; };
 		0C070E961DB9346E0095B3A0 /* FMFriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */; };
 		0C070E981DB94CB50095B3A0 /* FMBattleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */; };
+		0C2BD7091DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2BD7081DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift */; };
+		0C2BD70C1DC16150005B3DD5 /* FMExerciseRecordRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2BD70B1DC16150005B3DD5 /* FMExerciseRecordRowController.swift */; };
 		0C2E95531DAFD8F400C03669 /* FMStatisticsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */; };
 		0C2E95561DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */; };
 		0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */; };
@@ -187,6 +189,8 @@
 		0C070E931DB9346E0095B3A0 /* FMFriendListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMFriendListCell.swift; sourceTree = "<group>"; };
 		0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMFriendListCell.xib; sourceTree = "<group>"; };
 		0C070E971DB94CB50095B3A0 /* FMBattleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBattleDetailViewController.swift; sourceTree = "<group>"; };
+		0C2BD7081DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMRecordListInterfaceController.swift; sourceTree = "<group>"; };
+		0C2BD70B1DC16150005B3DD5 /* FMExerciseRecordRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecordRowController.swift; sourceTree = "<group>"; };
 		0C2E95521DAFD8F400C03669 /* FMStatisticsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMStatisticsDetailViewController.swift; sourceTree = "<group>"; };
 		0C2E95541DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMMiddleAlignedLabelCell.swift; sourceTree = "<group>"; };
 		0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMMiddleAlignedLabelCell.xib; sourceTree = "<group>"; };
@@ -362,6 +366,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0C2BD70A1DC16134005B3DD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C2BD70B1DC16150005B3DD5 /* FMExerciseRecordRowController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0CAA61FF1DC1530100BC86A0 /* Watch Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +395,7 @@
 		0CCB759B1DC124590053E774 /* FitMi-Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0C2BD70A1DC16134005B3DD5 /* Views */,
 				0CAA61FF1DC1530100BC86A0 /* Watch Services */,
 				0CCB75BC1DC12DEF0053E774 /* Interface Controllers */,
 				0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */,
@@ -408,6 +421,7 @@
 			children = (
 				0CCB75BE1DC12DEF0053E774 /* FMMainInterfaceController.swift */,
 				0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */,
+				0C2BD7081DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift */,
 			);
 			path = "Interface Controllers";
 			sourceTree = "<group>";
@@ -1106,6 +1120,8 @@
 				0CCB75C21DC12DEF0053E774 /* FMMainInterfaceController.swift in Sources */,
 				0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */,
 				0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */,
+				0C2BD7091DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift in Sources */,
+				0C2BD70C1DC16150005B3DD5 /* FMExerciseRecordRowController.swift in Sources */,
 				0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */,
 				0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */,
 				0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */,

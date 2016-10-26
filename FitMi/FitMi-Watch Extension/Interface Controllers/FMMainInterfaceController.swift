@@ -65,6 +65,10 @@ class FMMainInterfaceController: WKInterfaceController {
 		
 	}
 	
+	@IBAction func showRecordsView() {
+		self.pushController(withName: "FMRecordListInterfaceController", context: nil)
+	}
+	
 	@IBAction func toggleExercise(sender: WKInterfaceButton) {
 		if !exerciseStarted {
 			WKInterfaceDevice.current().play(.start)
