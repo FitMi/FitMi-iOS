@@ -49,6 +49,17 @@
 		0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */; };
 		0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */; };
 		0CC333EA1DBFB7E900B76740 /* FMGoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC333E91DBFB7E900B76740 /* FMGoalSettingViewController.swift */; };
+		0CCB758F1DC124590053E774 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB758D1DC124590053E774 /* Interface.storyboard */; };
+		0CCB75911DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75901DC124590053E774 /* Assets.xcassets */; };
+		0CCB75981DC124590053E774 /* FitMi-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0CCB759F1DC124590053E774 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB759E1DC124590053E774 /* InterfaceController.swift */; };
+		0CCB75A11DC124590053E774 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75A01DC124590053E774 /* GameScene.sks */; };
+		0CCB75A31DC124590053E774 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A21DC124590053E774 /* GameScene.swift */; };
+		0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */; };
+		0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A61DC124590053E774 /* NotificationController.swift */; };
+		0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCB75A81DC124590053E774 /* ComplicationController.swift */; };
+		0CCB75AB1DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75AA1DC124590053E774 /* Assets.xcassets */; };
+		0CCB75AF1DC124590053E774 /* FitMi-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0CCB758B1DC124590053E774 /* FitMi-Watch.app */; };
 		0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */; };
 		0CD3CCEF1D9EF0FB00E47BF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */; };
 		0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD3CCF01D9EF0FB00E47BF8 /* Assets.xcassets */; };
@@ -113,6 +124,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0CCB75991DC124590053E774 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CD3CCDE1D9EF0FA00E47BF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CCB75961DC124590053E774;
+			remoteInfo = "FitMi-Watch Extension";
+		};
+		0CCB75AD1DC124590053E774 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CD3CCDE1D9EF0FA00E47BF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CCB758A1DC124590053E774;
+			remoteInfo = "FitMi-Watch";
+		};
 		0CD3CCFB1D9EF0FB00E47BF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0CD3CCDE1D9EF0FA00E47BF8 /* Project object */;
@@ -128,6 +153,31 @@
 			remoteInfo = FitMi;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0CCB75B51DC124590053E774 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0CCB75981DC124590053E774 /* FitMi-Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CCB75B71DC124590053E774 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0CCB75AF1DC124590053E774 /* FitMi-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C070E8F1DB91DD20095B3A0 /* FMNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMNotificationManager.swift; sourceTree = "<group>"; };
@@ -172,6 +222,20 @@
 		0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothItemCell.swift; sourceTree = "<group>"; };
 		0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBoothItemCell.xib; sourceTree = "<group>"; };
 		0CC333E91DBFB7E900B76740 /* FMGoalSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMGoalSettingViewController.swift; sourceTree = "<group>"; };
+		0CCB758B1DC124590053E774 /* FitMi-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitMi-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCB758E1DC124590053E774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		0CCB75901DC124590053E774 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CCB75921DC124590053E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitMi-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCB759D1DC124590053E774 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		0CCB759E1DC124590053E774 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		0CCB75A01DC124590053E774 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		0CCB75A21DC124590053E774 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		0CCB75A61DC124590053E774 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		0CCB75A81DC124590053E774 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		0CCB75AA1DC124590053E774 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CCB75AC1DC124590053E774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitMi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD3CCE91D9EF0FB00E47BF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CD3CCEE1D9EF0FB00E47BF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -250,6 +314,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0CCB75941DC124590053E774 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0CD3CCE31D9EF0FA00E47BF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,12 +360,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0CCB758C1DC124590053E774 /* FitMi-Watch */ = {
+			isa = PBXGroup;
+			children = (
+				0CCB758D1DC124590053E774 /* Interface.storyboard */,
+				0CCB75901DC124590053E774 /* Assets.xcassets */,
+				0CCB75921DC124590053E774 /* Info.plist */,
+			);
+			path = "FitMi-Watch";
+			sourceTree = "<group>";
+		};
+		0CCB759B1DC124590053E774 /* FitMi-Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0CCB759E1DC124590053E774 /* InterfaceController.swift */,
+				0CCB75A01DC124590053E774 /* GameScene.sks */,
+				0CCB75A21DC124590053E774 /* GameScene.swift */,
+				0CCB75A41DC124590053E774 /* ExtensionDelegate.swift */,
+				0CCB75A61DC124590053E774 /* NotificationController.swift */,
+				0CCB75A81DC124590053E774 /* ComplicationController.swift */,
+				0CCB75AA1DC124590053E774 /* Assets.xcassets */,
+				0CCB75AC1DC124590053E774 /* Info.plist */,
+				0CCB759C1DC124590053E774 /* Supporting Files */,
+			);
+			path = "FitMi-Watch Extension";
+			sourceTree = "<group>";
+		};
+		0CCB759C1DC124590053E774 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0CCB759D1DC124590053E774 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0CD3CCDD1D9EF0FA00E47BF8 = {
 			isa = PBXGroup;
 			children = (
 				0CD3CCE81D9EF0FB00E47BF8 /* FitMi */,
 				0CD3CCFD1D9EF0FB00E47BF8 /* FitMiTests */,
 				0CD3CD081D9EF0FB00E47BF8 /* FitMiUITests */,
+				0CCB758C1DC124590053E774 /* FitMi-Watch */,
+				0CCB759B1DC124590053E774 /* FitMi-Watch Extension */,
 				0CD3CCE71D9EF0FB00E47BF8 /* Products */,
 				75F5710FCA8F6D589F945C7B /* Pods */,
 				00EE74C4EB5836007D1B13E1 /* Frameworks */,
@@ -307,6 +414,8 @@
 				0CD3CCE61D9EF0FB00E47BF8 /* FitMi.app */,
 				0CD3CCFA1D9EF0FB00E47BF8 /* FitMiTests.xctest */,
 				0CD3CD051D9EF0FB00E47BF8 /* FitMiUITests.xctest */,
+				0CCB758B1DC124590053E774 /* FitMi-Watch.app */,
+				0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -580,6 +689,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0CCB758A1DC124590053E774 /* FitMi-Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CCB75B61DC124590053E774 /* Build configuration list for PBXNativeTarget "FitMi-Watch" */;
+			buildPhases = (
+				0CCB75891DC124590053E774 /* Resources */,
+				0CCB75B51DC124590053E774 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CCB759A1DC124590053E774 /* PBXTargetDependency */,
+			);
+			name = "FitMi-Watch";
+			productName = "FitMi-Watch";
+			productReference = 0CCB758B1DC124590053E774 /* FitMi-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		0CCB75961DC124590053E774 /* FitMi-Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CCB75B41DC124590053E774 /* Build configuration list for PBXNativeTarget "FitMi-Watch Extension" */;
+			buildPhases = (
+				0CCB75931DC124590053E774 /* Sources */,
+				0CCB75941DC124590053E774 /* Frameworks */,
+				0CCB75951DC124590053E774 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FitMi-Watch Extension";
+			productName = "FitMi-Watch Extension";
+			productReference = 0CCB75971DC124590053E774 /* FitMi-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		0CD3CCE51D9EF0FA00E47BF8 /* FitMi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0CD3CD0E1D9EF0FB00E47BF8 /* Build configuration list for PBXNativeTarget "FitMi" */;
@@ -590,10 +733,12 @@
 				0CD3CCE41D9EF0FA00E47BF8 /* Resources */,
 				7E7C8E0089D27A45276D7942 /* [CP] Embed Pods Frameworks */,
 				C695AC0842DC5206FA771C93 /* [CP] Copy Pods Resources */,
+				0CCB75B71DC124590053E774 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0CCB75AE1DC124590053E774 /* PBXTargetDependency */,
 			);
 			name = FitMi;
 			productName = FitMi;
@@ -649,10 +794,20 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FM;
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = FitMi;
 				TargetAttributes = {
+					0CCB758A1DC124590053E774 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = EQ5L798SLT;
+						ProvisioningStyle = Automatic;
+					};
+					0CCB75961DC124590053E774 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = EQ5L798SLT;
+						ProvisioningStyle = Automatic;
+					};
 					0CD3CCE51D9EF0FA00E47BF8 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = EQ5L798SLT;
@@ -694,11 +849,31 @@
 				0CD3CCE51D9EF0FA00E47BF8 /* FitMi */,
 				0CD3CCF91D9EF0FB00E47BF8 /* FitMiTests */,
 				0CD3CD041D9EF0FB00E47BF8 /* FitMiUITests */,
+				0CCB758A1DC124590053E774 /* FitMi-Watch */,
+				0CCB75961DC124590053E774 /* FitMi-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0CCB75891DC124590053E774 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CCB75911DC124590053E774 /* Assets.xcassets in Resources */,
+				0CCB758F1DC124590053E774 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CCB75951DC124590053E774 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CCB75AB1DC124590053E774 /* Assets.xcassets in Resources */,
+				0CCB75A11DC124590053E774 /* GameScene.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0CD3CCE41D9EF0FA00E47BF8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -905,6 +1080,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0CCB75931DC124590053E774 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CCB75A31DC124590053E774 /* GameScene.swift in Sources */,
+				0CCB759F1DC124590053E774 /* InterfaceController.swift in Sources */,
+				0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */,
+				0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */,
+				0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0CD3CCE21D9EF0FA00E47BF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -984,6 +1171,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0CCB759A1DC124590053E774 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CCB75961DC124590053E774 /* FitMi-Watch Extension */;
+			targetProxy = 0CCB75991DC124590053E774 /* PBXContainerItemProxy */;
+		};
+		0CCB75AE1DC124590053E774 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CCB758A1DC124590053E774 /* FitMi-Watch */;
+			targetProxy = 0CCB75AD1DC124590053E774 /* PBXContainerItemProxy */;
+		};
 		0CD3CCFC1D9EF0FB00E47BF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0CD3CCE51D9EF0FA00E47BF8 /* FitMi */;
@@ -997,6 +1194,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0CCB758D1DC124590053E774 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CCB758E1DC124590053E774 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		0CD3CCED1D9EF0FB00E47BF8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1017,6 +1222,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0CCB75B01DC124590053E774 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
+				IBSC_MODULE = FitMi_Watch_Extension;
+				INFOPLIST_FILE = "FitMi-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		0CCB75B11DC124590053E774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
+				IBSC_MODULE = FitMi_Watch_Extension;
+				INFOPLIST_FILE = "FitMi-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		0CCB75B21DC124590053E774 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
+				INFOPLIST_FILE = "FitMi-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		0CCB75B31DC124590053E774 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = EQ5L798SLT;
+				INFOPLIST_FILE = "FitMi-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fitmi.FitMi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 		0CD3CD0C1D9EF0FB00E47BF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1218,6 +1493,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0CCB75B41DC124590053E774 /* Build configuration list for PBXNativeTarget "FitMi-Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CCB75B21DC124590053E774 /* Debug */,
+				0CCB75B31DC124590053E774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0CCB75B61DC124590053E774 /* Build configuration list for PBXNativeTarget "FitMi-Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CCB75B01DC124590053E774 /* Debug */,
+				0CCB75B11DC124590053E774 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0CD3CCE11D9EF0FA00E47BF8 /* Build configuration list for PBXProject "FitMi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
