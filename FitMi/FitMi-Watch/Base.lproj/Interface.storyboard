@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ddD-rA-Iaz">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -11,6 +11,9 @@
     <customFonts key="customFonts">
         <array key="Pixeled.ttf">
             <string>Pixeled</string>
+        </array>
+        <array key="Pokemon.ttf">
+            <string>Pokemon-Pixel-Font</string>
         </array>
     </customFonts>
     <scenes>
@@ -90,7 +93,7 @@
                     </items>
                     <menu key="menu" id="AiW-XW-QQi">
                         <items>
-                            <menuItem title="RECORDS" icon="accept" id="E1t-Cc-hQV">
+                            <menuItem title="RECORDS" icon="more" id="E1t-Cc-hQV">
                                 <connections>
                                     <action selector="showRecordsView" destination="ddD-rA-Iaz" id="I8S-q1-bda"/>
                                 </connections>
@@ -116,11 +119,11 @@
                     <items>
                         <group width="1" alignment="left" id="4nZ-oR-eTn">
                             <items>
-                                <label alignment="left" text="EXERCISE" id="3dZ-2o-cMl">
+                                <label alignment="left" text="REPORT" id="3dZ-2o-cMl">
                                     <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="13"/>
                                 </label>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="20"/>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="20"/>
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="m11-qV-7oc">
                             <items>
@@ -185,6 +188,7 @@
                                     </items>
                                 </group>
                             </items>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                         </group>
                     </items>
                     <connections>
@@ -204,6 +208,22 @@
             <objects>
                 <controller identifier="FMRecordListInterfaceController" id="bGZ-6j-faB" customClass="FMRecordListInterfaceController" customModule="FitMi_Watch_Extension">
                     <items>
+                        <group width="1" alignment="left" id="VbD-al-FDA">
+                            <items>
+                                <label alignment="left" text="RECORDS" id="teW-9H-KFL">
+                                    <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="13"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="5"/>
+                        </group>
+                        <group width="1" alignment="left" id="NUf-dx-dMK">
+                            <items>
+                                <label alignment="left" text="Only unsynced records are shown here. Please use your iPhone for the rest." numberOfLines="0" id="ANF-ke-gN4">
+                                    <fontDescription key="font" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="15"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="10"/>
+                        </group>
                         <table alignment="left" id="823-Xs-7rm">
                             <items>
                                 <tableRow identifier="FMExerciseRecordRowController" id="6k8-OV-P2s" customClass="FMExerciseRecordRowController" customModule="FitMi_Watch_Extension">
@@ -226,7 +246,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="657" y="221"/>
+            <point key="canvasLocation" x="656" y="224"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
