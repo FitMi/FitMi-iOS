@@ -16,10 +16,12 @@ class FMMainInterfaceController: WKInterfaceController {
 	@IBOutlet var stepValueLabel: WKInterfaceLabel!
 	@IBOutlet var meterValueLabel: WKInterfaceLabel!
 	@IBOutlet var floorValueLabel: WKInterfaceLabel!
+	@IBOutlet var spriteImage: WKInterfaceImage!
 	
 	@IBOutlet var buttonTitleLabel: WKInterfaceLabel!
 	
 	fileprivate var exerciseStarted = false
+	fileprivate var wasMoving = false
 	
 	fileprivate var startDate: Date!
 	fileprivate var endDate: Date!
@@ -28,9 +30,28 @@ class FMMainInterfaceController: WKInterfaceController {
 	fileprivate var floorCount: Int = 0
 	
 	fileprivate var pedometer = CMPedometer()
+	fileprivate var activityManager = CMMotionActivityManager()
+	fileprivate let dataProcessingQueue = OperationQueue()
+	
+	fileprivate var animatedImageRun: UIImage!
+	fileprivate var animatedImageRelax: UIImage!
 	
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
+		
+		animateRelax()
+	}
+	
+	fileprivate func animateRun() {
+		self.spriteImage.stopAnimating()
+		self.spriteImage.setImageNamed("run")
+		self.spriteImage.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 1, repeatCount: 0)
+	}
+	
+	fileprivate func animateRelax() {
+		self.spriteImage.stopAnimating()
+		self.spriteImage.setImageNamed("relax")
+		self.spriteImage.startAnimatingWithImages(in: NSRange(location: 0, length: 2), duration: 0.5, repeatCount: 0)
 	}
 	
 	@IBAction func toggleExercise(sender: WKInterfaceButton) {
@@ -82,6 +103,26 @@ class FMMainInterfaceController: WKInterfaceController {
 		self.meterValueLabel.setText("\(meterCount)")
 		self.floorValueLabel.setText("\(floorCount)")
 	}
+	
+	func updateImage(from motionActivity: CMMotionActivity) {
+		var isMoving = false
+		
+		if motionActivity.running {
+			isMoving = true
+		} else if motionActivity.cycling {
+			isMoving = true
+		} else if motionActivity.walking {
+			isMoving = true
+		} else if motionActivity.stationary {
+			isMoving = false
+		}
+		
+		if (isMoving != self.wasMoving) {
+			isMoving ? animateRun() : animateRelax()
+		}
+		
+		self.wasMoving = isMoving
+	}
 }
 
 extension FMMainInterfaceController {
@@ -97,9 +138,17 @@ extension FMMainInterfaceController {
 				}
 			}
 		}
+		
+		activityManager.startActivityUpdates(to: dataProcessingQueue) {
+			data in
+			if let activityData: CMMotionActivity = data {
+				self.updateImage(from: activityData)
+			}
+		}
 	}
 	
 	func endMotionUpdates() {
 		pedometer.stopUpdates()
+		activityManager.stopActivityUpdates()
 	}
 }

@@ -93,6 +93,7 @@
                         <outlet property="durationTimer" destination="6co-92-nfx" id="DwS-vT-N5f"/>
                         <outlet property="floorValueLabel" destination="rHT-cx-LAo" id="rfa-Qn-SnW"/>
                         <outlet property="meterValueLabel" destination="xa4-G0-Ngz" id="aZX-8i-p5T"/>
+                        <outlet property="spriteImage" destination="OM7-9A-N6s" id="vxH-aT-hlj"/>
                         <outlet property="stepValueLabel" destination="ngt-uh-6qz" id="vAv-Lt-d2p"/>
                     </connections>
                 </controller>
