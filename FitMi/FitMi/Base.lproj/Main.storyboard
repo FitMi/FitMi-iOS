@@ -525,7 +525,7 @@
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="f6P-4L-A66">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                         <color key="progressTintColor" red="0.49803921569999998" green="0.89019607840000003" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="0.20000000000000001" colorSpace="deviceRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 14:   16646 / 17500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-po-oBa">
                                         <rect key="frame" x="72.5" y="9" width="175" height="22"/>
