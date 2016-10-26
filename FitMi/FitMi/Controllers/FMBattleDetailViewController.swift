@@ -322,7 +322,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.selfHealth = self.getSelfHealth()
 		self.selfHealthBar.setProgress(1, animated: false)
 		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
-		self.selfCoolDownPerTimeUnit = self.getTimeResume(agility: self.getSelfAgility(), skill: self.selfSkills.first!)
+		self.selfCoolDownPerTimeUnit = self.getTimeResume(agility: self.getSelfAgility(), skill: nil)
 		self.selfHealthLabel.text = "\(self.selfHealthMax) / \(self.selfHealthMax)"
 		
 		self.opponentSkills = self.getOpponentSkills()
@@ -331,7 +331,7 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentHealth = self.getOpponentHealth()
 		self.opponentHealthBar.setProgress(1, animated: false)
 		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
-		self.opponentCoolDownPerTimeUnit = self.getTimeResume(agility: self.getOpponentAgility(), skill: self.opponentSkills.first!)
+		self.opponentCoolDownPerTimeUnit = self.getTimeResume(agility: self.getOpponentAgility(), skill: nil)
 		self.opponentHealthLabel.text = "\(self.opponentHealthMax) / \(self.opponentHealthMax)"
 		
 		
@@ -526,9 +526,10 @@ class FMBattleDetailViewController: FMViewController {
 		return Int(healing)
 	}
 	
-	fileprivate func getTimeResume(agility: Int, skill: FMSkill) -> Float {
+	fileprivate func getTimeResume(agility: Int, skill: FMSkill?) -> Float {
+		let skillFactor = skill?.agilityFactor ?? 1
 		let rand = Float(arc4random() % 100) / 100
-		let time = Float(agility) * (1 + 0.1 * rand) * Float(skill.agilityFactor) / 200
+		let time = Float(agility) * (1 + 0.1 * rand) * Float(skillFactor) / 200
 		return time
 	}
 	

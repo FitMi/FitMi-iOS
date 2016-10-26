@@ -80,7 +80,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-ZI-PRp">
-                                                                <rect key="frame" x="48.5" y="11.5" width="114.5" height="18"/>
+                                                                <rect key="frame" x="48" y="12" width="114.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,7 +114,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 METERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45h-Xy-swy">
-                                                                <rect key="frame" x="43" y="11.5" width="125" height="18"/>
+                                                                <rect key="frame" x="43" y="12" width="125" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,7 +148,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-4L-o7M">
-                                                                <rect key="frame" x="44.5" y="11.5" width="121.5" height="18"/>
+                                                                <rect key="frame" x="44.5" y="12" width="121.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -525,10 +525,10 @@
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="f6P-4L-A66">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
                                         <color key="progressTintColor" red="0.49803921569999998" green="0.89019607840000003" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="0.20000000000000001" colorSpace="deviceRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 14:   16646 / 17500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-po-oBa">
-                                        <rect key="frame" x="72.5" y="9" width="175" height="22"/>
+                                        <rect key="frame" x="73" y="9" width="175" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,7 +866,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
-                                <rect key="frame" x="0.0" y="425.5" width="320" height="98.5"/>
+                                <rect key="frame" x="0.0" y="426" width="320" height="98"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
@@ -926,7 +926,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
-                                <rect key="frame" x="30" y="85.5" width="260" height="310"/>
+                                <rect key="frame" x="30" y="86" width="260" height="310"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
                                         <rect key="frame" x="20" y="40" width="220" height="250"/>
@@ -1064,7 +1064,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
-                                <rect key="frame" x="93.5" y="60" width="134" height="50"/>
+                                <rect key="frame" x="94" y="60" width="134" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
                                         <rect key="frame" x="10" y="10" width="114" height="30"/>
@@ -2073,14 +2073,14 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Click any of the ">
                                                 <attributes>
-                                                    <font key="NSFont" size="22" name="Pokemon-Pixel-Font"/>
+                                                    <font key="NSFont" size="19" name="Pokemon-Pixel-Font"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="VALUE">
                                                 <attributes>
                                                     <color key="NSColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="22" name="Pokemon-Pixel-Font"/>
+                                                    <font key="NSFont" size="19" name="Pokemon-Pixel-Font"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -2088,7 +2088,7 @@
                                                 <string key="content">
 above to view an explanation.</string>
                                                 <attributes>
-                                                    <font key="NSFont" size="22" name="Pokemon-Pixel-Font"/>
+                                                    <font key="NSFont" size="19" name="Pokemon-Pixel-Font"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
