@@ -46,7 +46,7 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
 		
 		self.configureViews()
 		self.configureAnimations()
-		self.setNotification()
+		//self.setNotification()
     }
 	
 	private func configureViews() {
@@ -442,7 +442,6 @@ class FMOnboardViewController: IFTTTAnimatedPagingScrollViewController {
         let gregorian = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         let now = NSDate()
         var components = gregorian.components([.year, .month, .day, .hour, .minute, .second], from: now as Date)
-        // Change the time to 9:30:00 in your locale
         components.hour = 19
         components.minute = 0
         components.second = 0
