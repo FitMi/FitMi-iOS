@@ -380,14 +380,14 @@
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.84313725490000002" blue="0.80392156859999997" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Vuy-ge-cN9">
-                                <rect key="frame" x="10" y="60" width="300" height="105"/>
+                                <rect key="frame" x="10" y="389" width="300" height="105"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWR-dD-2p1">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="105"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOTH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nz-Ek-R8L" customClass="FMOutlinedLabel" customModule="FitMi" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="65" width="100" height="25"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                                <rect key="frame" x="0.0" y="75" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="7"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -400,10 +400,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESz-zU-ZhU">
-                                                <rect key="frame" x="25" y="10" width="50" height="50"/>
+                                                <rect key="frame" x="30" y="30" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ESz-zU-ZhU" secondAttribute="height" multiplier="1:1" id="X53-0v-rRE"/>
-                                                    <constraint firstAttribute="width" constant="50" id="szh-Nt-ETb"/>
+                                                    <constraint firstAttribute="width" constant="40" id="szh-Nt-ETb"/>
                                                 </constraints>
                                                 <state key="normal" image="home-booth"/>
                                                 <connections>
@@ -416,17 +416,17 @@
                                             <constraint firstItem="0nz-Ek-R8L" firstAttribute="top" secondItem="ESz-zU-ZhU" secondAttribute="bottom" constant="5" id="3Mp-Lr-9BQ"/>
                                             <constraint firstItem="0nz-Ek-R8L" firstAttribute="centerX" secondItem="ESz-zU-ZhU" secondAttribute="centerX" id="Rx0-QL-ajL"/>
                                             <constraint firstAttribute="trailing" secondItem="0nz-Ek-R8L" secondAttribute="trailing" id="eQG-Kv-WHR"/>
-                                            <constraint firstItem="ESz-zU-ZhU" firstAttribute="top" secondItem="pWR-dD-2p1" secondAttribute="top" constant="10" id="eog-H4-KUS"/>
+                                            <constraint firstItem="ESz-zU-ZhU" firstAttribute="top" secondItem="pWR-dD-2p1" secondAttribute="top" constant="30" id="eog-H4-KUS"/>
                                             <constraint firstItem="0nz-Ek-R8L" firstAttribute="leading" secondItem="pWR-dD-2p1" secondAttribute="leading" id="jWI-y5-zW1"/>
-                                            <constraint firstAttribute="bottom" secondItem="0nz-Ek-R8L" secondAttribute="bottom" constant="15" id="z7F-zf-Ixf"/>
+                                            <constraint firstAttribute="bottom" secondItem="0nz-Ek-R8L" secondAttribute="bottom" id="z7F-zf-Ixf"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wU5-fX-DTu">
                                         <rect key="frame" x="100" y="0.0" width="100" height="105"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKG-kA-utS" customClass="FMOutlinedLabel" customModule="FitMi" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="65" width="100" height="25"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                                <rect key="frame" x="0.0" y="55" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="7"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -439,7 +439,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlH-lV-aZB">
-                                                <rect key="frame" x="25" y="10" width="50" height="50"/>
+                                                <rect key="frame" x="30" y="10" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xlH-lV-aZB" secondAttribute="height" multiplier="1:1" id="jwH-nw-omE"/>
                                                 </constraints>
@@ -452,7 +452,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="xlH-lV-aZB" firstAttribute="centerX" secondItem="wU5-fX-DTu" secondAttribute="centerX" id="71K-tR-rNp"/>
-                                            <constraint firstAttribute="bottom" secondItem="OKG-kA-utS" secondAttribute="bottom" constant="15" id="9Tr-iB-xwL"/>
+                                            <constraint firstAttribute="bottom" secondItem="OKG-kA-utS" secondAttribute="bottom" constant="20" id="9Tr-iB-xwL"/>
                                             <constraint firstItem="xlH-lV-aZB" firstAttribute="top" secondItem="wU5-fX-DTu" secondAttribute="top" constant="10" id="F8q-lB-DAn"/>
                                             <constraint firstItem="OKG-kA-utS" firstAttribute="top" secondItem="xlH-lV-aZB" secondAttribute="bottom" constant="5" id="HhO-xb-FWB"/>
                                             <constraint firstItem="OKG-kA-utS" firstAttribute="leading" secondItem="wU5-fX-DTu" secondAttribute="leading" id="gue-tu-biG"/>
@@ -462,9 +462,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdS-eK-Es0">
                                         <rect key="frame" x="200" y="0.0" width="100" height="105"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi STATS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko0-5d-3LU" customClass="FMOutlinedLabel" customModule="FitMi" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="65" width="100" height="25"/>
-                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi STATS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko0-5d-3LU" customClass="FMOutlinedLabel" customModule="FitMi" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="75" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="7"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -477,7 +477,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTN-Qp-R7Q">
-                                                <rect key="frame" x="25" y="10" width="50" height="50"/>
+                                                <rect key="frame" x="30" y="30" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WTN-Qp-R7Q" secondAttribute="height" multiplier="1:1" id="qki-zB-bwO"/>
                                                 </constraints>
@@ -492,8 +492,8 @@
                                             <constraint firstItem="WTN-Qp-R7Q" firstAttribute="centerX" secondItem="gdS-eK-Es0" secondAttribute="centerX" id="22z-Yr-8cj"/>
                                             <constraint firstItem="Ko0-5d-3LU" firstAttribute="top" secondItem="WTN-Qp-R7Q" secondAttribute="bottom" constant="5" id="6nI-vT-Txc"/>
                                             <constraint firstAttribute="trailing" secondItem="Ko0-5d-3LU" secondAttribute="trailing" id="G7g-OS-tXj"/>
-                                            <constraint firstItem="WTN-Qp-R7Q" firstAttribute="top" secondItem="gdS-eK-Es0" secondAttribute="top" constant="10" id="Hfx-du-QWp"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ko0-5d-3LU" secondAttribute="bottom" constant="15" id="RZt-Il-BO8"/>
+                                            <constraint firstItem="WTN-Qp-R7Q" firstAttribute="top" secondItem="gdS-eK-Es0" secondAttribute="top" constant="30" id="Hfx-du-QWp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ko0-5d-3LU" secondAttribute="bottom" id="RZt-Il-BO8"/>
                                             <constraint firstItem="Ko0-5d-3LU" firstAttribute="leading" secondItem="gdS-eK-Es0" secondAttribute="leading" id="sag-BP-vBD"/>
                                         </constraints>
                                     </view>
@@ -528,7 +528,7 @@
                                         <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 14:   16646 / 17500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-po-oBa">
-                                        <rect key="frame" x="73.5" y="9" width="175" height="22"/>
+                                        <rect key="frame" x="72.5" y="9" width="175" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -559,9 +559,9 @@
                             <constraint firstAttribute="trailing" secondItem="8Kd-MS-NZX" secondAttribute="trailing" id="eXK-FZ-rho"/>
                             <constraint firstItem="8Kd-MS-NZX" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="fXp-mC-W9c"/>
                             <constraint firstItem="unp-FO-h7i" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="h3O-Bg-0sb"/>
-                            <constraint firstItem="Vuy-ge-cN9" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="bottom" constant="20" id="vIb-6P-DRQ"/>
                             <constraint firstItem="0ST-1L-IBL" firstAttribute="leading" secondItem="xHr-9q-uPC" secondAttribute="leading" id="ye7-eA-Ezb"/>
                             <constraint firstItem="fOJ-bo-Hfb" firstAttribute="top" secondItem="0ST-1L-IBL" secondAttribute="bottom" id="yoZ-tL-dc0"/>
+                            <constraint firstItem="unp-FO-h7i" firstAttribute="top" secondItem="Vuy-ge-cN9" secondAttribute="bottom" constant="30" id="ziA-ko-X9g"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
