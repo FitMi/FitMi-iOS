@@ -174,7 +174,8 @@ class FMHealthStatusManager: NSObject {
 				let goal = prefs.integer(forKey: GOAL_NEXT_STEPS)
 				prefs.set(goal, forKey: GOAL_STEPS)
 				prefs.removeObject(forKey: GOAL_NEXT_STEPS)
-				return goal
+				prefs.removeObject(forKey: GOAL_SET_DATE_STEPS)
+				return goalForSteps()
 			}
 		}
 		
@@ -196,7 +197,8 @@ class FMHealthStatusManager: NSObject {
 				let goal = prefs.integer(forKey: GOAL_NEXT_DISTANCE)
 				prefs.set(goal, forKey: GOAL_DISTANCE)
 				prefs.removeObject(forKey: GOAL_NEXT_DISTANCE)
-				return goal
+				prefs.removeObject(forKey: GOAL_SET_DATE_DISTANCE)
+				return goalForDistance()
 			}
 		}
 		
@@ -218,7 +220,8 @@ class FMHealthStatusManager: NSObject {
 				let goal = prefs.integer(forKey: GOAL_NEXT_FLIGHTS)
 				prefs.set(goal, forKey: GOAL_FLIGHTS)
 				prefs.removeObject(forKey: GOAL_NEXT_FLIGHTS)
-				return goal
+				prefs.removeObject(forKey: GOAL_SET_DATE_FLIGHTS)
+				return goalForFlights()
 			}
 		}
 		
