@@ -224,16 +224,16 @@ class FMBoothViewController: FMViewController {
 		
 		switch sender.tag {
 		case 0:
-			title = "Skill Damage"
-			text = "[skill damage] * [strength] determines the final damage"
+			title = "[skill damage] * [sprite strength]"
+			text = "determines the final damage of your movement."
 			
 		case 1:
-			title = "Skill Healing"
-			text = "[skill healing] * [stamina] determines the final healing. A negative value means the skill hurts both the enemy and yourself at the same time."
+			title = "[skill healing] * [sprite stamina]"
+			text = "determines the final healing. \n\nA zero value means the skill has no healing effect. A negative value means the skill hurts both the enemy and yourself at the same time."
 			
 		case 2:
-			title = "Skill Speed"
-			text = "[skill speed] * [agility] determines the cool down for next move"
+			title = "[skill speed] * [sprite agility]"
+			text = "determines the cool down time for your next move"
 			
 		default:
 			print("N.A.")
