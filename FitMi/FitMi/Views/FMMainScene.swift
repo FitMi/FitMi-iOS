@@ -75,7 +75,7 @@ class FMMainScene: SKScene {
         self.background = SKSpriteNode(imageNamed: "background01-1.png")
         self.background.size = CGSize(width: self.frame.width, height: self.frame.height)
         self.background.zPosition = -1
-		self.background.position = CGPoint(x: 0, y: 160)
+		self.background.position = CGPoint(x: 0, y: 80)
         self.addChild(self.background)
         self.background.setScale(self.frame.height / 1200)
         self.background.run(SKAction.repeatForever(SKAction.animate(with: self.backgroundArray, timePerFrame: 2, resize: false, restore: true)))
@@ -85,7 +85,7 @@ class FMMainScene: SKScene {
 		if self.character == nil {
 			self.character = SKSpriteNode(texture: normalSpriteArray.first)
 			self.character.size = CGSize(width: 400, height: 400)
-			self.character.position = CGPoint(x: -20, y: -20)
+			self.character.position = CGPoint(x: -20, y: -100)
 			self.character.setScale(self.defaultScale)
 			
 			self.addChild(self.character)
