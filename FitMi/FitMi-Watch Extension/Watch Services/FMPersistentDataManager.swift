@@ -12,6 +12,26 @@ import WatchConnectivity
 class FMPersistentDataManager: NSObject {
 	static var shared = FMPersistentDataManager()
 	fileprivate var pushRetried = 0
+	fileprivate var lastSyncTimePrivate: Date? {
+		set(newValue) {
+			if let value = newValue {
+				UserDefaults.standard.set("\(value.timeIntervalSince1970)", forKey: CONNECTIVITY_KEY_WATCH_DATA_LAST_SYNC_DATE)
+			}
+		}
+		
+		get {
+			if let timeStampString = UserDefaults.standard.string(forKey: CONNECTIVITY_KEY_WATCH_DATA_LAST_SYNC_DATE) {
+				return Date(timeIntervalSince1970: TimeInterval(timeStampString)!)
+			} else {
+				return nil
+			}
+		}
+	}
+	var lastSyncTime: Date? {
+		get {
+			return lastSyncTimePrivate
+		}
+	}
 	
 	var session: WCSession! {
 		didSet {
@@ -57,6 +77,7 @@ class FMPersistentDataManager: NSObject {
 			session.sendMessage([CONNECTIVITY_KEY_WATCH_DATA: record], replyHandler: {
 				response in
 				if response["success"] as! Int == 1 {
+					self.lastSyncTimePrivate = Date()
 					self.pushRetried = 0
 					self.recordDidPush()
 					completion(true)

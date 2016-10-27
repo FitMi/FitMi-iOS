@@ -218,11 +218,22 @@
                         </group>
                         <group width="1" alignment="left" id="NUf-dx-dMK">
                             <items>
-                                <label alignment="left" text="Only unsynced records are shown here. Please use your iPhone for the rest." numberOfLines="0" id="ANF-ke-gN4">
+                                <label alignment="left" text="Only unsynced records are shown here. Please use your iPhone for the rest." textAlignment="left" numberOfLines="0" id="ANF-ke-gN4">
                                     <fontDescription key="font" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="15"/>
                                 </label>
                             </items>
-                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="10"/>
+                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
+                        </group>
+                        <group width="1" alignment="left" id="jNQ-X4-1pE">
+                            <items>
+                                <label alignment="left" text="Last Sync: " numberOfLines="0" id="1eO-uh-lyB">
+                                    <fontDescription key="font" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="15"/>
+                                </label>
+                                <label alignment="right" text="10-09, 23:20" textAlignment="right" numberOfLines="0" id="V3F-TG-X0e">
+                                    <fontDescription key="font" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="15"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="6" right="5" top="0.0" bottom="10"/>
                         </group>
                         <table alignment="left" id="823-Xs-7rm">
                             <items>
@@ -251,6 +262,7 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="lastSyncDateLabel" destination="V3F-TG-X0e" id="yM9-RR-ZRB"/>
                         <outlet property="table" destination="823-Xs-7rm" id="U63-0z-qzq"/>
                     </connections>
                 </controller>

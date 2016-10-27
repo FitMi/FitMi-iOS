@@ -50,6 +50,7 @@ let API_BASE_ENDPOINT = "https://fitmi.club/api"
 
 //Watch
 let CONNECTIVITY_KEY_WATCH_DATA = "WatchExerciseData"
+let CONNECTIVITY_KEY_WATCH_DATA_LAST_SYNC_DATE = "CONNECTIVITY_KEY_WATCH_DATA_LAST_SYNC_DATE"
 let PUSH_RETRY_MAX_COUNT = 5
 
 enum WatchPersistentDataKey: String {
