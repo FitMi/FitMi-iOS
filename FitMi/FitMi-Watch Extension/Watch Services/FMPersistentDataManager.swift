@@ -22,14 +22,6 @@ class FMPersistentDataManager: NSObject {
 		}
 	}
 	
-	override init() {
-		super.init()
-		
-		if WCSession.isSupported() {
-			session = WCSession.default()
-		}
-	}
-	
 	func persistExerciseRecord(startTime: Date, endTime: Date, steps: Int, meters: Int, floors: Int) {
 		let sharedUserDefaults = UserDefaults.standard
 		var array = sharedUserDefaults.array(forKey: CONNECTIVITY_KEY_WATCH_DATA) ?? [[String: String]]()
@@ -51,7 +43,7 @@ class FMPersistentDataManager: NSObject {
 		return array as! [[String : String]]
 	}
 	
-	func pushRecordToHostDevice() {
+	func pushRecordToHostDevice(completion: @escaping ((_ success: Bool) -> Void)) {
 		if pushRetried > PUSH_RETRY_MAX_COUNT {
 			pushRetried = 0
 			return
@@ -59,22 +51,30 @@ class FMPersistentDataManager: NSObject {
 		
 		let record = self.cachedRecords()
 		if WCSession.isSupported() {
+			if self.session == nil {
+				session = WCSession.default()
+			}
 			session.sendMessage([CONNECTIVITY_KEY_WATCH_DATA: record], replyHandler: {
 				response in
 				if response["success"] as! Int == 1 {
 					self.pushRetried = 0
 					self.recordDidPush()
+					completion(true)
+				} else {
+					completion(false)
 				}
 			}, errorHandler: {
 				error in
 				self.pushRetried += 1
-				self.pushRecordToHostDevice()
+				self.pushRecordToHostDevice(completion: completion)
+				completion(false)
 			})
 		}
 	}
 	
 	func recordDidPush() {
 		print("record pushed")
+		UserDefaults.standard.removeObject(forKey: CONNECTIVITY_KEY_WATCH_DATA)
 	}
 }
 

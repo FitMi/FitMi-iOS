@@ -27,7 +27,7 @@ class FMExerciseReportInterfaceController: WKInterfaceController {
 		floorLabel.setText(record[WatchPersistentDataKey.floors.rawValue])
 		
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "M-d, hh:mm"
+		dateFormatter.dateFormat = "M-d, HH:mm"
 		let startTimeStamp = record[WatchPersistentDataKey.startTime.rawValue]!
 		let startDate = Date(timeIntervalSince1970: TimeInterval(startTimeStamp)!)
 		startDateLabel.setText(dateFormatter.string(from: startDate))

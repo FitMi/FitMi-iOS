@@ -39,6 +39,12 @@ class FMRecordListInterfaceController: WKInterfaceController {
 	}
 	
 	@IBAction func syncData() {
-		FMPersistentDataManager.shared.pushRecordToHostDevice()
+		FMPersistentDataManager.shared.pushRecordToHostDevice(completion: {
+			success in
+			if success {
+				self.records = FMPersistentDataManager.shared.cachedRecords()
+				self.table.setNumberOfRows(self.records.count, withRowType: "FMExerciseRecordRowController")
+			}
+		})
 	}
 }
