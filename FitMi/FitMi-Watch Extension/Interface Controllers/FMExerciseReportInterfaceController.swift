@@ -22,17 +22,17 @@ class FMExerciseReportInterfaceController: WKInterfaceController {
 	}
 	
 	fileprivate func loadData(record: [String: String]) {
-		stepLabel.setText(record[PersistentDataKey.steps.rawValue])
-		meterLabel.setText(record[PersistentDataKey.meters.rawValue])
-		floorLabel.setText(record[PersistentDataKey.floors.rawValue])
+		stepLabel.setText(record[WatchPersistentDataKey.steps.rawValue])
+		meterLabel.setText(record[WatchPersistentDataKey.meters.rawValue])
+		floorLabel.setText(record[WatchPersistentDataKey.floors.rawValue])
 		
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "M-d, hh:mm"
-		let startTimeStamp = record[PersistentDataKey.startTime.rawValue]!
+		let startTimeStamp = record[WatchPersistentDataKey.startTime.rawValue]!
 		let startDate = Date(timeIntervalSince1970: TimeInterval(startTimeStamp)!)
 		startDateLabel.setText(dateFormatter.string(from: startDate))
 		
-		let endTimeStamp = record[PersistentDataKey.endTime.rawValue]!
+		let endTimeStamp = record[WatchPersistentDataKey.endTime.rawValue]!
 		let endDate = Date(timeIntervalSince1970: TimeInterval(endTimeStamp)!)
 		endDateLabel.setText(dateFormatter.string(from: endDate))
 		

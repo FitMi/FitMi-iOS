@@ -46,3 +46,16 @@ let GOAL_FLIGHTS = "GoalFlights"
 
 let SPRITE_IMAGE_BASE_URL = "https://s3-ap-southeast-1.amazonaws.com/fitmi.sprites/"
 let API_BASE_ENDPOINT = "https://fitmi.club/api"
+
+
+//Watch
+let CONNECTIVITY_KEY_WATCH_DATA = "WatchExerciseData"
+let PUSH_RETRY_MAX_COUNT = 5
+
+enum WatchPersistentDataKey: String {
+	case startTime = "PersistentDataKey.startTime"
+	case endTime = "PersistentDataKey.endTime"
+	case steps = "PersistentDataKey.steps"
+	case meters = "PersistentDataKey.meters"
+	case floors = "PersistentDataKey.floors"
+}

@@ -158,4 +158,39 @@ class FMDatabaseManager: NSObject {
 		let action = appearance.actions.filter("name = %@", name).first!
 		return action
 	}
+	
+	func updateRecords(records: [[String: String]]) {
+		if let sprite = FMSpriteStatusManager.sharedManager.sprite {
+			for record in records {
+				let steps = Int(record[WatchPersistentDataKey.steps.rawValue]!)!
+				let meters = Int(record[WatchPersistentDataKey.meters.rawValue]!)!
+				let floors = Int(record[WatchPersistentDataKey.floors.rawValue]!)!
+				
+				if steps != 0 || meters != 0 || floors != 0 {
+					let startDate = Date(timeIntervalSince1970: TimeInterval(record[WatchPersistentDataKey.startTime.rawValue]!)!)
+					let endDate = Date(timeIntervalSince1970: TimeInterval(record[WatchPersistentDataKey.endTime.rawValue]!)!)
+					
+					let exercise = FMExerciseRecord()
+					exercise.steps = steps
+					exercise.distance = meters
+					exercise.flights = floors
+					exercise.startTime = startDate
+					exercise.endTime = endDate
+					
+					self.realmUpdate {
+						sprite.exercises.append(exercise)
+					}
+				}
+			}
+
+		}
+	}
 }
+
+
+
+
+
+
+
+

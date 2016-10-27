@@ -9,16 +9,6 @@
 import WatchKit
 import WatchConnectivity
 
-let WatchDataUserDefaultKey = "WatchExerciseData"
-let pushRetryMaximumCount = 5
-enum PersistentDataKey: String {
-	case startTime = "PersistentDataKey.startTime"
-	case endTime = "PersistentDataKey.endTime"
-	case steps = "PersistentDataKey.steps"
-	case meters = "PersistentDataKey.meters"
-	case floors = "PersistentDataKey.floors"
-}
-
 class FMPersistentDataManager: NSObject {
 	static var shared = FMPersistentDataManager()
 	fileprivate var pushRetried = 0
@@ -42,34 +32,34 @@ class FMPersistentDataManager: NSObject {
 	
 	func persistExerciseRecord(startTime: Date, endTime: Date, steps: Int, meters: Int, floors: Int) {
 		let sharedUserDefaults = UserDefaults.standard
-		var array = sharedUserDefaults.array(forKey: WatchDataUserDefaultKey) ?? [[String: String]]()
+		var array = sharedUserDefaults.array(forKey: CONNECTIVITY_KEY_WATCH_DATA) ?? [[String: String]]()
 		let thisRecord = [
-			PersistentDataKey.startTime.rawValue : "\(startTime.timeIntervalSince1970)",
-			PersistentDataKey.endTime.rawValue : "\(endTime.timeIntervalSince1970)",
-			PersistentDataKey.steps.rawValue : "\(steps)",
-			PersistentDataKey.meters.rawValue : "\(meters)",
-			PersistentDataKey.floors.rawValue : "\(floors)",
+			WatchPersistentDataKey.startTime.rawValue : "\(startTime.timeIntervalSince1970)",
+			WatchPersistentDataKey.endTime.rawValue : "\(endTime.timeIntervalSince1970)",
+			WatchPersistentDataKey.steps.rawValue : "\(steps)",
+			WatchPersistentDataKey.meters.rawValue : "\(meters)",
+			WatchPersistentDataKey.floors.rawValue : "\(floors)",
 		]
 		
 		array.append(thisRecord)
-		sharedUserDefaults.set(array, forKey: WatchDataUserDefaultKey)
+		sharedUserDefaults.set(array, forKey: CONNECTIVITY_KEY_WATCH_DATA)
 	}
 	
 	func cachedRecords() -> [[String: String]] {
 		let sharedUserDefaults = UserDefaults.standard
-		let array = sharedUserDefaults.array(forKey: WatchDataUserDefaultKey) ?? [[String: String]]()
+		let array = sharedUserDefaults.array(forKey: CONNECTIVITY_KEY_WATCH_DATA) ?? [[String: String]]()
 		return array as! [[String : String]]
 	}
 	
 	func pushRecordToHostDevice() {
-		if pushRetried > pushRetryMaximumCount {
+		if pushRetried > PUSH_RETRY_MAX_COUNT {
 			pushRetried = 0
 			return
 		}
 		
 		let record = self.cachedRecords()
 		if WCSession.isSupported() {
-			session.sendMessage([WatchDataUserDefaultKey: record], replyHandler: {
+			session.sendMessage([CONNECTIVITY_KEY_WATCH_DATA: record], replyHandler: {
 				response in
 				if response["success"] as! Int == 1 {
 					self.pushRetried = 0

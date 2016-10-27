@@ -28,7 +28,7 @@ class FMRecordListInterfaceController: WKInterfaceController {
 		
 		for (index, record) in records.enumerated() {
 			if let row = table.rowController(at: index) as? FMExerciseRecordRowController {
-				let date = Date(timeIntervalSince1970: TimeInterval(record[PersistentDataKey.startTime.rawValue]!)!)
+				let date = Date(timeIntervalSince1970: TimeInterval(record[WatchPersistentDataKey.startTime.rawValue]!)!)
 				row.titleLabel.setText(dateFormatter.string(from: date))
 			}
 		}

@@ -54,6 +54,7 @@
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
 		0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */; };
 		0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */; };
+		0CC13CF11DC252EA006D5A8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
 		0CC333EA1DBFB7E900B76740 /* FMGoalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC333E91DBFB7E900B76740 /* FMGoalSettingViewController.swift */; };
 		0CCB758F1DC124590053E774 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB758D1DC124590053E774 /* Interface.storyboard */; };
 		0CCB75911DC124590053E774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCB75901DC124590053E774 /* Assets.xcassets */; };
@@ -1125,6 +1126,7 @@
 				0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */,
 				0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */,
 				0CCB75A51DC124590053E774 /* ExtensionDelegate.swift in Sources */,
+				0CC13CF11DC252EA006D5A8B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

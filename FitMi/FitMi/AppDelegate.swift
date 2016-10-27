@@ -132,11 +132,16 @@ extension AppDelegate: WCSessionDelegate {
 	}
 	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-		DispatchQueue.main.async {
-			let controller = UIAlertController(title: "Watch Data Recived", message: "\(message["WatchExerciseData"])", preferredStyle: .actionSheet)
-			controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-			self.window?.rootViewController?.present(controller, animated: true, completion: nil)
+		if let data = message[CONNECTIVITY_KEY_WATCH_DATA] as? [[String : String]] {
+			FMDatabaseManager.sharedManager.updateRecords(records: data)
+			replyHandler(["success": 1])
+			DispatchQueue.main.async {
+				let controller = UIAlertController(title: "Watch Data Recived", message: "", preferredStyle: .actionSheet)
+				controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+				self.window?.rootViewController?.present(controller, animated: true, completion: nil)
+			}
+		} else {
+			replyHandler(["success": 0])
 		}
-		replyHandler(["success": true as Any])
 	}
 }
