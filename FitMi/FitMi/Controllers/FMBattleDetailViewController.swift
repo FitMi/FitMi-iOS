@@ -67,7 +67,7 @@ class FMBattleDetailViewController: FMViewController {
     fileprivate let loseSound = URL(fileURLWithPath: Bundle.main.path(forResource: "battle_lose", ofType: "mp3")!)
 	fileprivate let attackSound = URL(fileURLWithPath: Bundle.main.path(forResource: "shocked", ofType: "mp3")!)
     fileprivate var audioPlayer = AVAudioPlayer()
-	
+	fileprivate var dismissed = false
 	fileprivate var texts = [String]()
 	
     override func viewDidLoad() {
@@ -102,15 +102,20 @@ class FMBattleDetailViewController: FMViewController {
 					self.battleView.alpha = 1
 				}, completion: {
 					_ in
-					self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
+					if !self.dismissed {
+						self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
+					}
 				})
 			}
 		})
 	}
 	
 	override func dismiss() {
-		self.gameLoopTimer.invalidate()
-		self.gameLoopTimer = nil
+		self.dismissed = true
+		if self.gameLoopTimer != nil {
+			self.gameLoopTimer.invalidate()
+			self.gameLoopTimer = nil
+		}
 		super.dismiss()
 	}
 	
