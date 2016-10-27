@@ -66,6 +66,7 @@ class FMPersistentDataManager: NSObject {
 	func pushRecordToHostDevice(completion: @escaping ((_ success: Bool) -> Void)) {
 		if pushRetried > PUSH_RETRY_MAX_COUNT {
 			pushRetried = 0
+			completion(false)
 			return
 		}
 		
@@ -88,7 +89,6 @@ class FMPersistentDataManager: NSObject {
 				error in
 				self.pushRetried += 1
 				self.pushRecordToHostDevice(completion: completion)
-				completion(false)
 			})
 		} else {
 			completion(false)
