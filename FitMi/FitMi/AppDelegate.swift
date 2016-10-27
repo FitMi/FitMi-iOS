@@ -136,7 +136,7 @@ extension AppDelegate: WCSessionDelegate {
 			FMDatabaseManager.sharedManager.updateRecords(records: data)
 			replyHandler(["success": 1])
 			DispatchQueue.main.async {
-				let controller = UIAlertController(title: "Watch Data Recived", message: "", preferredStyle: .actionSheet)
+				let controller = UIAlertController(title: "Data Received from Watch", message: "\(data.count) new \(data.count == 1 ? "record has" : "records have") been added.", preferredStyle: .actionSheet)
 				controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 				self.window?.rootViewController?.present(controller, animated: true, completion: nil)
 			}
