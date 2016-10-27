@@ -36,7 +36,7 @@
                                         <label alignment="left" text="TIMER" id="oLT-gp-2Nt">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
-                                        <timer alignment="right" id="6co-92-nfx">
+                                        <timer width="93" alignment="right" textAlignment="right" id="6co-92-nfx">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                             <calendarUnit key="units" minute="YES" second="YES"/>
                                         </timer>
@@ -47,7 +47,7 @@
                                         <label alignment="left" text="STEPS" id="Nvm-vy-tzp">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
-                                        <label alignment="right" text="0" textAlignment="left" id="ngt-uh-6qz">
+                                        <label width="88" alignment="right" text="0" textAlignment="right" id="ngt-uh-6qz">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
                                     </items>
@@ -57,7 +57,7 @@
                                         <label alignment="left" text="METERS" id="aqK-TI-XmX">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
-                                        <label alignment="right" text="0" id="xa4-G0-Ngz">
+                                        <label width="69" alignment="right" text="0" textAlignment="right" id="xa4-G0-Ngz">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
                                     </items>
@@ -67,7 +67,7 @@
                                         <label alignment="left" text="FLOORS" id="L6c-eD-pWE">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
-                                        <label alignment="right" text="0" id="rHT-cx-LAo">
+                                        <label width="76" alignment="right" text="0" textAlignment="right" id="rHT-cx-LAo">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="10"/>
                                         </label>
                                     </items>
@@ -110,7 +110,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="146" y="224"/>
+            <point key="canvasLocation" x="145.58974358974359" y="223.61538461538464"/>
         </scene>
         <!--FMExerciseReportInterfaceController-->
         <scene sceneID="5rn-Bp-wYI">
@@ -132,7 +132,7 @@
                                         <label alignment="left" verticalAlignment="center" text="DURATION" id="OIP-yM-kjh">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="8dd-1l-Vvc">
+                                        <label width="74" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="8dd-1l-Vvc">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
@@ -142,7 +142,7 @@
                                         <label alignment="left" verticalAlignment="center" text="STEPS" id="BBl-qE-ygT">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="72q-MA-MEP">
+                                        <label width="94" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="72q-MA-MEP">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
@@ -152,7 +152,7 @@
                                         <label alignment="left" verticalAlignment="center" text="METERS" id="cK0-oT-bqV">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="Wm2-Fb-JFA">
+                                        <label width="83" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="Wm2-Fb-JFA">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
@@ -162,7 +162,7 @@
                                         <label alignment="left" verticalAlignment="center" text="FLOORS" id="X0t-OQ-J4K">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="lPC-WU-uRZ">
+                                        <label width="92" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="lPC-WU-uRZ">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
@@ -172,7 +172,7 @@
                                         <label alignment="left" verticalAlignment="center" text="START" id="ntZ-Qf-5g7">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="LoC-ln-W8i">
+                                        <label width="89" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="LoC-ln-W8i">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
@@ -182,7 +182,7 @@
                                         <label alignment="left" verticalAlignment="center" text="END" id="p2T-9I-dIX">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="9wo-td-UWa">
+                                        <label width="113" alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="9wo-td-UWa">
                                             <fontDescription key="font" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         </label>
                                     </items>
