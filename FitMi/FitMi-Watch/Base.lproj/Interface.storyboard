@@ -241,6 +241,15 @@
                             </items>
                         </table>
                     </items>
+                    <menu key="menu" id="b7Z-vE-gM5">
+                        <items>
+                            <menuItem title="SYNC" icon="shuffle" id="tng-zr-Z1Z">
+                                <connections>
+                                    <action selector="syncData" destination="bGZ-6j-faB" id="iax-le-BqI"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="table" destination="823-Xs-7rm" id="U63-0z-qzq"/>
                     </connections>

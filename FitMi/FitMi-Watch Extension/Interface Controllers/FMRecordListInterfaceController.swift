@@ -24,7 +24,7 @@ class FMRecordListInterfaceController: WKInterfaceController {
 		table.setNumberOfRows(records.count, withRowType: "FMExerciseRecordRowController")
 		
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "M-d, hh:mm"
+		dateFormatter.dateFormat = "M-d, HH:mm"
 		
 		for (index, record) in records.enumerated() {
 			if let row = table.rowController(at: index) as? FMExerciseRecordRowController {
@@ -36,5 +36,9 @@ class FMRecordListInterfaceController: WKInterfaceController {
 	
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 		self.pushController(withName: "FMExerciseReportInterfaceController", context: records[rowIndex])
+	}
+	
+	@IBAction func syncData() {
+		FMPersistentDataManager.shared.pushRecordToHostDevice()
 	}
 }

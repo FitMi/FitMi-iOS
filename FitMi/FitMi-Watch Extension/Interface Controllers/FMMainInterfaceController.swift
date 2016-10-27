@@ -101,13 +101,6 @@ class FMMainInterfaceController: WKInterfaceController {
 	}
 	
 	func generateExerciseReport() {
-		print("Start: \(startDate)")
-		print("End: \(endDate)")
-		print("Steps: \(stepCount)")
-		print("Meters: \(meterCount)")
-		print("Floors: \(floorCount)")
-		print("Duration: \(endDate.timeIntervalSince(startDate))")
-		
 		if stepCount != 0 || meterCount != 0 || floorCount != 0 {
 			FMPersistentDataManager.shared.persistExerciseRecord(startTime: startDate, endTime: endDate, steps: stepCount, meters: meterCount, floors: floorCount)
 			if let record = FMPersistentDataManager.shared.cachedRecords().last {

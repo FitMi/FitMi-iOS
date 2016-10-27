@@ -12,15 +12,26 @@ import FacebookCore
 import FBSDKCoreKit
 import RealmSwift
 import UserNotifications
+import WatchConnectivity
 
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
+	var session: WCSession? {
+		didSet {
+			if let session = session {
+				session.delegate = self
+				session.activate()
+			}
+		}
+	}
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+		self.session = WCSession.default()
+		
 		let config = Realm.Configuration(
 			// Set the new schema version. This must be greater than the previously used
 			// version (if you've never set a schema version before, the version is 0).
@@ -106,3 +117,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: WCSessionDelegate {
+	@available(iOS 9.3, *)
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		print("Activation Error: \(error)")
+	}
+	
+	func sessionDidBecomeInactive(_ session: WCSession) {
+		
+	}
+	
+	func sessionDidDeactivate(_ session: WCSession) {
+		
+	}
+	
+	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+		DispatchQueue.main.async {
+			let controller = UIAlertController(title: "Watch Data Recived", message: "\(message["WatchExerciseData"])", preferredStyle: .actionSheet)
+			controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+			self.window?.rootViewController?.present(controller, animated: true, completion: nil)
+		}
+		replyHandler(["success": true as Any])
+	}
+}
