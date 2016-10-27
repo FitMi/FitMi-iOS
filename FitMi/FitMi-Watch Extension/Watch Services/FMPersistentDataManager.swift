@@ -69,6 +69,8 @@ class FMPersistentDataManager: NSObject {
 				self.pushRecordToHostDevice(completion: completion)
 				completion(false)
 			})
+		} else {
+			completion(false)
 		}
 	}
 	

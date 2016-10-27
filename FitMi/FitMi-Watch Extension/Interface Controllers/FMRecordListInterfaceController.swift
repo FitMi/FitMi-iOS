@@ -44,6 +44,11 @@ class FMRecordListInterfaceController: WKInterfaceController {
 			if success {
 				self.records = FMPersistentDataManager.shared.cachedRecords()
 				self.table.setNumberOfRows(self.records.count, withRowType: "FMExerciseRecordRowController")
+				let action = WKAlertAction(title: "OK", style: .cancel, handler: { _ in })
+				self.presentAlert(withTitle: "Sync Succeeded", message: "\nTransferred records will be cleared. Go to FitMi/Statistics on iPhone to view them.", preferredStyle: .alert, actions: [action])
+			} else {
+				let cancel = WKAlertAction(title: "OK", style: .cancel, handler: { _ in })
+				self.presentAlert(withTitle: "Sync Failed", message: "\nMake sure your watch is connected with your iPhone and try again.", preferredStyle: .alert, actions: [cancel])
 			}
 		})
 	}
