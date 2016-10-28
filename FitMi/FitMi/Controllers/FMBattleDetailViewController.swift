@@ -196,8 +196,6 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func showResultScreen(isSelfWin: Bool) {
-		self.resultView.isUserInteractionEnabled = true
-		
 		if isSelfWin {
 			self.resultLabel.text = "VICTORY"
 			self.resultImageView.image = UIImage(named: "win")
@@ -209,7 +207,10 @@ class FMBattleDetailViewController: FMViewController {
         self.playResultSound(isSelfWin: isSelfWin)
 		UIView.animate(withDuration: 0.3, delay: 1, options: [], animations: {
 			self.resultView.alpha = 1
-		}, completion: nil)
+		}, completion: {
+			_ in
+			self.resultView.isUserInteractionEnabled = true
+		})
 	}
     
     fileprivate func playResultSound(isSelfWin: Bool) {
@@ -539,20 +540,20 @@ class FMBattleDetailViewController: FMViewController {
 	// Damage, Healing, RandomTime Calculator
 	fileprivate func getDamage(strength: Int, skill: FMSkill) -> Int {
 		let rand = Double(arc4random() % 100) / 100
-		let damage = Double(strength) * (1 + 0.1 * rand) * skill.strengthFactor / 10
+		let damage = Double(strength) * (1 + 0.25 * rand) * skill.strengthFactor / 10
 		return Int(damage)
 	}
 	
 	fileprivate func getHealing(stamina: Int, skill: FMSkill) -> Int {
 		let rand = Double(arc4random() % 100) / 100
-		let healing = Double(stamina) * (1 + 0.1 * rand) * skill.staminaFactor / 10
+		let healing = Double(stamina) * (1 + 0.25 * rand) * skill.staminaFactor / 10
 		return Int(healing)
 	}
 	
 	fileprivate func getTimeResume(agility: Int, skill: FMSkill?) -> Float {
 		let skillFactor = skill?.agilityFactor ?? 1
 		let rand = Float(arc4random() % 100) / 100
-		let time = Float(agility) * (1 + 0.1 * rand) * Float(skillFactor) / 200
+		let time = Float(agility) * (1 + 0.25 * rand) * Float(skillFactor) / 200
 		return time
 	}
 	
@@ -626,21 +627,21 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate func getOpponentStamina() -> Int {
 		if isOpponentSelf {
-			return self.getSelfStamina()
+			return Int(Double(self.getSelfStamina()) * 1)
 		}
 		return self.opponentData["stamina"].int!
 	}
 	
 	fileprivate func getOpponentStrength() -> Int {
 		if isOpponentSelf {
-			return self.getSelfStrength()
+			return Int(Double(self.getSelfStrength()) * 1)
 		}
 		return self.opponentData["strength"].int!
 	}
 	
 	fileprivate func getOpponentAgility() -> Int {
 		if isOpponentSelf {
-			return self.getSelfAgility()
+			return Int(Double(self.getSelfAgility()) * 1)
 		}
 		return self.opponentData["agility"].int!
 	}
