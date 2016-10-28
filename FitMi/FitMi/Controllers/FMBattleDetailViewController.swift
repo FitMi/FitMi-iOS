@@ -70,6 +70,8 @@ class FMBattleDetailViewController: FMViewController {
 	fileprivate var dismissed = false
 	fileprivate var texts = [String]()
 	
+	fileprivate var isOpponentSelf = false
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.battleView.alpha = 0
@@ -91,21 +93,31 @@ class FMBattleDetailViewController: FMViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		if self.opponentID == "" {
+			isOpponentSelf = true
+			self.startGame()
+			return
+		}
+		
 		self.loadOpponentData(completion: {
 			data in
 			if let json = data {
 				self.opponentData = json
-				self.refreshView()
-				self.activityIndicator.stopAnimating()
-				self.battleView.isUserInteractionEnabled = true
-				UIView.animate(withDuration: 0.5, animations: {
-					self.battleView.alpha = 1
-				}, completion: {
-					_ in
-					if !self.dismissed {
-						self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
-					}
-				})
+				self.startGame()
+			}
+		})
+	}
+	
+	fileprivate func startGame() {
+		self.refreshView()
+		self.activityIndicator.stopAnimating()
+		self.battleView.isUserInteractionEnabled = true
+		UIView.animate(withDuration: 0.5, animations: {
+			self.battleView.alpha = 1
+		}, completion: {
+			_ in
+			if !self.dismissed {
+				self.gameLoopTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(self.updateStatePerTimeFrame), userInfo: nil, repeats: true)
 			}
 		})
 	}
@@ -326,7 +338,10 @@ class FMBattleDetailViewController: FMViewController {
 		self.selfHealthMax = self.getSelfHealth()
 		self.selfHealth = self.getSelfHealth()
 		self.selfHealthBar.setProgress(1, animated: false)
-		self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getSelfFacebookId())/picture?type=large")!)
+		let selfFacebookID = self.getSelfFacebookId()
+		if selfFacebookID != "" {
+			self.selfAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(selfFacebookID)/picture?type=large")!)
+		}
 		self.selfCoolDownPerTimeUnit = self.getTimeResume(agility: self.getSelfAgility(), skill: nil)
 		self.selfHealthLabel.text = "\(self.selfHealthMax) / \(self.selfHealthMax)"
 		
@@ -335,7 +350,10 @@ class FMBattleDetailViewController: FMViewController {
 		self.opponentHealthMax = self.getOpponentHealth()
 		self.opponentHealth = self.getOpponentHealth()
 		self.opponentHealthBar.setProgress(1, animated: false)
-		self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(self.getOpponentFacebookId())/picture?type=large")!)
+		let opponentFacebookID = self.getOpponentFacebookId()
+		if opponentFacebookID != "" {
+			self.opponentAvatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(opponentFacebookID)/picture?type=large")!)
+		}
 		self.opponentCoolDownPerTimeUnit = self.getTimeResume(agility: self.getOpponentAgility(), skill: nil)
 		self.opponentHealthLabel.text = "\(self.opponentHealthMax) / \(self.opponentHealthMax)"
 		
@@ -540,7 +558,8 @@ class FMBattleDetailViewController: FMViewController {
 	
 	// Self accessors
 	fileprivate func getSelfName() -> String {
-		return FMSpriteStatusManager.sharedManager.sprite.userFacebookName
+		let name = FMSpriteStatusManager.sharedManager.sprite.userFacebookName
+		return name == "" ? "YOU" : name
 	}
 	
 	fileprivate func getSelfHealth() -> Int {
@@ -584,34 +603,60 @@ class FMBattleDetailViewController: FMViewController {
 	// JSON accessors
 	
 	fileprivate func getOpponentName() -> String {
+		if isOpponentSelf {
+			return self.getSelfName()
+		}
+		
 		return self.opponentData["username"].string!
 	}
     
     fileprivate func getOpponentLevel() -> Int {
+		if isOpponentSelf {
+			return self.getSelfLevel()
+		}
         return self.opponentData["level"].int!
     }
 	
 	fileprivate func getOpponentHealth() -> Int {
+		if isOpponentSelf {
+			return self.getSelfHealth()
+		}
 		return self.opponentData["health"].int!
 	}
 	
 	fileprivate func getOpponentStamina() -> Int {
+		if isOpponentSelf {
+			return self.getSelfStamina()
+		}
 		return self.opponentData["stamina"].int!
 	}
 	
 	fileprivate func getOpponentStrength() -> Int {
+		if isOpponentSelf {
+			return self.getSelfStrength()
+		}
 		return self.opponentData["strength"].int!
 	}
 	
 	fileprivate func getOpponentAgility() -> Int {
+		if isOpponentSelf {
+			return self.getSelfAgility()
+		}
 		return self.opponentData["agility"].int!
 	}
 	
 	fileprivate func getOpponentFacebookId() -> String {
+		if isOpponentSelf {
+			return self.getSelfFacebookId()
+		}
 		return self.opponentData["facebookId"].string!
 	}
 	
 	fileprivate func getOpponentSkills() -> [FMSkill] {
+		if isOpponentSelf {
+			return self.getSelfSkills()
+		}
+		
 		if self.opponentSkills != nil {
 			return self.opponentSkills
 		}
@@ -629,6 +674,10 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func getOpponentAppearance() -> FMAppearance {
+		if isOpponentSelf {
+			return self.getSelfAppearance()
+		}
+		
 		let anySkill = self.getOpponentSkills().first!
 		return anySkill.appearance[0]
 	}
