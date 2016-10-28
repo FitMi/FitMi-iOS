@@ -39,10 +39,14 @@ class FMMainInterfaceController: WKInterfaceController {
 	override func awake(withContext context: Any?) {
 		super.awake(withContext: context)
 		animateRelax()
-		
-		let records = FMPersistentDataManager.shared.cachedRecords()
-		print("Exercise Records")
-		print(records)
+	}
+	
+	override func didAppear() {
+		super.didAppear()
+		if !FMWatchOnboardManager.hasOnboarded() {
+			let action = WKAlertAction(title: "OK", style: .cancel, handler: { _ in })
+			self.presentAlert(withTitle: "Welcome", message: "\nForce touch on the screen can open up the menu.", preferredStyle: .alert, actions: [action])
+		}
 	}
 	
 	fileprivate func animateRun() {

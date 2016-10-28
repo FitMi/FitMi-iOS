@@ -19,6 +19,7 @@
 		0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */; };
 		0C2E955C1DAFE4C000C03669 /* FMStatsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2E955A1DAFE4C000C03669 /* FMStatsDetailCell.swift */; };
 		0C2E955D1DAFE4C000C03669 /* FMStatsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */; };
+		0C3775421DC40D4C00A9F92C /* FMWatchOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3775411DC40D4C00A9F92C /* FMWatchOnboardManager.swift */; };
 		0C3B1A371DA9992E009DB425 /* FMPixelBubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */; };
 		0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */; };
 		0C51F74A1DB300D600A5231E /* FMLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51F7481DB300D600A5231E /* FMLabelCell.swift */; };
@@ -199,6 +200,7 @@
 		0C2E95551DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMMiddleAlignedLabelCell.xib; sourceTree = "<group>"; };
 		0C2E955A1DAFE4C000C03669 /* FMStatsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMStatsDetailCell.swift; sourceTree = "<group>"; };
 		0C2E955B1DAFE4C000C03669 /* FMStatsDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMStatsDetailCell.xib; sourceTree = "<group>"; };
+		0C3775411DC40D4C00A9F92C /* FMWatchOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWatchOnboardManager.swift; sourceTree = "<group>"; };
 		0C3B1A361DA9992E009DB425 /* FMPixelBubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPixelBubbleTransition.swift; sourceTree = "<group>"; };
 		0C486F7A1D9FF95400EB021B /* FMSpriteStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSpriteStatusManager.swift; sourceTree = "<group>"; };
 		0C51F7481DB300D600A5231E /* FMLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLabelCell.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */,
+				0C3775411DC40D4C00A9F92C /* FMWatchOnboardManager.swift */,
 			);
 			path = "Watch Services";
 			sourceTree = "<group>";
@@ -1129,6 +1132,7 @@
 				0CCB75A91DC124590053E774 /* ComplicationController.swift in Sources */,
 				0CCB75A71DC124590053E774 /* NotificationController.swift in Sources */,
 				0C2BD7091DC15FCF005B3DD5 /* FMRecordListInterfaceController.swift in Sources */,
+				0C3775421DC40D4C00A9F92C /* FMWatchOnboardManager.swift in Sources */,
 				0C2BD70C1DC16150005B3DD5 /* FMExerciseRecordRowController.swift in Sources */,
 				0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */,
 				0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */,
