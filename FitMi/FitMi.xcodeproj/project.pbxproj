@@ -46,6 +46,8 @@
 		0C7551391DB62D4C002146FE /* FMBoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7551381DB62D4C002146FE /* FMBoothViewController.swift */; };
 		0C75513B1DB6B27E002146FE /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C75513A1DB6B0F1002146FE /* Pokemon.ttf */; };
 		0C81DC201DA26DEE00E8856E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C81DC1F1DA26DEE00E8856E /* Constants.swift */; };
+		0CA927891DC3D21F0043EC3E /* FMBeatMyselfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA927871DC3D21F0043EC3E /* FMBeatMyselfCell.swift */; };
+		0CA9278A1DC3D21F0043EC3E /* FMBeatMyselfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA927881DC3D21F0043EC3E /* FMBeatMyselfCell.xib */; };
 		0CAA61FB1DC1353C00BC86A0 /* Pixeled.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CFC8B821DA97FC40084DD6F /* Pixeled.ttf */; };
 		0CAA61FC1DC1353F00BC86A0 /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C75513A1DB6B0F1002146FE /* Pokemon.ttf */; };
 		0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */; };
@@ -224,6 +226,8 @@
 		0C7551381DB62D4C002146FE /* FMBoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothViewController.swift; sourceTree = "<group>"; };
 		0C75513A1DB6B0F1002146FE /* Pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pokemon.ttf; sourceTree = "<group>"; };
 		0C81DC1F1DA26DEE00E8856E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CA927871DC3D21F0043EC3E /* FMBeatMyselfCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBeatMyselfCell.swift; sourceTree = "<group>"; };
+		0CA927881DC3D21F0043EC3E /* FMBeatMyselfCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBeatMyselfCell.xib; sourceTree = "<group>"; };
 		0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPersistentDataManager.swift; sourceTree = "<group>"; };
 		0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseReportInterfaceController.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
@@ -629,6 +633,8 @@
 				0C070E941DB9346E0095B3A0 /* FMFriendListCell.xib */,
 				0C68442A1DBD12530036C4E3 /* FMBattleTextCell.swift */,
 				0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */,
+				0CA927871DC3D21F0043EC3E /* FMBeatMyselfCell.swift */,
+				0CA927881DC3D21F0043EC3E /* FMBeatMyselfCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -934,6 +940,7 @@
 				0C2E95571DAFDA7D00C03669 /* FMMiddleAlignedLabelCell.xib in Resources */,
 				935FF2081DBFCF1800A1A7E0 /* exercise-distance.png in Resources */,
 				0CD3CD671D9EF86900E47BF8 /* FMMainScene.sks in Resources */,
+				0CA9278A1DC3D21F0043EC3E /* FMBeatMyselfCell.xib in Resources */,
 				9352E1711DB0B36D00227C89 /* sprite-sleep.atlas in Resources */,
 				93A46F6D1DB8DDA100B4D77C /* sweat.mp3 in Resources */,
 				93B34DFB1DB409D7005D530E /* skill-1.atlas in Resources */,
@@ -1172,6 +1179,7 @@
 				0CFC8B801DA96BCE0084DD6F /* FMSpriteLevelManager.swift in Sources */,
 				0C7551331DB4F503002146FE /* FMLoadingViewController.swift in Sources */,
 				0CE74F621D9FB21F00CAB9CE /* UIKitExtention.swift in Sources */,
+				0CA927891DC3D21F0043EC3E /* FMBeatMyselfCell.swift in Sources */,
 				0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */,
 				0C070E981DB94CB50095B3A0 /* FMBattleDetailViewController.swift in Sources */,
 				0C070E901DB91DD20095B3A0 /* FMNotificationManager.swift in Sources */,

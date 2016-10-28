@@ -29,6 +29,7 @@ class FMBattleViewController: FMViewController {
 	
 	private func registerCells() {
 		FMFriendListCell.registerCell(tableView: self.tableView, reuseIdentifier: FMFriendListCell.identifier)
+		FMBeatMyselfCell.registerCell(tableView: self.tableView, reuseIdentifier: FMBeatMyselfCell.identifier)
 	}
 
 	private func configureTableView() {
@@ -116,8 +117,10 @@ extension FMBattleViewController: UIViewControllerTransitioningDelegate {
 		if segue.identifier == "combatSegue" {
 			let controller = segue.destination as! FMBattleDetailViewController
 			let indexPath = sender as! IndexPath
-			let id = "\(self.data![indexPath.row]["facebookId"])"
-			controller.opponentID = id
+			if indexPath.section == 1 {
+				let id = "\(self.data![indexPath.row]["facebookId"])"
+				controller.opponentID = id
+			}
 		}
 	}
 	
@@ -140,27 +143,36 @@ extension FMBattleViewController: UIViewControllerTransitioningDelegate {
 
 extension FMBattleViewController: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.data == nil ? 0 : self.data!.count
+		if section == 1 {
+			return self.data == nil ? 0 : self.data!.count
+		} else {
+			return 1
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: FMFriendListCell.identifier, for: indexPath) as! FMFriendListCell
-		
-		let row = indexPath.row
-		cell.contentView.backgroundColor = row % 2 == 1 ? UIColor(white: 1, alpha: 0.3) : UIColor.clear
-		
-		let json = self.data![row]
-		
-		cell.nameLabel.text = json["username"].string
-		cell.avatarImageView.image = UIImage(named: "placeholder")
-		cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["facebookId"])/picture?type=large")!)
-		cell.levelLabel.text = "lv. \(json["level"])"
-		
-		return cell
+		if indexPath.section == 1 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMFriendListCell.identifier, for: indexPath) as! FMFriendListCell
+			
+			let row = indexPath.row
+			cell.contentView.backgroundColor = row % 2 == 1 ? UIColor(white: 1, alpha: 0.3) : UIColor.clear
+			
+			let json = self.data![row]
+			
+			cell.nameLabel.text = json["username"].string
+			cell.avatarImageView.image = UIImage(named: "placeholder")
+			cell.avatarImageView.af_setImage(withURL: URL(string: "http://graph.facebook.com/\(json["facebookId"])/picture?type=large")!)
+			cell.levelLabel.text = "lv. \(json["level"])"
+			
+			return cell
+		} else {
+			let cell = tableView.dequeueReusableCell(withIdentifier: FMBeatMyselfCell.identifier, for: indexPath) as! FMBeatMyselfCell
+			return cell
+		}
 	}
 }
 
