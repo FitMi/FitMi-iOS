@@ -68,7 +68,8 @@ class FMBattleViewController: FMViewController {
 			let indicatorView = self.tableView.backgroundView as! UILabel
 			self.data = nil
 			indicatorView.isHidden = false
-			indicatorView.text = "Please login to Facebook in Settings page."
+			indicatorView.numberOfLines = 0
+			indicatorView.text = "Login to Facebook in Settings page\nto play with your friends."
 			self.tableView.reloadData()
 			return
 		}

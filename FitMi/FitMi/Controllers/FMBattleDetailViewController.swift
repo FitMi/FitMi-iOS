@@ -515,14 +515,12 @@ class FMBattleDetailViewController: FMViewController {
 	}
 	
 	fileprivate func updateText() {
-		let newIndexPath = IndexPath(row: self.texts.count - 1, section: 0)
-		DispatchQueue.main.async {
-			self.tableView.insertRows(at: [newIndexPath], with: .automatic)
-		}
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-			self.tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
-		})
+		DispatchQueue.main.async {
+			self.tableView.reloadData()
+			let newIndexPath = IndexPath(row: self.texts.count - 1, section: 0)
+			self.tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: false)
+		}
 	}
 	
 	fileprivate func updateHealth() {
@@ -605,7 +603,7 @@ class FMBattleDetailViewController: FMViewController {
 	
 	fileprivate func getOpponentName() -> String {
 		if isOpponentSelf {
-			return self.getSelfName()
+			return "SHADOW"
 		}
 		
 		return self.opponentData["username"].string!
