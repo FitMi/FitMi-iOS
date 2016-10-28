@@ -22,6 +22,12 @@ class FMStatisticsDetailViewController: FMViewController {
 		self.registerCells()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let indexPath = IndexPath(row: self.numberOfStates - 1, section: 0)
+		self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+	}
+	
 	private func configureTableView() {
 		self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0)
 		self.tableView.estimatedRowHeight = 100

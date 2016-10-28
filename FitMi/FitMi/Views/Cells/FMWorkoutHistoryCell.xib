@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,19 +19,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="125"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y6t-IU-86G">
+                        <rect key="frame" x="15" y="15" width="290" height="95.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-Ye-tgh">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="35.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-10-08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39t-70-Rfv">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="35.5"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00h00m00s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wid-kd-X1i" userLabel="00:00">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wid-kd-X1i" userLabel="00:00">
+                                        <rect key="frame" x="160" y="0.0" width="130" height="35.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="Qwt-Wy-5NH"/>
                                         </constraints>
@@ -40,21 +46,26 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="xoG-l9-ve7">
+                                <rect key="frame" x="0.0" y="45.5" width="290" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="8Q0-9k-9og">
+                                        <rect key="frame" x="0.0" y="0.0" width="2" height="50"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="SV1-eD-u6X"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-n8-aq0">
+                                        <rect key="frame" x="5" y="0.0" width="88.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c64-0f-KiR">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-Ex-XlK">
+                                                <rect key="frame" x="45" y="37" width="43.5" height="12"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -71,19 +82,23 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xof-t5-IJr">
+                                        <rect key="frame" x="96" y="0.0" width="2" height="50"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="3o5-Zz-5mU"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ZGd-lC-dcb">
+                                        <rect key="frame" x="100.5" y="0.0" width="89" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA4-bw-Urf">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="METERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gK-Ho-4ix">
+                                                <rect key="frame" x="45" y="37" width="44" height="12"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -100,19 +115,23 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-b9-JFT">
+                                        <rect key="frame" x="192" y="0.0" width="2" height="50"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="gtU-M4-l6U"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="SwU-au-v5f">
+                                        <rect key="frame" x="197" y="0.0" width="88.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIl-wb-eTW">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="10"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6T-xQ-v9b">
+                                                <rect key="frame" x="45" y="37" width="43.5" height="12"/>
                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="6"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -129,6 +148,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgr-Ax-dtR">
+                                        <rect key="frame" x="288" y="0.0" width="2" height="50"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="2" id="6UR-HH-Snv"/>
@@ -139,6 +159,7 @@
                         </subviews>
                     </stackView>
                     <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdM-X0-Kbv">
+                        <rect key="frame" x="15" y="124.5" width="290" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="rwS-lX-fwf"/>
@@ -147,13 +168,13 @@
                 </subviews>
                 <color key="backgroundColor" red="0.99215686319999996" green="0.98823529480000005" blue="0.87843137979999997" alpha="1" colorSpace="deviceRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="vdM-X0-Kbv" secondAttribute="bottom" id="1HO-cn-EQp"/>
-                    <constraint firstItem="y6t-IU-86G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="6QC-fM-3UF"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="y6t-IU-86G" secondAttribute="bottom" constant="15" id="crL-Zs-XIB"/>
-                    <constraint firstItem="vdM-X0-Kbv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="g6w-ox-XbC"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vdM-X0-Kbv" secondAttribute="trailing" constant="15" id="m77-Qp-b9y"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="y6t-IU-86G" secondAttribute="trailing" constant="15" id="ped-78-wQ7"/>
-                    <constraint firstItem="y6t-IU-86G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="vfa-Ow-RE7"/>
+                    <constraint firstAttribute="bottom" secondItem="vdM-X0-Kbv" secondAttribute="bottom" id="1HO-cn-EQp"/>
+                    <constraint firstItem="y6t-IU-86G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="6QC-fM-3UF"/>
+                    <constraint firstAttribute="bottom" secondItem="y6t-IU-86G" secondAttribute="bottom" constant="15" id="crL-Zs-XIB"/>
+                    <constraint firstItem="vdM-X0-Kbv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="g6w-ox-XbC"/>
+                    <constraint firstAttribute="trailing" secondItem="vdM-X0-Kbv" secondAttribute="trailing" constant="15" id="m77-Qp-b9y"/>
+                    <constraint firstAttribute="trailing" secondItem="y6t-IU-86G" secondAttribute="trailing" constant="15" id="ped-78-wQ7"/>
+                    <constraint firstItem="y6t-IU-86G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="vfa-Ow-RE7"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

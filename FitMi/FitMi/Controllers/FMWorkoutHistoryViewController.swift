@@ -49,6 +49,9 @@ class FMWorkoutHistoryViewController: FMViewController {
 		} else {
 			self.tableView.backgroundView = nil
 		}
+		
+		let indexPath = IndexPath(row: self.numberOfRecords - 1, section: 0)
+		self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
 	}
     
     private func configureTableView() {
@@ -105,12 +108,9 @@ extension FMWorkoutHistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            if self.sprite != nil {
-                return self.sprite!.exercises.count
-            }
-            return 0
+            return self.numberOfRecords
         default:
-            return 1
+            return 0
         }
     }
     

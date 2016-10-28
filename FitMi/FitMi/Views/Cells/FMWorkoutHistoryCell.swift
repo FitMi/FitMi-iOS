@@ -23,7 +23,7 @@ class FMWorkoutHistoryCell: UITableViewCell {
         // Initialization code
         if FMWorkoutHistoryCell.dateFormatter == nil {
             FMWorkoutHistoryCell.dateFormatter = DateFormatter()
-            FMWorkoutHistoryCell.dateFormatter.dateFormat = "YYYY-MM-dd"
+            FMWorkoutHistoryCell.dateFormatter.dateFormat = "MM-dd, HH:mm"
         }
     }
     
@@ -36,7 +36,7 @@ class FMWorkoutHistoryCell: UITableViewCell {
         let hours = total / 3600
         let minutes = total / 60
         let seconds = total % 60
-        self.timeLabel.text = "\(hours)h\(minutes)m\(seconds)s"
+        self.timeLabel.text = "\(hours < 10 ? "0" : "")\(hours):\(minutes < 10 ? "0" : "")\(minutes):\(seconds < 10 ? "0" : "")\(seconds)"
         self.setNeedsUpdateConstraints()
     }
     

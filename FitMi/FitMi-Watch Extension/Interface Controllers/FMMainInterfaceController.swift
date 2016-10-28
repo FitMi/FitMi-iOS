@@ -109,6 +109,9 @@ class FMMainInterfaceController: WKInterfaceController {
 			FMPersistentDataManager.shared.persistExerciseRecord(startTime: startDate, endTime: endDate, steps: stepCount, meters: meterCount, floors: floorCount)
 			if let record = FMPersistentDataManager.shared.cachedRecords().last {
 				self.pushController(withName: "FMExerciseReportInterfaceController", context: record)
+				FMPersistentDataManager.shared.pushRecordToHostDevice(completion: {
+					success in
+				})
 			}
 		}
 	}
