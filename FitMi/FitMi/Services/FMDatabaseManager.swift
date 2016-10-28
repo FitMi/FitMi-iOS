@@ -160,7 +160,8 @@ class FMDatabaseManager: NSObject {
 	}
 	
 	func updateRecords(records: [[String: String]]) {
-		if let sprite = FMSpriteStatusManager.sharedManager.sprite {
+		DispatchQueue.main.sync {
+			let sprite = self.getCurrentSprite()
 			for record in records {
 				let steps = Int(record[WatchPersistentDataKey.steps.rawValue]!)!
 				let meters = Int(record[WatchPersistentDataKey.meters.rawValue]!)!
@@ -182,7 +183,6 @@ class FMDatabaseManager: NSObject {
 					}
 				}
 			}
-
 		}
 	}
 }

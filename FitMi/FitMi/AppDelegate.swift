@@ -134,12 +134,12 @@ extension AppDelegate: WCSessionDelegate {
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
 		if let data = message[CONNECTIVITY_KEY_WATCH_DATA] as? [[String : String]] {
 			FMDatabaseManager.sharedManager.updateRecords(records: data)
-			replyHandler(["success": 1])
 			DispatchQueue.main.async {
 				let controller = UIAlertController(title: "Data Received from Watch", message: "\(data.count) new \(data.count == 1 ? "record has" : "records have") been added.", preferredStyle: .actionSheet)
 				controller.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 				self.window?.rootViewController?.present(controller, animated: true, completion: nil)
 			}
+			replyHandler(["success": 1])
 		} else {
 			replyHandler(["success": 0])
 		}
