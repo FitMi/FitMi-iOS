@@ -25,17 +25,32 @@ class FMConfigurationParser: NSObject {
 //		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
 //		let dictionary = NSDictionary(contentsOfFile: filePath)!
 //		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
+		self.total = FMLocalStorageManager.sharedManager.localImageCount()
+		let expectedTotal = FMDatabaseManager.sharedManager.skillSpriteCount() + FMDatabaseManager.sharedManager.actionSpriteCount()
 		
-		FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {
-			error, required, dict in
-			if error == nil && required && dict != nil {
-				self.total = self.constructDatabaseContent(fromDictionary: dict!)
-			} else {
-				print("Assets up to date")
-				print(error ?? "No error.")
-				self.delegate?.parserDidCompleteWork()
+		if self.total == expectedTotal {
+			FMNetworkManager.sharedManager.checkConfiguratonFileUpdate(completion: {
+				error, required, dict in
+				if error == nil && required && dict != nil {
+					self.total = self.constructDatabaseContent(fromDictionary: dict!)
+				} else {
+					print("Assets up to date")
+					print(error ?? "No error.")
+					self.delegate?.parserDidCompleteWork()
+				}
+			})
+		} else {
+			//self.total exist and expectedTotal is not equal to self.total
+			self.total = expectedTotal
+			
+			for skill in FMDatabaseManager.sharedManager.allSkills() {
+				self.downloadSprites(forSkill: skill)
 			}
-		})
+			
+			for action in FMDatabaseManager.sharedManager.allActions() {
+				self.downloadSprites(forAction: action)
+			}
+		}
 	}
 	
 	

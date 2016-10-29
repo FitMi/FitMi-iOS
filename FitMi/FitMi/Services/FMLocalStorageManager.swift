@@ -47,4 +47,10 @@ class FMLocalStorageManager: NSObject {
 		let imagePath = dir.appending(name)
 		return imagePath
 	}
+	
+	func localImageCount() -> Int {
+		let path = self.imageDirectoryPath()
+		let fileList = try! FileManager.default.contentsOfDirectory(atPath: path)
+		return fileList.count
+	}
 }

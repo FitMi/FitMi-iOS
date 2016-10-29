@@ -185,6 +185,36 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 	}
+	
+	func allSkills() -> Results<FMSkill> {
+		let realm = try! Realm()
+		return realm.objects(FMSkill.self)
+	}
+	
+	func allActions() -> Results<FMAction> {
+		let realm = try! Realm()
+		return realm.objects(FMAction.self)
+	}
+	
+	func skillSpriteCount() -> Int {
+		var count = 0
+		let realm = try! Realm()
+		for skill in realm.objects(FMSkill.self) {
+			count += skill.attackSpriteAtlasCount
+			count += skill.defenceSpriteAtlasCount
+			count += 1
+		}
+		return count
+	}
+	
+	func actionSpriteCount() -> Int {
+		var count = 0
+		let realm = try! Realm()
+		for action in realm.objects(FMAction.self) {
+			count += action.spriteAtlasCount
+		}
+		return count
+	}
 }
 
 
