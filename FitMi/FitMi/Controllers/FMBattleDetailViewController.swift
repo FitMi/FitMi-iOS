@@ -205,7 +205,7 @@ class FMBattleDetailViewController: FMViewController {
 		}
 		self.handleBattleExp(isSelfWin: isSelfWin)
         self.playResultSound(isSelfWin: isSelfWin)
-		UIView.animate(withDuration: 0.3, delay: 1, options: [], animations: {
+		UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
 			self.resultView.alpha = 1
 		}, completion: {
 			_ in
