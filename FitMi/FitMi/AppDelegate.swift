@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Realm.Configuration.defaultConfiguration = config
 		
         // Request for local Notification permission
-        /*
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
                 (granted, error) in
@@ -61,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         }
-		*/
         
         let hasOnboard = application.hasOnboard
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -91,6 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidEnterBackground(_ application: UIApplication) {
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // Schedule notification when the app becomes inactive
+        FMNotificationManager.sharedManager.scheduleNotification(title: "Dear master~", body : "Let's go exercise (O^~^O)", interval: NSCalendar.Unit.day)
 	}
 
 	func applicationWillEnterForeground(_ application: UIApplication) {
@@ -100,20 +101,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         FBSDKAppEvents.activateApp()
-	}
-
-	func applicationWillTerminate(_ application: UIApplication) {
-		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        /*
+        
+        // Remove notification when the app becomes active
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         } else {
             application.cancelAllLocalNotifications()
         }
-        */
 	}
 
+	func applicationWillTerminate(_ application: UIApplication) {
+		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	}
 
 }
 
