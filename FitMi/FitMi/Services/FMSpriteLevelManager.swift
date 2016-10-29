@@ -26,11 +26,17 @@ class FMSpriteLevelManager: NSObject {
 	}
 	
 	func experienceLimitForLevel(level: Int) -> Int {
-		return 1000 + level * 1000
+		return (200 + 50 * level) * (level + 1)
 	}
 	
 	func levelForExp(exp: Int) -> Int {
-		return exp/1000
+		var level = 0
+		
+		while(exp > self.experienceLimitForLevel(level: level)) {
+			level += 1
+		}
+		
+		return level
 	}
 	
 }
