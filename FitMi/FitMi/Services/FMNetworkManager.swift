@@ -26,7 +26,7 @@ class FMNetworkManager: NSObject {
 		}
 		
 		let param: Parameters = ["updateTime": dateString]
-        Alamofire.request("https://72s7ml6tyb.execute-api.ap-southeast-1.amazonaws.com/production/updateCheck", method: .post, parameters: param, encoding: JSONEncoding.default)
+        Alamofire.request(UPDATE_CHECK_URL_STAGING, method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
 				if let error = response.result.error {
 					completion(error, false, nil)
