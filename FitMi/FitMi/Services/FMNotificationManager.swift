@@ -77,12 +77,12 @@ class FMNotificationManager: NSObject {
 		})
 	}
     
-    func scheduleNotification(title: String, body: String, interval: NSCalendar.Unit) {
+    func scheduleNotification(title: String, body: String, unit: NSCalendar.Unit, interval: TimeInterval) {
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
             content.title = title
             content.body = body
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(UInt(interval.rawValue)), repeats: true)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: true)
             let requestIndentifier = "exerciseReminder"
             let request = UNNotificationRequest(identifier: requestIndentifier,
                                                 content: content,
@@ -99,7 +99,7 @@ class FMNotificationManager: NSObject {
             notification.alertTitle = title
             notification.alertBody = body
             notification.fireDate = tomorrow
-            notification.repeatInterval = interval
+            notification.repeatInterval = unit
             UIApplication.shared.scheduleLocalNotification(notification)
         }
     }

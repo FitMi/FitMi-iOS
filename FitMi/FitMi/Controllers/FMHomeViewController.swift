@@ -60,6 +60,9 @@ class FMHomeViewController: FMViewController {
     }
     
     func appMovedToBackground() {
+        // Schedule notification when the app becomes inactive
+        FMNotificationManager.sharedManager.scheduleNotification(title: "Dear master~", body : "Let's go exercise (O^~^O)", unit: NSCalendar.Unit.day, interval: 86400)
+
         // If no token, reject the update
         if !FMNetworkManager.sharedManager.isTokenAvailable() {
             return
