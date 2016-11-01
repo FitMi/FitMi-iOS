@@ -63,3 +63,7 @@ enum WatchPersistentDataKey: String {
 	case meters = "PersistentDataKey.meters"
 	case floors = "PersistentDataKey.floors"
 }
+
+enum AchievementId: String {
+    case JOIN_MI = "achievement.fitmi.0"
+}

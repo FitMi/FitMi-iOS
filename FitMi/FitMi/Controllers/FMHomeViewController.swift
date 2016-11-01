@@ -69,6 +69,8 @@ class FMHomeViewController: FMViewController {
                     FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
                     return
                 }
+                
+                self.gameCenterManager.completeAchievement(achievementId: AchievementId.JOIN_MI.rawValue)
             })
         }
 	}
