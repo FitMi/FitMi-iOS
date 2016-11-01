@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GameKit
 
 class FMHomeViewController: FMViewController {
 
@@ -119,14 +118,6 @@ class FMHomeViewController: FMViewController {
         }
     }
     
-    func showGameCenterViewController() {
-        // show Game center
-        let gameCenterVc = GKGameCenterViewController()
-        gameCenterVc.gameCenterDelegate = self
-        gameCenterVc.viewState = .achievements
-        FMRootViewController.defaultController.present(gameCenterVc, animated: true, completion: nil)
-    }
-    
     private func refreshSprite() {
         FMSpriteStatusManager.sharedManager.refreshSprite {success in
             DispatchQueue.main.async {
@@ -179,10 +170,4 @@ class FMHomeViewController: FMViewController {
 		return FMHomeViewController.defaultController!
 	}
 
-}
-
-extension FMHomeViewController: GKGameCenterControllerDelegate {
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true, completion: nil)
-    }
 }
