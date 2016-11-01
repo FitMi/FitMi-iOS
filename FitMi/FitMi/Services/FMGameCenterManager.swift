@@ -39,7 +39,6 @@ class FMGameCenterManager: NSObject {
                         print("Error loading achievements")
                         return
                     } else if let achievements = result {
-                        print(achievements)
                         for achievement in achievements  {
                             self.currentAchievements[achievement.identifier!] = achievement
                         }
@@ -66,7 +65,6 @@ class FMGameCenterManager: NSObject {
         
         let achi = self.getAchievement(id: achievementId)
         if achi.isCompleted {
-            print("Achievement is already completed")
             return
         }
         achi.percentComplete = progress

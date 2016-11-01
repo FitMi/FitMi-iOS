@@ -66,4 +66,7 @@ enum WatchPersistentDataKey: String {
 
 enum AchievementId: String {
     case JOIN_MI = "achievement.fitmi.0"
+    case FIRST_EXERCISE = "achievement.fitmi.1"
+    case REACH_LEVEL_1 = "achievement.fitmi.2"
+    case FACEBOOK_LOGIN = "achievement.fitmi.3"
 }
