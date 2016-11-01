@@ -12,6 +12,7 @@ import GameKit
 
 class FMGameCenterManager: NSObject {
     static var sharedManager = FMGameCenterManager()
+    var currentAchievements = [String:GKAchievement]()
     
     func authenticateWithGameCenter(completion: @escaping (_ vc: UIViewController?, _ error: Error?) -> Void) {
         let localPlayer = GKLocalPlayer.localPlayer()
@@ -31,9 +32,20 @@ class FMGameCenterManager: NSObject {
                 return
             }
             
-            // Already login
+            // Already login, load current achievement progress
             if (localPlayer.isAuthenticated) {
-                completion(nil, nil)
+                GKAchievement.loadAchievements { (result, err) in
+                    if let _ = err {
+                        print("Error loading achievements")
+                        return
+                    } else if let achievements = result {
+                        print(achievements)
+                        for achievement in achievements  {
+                            self.currentAchievements[achievement.identifier!] = achievement
+                        }
+                        completion(nil, nil) // Returns here
+                    }
+                }
             }
         }
     }
@@ -41,5 +53,54 @@ class FMGameCenterManager: NSObject {
     func isGameCenterAuthenticated() -> Bool {
         let localPlayer = GKLocalPlayer.localPlayer()
         return localPlayer.isAuthenticated
+    }
+    
+    func completeAchievement(achievementId: String) {
+        self.updateAchievement(achievementId: achievementId, progress: 100.0)
+    }
+    
+    func updateAchievement(achievementId: String, progress: Double) {
+        if !self.isGameCenterAuthenticated() {
+            return
+        }
+        
+        let achi = self.getAchievement(id: achievementId)
+        if achi.isCompleted {
+            print("Achievement is already completed")
+            return
+        }
+        achi.percentComplete = progress
+        if progress == 100.0 {
+            achi.showsCompletionBanner = true
+        }
+        GKAchievement.report([achi], withCompletionHandler: {
+            (err) in
+            if let error = err {
+                print(error)
+            }
+        })
+    }
+    
+    func resetAchievements(achievementId: String) {
+        GKAchievement.resetAchievements { (error) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("RESET")
+            }
+        }
+    }
+    
+    func hasReceivedAchievements(achievementId: String) -> Bool {
+        let achi = getAchievement(id: achievementId)
+        return achi.isCompleted
+    }
+    
+    func getAchievement(id: String) -> GKAchievement {
+        if let achievement = currentAchievements[id] {
+            return achievement
+        } else {
+            return GKAchievement(identifier: id)
+        }
     }
 }
