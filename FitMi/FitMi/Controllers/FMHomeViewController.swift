@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameKit
 
 class FMHomeViewController: FMViewController {
 
@@ -17,6 +18,8 @@ class FMHomeViewController: FMViewController {
     var state = FMSpriteState()
 	
     private static var defaultController: FMHomeViewController?
+    
+    private let gameCenterManager = FMGameCenterManager.sharedManager
     
     let maxHealth = 100
     var maxBarLength: CGFloat = 0
@@ -53,6 +56,27 @@ class FMHomeViewController: FMViewController {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        if !gameCenterManager.isGameCenterAuthenticated() {
+            gameCenterManager.authenticateWithGameCenter(completion: { (vc, err) in
+                if let error = err {
+                    print(error)
+                    // TODO: say some thing to ask user to login to Game Center to enjoy achievements
+                    return
+                }
+
+                if let controller = vc {
+                    FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
+                    return
+                }
+
+//                // show Game center
+//                let gameCenterVc = GKGameCenterViewController()
+//                gameCenterVc.gameCenterDelegate = self
+//                gameCenterVc.viewState = .achievements
+//                FMRootViewController.defaultController.present(gameCenterVc, animated: true, completion: nil)
+            })
+        }
 	}
     
     override func willMove(toParentViewController parent: UIViewController?) {
@@ -151,4 +175,10 @@ class FMHomeViewController: FMViewController {
 		return FMHomeViewController.defaultController!
 	}
 
+}
+
+extension FMHomeViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
 }
