@@ -69,12 +69,6 @@ class FMHomeViewController: FMViewController {
                     FMRootViewController.defaultController.present(controller, animated: true, completion: nil)
                     return
                 }
-
-//                // show Game center
-//                let gameCenterVc = GKGameCenterViewController()
-//                gameCenterVc.gameCenterDelegate = self
-//                gameCenterVc.viewState = .achievements
-//                FMRootViewController.defaultController.present(gameCenterVc, animated: true, completion: nil)
             })
         }
 	}
@@ -121,6 +115,14 @@ class FMHomeViewController: FMViewController {
                 }
             }
         }
+    }
+    
+    func showGameCenterViewController() {
+        // show Game center
+        let gameCenterVc = GKGameCenterViewController()
+        gameCenterVc.gameCenterDelegate = self
+        gameCenterVc.viewState = .achievements
+        FMRootViewController.defaultController.present(gameCenterVc, animated: true, completion: nil)
     }
     
     private func refreshSprite() {
