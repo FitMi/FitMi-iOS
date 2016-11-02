@@ -50,8 +50,10 @@ class FMWorkoutHistoryViewController: FMViewController {
 			self.tableView.backgroundView = nil
 		}
 		
-		let indexPath = IndexPath(row: self.numberOfRecords - 1, section: 0)
-		self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+		if self.numberOfRecords > 0 {
+			let indexPath = IndexPath(row: self.numberOfRecords - 1, section: 0)
+			self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+		}
 	}
     
     private func configureTableView() {
