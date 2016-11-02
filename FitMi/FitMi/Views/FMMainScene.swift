@@ -39,13 +39,22 @@ class FMMainScene: SKScene {
 	
 	
     override func didMove(to view: SKView) {
+		
         self.loadBackgroundSprites()
 		self.displayBackground()
-		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil, queue: nil, using: {
-			_ in
-			self.loadCharacterSprites()
-			self.displayCharacter()
-		})
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(reloadSprite), name: Notification.Name("SPRITE_ACTION_DID_UPDATE"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(reloadSprite), name: Notification.Name("SPRITE_LOADED_NOTIFICATION"), object: nil)
+	}
+	
+	func reloadSprite() {
+		if self.character != nil {
+			self.character.removeAllActions()
+			self.character.removeFromParent()
+			self.character = nil
+		}
+		self.loadCharacterSprites()
+		self.displayCharacter()
 	}
     
     private func loadBackgroundSprites() {
@@ -89,11 +98,13 @@ class FMMainScene: SKScene {
 			self.character.setScale(self.defaultScale)
 			
 			self.addChild(self.character)
+			
+			self.animateSleepSprite()
 		}
     }
 	
     func animateNormalSprite() {
-        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 3), completion: {() -> Void in
+        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 1), completion: {() -> Void in
                 self.animateTiredSprite()
             })
     }

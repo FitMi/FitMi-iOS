@@ -97,6 +97,7 @@ class FMBoothViewController: FMViewController {
 				self.setAnimationForAction(action: action)
 				if !isTitleUsing {
 					FMSpriteStatusManager.sharedManager.updateAction(action: action)
+					self.reloadTableView(sender: button)
 				} else {
 					FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one action should be used...")
 				}

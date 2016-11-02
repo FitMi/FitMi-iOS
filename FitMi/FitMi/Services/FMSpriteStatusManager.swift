@@ -365,6 +365,8 @@ class FMSpriteStatusManager: NSObject {
 			default:
 				print("unsupported action type")
 			}
+			
+			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_ACTION_DID_UPDATE"), object: nil)
 		}
 	}
 	

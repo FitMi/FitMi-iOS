@@ -34,12 +34,20 @@ class FMExerciseScene: SKScene {
 	
 	
 	override func didMove(to view: SKView) {
-		NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil, queue: nil, using: {
-			_ in
-			self.loadCharacterSprites()
-			self.displayCharacter()
-		})
+		NotificationCenter.default.addObserver(self, selector: #selector(reloadSprite), name: Notification.Name("SPRITE_ACTION_DID_UPDATE"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(reloadSprite), name: Notification.Name("SPRITE_LOADED_NOTIFICATION"), object: nil)
 	}
+	
+	func reloadSprite() {
+		if self.character != nil {
+			self.character.removeAllActions()
+			self.character.removeFromParent()
+			self.character = nil
+		}
+		self.loadCharacterSprites()
+		self.displayCharacter()
+	}
+	
 	
 	private func loadCharacterSprites() {
 		let sprite = FMSpriteStatusManager.sharedManager.sprite!
@@ -61,7 +69,7 @@ class FMExerciseScene: SKScene {
 			
 			self.addChild(self.character)
 			
-			self.animateNormalSprite()
+			self.animateSleepSprite()
 		}
 	}
 	
