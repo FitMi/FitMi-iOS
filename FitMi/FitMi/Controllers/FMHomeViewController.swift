@@ -60,6 +60,7 @@ class FMHomeViewController: FMViewController {
             gameCenterManager.authenticateWithGameCenter(completion: { (vc, err) in
                 if let error = err {
                     print(error)
+                    FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Please log in to Game Center")
                     // TODO: say some thing to ask user to login to Game Center to enjoy achievements
                     return
                 }
@@ -80,7 +81,7 @@ class FMHomeViewController: FMViewController {
     
     func appMovedToBackground() {
         // Schedule notification when the app becomes inactive
-        FMNotificationManager.sharedManager.scheduleDailyNotification(title: "Dear master~", body : "Let's go exercise (O^~^O)")
+        FMNotificationManager.sharedManager.scheduleDailyNotification(title: "Dear master~", body : "You haven't open FitMi for a day. Let's go exercise (O^~^O)")
 
         // If no token, reject the update
         if !FMNetworkManager.sharedManager.isTokenAvailable() {
@@ -125,11 +126,23 @@ class FMHomeViewController: FMViewController {
                     let sprite = FMSpriteStatusManager.sharedManager.sprite!
                     self.state = sprite.states.last!
                     self.displaySpriteData()
+                    self.handleSpriteAchievements()
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil)
                 } else {
                     print("sprite not updated")
                 }
             }
+        }
+    }
+    
+    private func handleSpriteAchievements() {
+        if FMNetworkManager.sharedManager.isTokenAvailable() {
+            // Make sure users who have logged in get the achievements
+            gameCenterManager.completeAchievement(achievementId: AchievementId.FACEBOOK_LOGIN.rawValue)
+        }
+        if self.state.level >= 1 {
+            // Good job on reaching level 1 (first level up)
+            gameCenterManager.completeAchievement(achievementId: AchievementId.REACH_LEVEL_1.rawValue)
         }
     }
     

@@ -36,12 +36,16 @@ class FMMenuViewController: FMViewController {
 	}
 	
 	@IBAction func showGameCenterViewController(button: UIButton) {
-		// show Game center
-		let gameCenterVc = GKGameCenterViewController()
-		gameCenterVc.gameCenterDelegate = self
-		gameCenterVc.viewState = .achievements
-		
-		self.present(gameCenterVc, animated: true, completion: nil)
+        if !FMGameCenterManager.sharedManager.isGameCenterAuthenticated() {
+            FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Please log in to Game Center")
+        } else {
+            // show Game center
+            let gameCenterVc = GKGameCenterViewController()
+            gameCenterVc.gameCenterDelegate = self
+            gameCenterVc.viewState = .achievements
+            
+            self.present(gameCenterVc, animated: true, completion: nil)
+        }
 	}
 	
 	

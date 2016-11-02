@@ -383,6 +383,8 @@ extension FMAccountViewController: UITableViewDelegate {
 												FMSpriteStatusManager.sharedManager.sprite?.userFacebookName = name
 											}
 										}
+                                        
+                                        FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.FACEBOOK_LOGIN.rawValue)
 										
                                         FMSpriteStatusManager.sharedManager.pushSpriteStatusToRemote(completion: { (error, success) in
                                             if (error != nil) {
