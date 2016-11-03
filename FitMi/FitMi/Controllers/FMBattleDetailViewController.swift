@@ -205,6 +205,7 @@ class FMBattleDetailViewController: FMViewController {
 		}
 		self.handleBattleExp(isSelfWin: isSelfWin)
         self.playResultSound(isSelfWin: isSelfWin)
+        self.handleBattleAchievements(didWin: isSelfWin)
 		UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
 			self.resultView.alpha = 1
 		}, completion: {
@@ -212,6 +213,14 @@ class FMBattleDetailViewController: FMViewController {
 			self.resultView.isUserInteractionEnabled = true
 		})
 	}
+    
+    fileprivate func handleBattleAchievements(didWin: Bool) {
+        FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.BATTLE_WITH_ONE_FRIEND.rawValue)
+        let pref = UserDefaults.standard
+        let totalWin = pref.integer(forKey: KEY_TOTAL_BATTLE_WON)
+        pref.set(totalWin + 1, forKey: KEY_TOTAL_BATTLE_WON)
+        FMGameCenterManager.sharedManager.handleBattleWon(totalWin: totalWin + 1)
+    }
     
     fileprivate func playResultSound(isSelfWin: Bool) {
         do {

@@ -69,4 +69,25 @@ enum AchievementId: String {
     case FIRST_EXERCISE = "achievement.fitmi.1"
     case REACH_LEVEL_1 = "achievement.fitmi.2"
     case FACEBOOK_LOGIN = "achievement.fitmi.3"
+    case SHARE_EXERCISE = "achievement.fitmi.4"
+    case NO_FB_FRIENDS = "achievement.fitmi.17"
+
+    // Running
+    case RUNNING_1_KM = "achievement.fitmi.5"
+    case RUNNING_5_KM = "achievement.fitmi.6"
+    case RUNNING_10_KM = "achievement.fitmi.7"
+    case RUNNING_50_KM = "achievement.fitmi.8"
+    case RUNNING_100_KM = "achievement.fitmi.9"
+    // Battle
+    case BATTLE_WITH_ONE_FRIEND = "achievement.fitmi.10"
+    case BATTLE_WITH_ME = "achievement.fitmi.11"
+    case BATTLE_WON_10 = "achievement.fitmi.12"
+    case BATTLE_WON_50 = "achievement.fitmi.13"
+    case BATTLE_WON_100 = "achievement.fitmi.14"
+    case BATTLE_WON_500 = "achievement.fitmi.15"
+    // Mi Actions
+    case TAP_100 = "achievement.fitmi.18"
+    case TAP_500 = "achievement.fitmi.19"
 }
+
+let KEY_TOTAL_BATTLE_WON = "TotalBattleWon"

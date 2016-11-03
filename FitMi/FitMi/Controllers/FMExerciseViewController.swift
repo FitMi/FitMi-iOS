@@ -220,7 +220,7 @@ class FMExerciseViewController: FMViewController {
         content.previewPropertyName = "fitness:course"
         
         FMRootViewController.defaultController.addChildViewController(self)
-        FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+        FBSDKShareDialog.show(from: self, with: content, delegate: self)
         self.removeFromParentViewController()
     }
 	
@@ -243,8 +243,6 @@ class FMExerciseViewController: FMViewController {
 			self.view.layoutIfNeeded()
         }, completion: nil)
 	}
-	
-	
 	
 	@IBAction func reset(_ sender: AnyObject?) {
 		self.exerciseStartDate = nil
@@ -379,6 +377,20 @@ extension FMExerciseViewController: FMMotionStatusDelegate {
             
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+}
+
+extension FMExerciseViewController : FBSDKSharingDelegate {
+    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
+        FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.SHARE_EXERCISE.rawValue)
+    }
+    
+    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
+        // NOT IMPLEMENTED
+    }
+    
+    func sharerDidCancel(_ sharer: FBSDKSharing!) {
+        // NOT IMPLEMENTED
     }
 }
 

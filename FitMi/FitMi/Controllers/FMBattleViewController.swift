@@ -82,6 +82,7 @@ class FMBattleViewController: FMViewController {
 				if let indicator = self.tableView.backgroundView as? UILabel {
 					if self.data?.count == 0 {
 						indicator.text = "None of your Facebook friends is on FitMi"
+                        FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.NO_FB_FRIENDS.rawValue)
 					} else {
 						indicator.isHidden = true
 					}

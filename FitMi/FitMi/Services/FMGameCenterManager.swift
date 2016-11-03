@@ -48,7 +48,40 @@ class FMGameCenterManager: NSObject {
             }
         }
     }
-    
+
+    func handleBattleWon(totalWin: Int) {
+        let achievementWon10 = getAchievement(id: AchievementId.BATTLE_WON_10.rawValue)
+        achievementWon10.percentComplete = min(Double(totalWin) * 10.0, 100.0)
+        if totalWin == 10 {
+            achievementWon10.showsCompletionBanner = true
+        }
+        
+        let achievementWon50 = getAchievement(id: AchievementId.BATTLE_WON_50.rawValue)
+        achievementWon50.percentComplete = min(Double(totalWin) * 2.0, 100.0)
+        if totalWin == 50 {
+            achievementWon50.showsCompletionBanner = true
+        }
+        
+        let achievementWon100 = getAchievement(id: AchievementId.BATTLE_WON_100.rawValue)
+        achievementWon100.percentComplete = min(Double(totalWin), 100.0)
+        if totalWin == 100 {
+            achievementWon100.showsCompletionBanner = true
+        }
+        
+        let achievementWon500 = getAchievement(id: AchievementId.BATTLE_WON_500.rawValue)
+        achievementWon500.percentComplete = min(Double(totalWin) / 5.0, 100.0)
+        if totalWin == 500 {
+            achievementWon500.showsCompletionBanner = true
+        }
+
+        GKAchievement.report([achievementWon10, achievementWon50, achievementWon100, achievementWon500], withCompletionHandler: {
+            (err) in
+            if let error = err {
+                print(error)
+            }
+        })
+    }
+
     func isGameCenterAuthenticated() -> Bool {
         let localPlayer = GKLocalPlayer.localPlayer()
         return localPlayer.isAuthenticated
@@ -98,7 +131,9 @@ class FMGameCenterManager: NSObject {
         if let achievement = currentAchievements[id] {
             return achievement
         } else {
-            return GKAchievement(identifier: id)
+            let achi = GKAchievement(identifier: id)
+            currentAchievements[id] = achi
+            return achi
         }
     }
 }
