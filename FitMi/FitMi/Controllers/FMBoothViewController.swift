@@ -312,8 +312,9 @@ extension FMBoothViewController: UITableViewDataSource {
 		case 2:
 			let action = self.actions[indexPath.row]
 			cell.object = action
+			let title = action.displayTitle == "" ? action.name : action.displayTitle
 			if sprite.actions.contains(action) {
-				cell.titleLabel.text = action.name
+				cell.titleLabel.text = title
 				let inUse = sprite.relaxAction.identifier == action.identifier ||
 							sprite.wakeAction.identifier == action.identifier ||
 							sprite.sleepAction.identifier == action.identifier ||
@@ -324,7 +325,7 @@ extension FMBoothViewController: UITableViewDataSource {
 				
 			} else {
 				cell.contentView.alpha = 0.3
-				cell.titleLabel.text = "\(action.name)   ( require level \(action.unlockLevel) )"
+				cell.titleLabel.text = "\(title)   ( require level \(action.unlockLevel) )"
 				cell.button.isHidden = true
 			}
 			
@@ -371,8 +372,7 @@ extension FMBoothViewController: UITableViewDelegate {
 			let action = self.actions[indexPath.row]
 			let sprite = FMSpriteStatusManager.sharedManager.sprite!
 			if sprite.actions.contains(action) {
-				let title = action.displayTitle == "" ? action.name : action.displayTitle
-				self.descriptionLabel.text = title
+				self.descriptionLabel.text = action.descriptionText
 				self.setAnimationForAction(action: action)
 			} else {
 //				self.clearImageView()
