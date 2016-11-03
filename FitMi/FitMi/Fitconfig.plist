@@ -119,8 +119,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Sleep</string>
-					<key>Name</key>
-					<string>Basic Sleep</string>
+					<key>Title</key>
+					<string>Sleep - Basic</string>
 					<key>Mutable</key>
 					<false/>
 					<key>Description</key>
@@ -137,8 +137,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Tired</string>
-					<key>Name</key>
-					<string>Basic Tired</string>
+					<key>Title</key>
+					<string>Tired - Basic</string>
 					<key>Mutable</key>
 					<false/>
 					<key>Description</key>
@@ -155,8 +155,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Relax</string>
-					<key>Name</key>
-					<string>Basic Relax</string>
+					<key>Title</key>
+					<string>Relax - Basic</string>
 					<key>Mutable</key>
 					<true/>
 					<key>Description</key>
@@ -173,7 +173,7 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Relax - Listen to Music</string>
-					<key>Name</key>
+					<key>Title</key>
 					<string>Relax - Listen to Music</string>
 					<key>Mutable</key>
 					<true/>
@@ -191,7 +191,7 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Relax - There&apos;s an Apple</string>
-					<key>Name</key>
+					<key>Title</key>
 					<string>Relax - There&apos;s an Apple</string>
 					<key>Mutable</key>
 					<true/>
@@ -209,10 +209,10 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Touch</string>
-					<key>Name</key>
-					<string>Basic Touch</string>
+					<key>Title</key>
+					<string>Touch - Basic</string>
 					<key>Mutable</key>
-					<false/>
+					<true/>
 					<key>Description</key>
 					<string>The basic touch animation.</string>
 					<key>Identifier</key>
@@ -227,8 +227,8 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Wake</string>
-					<key>Name</key>
-					<string>Basic Wake</string>
+					<key>Title</key>
+					<string>Wake - Basic</string>
 					<key>Mutable</key>
 					<false/>
 					<key>Description</key>
@@ -245,10 +245,10 @@
 				<dict>
 					<key>DisplayName</key>
 					<string>Basic Run</string>
-					<key>Name</key>
-					<string>Basic Run</string>
+					<key>Title</key>
+					<string>Run - Basic</string>
 					<key>Mutable</key>
-					<false/>
+					<true/>
 					<key>Description</key>
 					<string>The basic run animation.</string>
 					<key>Identifier</key>
