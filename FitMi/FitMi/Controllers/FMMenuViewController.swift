@@ -37,7 +37,7 @@ class FMMenuViewController: FMViewController {
 	
 	@IBAction func showGameCenterViewController(button: UIButton) {
         if !FMGameCenterManager.sharedManager.isGameCenterAuthenticated() {
-            FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Please log in to Game Center")
+            FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Game Center Not Logged In")
         } else {
             // show Game center
             let gameCenterVc = GKGameCenterViewController()
