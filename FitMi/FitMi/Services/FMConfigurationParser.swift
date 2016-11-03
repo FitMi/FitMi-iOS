@@ -25,6 +25,9 @@ class FMConfigurationParser: NSObject {
 //		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
 //		let dictionary = NSDictionary(contentsOfFile: filePath)!
 //		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
+//		self.delegate?.parserDidCompleteWork()
+		
+		
 		self.total = FMLocalStorageManager.sharedManager.localImageCount()
 		let expectedTotal = FMDatabaseManager.sharedManager.skillSpriteCount() + FMDatabaseManager.sharedManager.actionSpriteCount()
 		
@@ -128,6 +131,8 @@ class FMConfigurationParser: NSObject {
 					action.type = actionDict["Type"] as! String
 					action.spriteAtlasCount = Int(actionDict["SpriteAtlasCount"] as! NSNumber)
 					action.descriptionText = actionDict["Description"] as! String
+					action.mutable = actionDict["Mutable"] as! Bool
+					action.displayTitle = actionDict["Title"] as! String
 					
 					total += action.spriteAtlasCount
 					

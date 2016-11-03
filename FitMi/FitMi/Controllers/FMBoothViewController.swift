@@ -371,7 +371,7 @@ extension FMBoothViewController: UITableViewDelegate {
 			let action = self.actions[indexPath.row]
 			let sprite = FMSpriteStatusManager.sharedManager.sprite!
 			if sprite.actions.contains(action) {
-				self.descriptionLabel.text = action.descriptionText
+				self.descriptionLabel.text = action.displayTitle
 				self.setAnimationForAction(action: action)
 			} else {
 //				self.clearImageView()

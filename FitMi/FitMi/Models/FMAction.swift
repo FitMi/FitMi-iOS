@@ -12,6 +12,8 @@ import RealmSwift
 class FMAction: Object {
 	
 	dynamic var name: String = ""
+	dynamic var displayTitle: String = ""
+	dynamic var mutable: Bool = false
 	dynamic var descriptionText: String = ""
 	dynamic var identifier: String = ""
 	dynamic var	type: String = ""
