@@ -80,7 +80,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-ZI-PRp">
-                                                                <rect key="frame" x="48.5" y="11.5" width="114.5" height="18"/>
+                                                                <rect key="frame" x="48" y="11" width="114.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,7 +114,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 METERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45h-Xy-swy">
-                                                                <rect key="frame" x="43" y="11.5" width="125" height="18"/>
+                                                                <rect key="frame" x="43" y="11" width="125" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,7 +148,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-4L-o7M">
-                                                                <rect key="frame" x="44.5" y="11.5" width="121.5" height="18"/>
+                                                                <rect key="frame" x="44.5" y="11" width="121.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -528,7 +528,7 @@
                                         <color key="trackTintColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="0.20000000000000001" colorSpace="deviceRGB"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lv. 14:   16646 / 17500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-po-oBa">
-                                        <rect key="frame" x="73.5" y="9" width="175" height="22"/>
+                                        <rect key="frame" x="73" y="9" width="175" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,7 +866,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
-                                <rect key="frame" x="0.0" y="375.5" width="320" height="148.5"/>
+                                <rect key="frame" x="0.0" y="425" width="320" height="99"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
@@ -926,10 +926,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
-                                <rect key="frame" x="30" y="85.5" width="260" height="260"/>
+                                <rect key="frame" x="30" y="85" width="260" height="310"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
-                                        <rect key="frame" x="20" y="40" width="220" height="200"/>
+                                        <rect key="frame" x="20" y="40" width="220" height="250"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MxB-Wd-IqA">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
@@ -1003,16 +1003,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-jE-4J6">
-                                                <rect key="frame" x="0.0" y="200" width="220" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="200" width="220" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkQ-B1-JKI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="50"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPN-BN-xbY">
-                                                        <rect key="frame" x="209" y="0.0" width="11" height="0.0"/>
+                                                        <rect key="frame" x="209" y="0.0" width="11" height="50"/>
                                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1022,7 +1022,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El6-DN-8UR">
-                                        <rect key="frame" x="102" y="255" width="143" height="0.0"/>
+                                        <rect key="frame" x="102" y="305" width="143" height="0.0"/>
                                         <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="IS9-wP-1jG"/>
@@ -1036,7 +1036,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-IT-0Yd">
-                                        <rect key="frame" x="15" y="255" width="72" height="0.0"/>
+                                        <rect key="frame" x="15" y="305" width="72" height="0.0"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="8"/>
                                         <state key="normal" title="DISMISS">
@@ -1064,7 +1064,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
-                                <rect key="frame" x="93.5" y="60" width="134" height="50"/>
+                                <rect key="frame" x="93" y="60" width="134" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
                                         <rect key="frame" x="10" y="10" width="114" height="30"/>
@@ -1138,7 +1138,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HAp-4H-eyA">
-                                <rect key="frame" x="20" y="79" width="280" height="310"/>
+                                <rect key="frame" x="20" y="46" width="280" height="376"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpi-2v-ujD">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
@@ -1170,8 +1170,18 @@
                                             <action selector="didSelectPageWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="D4S-Nr-yw6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Gd-OLC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffS-vu-nyo">
                                         <rect key="frame" x="0.0" y="198" width="280" height="46"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
+                                        <state key="normal" title="ACHIEVEMENTS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showGameCenterViewControllerWithButton:" destination="9fl-Kp-Qco" eventType="touchUpInside" id="MtI-3c-aFh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-Gd-OLC">
+                                        <rect key="frame" x="0.0" y="264" width="280" height="46"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
                                         <state key="normal" title="STATISTICS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1181,7 +1191,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-tN-nk2">
-                                        <rect key="frame" x="0.0" y="264" width="280" height="46"/>
+                                        <rect key="frame" x="0.0" y="330" width="280" height="46"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
                                         <state key="normal" title="SETTINGS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

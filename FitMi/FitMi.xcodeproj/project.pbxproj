@@ -118,6 +118,8 @@
 		93B34DFB1DB409D7005D530E /* skill-1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF81DB409D7005D530E /* skill-1.atlas */; };
 		93B34DFC1DB409D7005D530E /* skill-2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 93B34DF91DB409D7005D530E /* skill-2.atlas */; };
 		981ACCF81DBE5C12003072C6 /* FMGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */; };
+		9842C7561DC91A64004CE910 /* FMGameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842C7551DC91A64004CE910 /* FMGameCenterManager.swift */; };
+		9842C7581DC922D0004CE910 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9842C7571DC922D0004CE910 /* GameKit.framework */; };
 		9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */; };
 		9861CEFB1DB0221900D659E4 /* FMWorkoutHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */; };
 		9861CEFC1DB0221900D659E4 /* FMWorkoutHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */; };
@@ -310,6 +312,8 @@
 		93B34DF81DB409D7005D530E /* skill-1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "skill-1.atlas"; sourceTree = "<group>"; };
 		93B34DF91DB409D7005D530E /* skill-2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "skill-2.atlas"; sourceTree = "<group>"; };
 		981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMGoalViewController.swift; sourceTree = "<group>"; };
+		9842C7551DC91A64004CE910 /* FMGameCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMGameCenterManager.swift; sourceTree = "<group>"; };
+		9842C7571DC922D0004CE910 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9861CEF61DB0116400D659E4 /* FMWorkoutHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryViewController.swift; sourceTree = "<group>"; };
 		9861CEF91DB0221900D659E4 /* FMWorkoutHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWorkoutHistoryCell.swift; sourceTree = "<group>"; };
 		9861CEFA1DB0221900D659E4 /* FMWorkoutHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMWorkoutHistoryCell.xib; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9842C7581DC922D0004CE910 /* GameKit.framework in Frameworks */,
 				C94F900343CF501CF0F63CDD /* Pods_FitMi.framework in Frameworks */,
 				0CE74F671D9FB73900CAB9CE /* HealthKit.framework in Frameworks */,
 			);
@@ -365,6 +370,7 @@
 		00EE74C4EB5836007D1B13E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9842C7571DC922D0004CE910 /* GameKit.framework */,
 				0CE74F661D9FB73900CAB9CE /* HealthKit.framework */,
 				1C2529E0186F433C773AE43B /* Pods_FitMi.framework */,
 				C11AA3465EDD7D5D726B41D9 /* Pods_FitMiTests.framework */,
@@ -542,6 +548,7 @@
 				0C7551281DB3D05C002146FE /* FMLocalStorageManager.swift */,
 				0C75512A1DB3DC11002146FE /* FMNetworkManager.swift */,
 				0C070E8F1DB91DD20095B3A0 /* FMNotificationManager.swift */,
+				9842C7551DC91A64004CE910 /* FMGameCenterManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -856,6 +863,9 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -1150,6 +1160,7 @@
 				0C7551231DB382D3002146FE /* FMAppearance.swift in Sources */,
 				0C75511F1DB38107002146FE /* FMSkill.swift in Sources */,
 				9861CEF71DB0116400D659E4 /* FMWorkoutHistoryViewController.swift in Sources */,
+				9842C7561DC91A64004CE910 /* FMGameCenterManager.swift in Sources */,
 				0C75512B1DB3DC11002146FE /* FMNetworkManager.swift in Sources */,
 				0CD3CD611D9EF80D00E47BF8 /* FMRootViewController.swift in Sources */,
 				0C7551391DB62D4C002146FE /* FMBoothViewController.swift in Sources */,

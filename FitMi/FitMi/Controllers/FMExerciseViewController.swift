@@ -275,8 +275,14 @@ class FMExerciseViewController: FMViewController {
 		self.buttonEndExercise.alpha = buttonAlphaDisabled
 		self.exerciseEndDate = Date()
 		self.durationUpdateTimer.invalidate()
-		
+        
+		self.checkExerciseAchievements()
 		self.generateExerciseReport()
+    }
+    
+    func checkExerciseAchievements() {
+        FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.FIRST_EXERCISE.rawValue)
+        // TODO: update exercise distance achievements
     }
     
     func calcExperience() {

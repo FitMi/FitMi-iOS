@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameKit
 
 class FMMenuViewController: FMViewController {
 
@@ -34,6 +35,20 @@ class FMMenuViewController: FMViewController {
 		})
 	}
 	
+	@IBAction func showGameCenterViewController(button: UIButton) {
+        if !FMGameCenterManager.sharedManager.isGameCenterAuthenticated() {
+            FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "Please log in to Game Center")
+        } else {
+            // show Game center
+            let gameCenterVc = GKGameCenterViewController()
+            gameCenterVc.gameCenterDelegate = self
+            gameCenterVc.viewState = .achievements
+            
+            self.present(gameCenterVc, animated: true, completion: nil)
+        }
+	}
+	
+	
 	@IBAction func didSelectPage(button: UIButton) {
 		var hidden = [true, true, true, true, true]
 		hidden[button.tag] = false
@@ -53,5 +68,12 @@ class FMMenuViewController: FMViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
+	}
+}
+
+
+extension FMMenuViewController: GKGameCenterControllerDelegate {
+	func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+		gameCenterViewController.dismiss(animated: true, completion: nil)
 	}
 }

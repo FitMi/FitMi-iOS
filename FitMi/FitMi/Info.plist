@@ -75,6 +75,7 @@
 	<array>
 		<string>armv7</string>
 		<string>healthkit</string>
+		<string>gamekit</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
