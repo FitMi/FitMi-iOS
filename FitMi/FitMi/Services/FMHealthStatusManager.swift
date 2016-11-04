@@ -77,6 +77,46 @@ class FMHealthStatusManager: NSObject {
 		})
 	}
 	
+	func hasManualInputData(startDate: Date, endDate: Date, type: HKQuantityTypeIdentifier, completion: @escaping (_ hasManualInputData: Bool) -> Void) {
+		let subPredicateDate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+		let subPredicateManualInput = HKQuery.predicateForObjects(withMetadataKey: HKMetadataKeyWasUserEntered)
+		let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [subPredicateDate, subPredicateManualInput])
+		let interval = NSDateComponents()
+		interval.month = 1
+		
+		let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: type)!,
+		                                        quantitySamplePredicate: predicate,
+		                                        options: .cumulativeSum,
+		                                        anchorDate: Date(),
+		                                        intervalComponents: interval as DateComponents)
+		query.initialResultsHandler = {
+			query, results, error in
+			if error != nil {
+				completion(false)
+			} else {
+				var value = 0;
+				results?.enumerateStatistics(from: startDate,to: endDate, with: {
+					result, stop in
+					if let quantity = result.sumQuantity() {
+						if (type == .distanceWalkingRunning) {
+							value += Int(quantity.doubleValue(for: HKUnit.meter()))
+						} else if (type == .stepCount || type == .flightsClimbed) {
+							value += Int(quantity.doubleValue(for: HKUnit.count()))
+						} else {
+							print("Identifier Type Not Supported")
+							completion(false)
+							return
+						}
+					}
+				})
+				completion(value != 0)
+			}
+			
+		}
+		
+		self.healthKitStore.execute(query)
+	}
+	
 	
 	func quantity(startDate: Date, endDate: Date, type: HKQuantityTypeIdentifier, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
 		let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)

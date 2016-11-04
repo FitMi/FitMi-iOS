@@ -128,6 +128,20 @@ class FMHomeViewController: FMViewController {
                     self.displaySpriteData()
                     self.handleSpriteAchievements()
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil)
+					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .stepCount, completion: {
+						hasManualData in
+						print("User Has Manual Steps: \(hasManualData)")
+					})
+					
+					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .distanceWalkingRunning, completion: {
+						hasManualData in
+						print("User Has Manual Distance: \(hasManualData)")
+					})
+					
+					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .flightsClimbed, completion: {
+						hasManualData in
+						print("User Has Manual Flights: \(hasManualData)")
+					})
                 } else {
                     print("sprite not updated")
                 }
