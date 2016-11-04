@@ -136,4 +136,30 @@ class FMGameCenterManager: NSObject {
             return achi
         }
     }
+	
+	func reportLeaderboardScores() {
+		let manager = FMSpriteStatusManager.sharedManager
+		let healthScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.health")
+		healthScore.value = Int64(manager.currentHP())
+		healthScore.context = 0
+		
+		let strengthScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.strength")
+		strengthScore.value = Int64(manager.currentStrength())
+		strengthScore.context = 0
+		
+		let staminaScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.stamina")
+		staminaScore.value = Int64(manager.currentStamina())
+		staminaScore.context = 0
+		
+		let agilityScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.agility")
+		agilityScore.value = Int64(manager.currentAgility())
+		agilityScore.context = 0
+		
+		let scores = [healthScore, strengthScore, staminaScore, agilityScore]
+		
+		GKScore.report(scores, withCompletionHandler: {
+			error in
+			print(error ?? "Leaderboard: No Error")
+		})
+	}
 }
