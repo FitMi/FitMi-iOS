@@ -71,7 +71,8 @@ enum AchievementId: String {
     case FACEBOOK_LOGIN = "achievement.fitmi.3"
     case SHARE_EXERCISE = "achievement.fitmi.4"
     case NO_FB_FRIENDS = "achievement.fitmi.17"
-
+    case MAY_CHEAT = "achievement.fitmi.21"
+    
     // Running
     case RUNNING_1_KM = "achievement.fitmi.5"
     case RUNNING_5_KM = "achievement.fitmi.6"

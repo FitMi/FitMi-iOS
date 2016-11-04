@@ -130,17 +130,17 @@ class FMHomeViewController: FMViewController {
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil)
 					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .stepCount, completion: {
 						hasManualData in
-						print("User Has Manual Steps: \(hasManualData)")
+						self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
 					})
 					
 					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .distanceWalkingRunning, completion: {
 						hasManualData in
-						print("User Has Manual Distance: \(hasManualData)")
+						self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
 					})
 					
 					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .flightsClimbed, completion: {
 						hasManualData in
-						print("User Has Manual Flights: \(hasManualData)")
+						self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
 					})
                 } else {
                     print("sprite not updated")
