@@ -88,6 +88,8 @@ enum AchievementId: String {
     // Mi Actions
     case TAP_100 = "achievement.fitmi.18"
     case TAP_500 = "achievement.fitmi.19"
+    case TAP_1000 = "achievement.fitmi.20"
 }
 
 let KEY_TOTAL_BATTLE_WON = "TotalBattleWon"
+let KEY_TOTAL_MI_TOUCHED = "TotalMiTouched"

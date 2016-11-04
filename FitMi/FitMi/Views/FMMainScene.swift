@@ -12,7 +12,7 @@ import GameplayKit
 class FMMainScene: SKScene {
     
     private let spriteStatusManager = FMSpriteStatusManager.sharedManager
-    
+    private let gameCenterManager = FMGameCenterManager.sharedManager
     private var backgroundAtlas = SKTextureAtlas()
     private var backgroundArray = [SKTexture]()
     private var normalSpriteAtlas = SKTextureAtlas()
@@ -159,6 +159,25 @@ class FMMainScene: SKScene {
 			self.animateNormalSprite()
 		}
 		self.isSleeping = false
+        
+        // Count touch here
+        let pref = UserDefaults.standard
+        let touches = pref.integer(forKey: KEY_TOTAL_MI_TOUCHED) + 1
+        
+        // Early return if > 1100 (has finished all achievements, with buffer counts)
+        if touches > 1100 {
+            return
+        }
+        pref.set(touches, forKey: KEY_TOTAL_MI_TOUCHED)
+        if touches == 100 {
+            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_100.rawValue)
+        }
+        if touches == 500 {
+            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_500.rawValue)
+        }
+        if touches == 1000 {
+            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_1000.rawValue)
+        }
 	}
 	
     override func update(_ currentTime: TimeInterval) {
