@@ -104,7 +104,7 @@ class FMMainScene: SKScene {
     }
 	
     func animateNormalSprite() {
-        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 1), completion: {() -> Void in
+        self.character.run(SKAction.repeat(SKAction.animate(with: self.normalSpriteArray, timePerFrame: 1, resize: false, restore: true), count: 3), completion: {() -> Void in
                 self.animateTiredSprite()
             })
     }

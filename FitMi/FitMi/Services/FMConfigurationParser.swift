@@ -25,7 +25,7 @@ class FMConfigurationParser: NSObject {
 //		let filePath = Bundle.main.path(forResource: "Fitconfig", ofType: "plist")!
 //		let dictionary = NSDictionary(contentsOfFile: filePath)!
 //		self.total = self.constructDatabaseContent(fromDictionary: dictionary)
-//		self.delegate?.parserDidCompleteWork()
+//		return;
 		
 		
 		self.total = FMLocalStorageManager.sharedManager.localImageCount()
@@ -60,6 +60,8 @@ class FMConfigurationParser: NSObject {
 	//Return total number of images that need to be updated
 	class func constructDatabaseContent(fromDictionary dict: NSDictionary) -> Int{
 		var total = 0
+		let realm = try! Realm()
+		let optionalSprite = realm.objects(FMSprite.self).first
 		if let appearances = dict["Appearances"] {
 			for a in appearances as! NSArray {
 				let this = a as! NSDictionary
@@ -67,8 +69,18 @@ class FMConfigurationParser: NSObject {
 				let thisTimeStamp = this["LastUpdate"] as! String
 				let thisTime = Date(timeIntervalSince1970: Double(thisTimeStamp)!)
 				
-				let realm = try! Realm()
 				let existing = realm.objects(FMAppearance.self).filter("identifier == \"\(identifier)\"")
+				
+				var currentAppearanceModified = false
+				var skillsID = [String]()
+				var skillsInUseID = [String]()
+				var actionsID = [String]()
+				var sleepActionID = ""
+				var wakeActionID = ""
+				var runActionID = ""
+				var relaxActionID = ""
+				var touchActionID = ""
+				var tiredActionID = ""
 				
 				
 				if existing.count > 0 {
@@ -78,6 +90,22 @@ class FMConfigurationParser: NSObject {
 						print("Assets update to date!")
 						break
 					} else {
+						
+						if let sprite = optionalSprite {
+							if sprite.appearanceIdentifier == identifier {
+								currentAppearanceModified = true
+								skillsID = sprite.skills.map({ $0.identifier })
+								skillsInUseID = sprite.skillsInUse.map({ $0.identifier })
+								actionsID = sprite.actions.map({ $0.identifier })
+								sleepActionID = sprite.sleepAction.identifier
+								wakeActionID = sprite.wakeAction.identifier
+								runActionID = sprite.runAction.identifier
+								relaxActionID = sprite.relaxAction.identifier
+								touchActionID = sprite.touchAction.identifier
+								tiredActionID = sprite.tiredAction.identifier
+							}
+						}
+						
 						self.removeAppearance(appearance: appearance)
 					}
 				}
@@ -141,8 +169,23 @@ class FMConfigurationParser: NSObject {
 					self.downloadSprites(forAction: action)
 				}
 				
-				FMDatabaseManager.sharedManager.realmUpdate {
+				let manager = FMDatabaseManager.sharedManager
+				manager.realmUpdate {
 					realm.add(appearance)
+					
+					if currentAppearanceModified {
+						if let sprite = optionalSprite {
+							sprite.skills.append(objectsIn: skillsID.map({ manager.skill(identifier: $0) }))
+							sprite.skillsInUse.append(objectsIn: skillsInUseID.map({ manager.skill(identifier: $0) }))
+							sprite.actions.append(objectsIn: actionsID.map({ manager.action(identifier: $0) }))
+							sprite.sleepAction = manager.action(identifier: sleepActionID)
+							sprite.wakeAction = manager.action(identifier: wakeActionID)
+							sprite.relaxAction = manager.action(identifier: relaxActionID)
+							sprite.runAction = manager.action(identifier: runActionID)
+							sprite.tiredAction = manager.action(identifier: tiredActionID)
+							sprite.touchAction = manager.action(identifier: touchActionID)
+						}
+					}
 				}
 			}
 		}
