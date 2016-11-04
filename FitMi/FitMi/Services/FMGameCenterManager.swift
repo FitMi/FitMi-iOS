@@ -155,7 +155,11 @@ class FMGameCenterManager: NSObject {
 		agilityScore.value = Int64(manager.currentAgility())
 		agilityScore.context = 0
 		
-		let scores = [healthScore, strengthScore, staminaScore, agilityScore]
+		let levelScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.level")
+		levelScore.value = Int64(manager.currentLevel())
+		levelScore.context = 0
+		
+		let scores = [healthScore, strengthScore, staminaScore, agilityScore, levelScore]
 		
 		GKScore.report(scores, withCompletionHandler: {
 			error in
