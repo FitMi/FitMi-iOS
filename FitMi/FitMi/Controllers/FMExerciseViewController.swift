@@ -280,7 +280,7 @@ class FMExerciseViewController: FMViewController {
     
     func checkExerciseAchievements() {
         FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.FIRST_EXERCISE.rawValue)
-        // TODO: update exercise distance achievements
+        
         if self.distance >= 1000 {
             FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.RUNNING_1_KM.rawValue)
         }

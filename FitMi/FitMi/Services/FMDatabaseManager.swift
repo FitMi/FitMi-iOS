@@ -178,6 +178,8 @@ class FMDatabaseManager: NSObject {
 					exercise.startTime = startDate
 					exercise.endTime = endDate
 					
+                    let duration = Int(endDate.timeIntervalSince(startDate))
+                    self.checkExerciseAchievements(distance: meters, duration: duration)
 					self.realmUpdate {
 						sprite.exercises.append(exercise)
 					}
@@ -185,6 +187,22 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 	}
+
+    func checkExerciseAchievements(distance: Int, duration: Int) {
+        if distance >= 1000 {
+            FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.RUNNING_1_KM.rawValue)
+        }
+        if distance >= 5000 {
+            FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.RUNNING_5_KM.rawValue)
+        }
+        if distance >= 10000 {
+            FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.RUNNING_10_KM.rawValue)
+        }
+        
+        if duration >= 3600 {
+            FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.RUNNING_1_HOUR.rawValue)
+        }
+    }
 	
 	func allSkills() -> Results<FMSkill> {
 		let realm = try! Realm()
