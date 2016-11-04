@@ -215,11 +215,15 @@ class FMBattleDetailViewController: FMViewController {
 	}
     
     fileprivate func handleBattleAchievements(didWin: Bool) {
+        if isOpponentSelf && didWin {
+            FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.BATTLE_WITH_ME.rawValue)
+        }
         FMGameCenterManager.sharedManager.completeAchievement(achievementId: AchievementId.BATTLE_WITH_ONE_FRIEND.rawValue)
         let pref = UserDefaults.standard
         let totalWin = pref.integer(forKey: KEY_TOTAL_BATTLE_WON)
-        pref.set(totalWin + 1, forKey: KEY_TOTAL_BATTLE_WON)
-        FMGameCenterManager.sharedManager.handleBattleWon(totalWin: totalWin + 1)
+        let nextTotalWin = totalWin + 1
+        pref.set(nextTotalWin, forKey: KEY_TOTAL_BATTLE_WON)
+        FMGameCenterManager.sharedManager.handleBattleWon(totalWin: nextTotalWin)
     }
     
     fileprivate func playResultSound(isSelfWin: Bool) {

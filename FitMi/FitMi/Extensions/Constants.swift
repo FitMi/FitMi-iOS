@@ -76,8 +76,8 @@ enum AchievementId: String {
     case RUNNING_1_KM = "achievement.fitmi.5"
     case RUNNING_5_KM = "achievement.fitmi.6"
     case RUNNING_10_KM = "achievement.fitmi.7"
-    case RUNNING_50_KM = "achievement.fitmi.8"
-    case RUNNING_100_KM = "achievement.fitmi.9"
+    case RUNNING_1_HOUR = "achievement.fitmi.9"
+
     // Battle
     case BATTLE_WITH_ONE_FRIEND = "achievement.fitmi.10"
     case BATTLE_WITH_ME = "achievement.fitmi.11"
@@ -88,6 +88,8 @@ enum AchievementId: String {
     // Mi Actions
     case TAP_100 = "achievement.fitmi.18"
     case TAP_500 = "achievement.fitmi.19"
+    case TAP_1000 = "achievement.fitmi.20"
 }
 
 let KEY_TOTAL_BATTLE_WON = "TotalBattleWon"
+let KEY_TOTAL_MI_TOUCHED = "TotalMiTouched"
