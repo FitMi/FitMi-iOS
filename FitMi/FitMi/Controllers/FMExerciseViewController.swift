@@ -200,7 +200,7 @@ class FMExerciseViewController: FMViewController {
             "fb:app_id": "1768015020120341",
             "og:type": "fitness.course",
             "og:title": "WOW, I ran with FitMi today!",
-            "og:url": "https://www.facebook.com/fitmi.health/",
+            "og:url": "https://www.facebook.com/fitmi.club/",
             "fitness:distance:value": "\(Double(self.distance)/1000.0)",
             "fitness:distance:units": "km",
             "fitness:duration:value": "\(duration)",
