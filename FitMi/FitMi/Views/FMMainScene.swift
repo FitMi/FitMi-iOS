@@ -169,15 +169,7 @@ class FMMainScene: SKScene {
             return
         }
         pref.set(touches, forKey: KEY_TOTAL_MI_TOUCHED)
-        if touches == 100 {
-            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_100.rawValue)
-        }
-        if touches == 500 {
-            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_500.rawValue)
-        }
-        if touches == 1000 {
-            gameCenterManager.completeAchievement(achievementId: AchievementId.TAP_1000.rawValue)
-        }
+		gameCenterManager.handleTapOnMi(taps: touches)
 	}
 	
     override func update(_ currentTime: TimeInterval) {

@@ -81,6 +81,31 @@ class FMGameCenterManager: NSObject {
             }
         })
     }
+	
+	func handleTapOnMi(taps: Int) {
+		if taps > 1000 {
+			return
+		}
+		
+		let achievementTap100 = getAchievement(id: AchievementId.TAP_100.rawValue)
+		achievementTap100.percentComplete = min(Double(taps), 100)
+		achievementTap100.showsCompletionBanner = taps == 100
+		
+		let achievementTap500 = getAchievement(id: AchievementId.TAP_500.rawValue)
+		achievementTap500.percentComplete = min(Double(taps) / 5, 100)
+		achievementTap500.showsCompletionBanner = taps == 500
+		
+		let achievementTap1000 = getAchievement(id: AchievementId.TAP_1000.rawValue)
+		achievementTap1000.percentComplete = min(Double(taps) / 10, 100)
+		achievementTap1000.showsCompletionBanner = taps == 1000
+		
+		GKAchievement.report([achievementTap100, achievementTap500, achievementTap1000], withCompletionHandler: {
+			(err) in
+			if let error = err {
+				print(error)
+			}
+		})
+	}
 
     func isGameCenterAuthenticated() -> Bool {
         let localPlayer = GKLocalPlayer.localPlayer()
