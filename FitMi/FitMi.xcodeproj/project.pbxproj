@@ -54,6 +54,9 @@
 		0CAA62011DC1532700BC86A0 /* FMPersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */; };
 		0CAA62031DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */; };
 		0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */; };
+		0CB929091DCDCBC6008C7FA9 /* FMLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB929081DCDCBC6008C7FA9 /* FMLevelViewController.swift */; };
+		0CB9290E1DCDD0A6008C7FA9 /* FMLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB9290C1DCDD0A6008C7FA9 /* FMLevelCell.swift */; };
+		0CB9290F1DCDD0A6008C7FA9 /* FMLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB9290D1DCDD0A6008C7FA9 /* FMLevelCell.xib */; };
 		0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */; };
 		0CBAE30F1DB6CEA500603D2E /* FMBoothItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */; };
 		0CBAE3101DB6CEA500603D2E /* FMBoothItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */; };
@@ -235,6 +238,9 @@
 		0CAA62001DC1532700BC86A0 /* FMPersistentDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPersistentDataManager.swift; sourceTree = "<group>"; };
 		0CAA62021DC156C000BC86A0 /* FMExerciseReportInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseReportInterfaceController.swift; sourceTree = "<group>"; };
 		0CB855A31DAC158100B3DA69 /* FMExerciseRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMExerciseRecord.swift; sourceTree = "<group>"; };
+		0CB929081DCDCBC6008C7FA9 /* FMLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLevelViewController.swift; sourceTree = "<group>"; };
+		0CB9290C1DCDD0A6008C7FA9 /* FMLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMLevelCell.swift; sourceTree = "<group>"; };
+		0CB9290D1DCDD0A6008C7FA9 /* FMLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMLevelCell.xib; sourceTree = "<group>"; };
 		0CBA9DD91DB0081B002D3911 /* FMOnboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMOnboardManager.swift; sourceTree = "<group>"; };
 		0CBAE30D1DB6CEA500603D2E /* FMBoothItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMBoothItemCell.swift; sourceTree = "<group>"; };
 		0CBAE30E1DB6CEA500603D2E /* FMBoothItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMBoothItemCell.xib; sourceTree = "<group>"; };
@@ -518,6 +524,7 @@
 				0C68442E1DBD27FE0036C4E3 /* FMSpriteStatsViewController.swift */,
 				981ACCF71DBE5C12003072C6 /* FMGoalViewController.swift */,
 				0CC333E91DBFB7E900B76740 /* FMGoalSettingViewController.swift */,
+				0CB929081DCDCBC6008C7FA9 /* FMLevelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -645,6 +652,8 @@
 				0C68442B1DBD12530036C4E3 /* FMBattleTextCell.xib */,
 				0CA927871DC3D21F0043EC3E /* FMBeatMyselfCell.swift */,
 				0CA927881DC3D21F0043EC3E /* FMBeatMyselfCell.xib */,
+				0CB9290C1DCDD0A6008C7FA9 /* FMLevelCell.swift */,
+				0CB9290D1DCDD0A6008C7FA9 /* FMLevelCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -962,6 +971,7 @@
 				93B34DFC1DB409D7005D530E /* skill-2.atlas in Resources */,
 				93A46F6C1DB8DDA100B4D77C /* shocked.mp3 in Resources */,
 				0CD3CCF11D9EF0FB00E47BF8 /* Assets.xcassets in Resources */,
+				0CB9290F1DCDD0A6008C7FA9 /* FMLevelCell.xib in Resources */,
 				93B34DFA1DB409D7005D530E /* defend.atlas in Resources */,
 				93B2236F1DAD50990067F43A /* sprite-touch.atlas in Resources */,
 				98B5343F1DBC006E00CB80B5 /* exercise_finished.mp3 in Resources */,
@@ -1167,6 +1177,7 @@
 				0CB855A41DAC158100B3DA69 /* FMExerciseRecord.swift in Sources */,
 				0CD3CCEA1D9EF0FB00E47BF8 /* AppDelegate.swift in Sources */,
 				0C070E951DB9346E0095B3A0 /* FMFriendListCell.swift in Sources */,
+				0CB9290E1DCDD0A6008C7FA9 /* FMLevelCell.swift in Sources */,
 				0CD3CD6A1D9EF9CD00E47BF8 /* FMDatabaseManager.swift in Sources */,
 				0C7551191DB3273F002146FE /* FMBattleViewController.swift in Sources */,
 				98BE8B551DABF62100B9CBBA /* FMMotionStatusManager.swift in Sources */,
@@ -1187,6 +1198,7 @@
 				0C070E921DB9210B0095B3A0 /* FMOutlinedLabel.swift in Sources */,
 				0CBA9DDA1DB0081B002D3911 /* FMOnboardManager.swift in Sources */,
 				0C51F74A1DB300D600A5231E /* FMLabelCell.swift in Sources */,
+				0CB929091DCDCBC6008C7FA9 /* FMLevelViewController.swift in Sources */,
 				0C60C1A11D9F3A5200F4F965 /* FMHomeViewController.swift in Sources */,
 				0CE74F5D1D9FAFA000CAB9CE /* FMAccountViewController.swift in Sources */,
 				0C486F7B1D9FF95400EB021B /* FMSpriteStatusManager.swift in Sources */,
