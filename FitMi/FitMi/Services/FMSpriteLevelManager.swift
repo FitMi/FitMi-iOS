@@ -12,7 +12,7 @@ class FMSpriteLevelManager: NSObject {
 	static let sharedManager = FMSpriteLevelManager()
 
 	func skillSlotCountForLevel(level: Int) -> Int {
-		if level < 4 {
+		if level < 2 {
 			return 1
 		} else if level < 12 {
 			return 2
