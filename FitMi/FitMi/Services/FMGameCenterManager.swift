@@ -81,6 +81,31 @@ class FMGameCenterManager: NSObject {
             }
         })
     }
+	
+	func handleTapOnMi(taps: Int) {
+		if taps > 1000 {
+			return
+		}
+		
+		let achievementTap100 = getAchievement(id: AchievementId.TAP_100.rawValue)
+		achievementTap100.percentComplete = min(Double(taps), 100)
+		achievementTap100.showsCompletionBanner = taps == 100
+		
+		let achievementTap500 = getAchievement(id: AchievementId.TAP_500.rawValue)
+		achievementTap500.percentComplete = min(Double(taps) / 5, 100)
+		achievementTap500.showsCompletionBanner = taps == 500
+		
+		let achievementTap1000 = getAchievement(id: AchievementId.TAP_1000.rawValue)
+		achievementTap1000.percentComplete = min(Double(taps) / 10, 100)
+		achievementTap1000.showsCompletionBanner = taps == 1000
+		
+		GKAchievement.report([achievementTap100, achievementTap500, achievementTap1000], withCompletionHandler: {
+			(err) in
+			if let error = err {
+				print(error)
+			}
+		})
+	}
 
     func isGameCenterAuthenticated() -> Bool {
         let localPlayer = GKLocalPlayer.localPlayer()
@@ -136,4 +161,34 @@ class FMGameCenterManager: NSObject {
             return achi
         }
     }
+	
+	func reportLeaderboardScores() {
+		let manager = FMSpriteStatusManager.sharedManager
+		let healthScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.health")
+		healthScore.value = Int64(manager.currentHP())
+		healthScore.context = 0
+		
+		let strengthScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.strength")
+		strengthScore.value = Int64(manager.currentStrength())
+		strengthScore.context = 0
+		
+		let staminaScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.stamina")
+		staminaScore.value = Int64(manager.currentStamina())
+		staminaScore.context = 0
+		
+		let agilityScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.agility")
+		agilityScore.value = Int64(manager.currentAgility())
+		agilityScore.context = 0
+		
+		let levelScore = GKScore(leaderboardIdentifier: "com.fitmi.leaderboard.level")
+		levelScore.value = Int64(manager.currentLevel())
+		levelScore.context = 0
+		
+		let scores = [healthScore, strengthScore, staminaScore, agilityScore, levelScore]
+		
+		GKScore.report(scores, withCompletionHandler: {
+			error in
+			print(error ?? "Leaderboard: No Error")
+		})
+	}
 }

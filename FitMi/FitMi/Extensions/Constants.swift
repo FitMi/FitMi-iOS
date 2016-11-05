@@ -46,6 +46,7 @@ let GOAL_DISTANCE = "GoalDistance"
 let GOAL_FLIGHTS = "GoalFlights"
 
 let UPDATE_CHECK_URL_STAGING = "https://lvkev7x3m2.execute-api.ap-southeast-1.amazonaws.com/beta/updateCheck"
+let UPDATE_CHECK_URL_PRODUCTION_V2 = "https://rvby1a63kd.execute-api.ap-southeast-1.amazonaws.com/v2/updateCheck"
 let UPDATE_CHECK_URL_PRODUCTION = "https://72s7ml6tyb.execute-api.ap-southeast-1.amazonaws.com/production/updateCheck"
 let SPRITE_IMAGE_BASE_URL = "https://s3-ap-southeast-1.amazonaws.com/fitmi.sprites/"
 let API_BASE_ENDPOINT = "https://fitmi.club/api"

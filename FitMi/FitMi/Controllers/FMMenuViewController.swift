@@ -42,7 +42,7 @@ class FMMenuViewController: FMViewController {
             // show Game center
             let gameCenterVc = GKGameCenterViewController()
             gameCenterVc.gameCenterDelegate = self
-            gameCenterVc.viewState = .achievements
+            gameCenterVc.viewState = .default
             
             self.present(gameCenterVc, animated: true, completion: nil)
         }

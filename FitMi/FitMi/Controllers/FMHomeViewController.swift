@@ -128,6 +128,9 @@ class FMHomeViewController: FMViewController {
                     self.displaySpriteData()
                     self.handleSpriteAchievements()
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_LOADED_NOTIFICATION"), object: nil)
+					
+					self.gameCenterManager.reportLeaderboardScores()
+					
 					FMHealthStatusManager.sharedManager.hasManualInputData(startDate: sprite.birthday, endDate: Date(), type: .stepCount, completion: {
 						hasManualData in
                         if hasManualData {

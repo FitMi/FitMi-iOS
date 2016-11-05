@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,7 +80,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 STEPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-ZI-PRp">
-                                                                <rect key="frame" x="48" y="11" width="114.5" height="18"/>
+                                                                <rect key="frame" x="48.5" y="11.5" width="114.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,7 +114,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 METERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45h-Xy-swy">
-                                                                <rect key="frame" x="43" y="11" width="125" height="18"/>
+                                                                <rect key="frame" x="43" y="11.5" width="125" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,7 +148,7 @@
                                                                 <color key="trackTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             </progressView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 / 2000 FLOORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Us-4L-o7M">
-                                                                <rect key="frame" x="44.5" y="11" width="121.5" height="18"/>
+                                                                <rect key="frame" x="44.5" y="11.5" width="121.5" height="18"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -534,16 +534,26 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nJ-9U-WTB">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                        <connections>
+                                            <segue destination="lee-ay-oh5" kind="presentation" id="IpS-sy-szf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="f6P-4L-A66" secondAttribute="bottom" id="0R3-NC-0Dr"/>
+                                    <constraint firstAttribute="trailing" secondItem="0nJ-9U-WTB" secondAttribute="trailing" id="1DK-o2-viV"/>
                                     <constraint firstItem="f6P-4L-A66" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="3gB-N5-YpU"/>
                                     <constraint firstItem="f6P-4L-A66" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="5HW-Ga-cnn"/>
                                     <constraint firstAttribute="trailing" secondItem="f6P-4L-A66" secondAttribute="trailing" id="6tm-RE-p43"/>
                                     <constraint firstItem="SAg-po-oBa" firstAttribute="centerX" secondItem="8Kd-MS-NZX" secondAttribute="centerX" id="Qj4-m4-BYl"/>
                                     <constraint firstItem="SAg-po-oBa" firstAttribute="centerY" secondItem="8Kd-MS-NZX" secondAttribute="centerY" id="U43-62-ljl"/>
+                                    <constraint firstItem="0nJ-9U-WTB" firstAttribute="leading" secondItem="8Kd-MS-NZX" secondAttribute="leading" id="XWG-6w-dEZ"/>
                                     <constraint firstAttribute="height" constant="40" id="dzz-se-ky8"/>
+                                    <constraint firstAttribute="bottom" secondItem="0nJ-9U-WTB" secondAttribute="bottom" id="f73-mB-z8Z"/>
+                                    <constraint firstItem="0nJ-9U-WTB" firstAttribute="top" secondItem="8Kd-MS-NZX" secondAttribute="top" id="mTK-oI-bO4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -866,7 +876,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-dN-j7h" customClass="SKView">
-                                <rect key="frame" x="0.0" y="425" width="320" height="99"/>
+                                <rect key="frame" x="0.0" y="425.5" width="320" height="98.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-KQ-46g">
@@ -926,7 +936,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-0T-r2c">
-                                <rect key="frame" x="30" y="85" width="260" height="310"/>
+                                <rect key="frame" x="30" y="85.5" width="260" height="310"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Vh-eZU">
                                         <rect key="frame" x="20" y="40" width="220" height="250"/>
@@ -1064,7 +1074,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="DVp-27-Lbr">
-                                <rect key="frame" x="93" y="60" width="134" height="50"/>
+                                <rect key="frame" x="93.5" y="60" width="134" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-4b-wH4">
                                         <rect key="frame" x="10" y="10" width="114" height="30"/>
@@ -1173,7 +1183,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffS-vu-nyo">
                                         <rect key="frame" x="0.0" y="198" width="280" height="46"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="17"/>
-                                        <state key="normal" title="ACHIEVEMENTS">
+                                        <state key="normal" title="GAME CENTER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2155,9 +2165,9 @@ above to view an explanation.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtA-Cl-Mlg">
-                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
+                                        <rect key="frame" x="269" y="15" width="36" height="30"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
-                                        <state key="normal" title="DISMISS">
+                                        <state key="normal" title="DONE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2165,7 +2175,7 @@ above to view an explanation.</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="GOAL EDITING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDx-vu-xRp">
-                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
+                                        <rect key="frame" x="15" y="18" width="239" height="24"/>
                                         <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2557,6 +2567,138 @@ above to view an explanation.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbH-Jb-nh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23.199999999999999" y="3686.8065967016496"/>
+        </scene>
+        <!--Level View Controller-->
+        <scene sceneID="z3K-8A-M5a">
+            <objects>
+                <viewController storyboardIdentifier="FMLevelViewController" id="lee-ay-oh5" customClass="FMLevelViewController" customModule="FitMi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ccY-5K-Wxd"/>
+                        <viewControllerLayoutGuide type="bottom" id="agh-pv-HhH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jlJ-4r-DCX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-x7-AbB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcQ-vs-sog">
+                                        <rect key="frame" x="251" y="15" width="54" height="30"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="9"/>
+                                        <state key="normal" title="DISMISS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismiss" destination="lee-ay-oh5" eventType="touchUpInside" id="EgC-Ic-xTR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="LEVELS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqo-ya-rhh">
+                                        <rect key="frame" x="15" y="18" width="221" height="24"/>
+                                        <fontDescription key="fontDescription" name="Pixeled" family="Pixeled" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20784313730000001" green="0.55294117649999996" blue="0.58823529409999997" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tcQ-vs-sog" secondAttribute="trailing" constant="15" id="QG5-x0-iiX"/>
+                                    <constraint firstItem="tcQ-vs-sog" firstAttribute="centerY" secondItem="Pgc-x7-AbB" secondAttribute="centerY" id="Ygn-Ya-kMI"/>
+                                    <constraint firstItem="tcQ-vs-sog" firstAttribute="leading" secondItem="lqo-ya-rhh" secondAttribute="trailing" constant="15" id="ZCf-uo-rLr"/>
+                                    <constraint firstItem="lqo-ya-rhh" firstAttribute="leading" secondItem="Pgc-x7-AbB" secondAttribute="leading" constant="15" id="aV5-p1-HHJ"/>
+                                    <constraint firstAttribute="height" constant="60" id="hae-MW-BAr"/>
+                                    <constraint firstItem="lqo-ya-rhh" firstAttribute="centerY" secondItem="Pgc-x7-AbB" secondAttribute="centerY" id="nGh-5p-c0a"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowColor">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-aL-yEp">
+                                <rect key="frame" x="0.0" y="100" width="320" height="468"/>
+                                <color key="backgroundColor" red="1" green="0.98431372549999996" blue="0.91372549020000005" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lee-ay-oh5" id="qUR-pK-5Sa"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KFe-ED-lwh">
+                                <rect key="frame" x="0.0" y="60" width="320" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdU-VD-aIt">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="18"/>
+                                        <state key="normal" title="LEVEL">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="headerButtonDidClickWithSender:" destination="lee-ay-oh5" eventType="touchUpInside" id="V9e-BD-HDU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVZ-TC-bej">
+                                        <rect key="frame" x="80" y="0.0" width="80" height="40"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="18"/>
+                                        <state key="normal" title="SKILLS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="headerButtonDidClickWithSender:" destination="lee-ay-oh5" eventType="touchUpInside" id="Vv8-Pe-IuK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z80-Hc-Att">
+                                        <rect key="frame" x="160" y="0.0" width="80" height="40"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="18"/>
+                                        <state key="normal" title="HEALTH">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="headerButtonDidClickWithSender:" destination="lee-ay-oh5" eventType="touchUpInside" id="8A1-3t-xqj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc4-Jg-rfw">
+                                        <rect key="frame" x="240" y="0.0" width="80" height="40"/>
+                                        <fontDescription key="fontDescription" name="Pokemon-Pixel-Font" family="Pokemon Pixel Font" pointSize="18"/>
+                                        <state key="normal" title="EXP">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="headerButtonDidClickWithSender:" destination="lee-ay-oh5" eventType="touchUpInside" id="aur-g5-EVH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lfp-5C-wki"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pgc-x7-AbB" secondAttribute="trailing" id="7EE-N2-wiO"/>
+                            <constraint firstItem="Pgc-x7-AbB" firstAttribute="leading" secondItem="jlJ-4r-DCX" secondAttribute="leading" id="9yS-yh-np7"/>
+                            <constraint firstItem="KFe-ED-lwh" firstAttribute="leading" secondItem="jlJ-4r-DCX" secondAttribute="leading" id="E9f-pS-YyM"/>
+                            <constraint firstItem="agh-pv-HhH" firstAttribute="top" secondItem="aWB-aL-yEp" secondAttribute="bottom" id="NNl-Bk-DkC"/>
+                            <constraint firstAttribute="trailing" secondItem="KFe-ED-lwh" secondAttribute="trailing" id="Vir-gj-UUa"/>
+                            <constraint firstItem="aWB-aL-yEp" firstAttribute="leading" secondItem="jlJ-4r-DCX" secondAttribute="leading" id="ZZO-qh-L49"/>
+                            <constraint firstItem="Pgc-x7-AbB" firstAttribute="top" secondItem="ccY-5K-Wxd" secondAttribute="bottom" id="cXm-UA-Vna"/>
+                            <constraint firstItem="aWB-aL-yEp" firstAttribute="top" secondItem="KFe-ED-lwh" secondAttribute="bottom" id="fSF-qs-99q"/>
+                            <constraint firstAttribute="trailing" secondItem="aWB-aL-yEp" secondAttribute="trailing" id="oVH-fF-onJ"/>
+                            <constraint firstItem="KFe-ED-lwh" firstAttribute="top" secondItem="Pgc-x7-AbB" secondAttribute="bottom" id="pNt-6o-YOx"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="aWB-aL-yEp" id="uOs-Iy-c6S"/>
+                        <outlet property="topBar" destination="Pgc-x7-AbB" id="grp-31-2js"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzf-vQ-wyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.25" y="761.61971830985919"/>
         </scene>
     </scenes>
     <resources>
