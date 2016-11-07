@@ -88,7 +88,7 @@ class FMConfigurationParser: NSObject {
 					let lastUpdateTime = appearance.lastUpdateTime
 					if thisTime <= lastUpdateTime {
 						print("Assets update to date!")
-						break
+						continue
 					} else {
 						
 						if let sprite = optionalSprite {

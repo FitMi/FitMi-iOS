@@ -26,7 +26,7 @@ class FMNetworkManager: NSObject {
 		}
 		
 		let param: Parameters = ["updateTime": dateString]
-        Alamofire.request(UPDATE_CHECK_URL_PRODUCTION_V2, method: .post, parameters: param, encoding: JSONEncoding.default)
+        Alamofire.request(UPDATE_CHECK_URL_STAGING, method: .post, parameters: param, encoding: JSONEncoding.default)
             .responseJSON { response in
 				if let error = response.result.error {
 					completion(error, false, nil)
@@ -65,6 +65,7 @@ class FMNetworkManager: NSObject {
 				completion(nil, data)
 			} else {
 				let error = NSError(domain: "fitmi-image-fault", code: 2, userInfo: nil) as Error
+                print(urlString)
 				completion(error, nil)
 			}
 		})
