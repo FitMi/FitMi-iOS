@@ -119,7 +119,9 @@ class FMHealthStatusManager: NSObject {
 	
 	
 	func quantity(startDate: Date, endDate: Date, type: HKQuantityTypeIdentifier, completion: @escaping (_ error: Error?, _ value: Int) -> Void) {
-		let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+		let subPredicateDate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+		let subPredicateManualInput = NSCompoundPredicate(notPredicateWithSubpredicate: HKQuery.predicateForObjects(withMetadataKey: HKMetadataKeyWasUserEntered))
+		let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [subPredicateDate, subPredicateManualInput])
 		let calendar = NSCalendar.current
 		let interval = NSDateComponents()
 		interval.day = 1
