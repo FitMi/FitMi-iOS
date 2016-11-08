@@ -353,7 +353,7 @@ class FMSpriteStatusManager: NSObject {
 			self.sprite.touchAction = touchAction
 			self.sprite.wakeAction = wakeAction
 			
-			print(self.sprite.skills)
+			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SPRITE_ACTION_DID_UPDATE"), object: nil)
 		}
 	}
 	
