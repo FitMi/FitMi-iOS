@@ -165,10 +165,10 @@ class FMHomeViewController: FMViewController {
 	private func presentManualDataPrompt() {
 		if !isCheaterPromptPresenting {
 			isCheaterPromptPresenting = true
-			FMSpriteStatusManager.sharedManager.reconstructStates(completion: {
-				success in
-				self.isCheaterPromptPresenting = false
-			})
+//			FMSpriteStatusManager.sharedManager.reconstructStates(completion: {
+//				success in
+//				self.isCheaterPromptPresenting = false
+//			})
 		}
 	}
     
