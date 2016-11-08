@@ -38,7 +38,7 @@ class FMDatabaseManager: NSObject {
 		let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!
 		let level = sprite!.states.last == nil ? 0 : sprite!.states.last!.level
 		
-		if sprite!.skills.count == 0 {
+		do {
 			let skills = appearance.skills.filter("unlockLevel <= %ld", level)
 			
 			try! realm.write {
@@ -53,7 +53,7 @@ class FMDatabaseManager: NSObject {
 			}
 		}
 		
-		if sprite!.actions.count == 0 {
+		do {
 			let actions = appearance.actions.filter("unlockLevel <= %ld", level)
 			
 			try! realm.write {
