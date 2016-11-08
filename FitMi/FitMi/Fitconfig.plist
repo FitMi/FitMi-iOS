@@ -12,7 +12,7 @@
                 <key>Description</key>
                 <string>Brown Bear is the first cutie coming to this community.</string>
                 <key>LastUpdate</key>
-                <string>1478205425</string>
+                <string>1478205427</string>
                 <key>UnlockLevel</key>
                 <integer>0</integer>
                 <key>Skills</key>
@@ -355,6 +355,367 @@
                         <string>The basic run animation.</string>
                         <key>Identifier</key>
                         <string>action-981ABFDF-EFE5-442C-BA10-CAA26AFAA279</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Run</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>6</integer>
+                    </dict>
+                </array>
+            </dict>
+            
+            <dict>
+                <key>DisplayName</key>
+                <string>Polar Bear</string>
+                <key>Identifier</key>
+                <string>appearance-3BEBE7CA-476D-4C9C-B389-DA4420D0093C</string>
+                <key>Description</key>
+                <string>After a 26-hour of flight and 4 transits, Polar Bear finally arrive at FitMi community.</string>
+                <key>LastUpdate</key>
+                <string>1478541878</string>
+                <key>UnlockLevel</key>
+                <integer>10</integer>
+                <key>Skills</key>
+                <array>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Punch</string>
+                        <key>Identifier</key>
+                        <string>skill-25346E6E-4D51-452C-81B9-6E85C6DEFC93</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ punches @DEFENDER@ in the face.</string>
+                        <key>Description</key>
+                        <string>Punch is one of the most effective attacks. Its perfect  balance in strength and speed backs you up in every battle regardless who your opponent is.</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>StrengthFactor</key>
+                        <real>1.5</real>
+                        <key>StaminaFactor</key>
+                        <real>0</real>
+                        <key>AgilityFactor</key>
+                        <real>1</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>6</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>7</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>7</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Apple Throw</string>
+                        <key>Identifier</key>
+                        <string>skill-1E50E698-14BF-446E-BCB0-427D58EE8E40</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ throws an apple towards @DEFENDER@.</string>
+                        <key>Description</key>
+                        <string>Throwing an apple toward your enemy. Steady and fast, strike twice or thrice before your enemy makes any movements. The most perfect primary skill.</string>
+                        <key>UnlockLevel</key>
+                        <integer>5</integer>
+                        <key>StrengthFactor</key>
+                        <real>1</real>
+                        <key>StaminaFactor</key>
+                        <real>0.2</real>
+                        <key>AgilityFactor</key>
+                        <real>1.5</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>6</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>7</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>7</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Slingshot</string>
+                        <key>Identifier</key>
+                        <string>skill-B6481EF0-C156-48DF-9F8B-566B93228575</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ shoots a pebble towards @DEFENDER@.</string>
+                        <key>Description</key>
+                        <string>Do not look down this tiny weapon. Mi will shoot a pebble with the slingshot to attack you! It hurts!</string>
+                        <key>UnlockLevel</key>
+                        <integer>7</integer>
+                        <key>StrengthFactor</key>
+                        <real>2</real>
+                        <key>StaminaFactor</key>
+                        <real>0</real>
+                        <key>AgilityFactor</key>
+                        <real>1</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>7</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>8</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>8</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Break Wind</string>
+                        <key>Identifier</key>
+                        <string>skill-BB5040D1-010C-4CC6-96AC-9F02F61C074C</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ sends an airflow to @DEFENDER@.</string>
+                        <key>Description</key>
+                        <string>Break wind? Grab the amazing self healing while making the most heavy attack. But be careful, you will need a long time to recover before next movement.</string>
+                        <key>UnlockLevel</key>
+                        <integer>10</integer>
+                        <key>StrengthFactor</key>
+                        <real>3</real>
+                        <key>StaminaFactor</key>
+                        <real>1</real>
+                        <key>AgilityFactor</key>
+                        <real>0.3</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>7</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>8</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>8</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Hear my voice</string>
+                        <key>Identifier</key>
+                        <string>skill-86D77FF1-850D-4BE2-BEE2-15CED85D81AE</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ sings a terrible song for @DEFENDER@.</string>
+                        <key>Description</key>
+                        <string>Mi loves singing! Let it sing a song for you to make you happy.</string>
+                        <key>UnlockLevel</key>
+                        <integer>13</integer>
+                        <key>StrengthFactor</key>
+                        <real>2.8</real>
+                        <key>StaminaFactor</key>
+                        <real>0.1</real>
+                        <key>AgilityFactor</key>
+                        <real>1.2</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>7</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>8</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>8</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Honey Bee</string>
+                        <key>Identifier</key>
+                        <string>skill-43D415A4-05AE-4EB0-B69E-A50D5EC13E0C</string>
+                        <key>DescriptionTemplate</key>
+                        <string>@ATTACKER@ throws the honey to @DEFENDER@, and bee starts their attack.</string>
+                        <key>Description</key>
+                        <string>Who dislikes honey? Maybe your enemy will know the answer soon. Use honey to drive the bees. It&apos;s fast, heavy, but your bees may hurt you as well.</string>
+                        <key>UnlockLevel</key>
+                        <integer>15</integer>
+                        <key>StrengthFactor</key>
+                        <real>3.5</real>
+                        <key>StaminaFactor</key>
+                        <real>-0.3</real>
+                        <key>AgilityFactor</key>
+                        <real>0.6</real>
+                        <key>HitSpriteIndex</key>
+                        <integer>8</integer>
+                        <key>AttackSpriteAtlasCount</key>
+                        <integer>12</integer>
+                        <key>DefenceSpriteAtlasCount</key>
+                        <integer>12</integer>
+                    </dict>
+                </array>
+                <key>Actions</key>
+                <array>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Sleep</string>
+                        <key>Title</key>
+                        <string>Sleep - Basic</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>The basic sleep animation.</string>
+                        <key>Identifier</key>
+                        <string>action-38DA65EE-E7A4-48E5-9846-31A13BD17D71</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Sleep</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>6</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Sleep - Bubble</string>
+                        <key>Title</key>
+                        <string>Sleep - Bubble</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>Look at the cute bubble when Mi is sleeping!</string>
+                        <key>Identifier</key>
+                        <string>action-BE0778FC-8C72-4EA6-A619-94FA1904EA68</string>
+                        <key>UnlockLevel</key>
+                        <integer>5</integer>
+                        <key>Type</key>
+                        <string>Sleep</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>6</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Sleep - Flip</string>
+                        <key>Title</key>
+                        <string>Sleep - Flip</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>Mi dreams a happy dream and flips itself.</string>
+                        <key>Identifier</key>
+                        <string>action-5D7B9570-A8D1-4C46-871A-0AB34BF0E43E</string>
+                        <key>UnlockLevel</key>
+                        <integer>10</integer>
+                        <key>Type</key>
+                        <string>Sleep</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>6</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Tired</string>
+                        <key>Title</key>
+                        <string>Tired - Basic</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>The basic tired animation.</string>
+                        <key>Identifier</key>
+                        <string>action-3BDA2367-2D0B-4C91-8208-E29A6A7607F5</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Tired</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>2</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Tired</string>
+                        <key>Title</key>
+                        <string>Tired - Yawn</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>Mi stretches itself with a yawn.</string>
+                        <key>Identifier</key>
+                        <string>action-ADE896DE-9C33-4456-8F5D-7B3DDD5F18EC</string>
+                        <key>UnlockLevel</key>
+                        <integer>7</integer>
+                        <key>Type</key>
+                        <string>Tired</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>7</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Relax</string>
+                        <key>Title</key>
+                        <string>Relax - Basic</string>
+                        <key>Mutable</key>
+                        <true/>
+                        <key>Description</key>
+                        <string>The basic relax animation.</string>
+                        <key>Identifier</key>
+                        <string>action-AD78020E-8E60-4219-BDF1-BAF539CB7846</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Relax</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>2</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Relax - Listen to Music</string>
+                        <key>Title</key>
+                        <string>Relax - Listen to Music</string>
+                        <key>Mutable</key>
+                        <true/>
+                        <key>Description</key>
+                        <string>Mi is listening to music when bored.</string>
+                        <key>Identifier</key>
+                        <string>action-670948EA-EFEB-46CE-8C5C-CFD23B40E93D</string>
+                        <key>UnlockLevel</key>
+                        <integer>5</integer>
+                        <key>Type</key>
+                        <string>Relax</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>4</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Relax - There&apos;s an Apple</string>
+                        <key>Title</key>
+                        <string>Relax - There&apos;s an Apple</string>
+                        <key>Mutable</key>
+                        <true/>
+                        <key>Description</key>
+                        <string>Mi likes Apple!</string>
+                        <key>Identifier</key>
+                        <string>action-8C7B0AFA-E57E-4AFC-897F-D199865CE7A8</string>
+                        <key>UnlockLevel</key>
+                        <integer>10</integer>
+                        <key>Type</key>
+                        <string>Relax</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>6</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Touch</string>
+                        <key>Title</key>
+                        <string>Touch - Basic</string>
+                        <key>Mutable</key>
+                        <true/>
+                        <key>Description</key>
+                        <string>The basic touch animation.</string>
+                        <key>Identifier</key>
+                        <string>action-73FEB199-C8A9-4762-8387-8476EAFA275B</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Touch</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>3</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Wake</string>
+                        <key>Title</key>
+                        <string>Wake - Basic</string>
+                        <key>Mutable</key>
+                        <false/>
+                        <key>Description</key>
+                        <string>The basic wake animation.</string>
+                        <key>Identifier</key>
+                        <string>action-53E70B11-F2EF-452A-8195-F40B59FD9B1E</string>
+                        <key>UnlockLevel</key>
+                        <integer>0</integer>
+                        <key>Type</key>
+                        <string>Wake</string>
+                        <key>SpriteAtlasCount</key>
+                        <integer>3</integer>
+                    </dict>
+                    <dict>
+                        <key>DisplayName</key>
+                        <string>Basic Run</string>
+                        <key>Title</key>
+                        <string>Run - Basic</string>
+                        <key>Mutable</key>
+                        <true/>
+                        <key>Description</key>
+                        <string>The basic run animation.</string>
+                        <key>Identifier</key>
+                        <string>action-D1174675-414A-4E86-9B33-68E7AD019547</string>
                         <key>UnlockLevel</key>
                         <integer>0</integer>
                         <key>Type</key>
