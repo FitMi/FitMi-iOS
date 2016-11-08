@@ -76,8 +76,8 @@ class FMBattleDetailViewController: FMViewController {
         super.viewDidLoad()
 		self.battleView.alpha = 0
 		self.skillButtonArray = [self.skillButton0, self.skillButton1, self.skillButton2]
-		self.configureImageView()
 		self.configureTableView()
+		self.configureImageView()
     }
 	
 	fileprivate func configureTableView() {
@@ -103,12 +103,15 @@ class FMBattleDetailViewController: FMViewController {
 			data in
 			if let json = data {
 				self.opponentData = json
+				self.configureImageView()
 				self.startGame()
 			}
 		})
 	}
 	
 	fileprivate func startGame() {
+		self.primaryImageView.image = self.getSelfSkills().first?.attackSprites().first
+		self.secondaryImageView.image = self.getOpponentSkills().first?.attackSprites().first
 		self.refreshView()
 		self.activityIndicator.stopAnimating()
 		self.battleView.isUserInteractionEnabled = true

@@ -67,8 +67,16 @@ class FMBoothViewController: FMViewController {
 		self.registerCells()
     }
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	fileprivate func reloadEverything(sender: UIButton) {
+		let manager = FMDatabaseManager.sharedManager
+		
+		self.appearances = manager.appearances()
+		self.skills = manager.skills()
+		self.actions = manager.actions()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+			self.reloadTableView(sender: sender)
+		})
 	}
 	
 	func didReceiveInUseNotification(notification: Notification) {
@@ -105,6 +113,7 @@ class FMBoothViewController: FMViewController {
 				self.setAnimationForAppearance(appearance: appearance)
 				if !isTitleUsing {
 					FMSpriteStatusManager.sharedManager.updateAppearance(appearance: appearance)
+					self.reloadEverything(sender: button)
 				} else {
 					FMNotificationManager.sharedManager.showStandardFeedbackMessage(text: "At least one appearance should be used...")
 				}

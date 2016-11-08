@@ -1599,10 +1599,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jg-C0-nYE">
                                                 <rect key="frame" x="0.0" y="91" width="320" height="187"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-Kb-pk2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZlF-Kb-pk2">
                                                         <rect key="frame" x="0.0" y="40" width="320" height="107"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battle-defend-brown-1" translatesAutoresizingMaskIntoConstraints="NO" id="985-gA-uey">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="985-gA-uey">
                                                         <rect key="frame" x="0.0" y="40" width="320" height="107"/>
                                                     </imageView>
                                                 </subviews>
@@ -2704,7 +2704,6 @@ above to view an explanation.</string>
     <resources>
         <image name="battel-hp" width="22" height="22"/>
         <image name="battel-time" width="22" height="22"/>
-        <image name="battle-defend-brown-1" width="1000" height="333"/>
         <image name="dark-gray" width="1" height="1"/>
         <image name="gray" width="1" height="1"/>
         <image name="health_icon" width="44" height="44"/>

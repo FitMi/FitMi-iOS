@@ -307,6 +307,7 @@ class FMSpriteStatusManager: NSObject {
 		let newIdentifier = appearance.identifier
 		var newSkills = [FMSkill]()
 		var newActions = [FMAction]()
+		var newSkillsInUse = [FMSkill]()
 		
 		FMDatabaseManager.sharedManager.realmUpdate {
 			self.sprite.appearanceIdentifier = newIdentifier
@@ -317,6 +318,11 @@ class FMSpriteStatusManager: NSObject {
 		for skill in self.sprite.skills {
 			let newSkill = manager.skill(appearanceIdentifier: newIdentifier, name: skill.name)
 			newSkills.append(newSkill)
+		}
+		
+		for skill in self.sprite.skillsInUse {
+			let newSkill = manager.skill(appearanceIdentifier: newIdentifier, name: skill.name)
+			newSkillsInUse.append(newSkill)
 		}
 		
 		for action in self.sprite.actions {
@@ -335,6 +341,8 @@ class FMSpriteStatusManager: NSObject {
 		FMDatabaseManager.sharedManager.realmUpdate {
 			self.sprite.skills.removeAll()
 			self.sprite.skills.append(objectsIn: newSkills)
+			self.sprite.skillsInUse.removeAll()
+			self.sprite.skillsInUse.append(objectsIn: newSkillsInUse)
 			self.sprite.actions.removeAll()
 			self.sprite.actions.append(objectsIn: newActions)
 			
