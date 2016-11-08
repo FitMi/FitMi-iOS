@@ -69,14 +69,13 @@ class FMBoothViewController: FMViewController {
 	
 	fileprivate func reloadEverything(sender: UIButton) {
 		let manager = FMDatabaseManager.sharedManager
-		
-		self.appearances = manager.appearances()
-		self.skills = manager.skills()
-		self.actions = manager.actions()
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+		manager.realmUpdate {
+			self.appearances = manager.appearances()
+			self.skills = manager.skills()
+			self.actions = manager.actions()
+			
 			self.reloadTableView(sender: sender)
-		})
+		}
 	}
 	
 	func didReceiveInUseNotification(notification: Notification) {

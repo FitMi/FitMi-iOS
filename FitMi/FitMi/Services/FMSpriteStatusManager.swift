@@ -352,6 +352,8 @@ class FMSpriteStatusManager: NSObject {
 			self.sprite.relaxAction = relaxAction
 			self.sprite.touchAction = touchAction
 			self.sprite.wakeAction = wakeAction
+			
+			print(self.sprite.skills)
 		}
 	}
 	
