@@ -135,6 +135,7 @@ class FMHomeViewController: FMViewController {
 						hasManualData in
                         if hasManualData {
                             self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
+							self.presentManualDataPrompt()
                         }
 					})
 					
@@ -142,6 +143,7 @@ class FMHomeViewController: FMViewController {
 						hasManualData in
                         if hasManualData {
                             self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
+							self.presentManualDataPrompt()
                         }
 					})
 					
@@ -149,6 +151,7 @@ class FMHomeViewController: FMViewController {
 						hasManualData in
                         if hasManualData {
                             self.gameCenterManager.completeAchievement(achievementId: AchievementId.MAY_CHEAT.rawValue)
+							self.presentManualDataPrompt()
                         }
 					})
                 } else {
@@ -157,6 +160,17 @@ class FMHomeViewController: FMViewController {
             }
         }
     }
+	
+	var isCheaterPromptPresenting = false
+	private func presentManualDataPrompt() {
+		if !isCheaterPromptPresenting {
+			isCheaterPromptPresenting = true
+			FMSpriteStatusManager.sharedManager.reconstructStates(completion: {
+				success in
+				self.isCheaterPromptPresenting = false
+			})
+		}
+	}
     
     private func handleSpriteAchievements() {
         if FMNetworkManager.sharedManager.isTokenAvailable() {

@@ -109,6 +109,17 @@ class FMDatabaseManager: NSObject {
 		return sprite!
 	}
 	
+	func removeAllStatesButFirst() {
+		let state = FMSpriteState()
+		let sprite = self.getCurrentSprite()
+		state.date = sprite.birthday
+		
+		self.realmUpdate {
+			self.realm.delete(self.realm.objects(FMSpriteState.self))
+			sprite.states.append(state)
+		}
+	}
+	
 	func refreshMySkills() {
 		let sprite = FMSpriteStatusManager.sharedManager.sprite
 		let appearance = self.appearances().filter("identifier = %@", sprite!.appearanceIdentifier).first!

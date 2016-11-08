@@ -26,6 +26,14 @@ class FMSpriteStatusManager: NSObject {
 		return appearance
 	}
 	
+	func reconstructStates(completion: @escaping ((_ success: Bool)->Void)) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+			self.sprite = self.databaseManager.getCurrentSprite()
+			FMDatabaseManager.sharedManager.removeAllStatesButFirst()
+			self.refreshSprite(completion: completion)
+		})
+	}
+	
 	// This method will fetch lastest data from DB/HealthKit and then update the current sprite
 	var refreshInProgress = false
 	func refreshSprite(completion: @escaping ((_ success: Bool)->Void)) {
