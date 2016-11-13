@@ -163,7 +163,7 @@ class FMExerciseViewController: FMViewController {
 
 			let databaseManager = FMDatabaseManager.sharedManager
 			databaseManager.realmUpdate {
-				databaseManager.getCurrentSprite().exercises.append(record)
+				FMSpriteStatusManager.sharedManager.sprite.exercises.append(record)
 			}
 		}
         audioPlayer.play()
