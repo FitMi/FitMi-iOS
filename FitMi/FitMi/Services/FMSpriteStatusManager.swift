@@ -175,10 +175,10 @@ class FMSpriteStatusManager: NSObject {
 	
 	func refreshHealthForState(state: FMSpriteState, stepCount: Int, distance: Int, flights: Int) {
 		let states = self.sprite.states.filter("date < %@", Calendar.current.startOfDay(for: state.date)).sorted(byProperty: "date", ascending: false)
-		let lastHealth = Double(states.count == 0 ? SPRITE_HEALTH_DEFAULT :states.first!.health)
+		let lastHealth = Double(states.first?.health ?? SPRITE_HEALTH_DEFAULT)
 		let factor = self.healthFactor(date: state.date, stepCount: stepCount, distance: distance, flights: flights)
 		let health = (1 - SPRITE_HEALTH_WEIGHT_TODAY) * lastHealth + SPRITE_HEALTH_WEIGHT_TODAY * lastHealth * factor
-		let healthLimit = FMSpriteLevelManager.sharedManager.healthLimitForLevel(level: self.sprite.states.last!.level)
+		let healthLimit = FMSpriteLevelManager.sharedManager.healthLimitForLevel(level: states.first?.level ?? 0)
 
 		FMDatabaseManager.sharedManager.realmUpdate {
 			state.health = min(healthLimit, Int(health))
