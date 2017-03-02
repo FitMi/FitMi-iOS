@@ -853,7 +853,7 @@
 			attributes = {
 				CLASSPREFIX = FM;
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = FitMi;
 				TargetAttributes = {
 					0CCB758A1DC124590053E774 = {
