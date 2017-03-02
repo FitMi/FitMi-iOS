@@ -113,6 +113,9 @@ class FMMainInterfaceController: WKInterfaceController {
 					success in
 				})
 			}
+		} else {
+			let action = WKAlertAction(title: "OK", style: .cancel, handler: { _ in })
+			self.presentAlert(withTitle: "No Movement?", message: "\nPlease walk a few steps before ending the exercise.", preferredStyle: .alert, actions: [action])
 		}
 	}
 	
