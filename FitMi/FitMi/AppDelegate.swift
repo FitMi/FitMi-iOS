@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FontBlaster
 import FacebookCore
 import FBSDKCoreKit
 import RealmSwift
@@ -117,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: WCSessionDelegate {
 	@available(iOS 9.3, *)
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		print("Activation Error: \(error)")
+		print("Activation Error: \(String(describing: error))")
 	}
 	
 	func sessionDidBecomeInactive(_ session: WCSession) {

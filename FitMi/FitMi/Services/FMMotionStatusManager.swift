@@ -39,7 +39,7 @@ class FMMotionStatusManager: NSObject {
         pedometer.startUpdates(from: currentDate) {
             (data, error) in
             if error != nil {
-                self.handleError(error: error as! NSError)
+                self.handleError(error: error! as NSError)
             } else {
                 if let motionData: CMPedometerData = data {
                     self.delegate?.motionStatusManager(manager: self,

@@ -461,7 +461,7 @@ extension FMOnboardViewController {
 					self.page3Label2.text = "By clicking start, you agree to the privacy policy above."
 				} else {
 					if error != nil {
-						print("\(error)")
+						print("\(String(describing: error))")
 					}
 				}
 			}

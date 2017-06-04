@@ -61,7 +61,7 @@ class FMStatisticsViewController: FMViewController {
 			} else {
 				print("HealthKit authorization denied!")
 				if error != nil {
-					print("\(error)")
+					print(String(describing: error))
 				}
 			}
 		}

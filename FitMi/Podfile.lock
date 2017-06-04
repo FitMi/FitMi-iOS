@@ -31,7 +31,6 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.16.1):
     - FBSDKCoreKit
-  - FontBlaster (3.0.0)
   - JazzHands (2.0.8)
   - JWTDecode (2.0.0)
   - Masonry (1.0.2)
@@ -50,7 +49,6 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - FontBlaster
   - JazzHands
   - JWTDecode
   - Masonry
@@ -79,7 +77,6 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
   FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
   FBSDKShareKit: 53af0239b5bd2ebf191f32f75991245a208cc982
-  FontBlaster: 0f4a3e2f965968e2dfc3f7f5cec7214c3f3b2f07
   JazzHands: 355dc5c2b6fc38ee460d0ed7836c69539263f477
   JWTDecode: 178e47e5d28d3abcff778bacced8342858cd6cb5
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -87,6 +84,6 @@ SPEC CHECKSUMS:
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 737d3c28561c2577277218d6ef3aba0c3121d1c2
+PODFILE CHECKSUM: dc13d81d5b8f9033379e8a0bc3867f7ec6ff1c76
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
