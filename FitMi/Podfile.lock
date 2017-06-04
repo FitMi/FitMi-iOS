@@ -9,9 +9,9 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - BubbleTransition (2.0.0)
-  - Charts (3.0.0):
-    - Charts/Core (= 3.0.0)
-  - Charts/Core (3.0.0)
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -42,10 +42,10 @@ PODS:
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
-  - AlamofireImage (~> 3.1)
+  - Alamofire
+  - AlamofireImage
   - BubbleTransition
-  - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
+  - Charts
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -55,22 +55,12 @@ DEPENDENCIES:
   - RealmSwift (~> 2.0)
   - SwiftyJSON
 
-EXTERNAL SOURCES:
-  Charts:
-    :branch: master
-    :git: https://github.com/danielgindi/Charts.git
-
-CHECKOUT OPTIONS:
-  Charts:
-    :commit: e691530dd8ed809dc9c113e72d54ebafabea9c42
-    :git: https://github.com/danielgindi/Charts.git
-
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
-  Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
@@ -84,6 +74,6 @@ SPEC CHECKSUMS:
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: dc13d81d5b8f9033379e8a0bc3867f7ec6ff1c76
+PODFILE CHECKSUM: 372a6f3ff7452118b179c4eaae3b93f81b6dd4f0
 
 COCOAPODS: 1.2.1

@@ -1,5 +1,6 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '9.0'
+inhibit_all_warnings!
 
 target 'FitMi' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,12 +11,12 @@ target 'FitMi' do
   pod 'BubbleTransition'
   pod 'JazzHands'
   pod 'Masonry'
-  pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
+  pod 'Charts'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
-  pod 'Alamofire', '~> 4.0'
-  pod 'AlamofireImage', '~> 3.1' 
+  pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'SwiftyJSON'
   pod 'JWTDecode'
 

@@ -76,7 +76,7 @@ class FMChartTableViewCell: UITableViewCell {
 			default:
 				values = [Double(states[i] == nil ? 0 : states[i]!.health)]
 			}
-			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, label: "")
+			let dataEntry = BarChartDataEntry(x: Double(i), yValues: values, data: "" as AnyObject?)
 			dataEntry.data = states[i]
 			dataEntries.append(dataEntry)
 		}
