@@ -64,6 +64,10 @@ class FMPersistentDataManager: NSObject {
 	}
 	
 	func pushRecordToHostDevice(completion: @escaping ((_ success: Bool) -> Void)) {
+		
+		// TODO: WWDC Question
+		print("Any Message")
+		
 		if pushRetried > PUSH_RETRY_MAX_COUNT {
 			pushRetried = 0
 			completion(false)
@@ -75,6 +79,14 @@ class FMPersistentDataManager: NSObject {
 			if self.session == nil {
 				session = WCSession.default()
 			}
+			
+			guard session.activationState == .activated else {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+					self.pushRecordToHostDevice(completion: completion)
+				})
+				return
+			}
+			
 			session.sendMessage([CONNECTIVITY_KEY_WATCH_DATA: record], replyHandler: {
 				response in
 				if response["success"] as! Int == 1 {
@@ -103,6 +115,6 @@ class FMPersistentDataManager: NSObject {
 
 extension FMPersistentDataManager: WCSessionDelegate {
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		print("Activation Error: \(error)")
+		print("Activation Error: \(String(describing: error))")
 	}
 }

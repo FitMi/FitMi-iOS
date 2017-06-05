@@ -128,6 +128,11 @@ extension AppDelegate: WCSessionDelegate {
 	}
 	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+		
+		// TODO: WWDC Question
+		print("\(message)")
+		
+		
 		if let data = message[CONNECTIVITY_KEY_WATCH_DATA] as? [[String : String]] {
 			FMDatabaseManager.sharedManager.updateRecords(records: data)
 			DispatchQueue.main.async {
